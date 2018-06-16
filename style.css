@@ -55,6 +55,15 @@
   
 }
 
+a {
+  color:#777777;
+  text-decoration:none;
+}
+
+a:hover {
+  text-decoration:underline;
+}
+
 .portfolio {
   height:50px;
   width:120px;
