@@ -3,19 +3,23 @@
   height:100vh;
 }
 
+
+
 .page {
   height: 1000px;
-  width:100%
+  background-image:url("concretebr.png");
 }
 
 
 .topbar {
   width:100%;
   height:80px;
-  background-color:red;
+  background-color:#ffffff;
   position: absolute;
   top:0;
   overflow:hidden;
+  border-bottom:solid;
+  border-width: 1px;
 }
 
 .name {
@@ -27,7 +31,7 @@
   top:0;
   padding:30px 10px 20px 10px;
   text-align:center;
-  background:teal;
+  background:#4aaaa5;
   font-family:Georgia, 'Times New Roman', Times, serif;
   font-weight:bold;
   color:white;
@@ -46,7 +50,7 @@
   background:white;
   font-family:Georgia, 'Times New Roman', Times, serif;
   font-weight:bold;
-  color:grey;
+  color:#777777;
   
   
 }
@@ -62,7 +66,7 @@
   background:white;
   font-family:Georgia, 'Times New Roman', Times, serif;
   font-weight:bold;
-  color:blue;
+  color:#777777;
 }
 
 .contact {
@@ -76,17 +80,32 @@
   background:white;
   font-family:Georgia, 'Times New Roman', Times, serif;
   font-weight:bold;
-  color:blue;
+  color:#777777;
 } 
 
 .bodytext {
   width:960px;
   height:auto;
-  background:white;
+  background:#ffffff;
   left:120px;
   top:80px;
   position:absolute;
-  margin-bottom:300px;
+  margin-bottom:200px;
+  margin-top:30px;
+  border:solid;
+  border-width: 1px;
+  border-color: #dddddd;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.messagebox {
+  height:200px;
 }
 
 .bodytitle {
@@ -95,7 +114,7 @@
   padding-bottom:1em;
   border-bottom-style:solid;
   border-bottom-width:5px;
-  border-color:grey;
+  border-color:#dddddd;
 }
 
 img {
@@ -116,7 +135,7 @@ p {
 .bottombanner {
   height:30px;
   width:100vw;
-  background:black;
+  background:#666666;
   position:fixed;
   bottom:0;
   left:0;
@@ -125,4 +144,15 @@ p {
   margin-bottom:0px;
   padding-bottom:0px;
   padding-top:20px;
+  border-top:solid;
+  border-width:7px;
+  border-color:#4aaaa5;
+}
+
+div {
+  color:#777777;
+}
+
+.bodytitle {
+  color:#4aaaa5;
 }
