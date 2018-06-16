@@ -64,6 +64,18 @@ a:hover {
   text-decoration:underline;
 }
 
+.button {
+  background-color: #4aaaa5;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
 .portfolio {
   height:50px;
   width:120px;
@@ -104,6 +116,7 @@ a:hover {
   border:solid;
   border-width: 1px;
   border-color: #dddddd;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 input[type=text] {
@@ -111,6 +124,11 @@ input[type=text] {
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
+}
+
+form {
+  padding:10px;
+  margin:10px;
 }
 
 .messagebox {
