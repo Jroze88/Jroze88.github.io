@@ -1,0 +1,56 @@
+<html>
+
+
+<script type="text/javascript">
+    
+
+var nameOne = prompt("What is your name, player one?");
+
+var playerOne = prompt("Rock Paper or Scissors, " + nameOne + " ?");
+
+var nameTwo = prompt("What is your name, player two?");
+
+var playerTwo = prompt("Rock Paper or Scissors, " + nameTwo + " ?");
+
+if (playerOne === "Rock") {
+    if (playerTwo === "Rock") {
+        document.write("Tie!");
+    }
+    else if (playerTwo === "Paper") {
+        document.write(nameTwo + " wins!");
+    }
+    else if (playerTwo === "Scissors") {
+        document.write(nameOne + " wins!");
+    }
+    
+}
+else if (playerOne === "Scissors") {
+    if (playerTwo === "Rock") {
+        document.write(nameTwo + " wins!");
+    }
+    else if (playerTwo === "Paper") {
+        document.write(nameOne + " wins!");
+    }
+    else if (playerTwo === "Scissors") {
+        document.write("Tie!");
+    }
+}
+else if (playerOne === "Paper") {
+    if (playerTwo === "Rock") {
+        document.write(nameOne + " wins!");
+    }
+    else if (playerTwo === "Paper") {
+        document.write("Tie!");
+    }
+    else if (playerTwo === "Scissors") {
+        document.write(nameTwo + " wins!");
+    }
+}
+</script>
+
+
+
+
+
+
+</html>
