@@ -12,37 +12,41 @@ var nameTwo = prompt("What is your name, player two?");
 
 var playerTwo = prompt("Rock Paper or Scissors, " + nameTwo + " ?");
 
-if (playerOne === "Rock") {
-    if (playerTwo === "Rock") {
+
+var playerOne = playerOne.toLowerCase();
+var playerTwo = playerTwo.toLowerCase();
+
+if (playerOne === "rock") {
+    if (playerTwo === "rock") {
         document.write("Tie!");
     }
-    else if (playerTwo === "Paper") {
+    else if (playerTwo === "paper") {
         document.write(nameTwo + " wins!");
     }
-    else if (playerTwo === "Scissors") {
+    else if (playerTwo === "scissors") {
         document.write(nameOne + " wins!");
     }
     
 }
-else if (playerOne === "Scissors") {
-    if (playerTwo === "Rock") {
+else if (playerOne === "scissors") {
+    if (playerTwo === "rock") {
         document.write(nameTwo + " wins!");
     }
-    else if (playerTwo === "Paper") {
+    else if (playerTwo === "paper") {
         document.write(nameOne + " wins!");
     }
-    else if (playerTwo === "Scissors") {
+    else if (playerTwo === "scissors") {
         document.write("Tie!");
     }
 }
-else if (playerOne === "Paper") {
-    if (playerTwo === "Rock") {
+else if (playerOne === "paper") {
+    if (playerTwo === "rock") {
         document.write(nameOne + " wins!");
     }
-    else if (playerTwo === "Paper") {
+    else if (playerTwo === "paper") {
         document.write("Tie!");
     }
-    else if (playerTwo === "Scissors") {
+    else if (playerTwo === "scissors") {
         document.write(nameTwo + " wins!");
     }
 }
