@@ -501,3 +501,114 @@ div {
     margin-top:0;
     padding-top:0;
     }
+
+    @media only screen and (min-width: 900px) {
+
+      .topbar {
+        width:100vw;
+        height:11vh;
+        background-color:#ffffff;
+        position: absolute;
+        top:0;
+        border-bottom:solid;
+        border-width: 1px;
+      }
+      
+      .name {
+        height:11vh;
+        width:120px;
+        position:relative;
+        left:120px;
+        float:center;
+        top:0;
+        padding:30px 10px 20px 10px;
+        text-align:center;
+        background:#4aaaa5;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-weight:bold;
+        color:white;
+      
+      }
+      
+      
+      .about {
+        height:50px;
+        width:120px;
+        position:absolute;
+        left:1060px;
+        top:0;
+        padding:30px 10px 20px 10px;
+        text-align:center;
+        background:white;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-weight:bold;
+        color:#777777; 
+      }
+        
+        
+      }
+      
+      a {
+        color:#777777;
+        text-decoration:none;
+      }
+      
+      a:hover {
+        text-decoration:underline;
+      }
+      
+      .button {
+        background-color: #4aaaa5;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      }
+      
+      .portfolio {
+        height:50px;
+        width:120px;
+        position:absolute;
+        left:820px;
+        top:0;
+        padding:30px 10px 20px 10px;
+        text-align:center;
+        background:white;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-weight:bold;
+        color:#777777;
+      }
+      
+      .contact {
+        height:50px;
+        width:120px;
+        position:absolute;
+        left:940px;
+        top:0;
+        padding:30px 10px 20px 10px;
+        text-align:center;
+        background:white;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-weight:bold;
+        color:#777777;
+      }
+
+      .body {
+        width:100vw;
+        height:auto;
+      }
+      
+      form {
+
+      padding:2em;
+      }
+      
+      .page {
+        height:120vh;
+        background-image:url("concretebr.png");
+      }
+    } 
