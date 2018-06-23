@@ -189,12 +189,6 @@ div {
 }
 
 
-@media only screen and (min-width: 768px) {
-      .bottombanner {
-        height:10%;
-      }
-
-}
 
 
 @media only screen and (min-width: 375px) {
@@ -254,6 +248,10 @@ div {
         font-family:Georgia, 'Times New Roman', Times, serif;
         font-weight:bold;
         color:#777777; 
+      }
+
+      form {
+        margin-bottom:150px;
       }
         
         
@@ -393,3 +391,113 @@ div {
       .bodytitle {
         color:#4aaaa5;
       }
+
+      
+@media only screen and (min-width: 760px) {
+  .topbar {
+    width:100vw;
+    height:10%;
+    background-color:#ffffff;
+    position: absolute;
+    top:0;
+    border-bottom:solid;
+    border-width: 1px;
+    overflow:hidden;
+    margin-left:0;
+    padding-left:0;
+  }
+  
+  .name {
+    height:10%;
+    width:12em;
+    position:absolute;
+    top:0;
+    margin-left:0;
+    padding-left:0;
+    left:0;
+    padding:1em;
+    text-align:center;
+    background:#4aaaa5;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight:bold;
+    color:white;
+    overflow:hidden;
+  
+  }
+  
+  
+  .about {
+    height:3em;
+    width:12em;
+    position:absolute;
+    left:50%;
+    top:4em;
+    text-align:center;
+    background:white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight:bold;
+    color:#777777;
+    margin:1em;
+    margin-top:0;
+    padding-top:0;
+  }
+
+  form {
+    margin-bottom:150px;
+  }
+    
+    
+  
+  
+  a {
+    color:#777777;
+    text-decoration:none;
+  }
+  
+  a:hover {
+    text-decoration:underline;
+  }
+  
+  .button {
+    background-color: #4aaaa5;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  
+  .portfolio {
+    height:3em;
+    width:12em;
+    position:absolute;
+    left:18em;
+    top:0;
+    text-align:center;
+    background:white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight:bold;
+    color:#777777;
+    margin:0;
+    padding:1em;
+    padding-bottom:0;
+  }
+  
+  .contact {
+    height:3em;
+    width:12em;
+    position:absolute;
+    left:6em;
+    top:4em;
+    text-align:center;
+    background:white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight:bold;
+    color:#777777;
+    margin:1em;
+    margin-top:0;
+    padding-top:0;
+    }
