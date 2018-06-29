@@ -60,6 +60,7 @@
     position:absolute;
     top:10%;
     left:10%;
+    font-size:2em;
 
 
 }
@@ -73,9 +74,15 @@
 
 }
 
+.caps {
+
+text-transform:uppercase;
+
+}
+
 .word {
     left:12%;
-    top:60%;
+    top:55%;
     position:absolute;
 }
 
@@ -137,5 +144,44 @@
     left:12%;
 }
 
+.hint {
+    font-family: 'Arcade Classic 2P', cursive;
+    color:#00ff63;
+    top:40%;
+    right:12%;
+    position:absolute;
+    border-style:solid;
+    border-width:2px;
+    border-color:#00ff63;
+    font-size:1em;
+    width:40%;
+    height:40%;
+ 
+}
+
+.hintpic {
+    max-width:250px;
+    max-height:auto;
+}
+
+.gameover {
+    
+    position:fixed;
+    z-index:10;
+    margin-left:-50%;
+    margin-right:-50%;
+    left:50%;
+
+}
+
+.ui-dialog, .ui-dialog-titlebar, .ui-dialog-buttonpane {
+
+    background-color:black;
+}
 
 
+.ui-dialog-content, .ui-dialog-title {
+
+color:white;
+
+}

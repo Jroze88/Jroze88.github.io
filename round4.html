@@ -5,15 +5,16 @@
   <meta charset="UTF-8">
   <title>Video Game Hangman</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/reset.css">
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="assets/javascript/gamejavascript.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="assets/javascript/gamejavascript.js"></script>
+
 
   <script>
   
@@ -51,8 +52,8 @@ $( function() {
       width: 400,
       modal: true,
       buttons: {
-        "Onwards!": function() {
-          window.location.href = "round2.html";
+        "Absolutely!": function() {
+            window.location.href = "round4.html";
         },
         Cancel: function() {
           $( this ).dialog( "close" );
@@ -66,7 +67,7 @@ $( function() {
 
 </head>
 
-<body id="index">
+<body id="round4">
 <div class="container">
    <div class="jumbotron">
         <div id="videogames">VIDEO GAMES<br></div>
@@ -83,26 +84,33 @@ $( function() {
                     <p>Game Over!<br>Would you like to try again?</p>
                   </div>
                   <div id="dialog-win" style="display:none;" title="WoW!!!">
-                        <p>Congratulations!!!!<br>You win! Would you like to continue?</p>
+                        <p>Nice!!!!<br>You got it! Ready for more?</p>
                       </div>
         <div class="container-fluid col-12  gamescreen align-self-center" align="center">   
                 <img src="assets/images/backgroundtransparent.png" class="pipboy"/>   
 
-            <div class="playername">Player One</div>
+            <div class="playername"></div>
 
-            <div class="wins">Wins: 0</div>
+            <div class="wins">Wins: 2</div>
             <div class ="text-center word">
-                <div class="s caps letter">_</div>
-                <div class="u letter">_</div>
-                <div class="p letter">_</div>
-                <div class="e letter">_</div>
+                <div class="w caps letter">_</div>
+                <div class="o letter">_</div>
                 <div class="r letter">_</div>
+                <div class="l letter">_</div>
+                <div class="d letter">_</div>
                 <div class="letter">&nbsp;</div>
-                <div class="m caps letter">_</div>
+                <div class="o caps letter">_</div>
+                <div class="f letter">_</div>
+                <div class="letter">&nbsp;</div>
+                <div class="w caps letter">_</div>
                 <div class="a letter">_</div>
                 <div class="r letter">_</div>
-                <div class="i letter">_</div>
-                <div class="o letter">_</div>
+                <div class="c letter">_</div>
+                <div class="r letter">_</div>
+                <div class="a letter">_</div>
+                <div class="f letter">_</div>
+                <div class="t letter">_</div>
+
             </div>
 
             <div id="guessresultbox">GUESS  RESULT:<br><div id="guessresult"></div><div class="placeholder">PLACEHOLDER TEXT ABOUT GUESS<br> WHICH ALLOWS ME TO CHEAT OUT<br> THE SIZE OF THE DIV!</div></div>
@@ -123,58 +131,3 @@ $( function() {
 
 
 </html>
-
-
-
-    
-<!-- 
-<!-- 
-
-  
-  
-
-
-//    $(document).ready(function() {
-
-//   guesses = new Array();
-//   secretWord = new Array("j", "a", "v", "a", "s", "c", "r", "i", "p", "t");
-//   winCondition = new Array ();
-
-//       $(document).on ('keypress', function (e) {
-
-//           var guess = String.fromCharCode(e.which);
-//           console.log(guess);
-
-//          if (guesses.indexOf(guess) < 0) {
-
-//                   if (secretWord.indexOf(guess) < 0) {
-
-//                           $("#guessresult").html("Incorrect! Try again!");
-//                           $("#alreadyguessed").append(guess + "<br>");
-//                           guesses.push(guess);
-
-//                   }
-//                   else {
-
-//                       $("#guessresult").html("Correct!!!!!");
-//                       $("." + guess).html(guess.toUpperCase());
-                    
-//                       if (guess === "a") {
-//                           guesses.push(guess) && winCondition.push(guess) && winCondition.push(guess);
-//                       }
-//                       else {
-//                           guesses.push(guess);
-//                           winCondition.push(guess);
-//                       }
-
-//                   }
-//          }
-         
-//          else {
-
-//           $("#guessresult").html("You already guessed " + guess);
-
-//          }
-
-//       })};
- --> -->
