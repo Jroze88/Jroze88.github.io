@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Number Checker</title>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class ="word">
+        <div class="j">_</div>
+        <div class="a">_</div>
+        <div class="v">_</div>
+        <div class="a">_</div>
+        <div class="s">_</div>
+        <div class="c">_</div>
+        <div class="r">_</div>
+        <div class="i">_</div>
+        <div class="p">_</div>
+        <div class="t">_</div>
+    </div>
+
+    <div id="guessresult"></div><br><br><br>
+
+    <div id="alreadyguessed"></div>
+
+
+  <script>
+        // $(document).on ('keypress', function (e) {
+
+        // var guess = String.fromCharCode(e.which);
+
+        // console.log(guess);
+
+        // })
+
+
+
+ $(document).ready(function() {
+
+guesses = new Array();
+secretWord = new Array("j", "a", "v", "a", "s", "c", "r", "i", "p", "t");
+
+    $(document).on ('keypress', function (e) {
+
+        var guess = String.fromCharCode(e.which);
+        console.log(guess);
+
+       if (guesses.indexOf(guess) < 0) {
+
+                if (secretWord.indexOf(guess) < 0) {
+
+                        $("#guessresult").html("Incorrect! Try again!");
+                        $("#alreadyguessed").append(guess + "<br>");
+                        guesses.push(guess);
+
+                }
+                else {
+
+                    $("#guessresult").html("Correct!!!!!");
+                    $("." + guess).html(guess.toUpperCase());
+                    guesses.push(guess);
+
+                };
+       }
+       else {
+
+        $("#guessresult").html("You already guessed " + guess);
+
+       };
+
+    });
+
+
+
+
+// <!-- 
+// <!-- 
+//     else if (answer.indexOf(guess) > 0) {
+        
+//         guesses.add(guess);
+//         $("#" + guess).html(guess);
+
+//     } --> -->
+
+
+
+
+
+ });
+
+  </script>
+
+</body>
+
+</html>

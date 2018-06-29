@@ -1,0 +1,141 @@
+@font-face {
+    font-family: 'Arcade Classic 2P';
+    src: url('../fonts/arcadeclassic.ttf');
+
+  }
+
+  body {
+      background-color:black;
+  }
+
+  .jumbotron {
+      background-color:black;
+      margin-bottom:0;
+      padding-bottom:1em;
+  }
+  
+
+
+ #videogames {
+
+     background:black;
+     font-family: 'Arcade Classic 2P', cursive;
+     font-size:8em;
+     color:white;
+     padding-right:0;
+     text-align:center;
+
+ }
+
+ #sub {
+
+     background:black;
+     margin-top:0;
+
+ }
+
+ .gamescreen {
+    max-width:1068px;
+    max-height:auto;
+     background-image: url("../images/backgroundtransparent.png");
+     background-repeat:no-repeat;
+     padding:0;
+
+ }
+
+ .pipboy {
+    max-width:1068px;
+    max-height:auto;
+    padding:0;
+    visibility:hidden;
+ }
+
+
+
+
+.playername {
+
+    font-family: 'Arcade Classic 2P', cursive;
+    color:#00ff63;
+    position:absolute;
+    top:10%;
+    left:10%;
+
+
+}
+
+.wins {
+    font-family: 'Arcade Classic 2P', cursive;
+    color:#00ff63;
+    top:10%;
+    right:16%;
+    position:absolute;
+
+}
+
+.word {
+    left:12%;
+    top:60%;
+    position:absolute;
+}
+
+.letter {
+    float:left;
+    margin-right:5px;
+    padding:0;
+    font-size:3em;
+    color:#00ff63;
+    font-weight: bold;
+}
+
+#guessresultbox {
+    font-family: 'Arcade Classic 2P', cursive;
+    color:#00ff63;
+    top:20%;
+    left:48%;
+    position:absolute;
+    border-style:solid;
+    border-width:2px;
+    border-color:#00ff63;
+    font-size:1em;
+    padding:25px;
+    padding-top:5px;
+}
+
+.placeholder {
+    visibility:hidden;
+    font-size:0.8em;
+}
+
+#alreadyguessedbox {
+
+    font-family: 'Arcade Classic 2P', cursive;
+    color:#00ff63;
+    top:74%;
+    left:12%;
+    position:absolute;
+    border-style:solid;
+    border-width:2px;
+    border-color:#00ff63;
+    padding-left:4px;
+    padding-right:4px;
+    padding-bottom:4px;
+    font-size:1em;
+
+
+}
+
+#alreadyguessed {
+    font-size:1.5em;
+}
+
+.health {
+    max-width:300px;
+    max-height:auto;
+    position:absolute;
+    top:15%;
+    left:12%;
+}
+
+
+

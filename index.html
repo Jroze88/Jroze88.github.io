@@ -3,98 +3,120 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Number Checker</title>
+  <title>Video Game Hangman</title>
 
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="assets/javascript/gamejavascript.js"></script>
 
 </head>
 
 <body>
-    <div class ="word">
-        <div class="j">_</div>
-        <div class="a">_</div>
-        <div class="v">_</div>
-        <div class="a">_</div>
-        <div class="s">_</div>
-        <div class="c">_</div>
-        <div class="r">_</div>
-        <div class="i">_</div>
-        <div class="p">_</div>
-        <div class="t">_</div>
+<div class="container">
+   <div class="jumbotron">
+        <div id="videogames">VIDEO GAMES<br></div>
+    </div>
+    <div class="text-center sub">
+        <div class="sub"><a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/180627/5412eb05f98e5edba2f71d6e58595ef0.png" alt="pokemon-font" border="0"></a></div>
+    </div>
     </div>
 
-    <div id="guessresult"></div><br><br><br>
+    <div class="row space"></div>
 
-    <div id="alreadyguessed"></div>
+    <div class="row justify-content-center">
+        <div class="container-fluid col-12  gamescreen align-self-center" align="center">   
+                <img src="assets/images/backgroundtransparent.png" class="pipboy"/>   
 
+            <div class="playername">Player One</div>
 
-  <script>
-        // $(document).on ('keypress', function (e) {
+            <div class="wins">Wins: 0</div>
 
-        // var guess = String.fromCharCode(e.which);
+            <div class ="text-center word">
+                <div class="j letter">_</div>
+                <div class="a letter">_</div>
+                <div class="v letter">_</div>
+                <div class="a letter">_</div>
+                <div class="s letter">_</div>
+                <div class="c letter">_</div>
+                <div class="r letter">_</div>
+                <div class="i letter">_</div>
+                <div class="p letter">_</div>
+                <div class="t letter">_</div>
+            </div>
 
-        // console.log(guess);
-
-        // })
-
-
-
- $(document).ready(function() {
-
-guesses = new Array();
-secretWord = new Array("j", "a", "v", "a", "s", "c", "r", "i", "p", "t");
-
-    $(document).on ('keypress', function (e) {
-
-        var guess = String.fromCharCode(e.which);
-        console.log(guess);
-
-       if (guesses.indexOf(guess) < 0) {
-
-                if (secretWord.indexOf(guess) < 0) {
-
-                        $("#guessresult").html("Incorrect! Try again!");
-                        $("#alreadyguessed").append(guess + "<br>");
-                        guesses.push(guess);
-
-                }
-                else {
-
-                    $("#guessresult").html("Correct!!!!!");
-                    $("." + guess).html(guess.toUpperCase());
-                    guesses.push(guess);
-
-                };
-       }
-       else {
-
-        $("#guessresult").html("You already guessed " + guess);
-
-       };
-
-    });
+            <div id="guessresultbox">GUESS  RESULT:<br><div id="guessresult"></div><div class="placeholder">PLACEHOLDER TEXT ABOUT GUESS<br> WHICH ALLOWS ME TO CHEAT OUT<br> THE SIZE OF THE DIV!</div></div>
+            <div id="alreadyguessedbox">GUESSES:<br><div id="alreadyguessed"></div><div class="placeholder">PLACEHOLDER TEXT ABOUT GUESS<br>WHICH ALLOWS ME TO SIZE</div></div>
+            <div class="hangman"><img src="assets/images/full.png" class="health"></div>
+        </div>
 
 
+    </div>
 
+    <div class="row space"></div>
+    <div class="row bottombar"></div>
 
-// <!-- 
-// <!-- 
-//     else if (answer.indexOf(guess) > 0) {
-        
-//         guesses.add(guess);
-//         $("#" + guess).html(guess);
-
-//     } --> -->
-
-
-
-
-
- });
-
-  </script>
+</div>
 
 </body>
 
+
 </html>
+
+
+
+    
+<!-- 
+<!-- 
+
+  
+  
+
+
+//    $(document).ready(function() {
+
+//   guesses = new Array();
+//   secretWord = new Array("j", "a", "v", "a", "s", "c", "r", "i", "p", "t");
+//   winCondition = new Array ();
+
+//       $(document).on ('keypress', function (e) {
+
+//           var guess = String.fromCharCode(e.which);
+//           console.log(guess);
+
+//          if (guesses.indexOf(guess) < 0) {
+
+//                   if (secretWord.indexOf(guess) < 0) {
+
+//                           $("#guessresult").html("Incorrect! Try again!");
+//                           $("#alreadyguessed").append(guess + "<br>");
+//                           guesses.push(guess);
+
+//                   }
+//                   else {
+
+//                       $("#guessresult").html("Correct!!!!!");
+//                       $("." + guess).html(guess.toUpperCase());
+                    
+//                       if (guess === "a") {
+//                           guesses.push(guess) && winCondition.push(guess) && winCondition.push(guess);
+//                       }
+//                       else {
+//                           guesses.push(guess);
+//                           winCondition.push(guess);
+//                       }
+
+//                   }
+//          }
+         
+//          else {
+
+//           $("#guessresult").html("You already guessed " + guess);
+
+//          }
+
+//       })};
+ --> -->
