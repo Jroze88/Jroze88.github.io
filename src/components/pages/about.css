@@ -1,0 +1,5 @@
+body {
+  background-image: url('/img/sky.jpg')  !important;
+  background-size: contain  !important;
+  background-repeat: 'no-repeat'  !important;
+}
