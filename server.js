@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === "production") {
 
 }
 
-const mm = mongoose.connect(process.env.MONGODB_URI || "mongodb://Jroze88:santiago8@ds241493.mlab.com:41493/deploytest", { useNewUrlParser : true});
+const mm = mongoose.connect(process.env.MONGODB_URI || "mongodb://testaccount:fakepassword1@ds241493.mlab.com:41493/deploytest", { useNewUrlParser : true});
 
 
 app.get("/scrape/current", function(req, res) {
