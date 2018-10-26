@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../index.css';
 import $ from 'jquery';
-import { BrowserRouter as Router, Route } from "react-router-dom"
+
 
 class Projects extends Component {
 
@@ -16,14 +16,14 @@ class Projects extends Component {
 
     render() {
         return (
-            <Router>
+           
             <div>
             <div className="textdiv row">
             <div className="col-2"></div>
             <div className="col-2">
 
                 <div className="lotr">
-                    <a href="Jroze88.github.io/TriviaGame/index">
+                    <a href="https://Jroze88.github.io/TriviaGame/index">
                     <img className="projector" alt="The One Ring" src={ require('../../img/tele3.svg') } />
                     </a>
                 </div>
@@ -34,7 +34,7 @@ class Projects extends Component {
             
             
             <div className="flyinsoup">
-            <a href="evansimonross.github.io/Fly-in-Soup/">
+            <a href="https://evansimonross.github.io/Fly-in-Soup/">
                     <img className="projector" alt="A fly in some soup" src={ require('../../img/tele2.svg') } />
                     </a>
 
@@ -44,7 +44,7 @@ class Projects extends Component {
             
             
             <div className="pipboy">
-                    <a href="Jroze88.github.io/Word-Guess-Game/index">
+                    <a href="https://Jroze88.github.io/Word-Guess-Game/index">
                     <img className="projector" alt="Pipboy from Fallout" src={ require('../../img/tele4.svg') } />
                     </a>
                 </div></div>
@@ -58,7 +58,7 @@ class Projects extends Component {
                 <div className="col-2">
                 
                 <div className="intelman">
-                        <a href="Jroze88.github.io/project-2/index">
+                        <a href="https://Jroze88.github.io/project-2/index">
                     <img className="projector" alt="Einstein" src={ require('../../img/tele3.svg') } />
                         </a>
                  </div>       
@@ -72,7 +72,7 @@ class Projects extends Component {
                 <div className="col-2">
 
                                     <div className="myhero">
-                                    <a href="Jroze88.github.io/unit-4-game/index">
+                                    <a href="https://Jroze88.github.io/unit-4-game/index">
                     <img className="projector" alt="Almight!" src={ require('../../img/tele5.svg') } />
                     </a>
                 </div>
@@ -87,7 +87,7 @@ class Projects extends Component {
                 
                 
                 <div className="giftastic">
-                <a href="Jroze88.github.io/GifTastic/index" >
+                <a href="https://Jroze88.github.io/GifTastic/index" >
                                     <img className="projector" alt="Cat peeking" src={ require('../../img/tele5.svg') } />
                                     </a>
 
@@ -103,7 +103,7 @@ class Projects extends Component {
 
             </div>
             </div>
-            </Router>
+           
         )
     }
 }
