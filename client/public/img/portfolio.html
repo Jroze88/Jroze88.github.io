@@ -1,0 +1,147 @@
+<html>
+    <head>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+			rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+			crossorigin="anonymous">
+            
+			<link rel="stylesheet" type="text/css" href="stars.css" />
+			
+
+    </head>
+    <body>
+
+            <nav class="navbar fixed-top navbar-expand-md navbar-light bg-faded">
+					<a class="navbar-brand" href="#"></a>
+					<div class="collapse navbar-collapse bg-transparent" id="navbarNav">
+					  <ul class="navbar-nav">
+							<li class="nav-item active">
+							<a class="nav-link" href="#">ABOUT <span class="sr-only">(current)</span></a>
+							</li>
+						<li class="nav-item active">
+						  <a class="nav-link" href="portfolio.html">PORTFOLIO <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+						  <a class="nav-link" href="#">ARTICLES</a>
+						</li>
+						<li class="nav-item">
+						  <a class="nav-link" href="#">CONTACT</a>
+						</li>
+					  </ul>
+					</div>
+				  </nav>
+            <div id="starfield">
+
+
+               
+
+
+                </div>
+
+    </body>
+
+    <script>
+    
+        window.onload = function() {
+
+            var aboutMe = document.createElement('figure');
+            var contact = document.createElement('figure');
+            var portfolio = document.createElement('figure');
+            var trending = document.createElement('figure');
+            var stockprices = document.createElement('figure');
+
+            var pipcap = document.createElement('figcaption');
+            var intelcap = document.createElement('figcaption');
+            var soupcap = document.createElement('figcaption');
+            var lotrcap = document.createElement('figcaption');
+            var herocap = document.createElement('figcaption');
+
+             pipcap.className = 'figure-caption';
+             intelcap.className = 'figure-caption';
+             herocap.className = 'figure-caption';
+             lotrcap.className = 'figure-caption';
+             soupcap.className = 'figure-caption';
+
+             var cap1 = document.createTextNode('Fallout word-guess game!');
+             var cap2 = document.createTextNode('My Hero Academia Game!');
+             var cap3 = document.createTextNode('Restaurant Health Code Grades!');
+             var cap4 = document.createTextNode('Riddle Game!');
+             var cap5 = document.createTextNode('Automated Script Generation!');
+
+             pipcap.appendChild(cap1);
+             intelcap.appendChild(cap5);
+             herocap.appendChild(cap2);
+             lotrcap.appendChild(cap4);
+             soupcap.appendChild(cap3);
+
+
+
+
+            var pipboy = document.createElement('img');
+            var intelman = document.createElement('img');
+            var lotr = document.createElement('img');
+            var myhero= document.createElement('img');
+            var flysoup = document.createElement('img');
+
+            pipboy.src = 'pipboy.jpg';
+            intelman.src = 'intelman.png';
+            lotr.src = 'lotr.jpg';
+            myhero.src = 'myhero.png';
+            flysoup.src = 'flyinsoup.jpg';
+            
+            pipboy.className = 'infoimg';
+            intelman.className = 'infoimg';
+            lotr.className = 'infoimg';
+            myhero.className = 'infoimg';
+            flysoup.className = 'infoimg';
+
+            aboutMe.id = 'aboutme';
+            contact.id = 'contact';
+            portfolio.id = 'portfolio';
+            trending.id = 'trending';
+            stockprices.id = 'stockprices';
+
+            aboutMe.appendChild(pipboy);
+            contact.appendChild(intelman);
+            portfolio.appendChild(lotr);
+            trending.appendChild(myhero);
+            stockprices.appendChild(flysoup);
+
+            aboutMe.appendChild(pipcap);
+            contact.appendChild(intelcap);
+            portfolio.appendChild(lotrcap);
+            trending.appendChild(herocap);
+            stockprices.appendChild(soupcap);
+
+            document.getElementById("starfield").appendChild(aboutMe);
+            document.getElementById("starfield").appendChild(contact);
+            document.getElementById("starfield").appendChild(portfolio);
+            document.getElementById("starfield").appendChild(trending);
+            document.getElementById("starfield").appendChild(stockprices);
+
+            aboutMe.className = 'info';
+            contact.className = 'info';
+            portfolio.className = 'info';
+            trending.className = 'info';
+            stockprices.className = 'info';
+
+            aboutMe.style.top += '400px';
+            contact.style.top += '400px';
+            portfolio.style.top += '400px';
+            trending.style.top += '100px';
+            stockprices.style.top += '100px';
+
+            stockprices.style.left = '400px'
+            trending.style.left = '900px';
+
+            $('.info').css('-webkit-transform', 'rotate(0deg)',
+                            '-ms-transform', 'rotate(0deg)',
+                            'transform', 'rotate(0deg)');
+
+
+            
+
+        };
+    
+    </script>
+    </html>
