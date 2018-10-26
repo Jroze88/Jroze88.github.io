@@ -1,5 +1,5 @@
 {
-  "name": "mern",
+  "name": "jroze",
   "version": "1.0.0",
   "description": "Jano Roze Port",
   "engines": {
@@ -33,5 +33,13 @@
     "path": "^0.12.7",
     "react": "^16.6.0",
     "react-router-dom": "^4.3.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jroze88/Jroze88.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jroze88/Jroze88.github.io/issues"
+  },
+  "homepage": "https://github.com/Jroze88/Jroze88.github.io#readme"
 }
