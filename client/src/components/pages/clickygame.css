@@ -1,13 +1,15 @@
-                .grid {
+.grid {
   width: 1170px;
   margin: 0 auto;
 }
 
 .list {
   height: 652px;
-  position: relative;
+  position: relative;y
   list-style-type: none;
   padding-left: 0;
+
+  
 }
 
 .card {
@@ -19,35 +21,38 @@
   -moz-transform-style: preserve-3d;
   float: left;
   width: 222px;
-  height: 211px;
-  background-color: #eee;
+  height: 311px;
+  background-color: rgba(238, 238, 238, 0);
   position: absolute;
   right: 0;
   bottom: 0;
   margin: 30px 0 15px 15px;
+  background-image: url('../../img/cardback_37.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .card:nth-child(5n) {
   margin-right: 0;
 }
 .card.ani0 {
   right: 948px;
-  bottom: 226px;
+  bottom: 326px;
 }
 .card.ani1 {
   right: 711px;
-  bottom: 226px;
+  bottom: 326px;
 }
 .card.ani2 {
   right: 474px;
-  bottom: 226px;
+  bottom: 326px;
 }
 .card.ani3 {
   right: 237px;
-  bottom: 226px;
+  bottom: 326px;
 }
 .card.ani4 {
   right: 0;
-  bottom: 226px;
+  bottom: 326px;
 }
 .card.ani5 {
   right: 948px;
@@ -69,4 +74,75 @@
 .card.ani9 {
     bottom: 0;
     right: 0;
+}
+
+.grid {
+  top: 40%;
+  position: absolute;
+  left: 10%;
+}
+
+.scorediv {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  width: 100px;
+  height: 100px;
+  border-color: aliceblue;
+  border: 15px;
+  text-align: center;
+  color: white;
+}
+
+.announcement {
+  position: absolute;
+  left: 10%;
+  top: 25%;
+  width: 40vw;
+  height: 10vh;
+  text-align: center;
+  color: white;
+}
+
+.card {
+  -webkit-perspective: 1000;
+  background: rgba(204, 204, 204, 0);
+  margin: 100px auto;
+}
+
+/* flip the pane when clicked */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+  -webkit-transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+  width: 222px;
+  height: 311px;
+}
+
+/* flip speed goes here */
+.flipper {
+	-webkit-transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	-webkit-backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+  background: yellow;
+}
+
+/* back, initially hidden pane */
+.back {
+  -webkit-transform: rotateY(180deg);
+  background: brown;
 }
