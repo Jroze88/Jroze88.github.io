@@ -9,6 +9,9 @@ import Contact from "./components/pages/Contact"
 import Article from "./components/pages/Articles"
 import Projects from "./components/pages/Projects"
 import Home from "./components/pages/Home"
+import ClickyGame from './components/pages/clickygame'
+
+       /* <Route exact path="/friendquiz" component={QuizQuestion} /> */
 
 class App extends Component {
 
@@ -25,6 +28,8 @@ class App extends Component {
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/articles" component={Article} />
         <Route exact path="/projects" component={Projects} />
+ 
+        <Route exact path="/clickygame" component={ClickyGame} />
       </div>
     </Router>
 

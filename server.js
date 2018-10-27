@@ -21,6 +21,17 @@ if (process.env.NODE_ENV === "production") {
 
 const mm = mongoose.connect(process.env.MONGODB_URI || "mongodb://testaccount:fakepassword1@ds241493.mlab.com:41493/deploytest", { useNewUrlParser : true});
 
+app.get("/api/friends", function(req, res) {
+
+  db.Friends
+      .find()
+      .then(function(dbModel) {
+        res.json(dbModel)
+      });
+
+
+
+})
 
 app.get("/scrape/current", function(req, res) {
   // First, we grab the body of the html with axios
