@@ -5,7 +5,7 @@
 
 .list {
   height: 652px;
-  position: relative;y
+  position: relative;
   list-style-type: none;
   padding-left: 0;
 
@@ -27,9 +27,7 @@
   right: 0;
   bottom: 0;
   margin: 30px 0 15px 15px;
-  background-image: url('../../img/cardback_37.gif');
-  background-size: cover;
-  background-repeat: no-repeat;
+
 }
 .card:nth-child(5n) {
   margin-right: 0;
@@ -109,22 +107,33 @@
   background: rgba(204, 204, 204, 0);
   margin: 100px auto;
 }
+/* entire container, keeps perspective */
+.card {
+  -webkit-perspective: 1000;
+  background: rgba(204, 204, 204, 0);
+  margin: 100px auto;
+}
 
 /* flip the pane when clicked */
-.flip-container:hover .flipper, .flip-container.hover .flipper {
+/* .flip-container:hover .flipper, .flip-container.hover .flipper {
   -webkit-transform: rotateY(180deg);
-}
+} */
 
 .flip-container, .front, .back {
   width: 222px;
   height: 311px;
 }
 
+.flip-container {
+  background-color: rgba(204, 204, 204, 0);
+}
+
 /* flip speed goes here */
 .flipper {
 	-webkit-transition: 0.6s;
 	-webkit-transform-style: preserve-3d;
-	position: relative;
+  position: relative;
+  background-color: rgba(204, 204, 204, 0);
 }
 
 /* hide back of pane during swap */
@@ -135,14 +144,95 @@
 	left: 0;
 }
 
+
+
 /* front pane, placed above back */
 .front {
   z-index: 2;
-  background: yellow;
+  background-image: url('../../img/cardback_37.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 /* back, initially hidden pane */
 .back {
   -webkit-transform: rotateY(180deg);
-  background: brown;
+ 
 }
+
+.m1 {
+  background-image: url('../../img/noblesacrifice1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.m2 {
+  background-image: url('../../img/KnifeJuggler2.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.m3 {
+  background-image: url('../../img/eggnapper3.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.m4 {
+
+  background-image: url('../../img/ogremagi4.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+.m5 {
+  background-image: url('../../img/leeroy5.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+.m6 {
+  background-image: url('../../img/bigtimeracketeer6.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.m7 {
+  background-image: url('../../img/sunsorrow7.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+.m8 {
+  background-image: url('../../img/ragnaros8.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.m9 {
+  background-image: url('../../img/ragnaros9.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.m0 {
+  background-image: url('../../img/ragnaros10.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  width: 222px;
+  height: 311px;
+  z-index: 5;
+}
+
+
+

@@ -6,17 +6,100 @@ import $ from 'jquery';
 
 class ClickyGame extends Component {
 
+  constructor(props) {
+    super(props);
+      this.state = {
+            score: 0,
+            flipped : [],
+            animate: false
+          };
+        }
 
-      state = {
-            score: 0
-      }
+
+
+      
+        cardClick(e) {
+
+          console.log(e.target)
+          console.log($(this))
+
+
+
+              
+              
+
+             
+        
+        }
+
+        // shuffleCards = () => this.setState({animate : true})
+
+
+      
+
+     
+
+      
+
+
+
+
+
 
       componentDidMount() {
-            $(document).ready(function() {
+
+       
+        // const initiateShuffle =() => {
+        //   setTimeout(function() {
+        //     this.setState({animate: true})
+        //   }.bind(this), 2000)
+        // }
+        let cards = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9', 'm0'];
+        let randomCards =[];
+
+        const shuffle = function(array) {
+          var currentIndex = array.length, temporaryValue, randomIndex;
+        
+          // While there remain elements to shuffle...
+          while (0 !== currentIndex) {
+        
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+        
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+          }
+        
+          return array;
+        }
+
+        if ($('.input').checked === false) {
+          console.log('woot')
+        }
+
+        randomCards = shuffle(cards);
 
             
+  
+            
+            $('.back').each(function(e) {   
+  
+  
+              $('.back').eq(e).addClass(randomCards[e]);
+  
+          });
 
-                  $('.stack').click(function() {
+      
+
+
+      
+
+/////////////////////////////////
+       
+        $('.stack').click(function() {
         
         $(".card").each(function(e) {
       
@@ -27,6 +110,9 @@ class ClickyGame extends Component {
         });
         
       });
+
+
+/////////////////////////////////////
       
       $('.spread').click(function() {
         
@@ -39,18 +125,37 @@ class ClickyGame extends Component {
         });
         
       });
-      
-                  $('.flip-container').on('click', function() {
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////      
 
-                        
-                              
-                            
-                                  $(this).css("-webkit-transform","rotateY(180deg)");
-                                  $(this.firstChild).css("-webkit-transform","rotateY(180deg)");
-                               
-                                  $(this.firstChild.nextSibling).css("-webkit-transform","rotateY(180deg)");
-                              
-                        
+
+
+
+      $('.front').on('click', function(e) {
+
+        $(this.parentElement.parentElement).css('-webkit-transform', 'rotateY(180deg)');
+        $(this.parentElement).css('-webkit-transform', 'rotateY(180deg)');
+        // $(this).css('-webkit-transform', 'rotateY(180deg)');
+        $(this.nextElementSibling).css('-webkit-transform', 'rotateY(180deg)');
+
+        // setTimeout(function () {
+        //   initiateShuffle()
+        // }, 2000)
+
+   
+   
+
+
+            
+            
+
+
+
+
+
+
+      })
+
+                    
                      
 
 
@@ -58,14 +163,14 @@ class ClickyGame extends Component {
 
 
 
-                  })
       
       
       
       
-      
-              })
-      }
+           
+ 
+    };
+
 
 
 
@@ -88,131 +193,133 @@ class ClickyGame extends Component {
             <div className="grid">
 
         <ul className="list">
-          <li className="card ani1">
-            <div className="flip-container">
+          <li className= {`card ${this.state.animate ? " " : " ani1 "}`}>
+            <div className=  "flip-container" onClick={this.cardClick}>
+            
                  <div  className="flipper">
-		                  <div  className="front">
-                        front of card
+             
+		                  <div  className="front ">
+                      
 		                  </div>
 		                  <div  className="back">
-                        back of card
+                          
 		            </div>
 	            </div>
                   </div>
           </li>
-          <li className="card ani2">
+          <li className= {`card ${this.state.animate ? " " : " ani2 "}`}>
 
-            <div className="flip-container">
+            <div className=  "flip-container" onClick={this.cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
-                        front of card
+                         
 		                  </div>
-		                  <div  className="back">
-                        back of card
+		                  <div  className="back ">
+                          
 		            </div>
 	            </div>
                   </div>
           </li>
-          <li className="card ani3">
+          <li className= {`card ${this.state.animate ? " " : " ani3 "}`}>
   
-            <div className="flip-container">
+            <div className=  "flip-container" onClick={this.cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
-                        front of card
+                         
 		                  </div>
-		                  <div  className="back">
-                        back of card
+		                  <div  className="back ">
+                          
 		            </div>
 	            </div>
                   </div>
           </li>
-          <li className="card ani4">
+          <li className= {`card ${this.state.animate ? " " : " ani4 "}`}>
   
-            <div className="flip-container">
+            <div className=  "flip-container" onClick={this.cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
-                        front of card
+                         
 		                  </div>
 		                  <div  className="back">
-                        back of card
+                          
 		            </div>
 	            </div>
                   </div>
           </li>
-          <li className="card ani5">
+          <li className= {`card ${this.state.animate ? " " : " ani5 "}`}>
       
-               <div className="flip-container">
+               <div className=  "flip-container" onClick={this.cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
-                        front of card
+                         
 		                  </div>
 		                  <div  className="back">
-                        back of card
+                          
 		            </div>
 	            </div>
                   </div>
           </li>
-          <li className="card ani6">
+          <li className= {`card ${this.state.animate ? " " : " ani6 "}`}>
      
-            <div className="flip-container">
+            <div className=  "flip-container" onClick={this.cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
-                        front of card
+                         
 		                  </div>
 		                  <div  className="back">
-                        back of card
+                          
 		            </div>
 	            </div>
                   </div>
             </li>
-          <li className="card ani7">
+          <li className= {`card ${this.state.animate ? " " : " ani7 "}`}>
       
-            <div className="flip-container">
+            <div className=  "flip-container" onClick={this.cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
-                        front of card
+                         
 		                  </div>
-		                  <div  className="back">
-                        back of card
+		                  <div  className="back ">
+                          
 		            </div>
 	            </div>
                   </div>
           </li>
-          <li className="card ani8">
+          <li className= {`card ${this.state.animate ? " " : " ani8 "}`}>
       
-            <div className="flip-container">
+            <div className=  "flip-container" onClick={this.cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
-                        front of card
+                         
 		                  </div>
-		                  <div  className="back">
-                        back of card
+		                  <div  className="back ">
+                          
 		            </div>
 	            </div>
                   </div>
           </li>
-          <li className="card ani0">
+          <li className= {`card ${this.state.animate ? " " : " ani9 "}`}>
         
-            <div className="flip-container">
+            <div className=  "flip-container" onClick={this.cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
-                        front of card
+                         
 		                  </div>
-		                  <div  className="back">
-                        back of card
+		                  <div  className="back  ">
+                          
 		            </div>
 	            </div>
                   </div>
           </li>
-          <li className="card ani9">
+          <li className= {`card ${this.state.animate ? " " : " ani0 "}`}>
          
-            <div className="flip-container">
+            <div className=  "flip-container" onClick={this.cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
-                        front of card
+                         
 		                  </div>
 		                  <div  className="back">
-                        back of card
+                          
 		            </div>
 	            </div>
                   </div>
