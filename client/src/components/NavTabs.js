@@ -1,13 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from '../logo.svg';
+import './navtabs.css';
+
 
 
 const NavTabs = () => (
 
 <ul>
+
 <nav className="col-md-12 navbar fixed-top navbar-expand-md navbar-light bg-faded">
+
 <div className="collapse navbar-collapse bg-transparent" id="navbarNav">
+
   <ul className="navbar-nav">
+    <li className ="nav-item">
+
+      <a className="navbar-brand" href="https://reactjs.org/">
+    <img src={logo} className="brand" alt="" />
+  </a>
+    
+    </li>
     <li className="nav-item active">
                           <Link
                           to="/projects"
