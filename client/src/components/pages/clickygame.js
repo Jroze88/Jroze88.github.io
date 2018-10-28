@@ -2,7 +2,16 @@ import React, { Component}  from 'react';
 import './clickygame.css'
 import $ from 'jquery';
 
+class ScoreCounter extends Component {
 
+  render() {
+    return(
+      <p>Score :{this.props.children}</p>
+
+    )
+  }
+  
+}
 
 class ClickyGame extends Component {
 
@@ -10,32 +19,30 @@ class ClickyGame extends Component {
     super(props);
       this.state = {
             score: 0,
-            flipped : [],
-            animate: false
+            flipped : ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9', 'm0'],
+            animate: false,
+            lastPicked : ''
           };
         }
 
 
 
-      
-        cardClick(e) {
 
-          console.log(e.target)
-          console.log($(this))
+        shuffleCards = () => {
 
 
+          this.setState({animate : true})
+          
+          setTimeout(function() {
+            this.resetShuffle()
+          }.bind(this), 1500)
 
-              
-              
 
-             
-        
         }
 
-        // shuffleCards = () => this.setState({animate : true})
+        resetShuffle = () => {this.setState({animate: false})}
 
 
-      
 
      
 
@@ -48,14 +55,33 @@ class ClickyGame extends Component {
 
       componentDidMount() {
 
-       
-        // const initiateShuffle =() => {
-        //   setTimeout(function() {
-        //     this.setState({animate: true})
-        //   }.bind(this), 2000)
-        // }
-        let cards = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9', 'm0'];
+      const addPoints = () => { 
+        setTimeout(function() {
+          this.setState({ points : defaultScore})
+          console.log(this.state.points)
+           }.bind(this), 200)
+      }
+
+      let defaultScore =0;
+       const removeFlippedCard =() => {
+        setTimeout(function() {
+          this.setState({ flipped: this.state.flipped.map(function(x, f) { return cards[f] }),
+                          lastPicked : [flippedCard]})
+          console.log(this.state.lastPicked)
+          console.log(this.state.flipped)
+        }.bind(this), 2000)
+      }
+       const initiateShuffle =() => {
+          setTimeout(function() {
+            this.setState({animate: true})
+          }.bind(this), 2000)
+        }
+
+
+        let cards = this.state.flipped;
         let randomCards =[];
+        let flippedCard = [];
+        let cardBacks = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9', 'm0']
 
         const shuffle = function(array) {
           var currentIndex = array.length, temporaryValue, randomIndex;
@@ -80,7 +106,7 @@ class ClickyGame extends Component {
           console.log('woot')
         }
 
-        randomCards = shuffle(cards);
+        randomCards = shuffle(cardBacks);
 
             
   
@@ -99,32 +125,32 @@ class ClickyGame extends Component {
 
 /////////////////////////////////
        
-        $('.stack').click(function() {
-        
+const stack =() => {        
         $(".card").each(function(e) {
       
           setTimeout(function() {
             $(".card").eq(e).attr("class", "card");
           }, e * 150)
           
-        });
-        
-      });
+        });       
+      }
 
 
 /////////////////////////////////////
       
-      $('.spread').click(function() {
+const spread =()=> {
         
         $(".card").each(function(e) {
       
           setTimeout(function() {
             $(".card").eq(e).attr("class", "card ani" + e);
           }, e * 150)
+
+
           
         });
         
-      });
+      }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////      
 
 
@@ -132,19 +158,78 @@ class ClickyGame extends Component {
 
       $('.front').on('click', function(e) {
 
+       
+
+          
+          
+
+       flippedCard = $(this.nextSibling).attr('class').replace('back ', '');
+
+       let index = 0;
+       index = cards.indexOf(flippedCard)
+
+       console.log(index)
+
+       if (index >= 0) {
+        defaultScore += 100;
+        addPoints()
+
+      cards.splice(cards.indexOf(flippedCard), 1)
+      console.log(cards)
+      
+      
+      
+
+       
+      $(this.parentElement.parentElement).addClass('flip');
+      $(this.parentElement).addClass('flip');
+      $(this.nextElementSibling).addClass('flip');
+
         $(this.parentElement.parentElement).css('-webkit-transform', 'rotateY(180deg)');
         $(this.parentElement).css('-webkit-transform', 'rotateY(180deg)');
         // $(this).css('-webkit-transform', 'rotateY(180deg)');
         $(this.nextElementSibling).css('-webkit-transform', 'rotateY(180deg)');
 
-        // setTimeout(function () {
-        //   initiateShuffle()
-        // }, 2000)
 
-   
-   
+        
+
+        
+        setTimeout(function() {
+
+          $('.flip').css('-webkit-transform', '');
+          $('.flip').removeClass('flip');
+
+        }, 1990)
 
 
+        setTimeout(function () {
+          initiateShuffle()
+          removeFlippedCard()
+        }, 2000)
+
+
+
+        setTimeout(function() {
+          spread()
+        }, 5200)
+      }
+
+      else {
+
+        $(this.parentElement.parentElement).css('-webkit-transform', 'rotateY(180deg)');
+        $(this.parentElement).css('-webkit-transform', 'rotateY(180deg)');
+        // $(this).css('-webkit-transform', 'rotateY(180deg)');
+        $(this.nextElementSibling).css('-webkit-transform', 'rotateY(180deg)');
+
+        setTimeout(function() {
+          alert('Better Luck Next Time!')
+        }, 1000)
+
+        setTimeout(function() {
+          window.location.reload();
+        }, 2000)
+
+      }
             
             
 
@@ -180,12 +265,12 @@ class ClickyGame extends Component {
             <div>
                   <div className="announcement">
 
-                 Click a card to flip! 
+                 Feeling lucky? Click a card to reveal it. Don't reveal the same card twice.
                   
                   </div>
                   <div className="scorediv">
 
-                  Score: {this.state.score}
+                  <ScoreCounter >{this.props.score}</ScoreCounter>
 
                   </div>
 

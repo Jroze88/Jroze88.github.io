@@ -95,7 +95,7 @@
 .announcement {
   position: absolute;
   left: 10%;
-  top: 25%;
+  top: 20%;
   width: 40vw;
   height: 10vh;
   text-align: center;
@@ -170,6 +170,7 @@
   background-image: url('../../img/KnifeJuggler2.gif');
   background-size: contain;
   background-repeat: no-repeat;
+  
 }
 
 .m3 {
