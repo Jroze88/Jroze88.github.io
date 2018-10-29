@@ -1,4 +1,4 @@
-Questions = [
+const Questions = [
     "You find it difficult to introduce yourself to other people.",
     "You often get so lost in thoughts that you ignore or forget your surroundings.",
     "You try to respond to your e-mails as soon as possible and cannot stand a messy inbox.",
@@ -60,3 +60,5 @@ Questions = [
     "You have always been interested in unconventional and ambiguous things, e.g. in books, art, or movies.",
     "You often take initiative in social situations."
 ]
+
+export default Questions
