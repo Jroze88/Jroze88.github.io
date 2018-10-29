@@ -1,4 +1,4 @@
-Values = [
+const QuestionValues = [
     "I",
     "N",
     "J",
@@ -60,3 +60,5 @@ Values = [
     "N",
     "E"
 ]
+
+export default QuestionValues
