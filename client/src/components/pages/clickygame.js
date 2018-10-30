@@ -25,6 +25,10 @@ class ClickyGame extends Component {
           };
         }
 
+        componentWillUnmount() {
+          
+        }
+
 
 
 

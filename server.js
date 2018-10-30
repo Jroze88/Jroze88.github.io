@@ -21,9 +21,9 @@ if (process.env.NODE_ENV === "production") {
 
 const mm = mongoose.connect(process.env.MONGODB_URI || "mongodb://testaccount:fakepassword1@ds241493.mlab.com:41493/deploytest", { useNewUrlParser : true});
 
-app.get("/api/friends", function(req, res) {
+app.get("/get/friends", function(req, res) {
 
-  db.Friends
+  db.friendFinder
       .find()
       .then(function(dbModel) {
         res.json(dbModel)
@@ -190,7 +190,12 @@ app.get("/scrape/current", function(req, res) {
 
   })
 
-
+  app.post("/post/friendfinder", function(req, res) {
+    db.friendFinder
+      .create(req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  });
 
 // Define API routes here
 

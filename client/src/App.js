@@ -11,6 +11,7 @@ import Projects from "./components/pages/Projects"
 import Home from "./components/pages/Home"
 import ClickyGame from './components/pages/clickygame'
 import QuizQuestion from './components/pages/QuizQuestion'
+import Name from './components/pages/nameprompt'
 
        /* <Route exact path="/friendquiz" component={QuizQuestion} /> */
 
@@ -30,7 +31,7 @@ class App extends Component {
         <Route exact path="/articles" component={Article} />
         <Route exact path="/projects" component={Projects} />
         <Route exact path="/friendfinder" component={QuizQuestion} />
- 
+        <Route exact path='/name' component={Name}/> 
         <Route exact path="/clickygame" component={ClickyGame} />
       </div>
     </Router>
