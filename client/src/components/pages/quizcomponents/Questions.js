@@ -58,7 +58,8 @@ const Questions = [
     "You feel very anxious in stressful situations.",
     "You believe that it is more rewarding to be liked by others than to be powerful.",
     "You have always been interested in unconventional and ambiguous things, e.g. in books, art, or movies.",
-    "You often take initiative in social situations."
+    "You often take initiative in social situations.",
+    "Calculating Results...."
 ]
 
 export default Questions

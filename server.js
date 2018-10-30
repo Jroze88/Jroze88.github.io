@@ -191,10 +191,40 @@ app.get("/scrape/current", function(req, res) {
   })
 
   app.post("/post/friendfinder", function(req, res) {
+    console.log(req.body)
     db.friendFinder
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+    .create(
+      {
+      name: req.body.name,
+      Extrovert:  req.body.E,
+      Introvert :  req.body.I,
+      Intuitive :  req.body.N,
+      Sensor :  req.body.S,
+      Thinker :  req.body.T,
+      Feeler :  req.body.F,
+      Judger :  req.body.J,
+      Perceiver :  req.body.P,
+      Energy : req.body.Energy,
+      Information : req.body.Information,
+      Organization : req.body.Organization,
+      Decision : req.body.Decision,
+      EnergyValue : req.body.EnergyValue,
+      InformationValue : req.body.InformationValue,
+      OrganizationValue : req.body.OrganizationValue,
+      DecisionValue : req.body.DecisionValue
+
+    },
+    function(err, inserted) {
+      if (err) {
+        // Log the error if one is encountered during the query
+        console.log(err);
+      }
+      else {
+      }
+    });
+
+
+    console.log(req.body)
   });
 
 // Define API routes here
