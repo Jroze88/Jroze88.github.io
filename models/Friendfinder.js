@@ -42,30 +42,6 @@ const friendFinderSchema = new Schema({
     Perceiver :{
         type: Number,
         required: true
-    },
-    Energy : {
-        type: String
-    },
-    Information : {
-        type: String
-    },
-    Organization : {
-        type: String
-    },
-    Decision : {
-        type: String
-    },
-    EnergyValue : {
-        type: Number
-    },
-    InformationValue : {
-        type: Number
-    },
-    OrganizationValue : {
-        type: Number
-    },
-    DecisionValue : {
-        type: Number
     }
 
 })
