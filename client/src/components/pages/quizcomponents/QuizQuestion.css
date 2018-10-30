@@ -19,6 +19,7 @@
     padding: 30px 0px;
     position: relative;
     left: 35%;
+    
 }/*#test-form*/
 
 #test-form:after {
@@ -31,6 +32,7 @@
     border: 0px none rgb(76, 76, 76);
     font: normal normal 400 normal 18px / 25.7143px "Open Sans", "Helvetica Neue", Arial;
     outline: rgb(76, 76, 76) none 0px;
+    
 }/*#test-form:after*/
 
 #test-form:before {
@@ -126,6 +128,8 @@
     border: 0px none rgb(76, 76, 76);
     font: normal normal 400 normal 18px / 25.7143px "Open Sans", "Helvetica Neue", Arial;
     outline: rgb(76, 76, 76) none 0px;
+    position: relative;
+    top: 10vh;
 }/*#options:after*/
 
 #options:before {
@@ -240,7 +244,7 @@
 }/*#agree:before*/
 
 #answer_bubbles {
-    bottom: 0px;
+
     box-sizing: border-box;
     color: rgb(76, 76, 76);
     display: flex;
@@ -249,10 +253,10 @@
     min-height: 1px;
     min-width: auto;
     position: relative;
-    right: 0px;
+
     text-decoration: none solid rgb(76, 76, 76);
     text-size-adjust: 100%;
-    top: 0px;
+
     vertical-align: middle;
     width: 327.2px;
     column-rule-color: rgb(76, 76, 76);
@@ -280,6 +284,8 @@
     border: 0px none rgb(76, 76, 76);
     font: normal normal 400 normal 18px / 25.7143px "Open Sans", "Helvetica Neue", Arial;
     outline: rgb(76, 76, 76) none 0px;
+    top: 35vh;
+    position: absolute;
 }/*#answer_bubbles:after*/
 
 #answer_bubbles:before {
@@ -1249,3 +1255,56 @@
 #a1:hover, #a3:hover, #a2:hover {
     background-color: rgb(76, 144, 112)  !important;
 }
+
+
+
+
+.namerow {
+    float: left;
+    width: 100%;
+    padding: 20px 0 50px;
+  }
+  h2 {
+    text-align: center;
+    color: #2079df;
+    font-size: 28px;
+    float: left;
+    width: 100%;
+    margin: 30px 0;
+    position: relative;
+    line-height: 58px;
+    font-weight: 400;
+  }
+  h2:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100px;
+    height: 2px;
+    background-color: #2079df;
+    margin-left: -50px;
+  }
+
+  #test-form {
+      top: 20vh;
+  }
+
+  #options {
+      position: absolute !important;
+      top: 40vh !important;
+  }
+
+  .buttondiv {
+    position: relative !important;
+    height: 10vh;
+  }
+
+  .confirm {
+      width: 150px;
+      height: 50px;
+  }
+
+
+ 
+

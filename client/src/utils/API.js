@@ -13,6 +13,10 @@ getCurrent : function() {
 
 getUpcoming : function() {
       return axios.get("/scrape/upcoming")
-  }
+  },
+
+postUser : function (userInfo) {
+  return axios.post("/post/friendfinder", userInfo)
+}
 
 }
