@@ -204,15 +204,6 @@ app.get("/scrape/current", function(req, res) {
       Feeler :  req.body.F,
       Judger :  req.body.J,
       Perceiver :  req.body.P,
-      Energy : req.body.Energy,
-      Information : req.body.Information,
-      Organization : req.body.Organization,
-      Decision : req.body.Decision,
-      EnergyValue : req.body.EnergyValue,
-      InformationValue : req.body.InformationValue,
-      OrganizationValue : req.body.OrganizationValue,
-      DecisionValue : req.body.DecisionValue
-
     },
     function(err, inserted) {
       if (err) {

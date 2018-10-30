@@ -30,6 +30,7 @@ handleInputChange = event => {
 }
 
 handleFormSubmit = event => {
+  
     let userName = this.state.name
     window.localStorage.setItem('friendfinderuser', userName)
 }
@@ -62,13 +63,13 @@ render() {
   </div>
 
  
-        <div className="col-3"><Link
-                          to="/friendfinder"
+        <div className="col-3"><a
+                          href="/friendfinder"
                           className={
                             window.location.pathname === "/friendfinder" ? "nav-link active" : "nav-link"
                           }
                         > <button className="btn btn-danger" onClick={this.handleFormSubmit}>Submit</button>
-                        </Link>
+                        </a>
                         </div>
     </div>
 

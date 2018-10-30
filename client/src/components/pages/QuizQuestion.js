@@ -13,7 +13,16 @@ class QuizQuestion extends Component {
         question : 0,
         answer : 0,
         userStats : {},
-        userType : {},
+        userType : {
+            Decision : "",
+                    DecisionValue : 0,
+                    Information : "",
+                    InformationValue : 0,
+                    Energy : "",
+                    EnergyValue : 0,
+                    Organization : "",
+                    OrganizationValue : 0
+        },
         chosen : false
 
     }
@@ -172,49 +181,57 @@ class QuizQuestion extends Component {
 
             this.setState({
                 userType : 
-                    {Decision : window.user.Decision,
-                    DecisionValue : window.user.DecisionValue,
-                    Information : window.user.Information,
-                    InformationValue : window.user.InformationValue,
-                    Energy : window.user.Energy,
-                    EnergyValue : window.user.EnergyValue,
-                    Organization : window.user.Organization,
-                    OrganizationValue : window.user.OrganizationValue}
+                    {Decision : this.state.userType.Decision,
+                    DecisionValue : this.state.userType.DecisionValue,
+                    Information : this.state.userType.Information,
+                    InformationValue : this.state.userType.InformationValue,
+                    Energy : this.state.userType.Energy,
+                    EnergyValue : this.state.userType.EnergyValue,
+                    Organization : this.state.userType.Organization,
+                    OrganizationValue : this.state.userType.OrganizationValue}
 
             })
 
 
 
-            if (this.state.userType.Decision === 'Thinking') {
-              
-                $('.Treuslt').css('width', `${(((window.user.InformationValue)/24) * 100)}%`)
-            } else if (this.state.userType.Decision === 'Feeling') {
-               
-                $('.Freuslt').css('width', `${(((window.user.InformationValue)/36) * 100)}%`)
-            }
+            // if (this.state.userType.Decision === 'Thinking') {
+            //     const decpercent = (window.user.DecisionValue/24 * 100)
+            //     $('.Treuslt').css('width', `${decpercent}%`)
+            //     console.log(decpercent)
+            // } else if (this.state.userType.Decision === 'Feeling') {
+            //     const decpercent = (window.user.DecisionValue/36 * 100)
+            //     $('.Freuslt').css('width', `${decpercent}%`)
+            //     console.log(decpercent)
+            // }
 
-            if (this.state.userType.Information === 'Intuition') {
-               
-                $('.Nreuslt').css('width', `${(((window.user.DecisionValue)/36) * 100)}%`)
-            } else if (this.state.userType.Information === 'Sensory') {
-             
-                $('.Sreuslt').css('width', `${(((window.user.DecisionValue)/9) * 100)}%`)
-            }
-                if (this.state.userType.Energy === 'Extrovert') {
-                   
-                    $('.Ereuslt').css('width', `${(((window.user.EnergyValue)/21) * 100)}%`)
-                } else if (this.state.userType.Energy === 'Introvert') {
-                 
-                    $('.Ireuslt').css('width', `${(((window.user.EnergyValue)/21) * 100)}%`)
-                }
+            // if (this.state.userType.Information === 'Intuition') {
+            //     const decpercent1 = (window.user.InformationValue/30 * 100)
+            //     $('.Nreuslt').css('width', `${decpercent1}%`)
+            //     console.log(decpercent1)
+            // } else if (this.state.userType.Information === 'Sensory') {
+            //     const decpercent1 = (window.user.InformationValue/9 * 100)
+            //     $('.Sreuslt').css('width', `${decpercent1}%`)
+            //     console.log(decpercent1)
+            // }
+            //     if (this.state.userType.Energy === 'Extrovert') {
+            //         const decpercent2 = (window.user.Energyvalue/21 * 100)
+            //         $('.Ereuslt').css('width', `${decpercent2}%`)
+            //         console.log(decpercent2)
+            //     } else if (this.state.userType.Energy === 'Introvert') {
+            //         const decpercent2 = (window.user.Energyvalue/14 * 100)
+            //         $('.Ireuslt').css('width', `${decpercent2}%`)
+            //         console.log(decpercent2)
+            //     }
                 
-            if (this.state.userType.Organization === 'Judging') {
-              
-                $('.Jreuslt').css('width', `${(((window.user.OrganizationValue) / 24) * 100)}%`)
-            } else if (this.state.userType.Organization === 'Perceiving') {
-               
-                $('.Preuslt').css('width', `${(((window.user.OrganizationValue) / 21) * 100)}%`)
-            }
+            // if (this.state.userType.Organization === 'Judging') {
+            //     const decpercent3 = (window.user.OrganizationValue/24 * 100)
+            //     $('.Jreuslt').css('width', `${decpercent3}%`)
+            //     console.log(decpercent3)
+            // } else if (this.state.userType.Organization === 'Perceiving') {
+            //     const decpercent3 = (window.user.OrganizationValue/21 * 100)
+            //     console.log(decpercent3)
+            //     $('.Preuslt').css('width', `${decpercent3}%`)
+            // }
 
 
 
@@ -285,10 +302,10 @@ class QuizQuestion extends Component {
         <div className = "resultmeter energyresults">
         
         <div className = "rhalfside"><p>Extrovert</p>
-        <div className = "Lside Eresult"></div>
+        <div className = "Lside Eresult" style={{width : this.state.userType.EnergyValue/21 * 100}}></div>
         </div>
         <div className = "lhalfside"><p>Introvert</p>
-        <div className = "Rside Iresult"></div>
+        <div className = "Rside Iresult" style={{width : this.state.userType.EnergyValue/15 * 100}}></div>
         </div>
         </div>
 
@@ -296,10 +313,10 @@ class QuizQuestion extends Component {
         <div className = "resultmeter organizationresults">
         
         <div className = "rhalfside"><p>Judger</p>
-        <div className = "Lside Jresult"></div>
+        <div className = "Lside Jresult" style={{width : this.state.userType.OrganizationValue/24 * 100}}></div>
         </div>
         <div className = "lhalfside"><p>Perceiver</p>
-        <div className = "Rside Presult"></div>
+        <div className = "Rside Presult" style={{width : this.state.userType.OrganizationValue/21 * 100}}></div>
         </div>
         </div>
         
@@ -307,20 +324,20 @@ class QuizQuestion extends Component {
         <div className = "resultmeter decisionresults">
         
         <div className = "rhalfside dec"><p>Thinker</p>
-        <div className = "Lside Tresult"></div>
+        <div className = "Lside Tresult" style={{width : this.state.userType.DecisionValue/24 * 100}}></div>
         </div>
         <div className = "lhalfside dec2"><p>Feeler</p>
-        <div className = "Rside Fresult"></div>
+        <div className = "Rside Fresult" style={{width : this.state.userType.DecisionValue/36 * 100}}></div>
         </div>
         </div>
 
         <span className="resulttext">Your Information Result: {this.state.userType.Information}</span>
         <div className = "resultmeter informationresults">        
         <div className = "rhalfside"><p>Intuition</p>
-        <div className = "Lside Nresult"></div>
+        <div className = "Lside Nresult" style={{width : this.state.userType.InformationValue/30 * 100}}></div>
         </div>
         <div className = "lhalfside"><p>Sense</p>
-        <div className = "Rside Sresult"></div>
+        <div className = "Rside Sresult" style={{width : this.state.userType.InformationValue/9 * 100}}></div>
         </div>
         </div>
    
