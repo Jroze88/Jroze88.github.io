@@ -6,7 +6,7 @@ class ScoreCounter extends Component {
 
   render() {
     return(
-      <p>Score :{this.props.children}</p>
+      <p>Score :{this.props.score}</p>
 
     )
   }
@@ -57,8 +57,8 @@ class ClickyGame extends Component {
 
       const addPoints = () => { 
         setTimeout(function() {
-          this.setState({ points : defaultScore})
-          console.log(this.state.points)
+          this.setState({ score : defaultScore})
+          console.log(this.state.score)
            }.bind(this), 200)
       }
 
@@ -270,7 +270,7 @@ const spread =()=> {
                   </div>
                   <div className="scorediv">
 
-                  <ScoreCounter >{this.props.score}</ScoreCounter>
+                  <ScoreCounter score = {this.state.score} />
 
                   </div>
 
