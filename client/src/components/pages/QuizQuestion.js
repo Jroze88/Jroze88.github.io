@@ -12,11 +12,14 @@ class QuizQuestion extends Component {
     state = {
         question : 0,
         answer : 0,
-        userStats : {}
+        userStats : {},
+        userType : {},
+        chosen : false
 
     }
 
     componentDidMount = () => { 
+
 
         
         let personName = window.localStorage.getItem('friendfinderuser')
@@ -58,11 +61,13 @@ class QuizQuestion extends Component {
 
     handleFormSubmit = event => {
 
+
+
         event.preventDefault();
 
         console.log(this.state.answer);
 
-        if (this.state.answer === 0) {
+        if (this.state.chosen === false) {
             alert('Please choose a value!')
             return
         }
@@ -123,18 +128,124 @@ class QuizQuestion extends Component {
 
         
         if (this.state.question === 60) {
+            this.setState({ question: this.state.question + 1 })
+            $('#answer_bubbles').css('display', 'none')
+            $('#agree').css('display', 'none')
+            $('#disagree').css('display', 'none')
+            $('.confirm').css('display', 'none')
+
+
+            if (window.user.E > window.user.I) {
+                window.user.Energy = 'Extrovert'
+                window.user.EnergyValue = (window.user.E - window.user.I)
+            } 
+            if (window.user.I > window.user.E) {
+                window.user.Energy = 'Introvert'
+                window.user.Energyvalue = (window.user.I - window.user.E)
+            }
+            if (window.user.N > window.user.S) {
+                window.user.Information = 'Intuition'
+                window.user.InformationValue = (window.user.N - window.user.S)
+            }
+            if (window.user.S > window.user.N) {
+                window.user.Information = 'Sensory'
+                window.user.InformationValue = (window.user.S - window.user.N)
+            }
+            if (window.user.J > window.user.P) {
+                window.user.Organization = 'Judging'
+                window.user.OrganizationValue = (window.user.J - window.user.P)
+            }
+            if (window.user.P > window.user.J) {
+                window.user.Organization = 'Perceiving'
+                window.user.OrganizationValue = (window.user.P - window.user.J)
+            }
+            if (window.user.T > window.user.F) {
+                window.user.Decision = 'Thinking'
+                window.user.DecisionValue = (window.user.T - window.user.F)
+            } 
+            if (window.user.F > window.user.T) {
+                window.user.Decision = 'Feeling'
+                window.user.DecisionValue = (window.user.F - window.user.T)
+            }
+
             API.postUser(window.user)
+
+            this.setState({
+                userType : 
+                    {Decision : window.user.Decision,
+                    DecisionValue : window.user.DecisionValue,
+                    Information : window.user.Information,
+                    InformationValue : window.user.InformationValue,
+                    Energy : window.user.Energy,
+                    EnergyValue : window.user.EnergyValue,
+                    Organization : window.user.Organization,
+                    OrganizationValue : window.user.OrganizationValue}
+
+            })
+
+
+
+            if (this.state.userType.Decision === 'Thinking') {
+              
+                $('.Treuslt').css('width', `${(((window.user.InformationValue)/24) * 100)}%`)
+            } else if (this.state.userType.Decision === 'Feeling') {
+               
+                $('.Freuslt').css('width', `${(((window.user.InformationValue)/36) * 100)}%`)
+            }
+
+            if (this.state.userType.Information === 'Intuition') {
+               
+                $('.Nreuslt').css('width', `${(((window.user.DecisionValue)/36) * 100)}%`)
+            } else if (this.state.userType.Information === 'Sensory') {
+             
+                $('.Sreuslt').css('width', `${(((window.user.DecisionValue)/9) * 100)}%`)
+            }
+                if (this.state.userType.Energy === 'Extrovert') {
+                   
+                    $('.Ereuslt').css('width', `${(((window.user.EnergyValue)/21) * 100)}%`)
+                } else if (this.state.userType.Energy === 'Introvert') {
+                 
+                    $('.Ireuslt').css('width', `${(((window.user.EnergyValue)/21) * 100)}%`)
+                }
+                
+            if (this.state.userType.Organization === 'Judging') {
+              
+                $('.Jreuslt').css('width', `${(((window.user.OrganizationValue) / 24) * 100)}%`)
+            } else if (this.state.userType.Organization === 'Perceiving') {
+               
+                $('.Preuslt').css('width', `${(((window.user.OrganizationValue) / 21) * 100)}%`)
+            }
+
+
+
+            $('.resultmeter').css('display', 'block')
+            $('.resulttext').css('display', 'inline')
         }
+
+            // API.getFriends()
+            //         .then(res => {}
+
+                     
+
+       
+
+      
+    //   })
+    //   .catch(err => console.log(err));  
+
+        else {
 
         this.setState({ answer: 0 })
         this.setState({ question: this.state.question + 1 })
 
        this.clearInput();
-
+        }
 
     }
 
     handleChange = event => {
+
+        this.setState({chosen : true})
 
         let swap = event.target.parentElement      
 
@@ -151,13 +262,12 @@ class QuizQuestion extends Component {
  
     }
 
-    clearInput = () => {  $('label').attr('class', 'unchecked'); }
+    clearInput = () => {  $('label').attr('class', 'unchecked'); this.setState({ chosen : false})}
 
 
 
     render() {
         return(
- 
 <div>
 
 
@@ -168,6 +278,50 @@ class QuizQuestion extends Component {
     <div id = "test-form" className="row quizdiv textdiv">
         <div id="question">
             {Questions[this.state.question]}
+        </div>
+
+
+        <span className="resulttext">Your Energy Result: {this.state.userType.Energy}</span>
+        <div className = "resultmeter energyresults">
+        
+        <div className = "rhalfside"><p>Extrovert</p>
+        <div className = "Lside Eresult"></div>
+        </div>
+        <div className = "lhalfside"><p>Introvert</p>
+        <div className = "Rside Iresult"></div>
+        </div>
+        </div>
+
+        <span className="resulttext">Your Organization Result: {this.state.userType.Organization}</span>
+        <div className = "resultmeter organizationresults">
+        
+        <div className = "rhalfside"><p>Judger</p>
+        <div className = "Lside Jresult"></div>
+        </div>
+        <div className = "lhalfside"><p>Perceiver</p>
+        <div className = "Rside Presult"></div>
+        </div>
+        </div>
+        
+        <span className="resulttext">Your Decision Result: {this.state.userType.Decision}</span>
+        <div className = "resultmeter decisionresults">
+        
+        <div className = "rhalfside dec"><p>Thinker</p>
+        <div className = "Lside Tresult"></div>
+        </div>
+        <div className = "lhalfside dec2"><p>Feeler</p>
+        <div className = "Rside Fresult"></div>
+        </div>
+        </div>
+
+        <span className="resulttext">Your Information Result: {this.state.userType.Information}</span>
+        <div className = "resultmeter informationresults">        
+        <div className = "rhalfside"><p>Intuition</p>
+        <div className = "Lside Nresult"></div>
+        </div>
+        <div className = "lhalfside"><p>Sense</p>
+        <div className = "Rside Sresult"></div>
+        </div>
         </div>
    
 

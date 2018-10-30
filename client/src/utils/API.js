@@ -17,6 +17,10 @@ getUpcoming : function() {
 
 postUser : function (userInfo) {
   return axios.post("/post/friendfinder", userInfo)
+},
+
+getFriends : function () {
+  return axios.get('/get/friends')
 }
 
 }
