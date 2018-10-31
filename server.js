@@ -23,8 +23,42 @@ const mm = mongoose.connect(process.env.MONGODB_URI || "mongodb://testaccount:fa
 
 app.get("/get/friends", function(req, res) {
 
+  let energytype = "";
+  let orgtype = "";
+  let dectype = "";
+  let inftype = ""
+
+  if (req.body.En === 'E') {
+    energytype = "Extrovert"
+  } else {
+    energytype = "Introvert"
+  }
+  
+  if (req.body.In === 'N') {
+    inftype = "Intuition"
+  } else {
+    inftype = "Sense"
+  }
+  
+  if (req.body.Org === 'J') {
+    orgtype = "Judging"
+  } else {
+    orgtype = "Perceiving"
+  }
+  
+  if (req.body.Dec === 'E') {
+    dectype = "Thinking"
+  } else {
+    dectype = "Feeling"
+  }
+
+
+
   db.friendFinder
-      .find()
+      .find({ Energy : [energytype],
+        Decision : [dectype],
+        Information : [inftype],
+        Organization : [orgtype]})
       .then(function(dbModel) {
         res.json(dbModel)
       });

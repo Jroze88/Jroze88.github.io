@@ -70,6 +70,8 @@ class QuizQuestion extends Component {
 
     handleFormSubmit = event => {
 
+        let { relp0, relp1, relp2, relp3, relp4, relp5, relp6, relp7} = 0;
+
 
 
         event.preventDefault();
@@ -145,34 +147,42 @@ class QuizQuestion extends Component {
 
 
             if (window.user.E > window.user.I) {
+                window.user.res.En = "E"
                 window.user.Energy = 'Extrovert'
                 window.user.EnergyValue = (window.user.E - window.user.I)
             } 
             if (window.user.I > window.user.E) {
+                window.user.res.En = "I"
                 window.user.Energy = 'Introvert'
                 window.user.Energyvalue = (window.user.I - window.user.E)
             }
             if (window.user.N > window.user.S) {
+                window.user.res.In = "N"
                 window.user.Information = 'Intuition'
                 window.user.InformationValue = (window.user.N - window.user.S)
             }
             if (window.user.S > window.user.N) {
+                    window.user.res.In = "S"
                 window.user.Information = 'Sensory'
                 window.user.InformationValue = (window.user.S - window.user.N)
             }
             if (window.user.J > window.user.P) {
+                window.user.res.Org = "J"
                 window.user.Organization = 'Judging'
                 window.user.OrganizationValue = (window.user.J - window.user.P)
             }
             if (window.user.P > window.user.J) {
+                window.user.res.Org = "P"
                 window.user.Organization = 'Perceiving'
                 window.user.OrganizationValue = (window.user.P - window.user.J)
             }
             if (window.user.T > window.user.F) {
+                window.user.res.Dec = "T"
                 window.user.Decision = 'Thinking'
                 window.user.DecisionValue = (window.user.T - window.user.F)
             } 
             if (window.user.F > window.user.T) {
+                window.user.res.Dec = "F"
                 window.user.Decision = 'Feeling'
                 window.user.DecisionValue = (window.user.F - window.user.T)
             }
@@ -195,49 +205,75 @@ class QuizQuestion extends Component {
 
 
             if (this.state.userType.Decision === 'Thinking') {
-                const decpercent = (window.user.DecisionValue/24 * 100)
-                $('.Treuslt').css('width', `${decpercent}%`)
-                console.log(decpercent)
+                relp7 = (window.user.DecisionValue/24 * 100)
+                
+                
             } else if (this.state.userType.Decision === 'Feeling') {
-                const decpercent = (window.user.DecisionValue/36 * 100)
-                $('.Freuslt').css('width', `${decpercent}%`)
-                console.log(decpercent)
+                relp6 = (window.user.DecisionValue/36 * 100)
+                
+               
             }
 
             if (this.state.userType.Information === 'Intuition') {
-                const decpercent1 = (window.user.InformationValue/30 * 100)
-                $('.Nreuslt').css('width', `${decpercent1}%`)
-                console.log(decpercent1)
+                relp5 = (window.user.InformationValue/30 * 100)
+                
+               
             } else if (this.state.userType.Information === 'Sensory') {
-                const decpercent1 = (window.user.InformationValue/9 * 100)
-                $('.Sreuslt').css('width', `${decpercent1}%`)
-                console.log(decpercent1)
+                relp3 = (window.user.InformationValue/9 * 100)
+                
+               
             }
                 if (this.state.userType.Energy === 'Extrovert') {
-                    const decpercent2 = (window.user.Energyvalue/21 * 100)
-                    $('.Ereuslt').css('width', `${decpercent2}%`)
-                    console.log(decpercent2)
+                    relp4 = (window.user.Energyvalue/21 * 100)
+                    
+                
                 } else if (this.state.userType.Energy === 'Introvert') {
-                    const decpercent2 = (window.user.Energyvalue/14 * 100)
-                    $('.Ireuslt').css('width', `${decpercent2}%`)
-                    console.log(decpercent2)
+                    relp2 = (window.user.Energyvalue/14 * 100)
+                    
+                    
                 }
                 
             if (this.state.userType.Organization === 'Judging') {
-                const decpercent3 = (window.user.OrganizationValue/24 * 100)
-                $('.Jreuslt').css('width', `${decpercent3}%`)
-                console.log(decpercent3)
+                relp1 = (window.user.OrganizationValue/24 * 100)
+                
+              
             } else if (this.state.userType.Organization === 'Perceiving') {
-                const decpercent3 = (window.user.OrganizationValue/21 * 100)
-                console.log(decpercent3)
-                $('.Preuslt').css('width', `${decpercent3}%`)
+                relp0 = (window.user.OrganizationValue/21 * 100)
+             
+                
             }
 
+
+            API.getFriends(window.user.res).then(function(res) {
+
+
+            let resultdiv = document.createElement('div')
+            resultdiv.textContent(`Your matches are: ${res.body}`)
+            $('#question').append(resultdiv)
+
+
+
+            }).catch(err => console.log(err));
 
 
             $('.resultmeter').css('display', 'block')
             $('.resulttext').css('display', 'inline')
-        }
+
+
+            $('.Preuslt').css('width', `${relp0}%`)
+            $('.Jreuslt').css('width', `${relp1}%`)
+            $('.Ireuslt').css('width', `${relp2}%`)
+            $('.Sreuslt').css('width', `${relp3}%`)
+            $('.Ereuslt').css('width', `${relp4}%`)
+            $('.Nreuslt').css('width', `${relp5}%`)
+            $('.Freuslt').css('width', `${relp6}%`)
+            $('.Treuslt').css('width', `${relp7}%`)
+
+
+            let resultdiv = document.createElement('div')
+            resultdiv.textContent(`Your result is:${window.user.En} ${window.user.Org} ${window.user.Dec} ${window.user.In}`)
+            $('#question').append(resultdiv)
+        } 
 
             // API.getFriends()
             //         .then(res => {}
