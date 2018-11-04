@@ -21,6 +21,15 @@ postUser : function (userInfo) {
 
 getFriends : function (userInfo) {
   return axios.get('/get/friends')
-}
+},
+  searchNYT: function(topic, startYear, endYear) {
+    const authKey = "b9f91d369ff59547cd47b931d8cbc56b:0:74623931";
+
+    return axios.get(queryURL);
+  },
+  // Retrieves saved articles from the db
+  getArticle: function() {
+    return axios.get("/api/saved");
+  }
 
 }

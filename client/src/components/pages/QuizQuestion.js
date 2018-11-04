@@ -205,6 +205,7 @@ class QuizQuestion extends Component {
 
 
             if (this.state.userType.Decision === 'Thinking') {
+<<<<<<< HEAD
                 relp7 = (window.user.DecisionValue/24 * 100)
                 
                 
@@ -251,6 +252,45 @@ class QuizQuestion extends Component {
             resultdiv.textContent(`Your matches are: ${res.body}`)
             $('#question').append(resultdiv)
 
+=======
+                const decpercent = (window.user.DecisionValue/24 * 100)
+                $('.Treuslt').css('width', `${decpercent}%`)
+                console.log(decpercent)
+            } else if (this.state.userType.Decision === 'Feeling') {
+                const decpercent = (window.user.DecisionValue/36 * 100)
+                $('.Freuslt').css('width', `${decpercent}%`)
+                console.log(decpercent)
+            }
+
+            if (this.state.userType.Information === 'Intuition') {
+                const decpercent1 = (window.user.InformationValue/30 * 100)
+                $('.Nreuslt').css('width', `${decpercent1}%`)
+                console.log(decpercent1)
+            } else if (this.state.userType.Information === 'Sensory') {
+                const decpercent1 = (window.user.InformationValue/9 * 100)
+                $('.Sreuslt').css('width', `${decpercent1}%`)
+                console.log(decpercent1)
+            }
+                if (this.state.userType.Energy === 'Extrovert') {
+                    const decpercent2 = (window.user.Energyvalue/21 * 100)
+                    $('.Ereuslt').css('width', `${decpercent2}%`)
+                    console.log(decpercent2)
+                } else if (this.state.userType.Energy === 'Introvert') {
+                    const decpercent2 = (window.user.Energyvalue/14 * 100)
+                    $('.Ireuslt').css('width', `${decpercent2}%`)
+                    console.log(decpercent2)
+                }
+                
+            if (this.state.userType.Organization === 'Judging') {
+                const decpercent3 = (window.user.OrganizationValue/24 * 100)
+                $('.Jreuslt').css('width', `${decpercent3}%`)
+                console.log(decpercent3)
+            } else if (this.state.userType.Organization === 'Perceiving') {
+                const decpercent3 = (window.user.OrganizationValue/21 * 100)
+                console.log(decpercent3)
+                $('.Preuslt').css('width', `${decpercent3}%`)
+            }
+>>>>>>> deploy
 
 
             }).catch(err => console.log(err));

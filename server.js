@@ -252,6 +252,37 @@ app.get("/scrape/current", function(req, res) {
     console.log(req.body)
   });
 
+  app.post("/scrape/NYT", function(topic, startYear, endYear) {
+
+  
+    axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=8f4f6746cba3492392355e72c21ed34d&q=" + topic + "&begin_date=" + startYear + "0101&end_date=" + endYear + "0101").then(function(req, res) {
+       
+
+    
+      console.log("Adding saved artice to the db");
+      console.log("req.body: ", req.body);
+      db.NYT.create(req.body).then(function(doc) {
+        res.json(doc);
+        console.log("doc: ", doc);
+      }).catch(function(err) {
+        res.json(err);
+      });
+
+
+
+    })
+
+      console.log("Gathering saved articles from the db");
+      db.NYT.find().then(function(doc) {
+        res.json(doc);
+      }).catch(function(err) {
+        res.json(err);
+      });
+ 
+  
+
+  })
+
 // Define API routes here
 
 // Send every other request to the React app

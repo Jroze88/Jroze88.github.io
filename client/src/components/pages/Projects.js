@@ -58,7 +58,7 @@ class Projects extends Component {
                 <div className="col-2">
                 
                 <div className="intelman">
-                        <a href="https://Jroze88.github.io/project-2/index">
+                        <a href="https://intelman.herokuapp.com/">
                     <img className="projector" alt="Einstein" src={ require('../../img/tele3.svg') } />
                         </a>
                  </div>       
