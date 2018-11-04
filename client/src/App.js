@@ -12,7 +12,7 @@ import Home from "./components/pages/Home"
 import ClickyGame from './components/pages/clickygame'
 import QuizQuestion from './components/pages/QuizQuestion'
 import Name from './components/pages/nameprompt'
-import Main from "./components/Main";
+import Main from "./components/pages/Main";
 
        /* <Route exact path="/friendquiz" component={QuizQuestion} /> */
 

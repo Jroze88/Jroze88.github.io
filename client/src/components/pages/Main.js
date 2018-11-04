@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Saved from "./Saved";
 import Search from "./Search";
 import Results from "./Results";
-import API from "../../utils/api";
+import API from "../../utils/API";
+import './normalize.css'
 
 class Main extends Component {
 
@@ -43,19 +44,19 @@ class Main extends Component {
   }
 
   // A helper method for rendering one div for each saved article
-  renderSaved = () => {
-    return this.state.saved.map(save => (
-      <Saved
-        _id={save._id}
-        key={save._id}
-        title={save.title}
-        date={save.date}
-        url={save.url}
-        handleDeleteButton={this.handleDeleteButton}
-        getSavedArticles={this.getSavedArticles}
-      />
-    ));
-  }
+//   renderSaved = () => {
+//     return this.state.saved.map(save => (
+//       <Saved
+//         _id={save._id}
+//         key={save._id}
+//         title={save.title}
+//         date={save.date}
+//         url={save.url}
+//         handleDeleteButton={this.handleDeleteButton}
+//         getSavedArticles={this.getSavedArticles}
+//       />
+//     ));
+//   }
 
   // Keep track of what user types into topic input so that input can be grabbed later
   handleTopicChange = (event) => {
@@ -87,19 +88,19 @@ class Main extends Component {
   }
 
   // When save article button is clicked, add article to db
-  handleSaveButton = (id) => {
-    const findArticleByID = this.state.articles.find((el) => el._id === id);
-    console.log("findArticleByID: ", findArticleByID);
-    const newSave = {title: findArticleByID.headline.main, date: findArticleByID.pub_date, url: findArticleByID.web_url};
-    API.saveArticle(newSave)
-    .then(this.getSavedArticles());
-  }
+//   handleSaveButton = (id) => {
+//     const findArticleByID = this.state.articles.find((el) => el._id === id);
+//     console.log("findArticleByID: ", findArticleByID);
+//     const newSave = {title: findArticleByID.headline.main, date: findArticleByID.pub_date, url: findArticleByID.web_url};
+//     API.saveArticle(newSave)
+//     .then(this.getSavedArticles());
+//   }
 
-  // When delete article button is clicked, remove article from db
-  handleDeleteButton = (id) => {
-    API.deleteArticle(id)
-      .then(this.getSavedArticles());
-  }
+//   // When delete article button is clicked, remove article from db
+//   handleDeleteButton = (id) => {
+//     API.deleteArticle(id)
+//       .then(this.getSavedArticles());
+//   }
 
   render() {
     return (
@@ -120,7 +121,7 @@ class Main extends Component {
             renderArticles={this.renderArticles}
           />
           {/* Saved Articles Section */}
-          <div className="container">
+          {/* <div className="container">
             <div className="row">
               <div className="col-lg-12">
                 <div className="panel panel-primary">
@@ -138,7 +139,7 @@ class Main extends Component {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <footer>
             <hr />
             <p className="pull-right">

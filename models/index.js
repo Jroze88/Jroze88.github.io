@@ -3,6 +3,6 @@
 module.exports = {
   Article: require("./Article"),
   Note: require("./Note"),
-  friendFinder: require('./Friendfinder')
+  friendFinder: require('./Friendfinder'),
   NYT: require('./NYT')
 };
