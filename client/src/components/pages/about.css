@@ -3,3 +3,8 @@ body {
   background-size: contain  !important;
   background-repeat: 'no-repeat'  !important;
 }
+
+
+.contactdiv {
+  top: 80vh;
+}
