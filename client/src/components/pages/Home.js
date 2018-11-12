@@ -123,7 +123,7 @@ class Intro extends Component {
           
                       thisIsntEvenMyFinalForm();
           
-                  },8500);
+                  },6500);
           
               }
           
@@ -132,8 +132,8 @@ class Intro extends Component {
           var thisIsntEvenMyFinalForm = function () {
           
               
-              $('.namediv').fadeIn(900);
-              $('.navbar').fadeIn(900);
+              $('.namediv').fadeIn(1300);
+              $('.navbar').fadeIn(1300);
               $('.dot').css('display', 'none')
           
           
@@ -424,7 +424,7 @@ class Intro extends Component {
 					Fast
 				</div>
 				<div id="DIV_9">
-					Fast load times and lag free interaction, my highest priority.
+					Fast load times and lag free interaction.
 				</div>
 			</div>
 		</div>
@@ -439,7 +439,7 @@ class Intro extends Component {
 					Responsive
 				</div>
 				<div id="DIV_16">
-					My layouts will work on any device, big or small.
+					Layouts that work on any device.
 				</div>
 			</div>
 		</div>
@@ -456,7 +456,7 @@ class Intro extends Component {
 					Intuitive
 				</div>
 				<div id="DIV_24">
-					Strong preference for easy to use, intuitive UX/UI.
+					Easy to use, intuitive, UX/UI.
 				</div>
 			</div>
 		</div>
@@ -471,7 +471,7 @@ class Intro extends Component {
 					Dynamic
 				</div>
 				<div id="DIV_31">
-					Websites don't have to be static, I love making pages come to life.
+					Making pages come to life.
 				</div>
 			</div>
 		</div>
