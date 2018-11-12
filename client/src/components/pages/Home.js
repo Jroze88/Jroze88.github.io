@@ -100,31 +100,11 @@ class Intro extends Component {
           
               setTimeout(function() {
           
-                  var aboutMe = document.createElement('div');
-                  var contact = document.createElement('div');
-                  var portfolio = document.createElement('div');
-                  var trending = document.createElement('div');
-                  var stockprices = document.createElement('div');
-                  
-                  
-          
-                  aboutMe.id = 'aboutme';
-                  contact.id = 'contact';
-                  portfolio.id = 'portfolio';
-                  trending.id = 'trending';
-                  stockprices.id = 'stockprices';
-          
-                  document.getElementById("starfield").appendChild(aboutMe);
-                  document.getElementById("starfield").appendChild(contact);
-                  document.getElementById("starfield").appendChild(portfolio);
-                  document.getElementById("starfield").appendChild(trending);
-                  document.getElementById("starfield").appendChild(stockprices);
-          
-                  aboutMe.className = 'info';
-                  contact.className = 'info';
-                  portfolio.className = 'info';
-                  trending.className = 'info';
-                  stockprices.className = 'info';
+                  let blah = $('#DIV_1')
+
+                  blah.css('display', 'block')
+
+                  blah.addClass('info')
           
     
                   
@@ -154,6 +134,7 @@ class Intro extends Component {
               
               $('.namediv').fadeIn(900);
               $('.navbar').fadeIn(900);
+              $('.dot').css('display', 'none')
           
           
           
@@ -174,8 +155,8 @@ class Intro extends Component {
                   star.stop(true, true);
           
           
-                      y = (30 + (Math.floor(Math.random() * 5)))
-                      x = (50 + (Math.floor(Math.random() * 5)))
+                      y = (25 + (Math.floor(Math.random() * 5)))
+                      x = (20 + (Math.floor(Math.random() * 5)))
           
                       star.animate({top: y + "%", left: x + "%"}, 1200);
               }
@@ -187,8 +168,8 @@ class Intro extends Component {
                       
                    
           
-                      y = (75 + (Math.floor(Math.random() * 5)))
-                      x = (85 + (Math.floor(Math.random() * 5)))
+                      y = (45 + (Math.floor(Math.random() * 5)))
+                      x = (13 + (Math.floor(Math.random() * 5)))
           
                       star.animate({top: y + "%", left: x + "%"}, 1200);
               }
@@ -197,8 +178,8 @@ class Intro extends Component {
                   star = $("#" + i);   
                   
                   star.stop(true, true);
-                      y = (75 + (Math.floor(Math.random() * 5)))
-                      x = (17 + (Math.floor(Math.random() * 5)))
+                      y = (65 + (Math.floor(Math.random() * 5)))
+                      x = (20 + (Math.floor(Math.random() * 5)))
           
                       star.animate({top: y + "%", left: x + "%"}, 1200);
           
@@ -208,8 +189,8 @@ class Intro extends Component {
                       star = $("#" + i);   
                   
                   star.stop(true, true); 
-                      y = (42 + (Math.floor(Math.random() * 5)))
-                      x = (75 + (Math.floor(Math.random() * 5)))
+                      y = (25 + (Math.floor(Math.random() * 5)))
+                      x = (5 + (Math.floor(Math.random() * 5)))
           
                       star.animate({top: y + "%", left: x + "%"}, 1200);
                   }
@@ -223,8 +204,8 @@ class Intro extends Component {
                           star = $("#" + i);   
                   
                           star.stop(true, true); 
-                      y = (45 + (Math.floor(Math.random() * 5)))
-                      x = (26 + (Math.floor(Math.random() * 5)))
+                      y = (65 + (Math.floor(Math.random() * 5)))
+                      x = (5 + (Math.floor(Math.random() * 5)))
           
                       star.animate({top: y + "%", left: x + "%"}, 1200);
                   } 
@@ -427,8 +408,75 @@ class Intro extends Component {
           return(
               
             <div id="starfield">
-  <div className="namediv"><span className="name">Jano Roze</span><br></br><span className="title">&nbsp &nbsp &nbsp Full-Stack Developer</span>
+  <div className="namediv"><span className="name">Jano Roze</span><br></br><span className="title">STEM Disciplinarian <br></br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"&"} Full-Stack Developer</span>
   </div>
+
+  <div style={{display: 'none'}} id="DIV_1">
+	<div id="DIV_2">
+		<div id="DIV_3">
+			<div id="DIV_4">
+				<div id="DIV_5">
+					<i className = 'mdi mdi-speedometer' id="I_6"></i>
+				</div>
+			</div>
+			<div id="DIV_7">
+				<div id="DIV_8">
+					Fast
+				</div>
+				<div id="DIV_9">
+					Fast load times and lag free interaction, my highest priority.
+				</div>
+			</div>
+		</div>
+		<div id="DIV_10">
+			<div id="DIV_11">
+				<div id="DIV_12">
+					<i className='mdi mdi-cellphone-link' id="I_13"></i>
+				</div>
+			</div>
+			<div id="DIV_14">
+				<div id="DIV_15">
+					Responsive
+				</div>
+				<div id="DIV_16">
+					My layouts will work on any device, big or small.
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="DIV_17">
+		<div id="DIV_18">
+			<div id="DIV_19">
+				<div id="DIV_20">
+					<i className = 'mdi mdi-lightbulb-outline' id="I_21"></i>
+				</div>
+			</div>
+			<div id="DIV_22">
+				<div id="DIV_23">
+					Intuitive
+				</div>
+				<div id="DIV_24">
+					Strong preference for easy to use, intuitive UX/UI.
+				</div>
+			</div>
+		</div>
+		<div id="DIV_25">
+			<div id="DIV_26">
+				<div id="DIV_27">
+					<i className='mdi mdi-rocket' id="I_28"></i>
+				</div>
+			</div>
+			<div id="DIV_29">
+				<div id="DIV_30">
+					Dynamic
+				</div>
+				<div id="DIV_31">
+					Websites don't have to be static, I love making pages come to life.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
             <div className="hero-logo-circles">
                     <div className="blue1 blue1-rotate color"></div>

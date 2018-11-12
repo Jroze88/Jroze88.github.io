@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './about.css';
 
 class Contact extends Component {
 
@@ -14,7 +14,7 @@ class Contact extends Component {
     <div className="col-md-2"></div>
 
   <div id="aboutinfo" className="col-md-8">
-    <h1>About Page</h1><br></br><br></br>
+    <h1>Contact Page</h1><br></br><br></br>
     <p>
       Nunc pharetra finibus est at efficitur. Praesent sed congue diam. Integer gravida dui mauris,
       ut interdum nunc egestas sed. Aenean sed mollis diam. Nunc aliquet risus ac finibus porta. Nam
