@@ -11,9 +11,10 @@ const About = props => (
   <div id="aboutinfo" className="col-md-8">
     <h1>Hello!</h1><br></br><br></br>
     <p>
-      My name is Jano Roze, I am a Laboratory Researcher and Full Stack Developer. I am an enpassioned
-      problem solver, drawing upon a wide [array] of my own experiences and the insights of my peers to employ unique,
-      practical solutons. 
+      My name is Jano Roze, I am a Laboratory Researcher and Full Stack Developer. As an impassioned
+      problem solver, I draw upon a wide [array] of my own experiences and the insights of my peers to employ unique,
+      practical solutons. I enjoy working on various side projects and keeping up-to-date on the latest innovations in 
+      many different fields through scientific publications and reddit threads alike!
     </p>
   </div>
   <div className="col-md-2"></div>

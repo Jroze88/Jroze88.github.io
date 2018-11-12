@@ -4,8 +4,9 @@ import './about.css';
 
 const Learn = () => (
   <div className='more'>
-    <h1 className="text-center digital">Jano Roze: </h1>
     <p className="digital firstp">
+    <br></br>
+    <br></br>
       <u>{"Programming:"}</u><br></br>
       {"|"}<br></br>
       {"|"}<br></br>
@@ -41,7 +42,7 @@ const Learn = () => (
       {"|---- Express"}<br></br>
       {"|"}<br></br>
       {"|"}<br></br>
-      <u>{"'In Deveopment':"}</u><br></br>
+      <u>{'"In Deveopment..."'}</u><br></br>
       {"|"}<br></br>
       {"|"}<br></br>
       {"|---- C#"}<br></br>

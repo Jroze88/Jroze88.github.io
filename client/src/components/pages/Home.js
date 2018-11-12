@@ -7,6 +7,8 @@ class Intro extends Component {
     componentDidMount() {
       
 
+        console.log(process.env.REACT_APP_SECRET)
+
       $('body').css("background-image", 'url("/image/sky.jpg")');
 
       $('.navbar').css("display", "none");
@@ -123,7 +125,7 @@ class Intro extends Component {
           
                       thisIsntEvenMyFinalForm();
           
-                  },8500);
+                  },6500);
           
               }
           
@@ -132,8 +134,8 @@ class Intro extends Component {
           var thisIsntEvenMyFinalForm = function () {
           
               
-              $('.namediv').fadeIn(900);
-              $('.navbar').fadeIn(900);
+              $('.namediv').fadeIn(1300);
+              $('.navbar').fadeIn(1300);
               $('.dot').css('display', 'none')
           
           
@@ -421,10 +423,10 @@ class Intro extends Component {
 			</div>
 			<div id="DIV_7">
 				<div id="DIV_8">
-					Fast
+					Complete
 				</div>
 				<div id="DIV_9">
-					Fast load times and lag free interaction.
+					Start-to-finish App deployment.
 				</div>
 			</div>
 		</div>
@@ -436,10 +438,10 @@ class Intro extends Component {
 			</div>
 			<div id="DIV_14">
 				<div id="DIV_15">
-					Responsive
+					Scaling
 				</div>
 				<div id="DIV_16">
-					Working on any device, big or small.
+					Large-scale distribution infrastructure.
 				</div>
 			</div>
 		</div>
