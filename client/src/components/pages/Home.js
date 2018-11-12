@@ -7,7 +7,7 @@ class Intro extends Component {
     componentDidMount() {
       
 
-        console.log(process.env.REACT_APP_SECRET)
+     
 
       $('body').css("background-image", 'url("/image/sky.jpg")');
 
@@ -23,7 +23,7 @@ class Intro extends Component {
           
           
               
-          console.log("loaded");
+          console.log(process.env.E0);
           
           
           var x = $(".hardcover_front1");
