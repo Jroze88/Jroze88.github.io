@@ -23,7 +23,7 @@ class Intro extends Component {
           
           
               
-          console.log(process.env.E0);
+          console.log(process.env.REACT_APP_E0);
           
           
           var x = $(".hardcover_front1");
