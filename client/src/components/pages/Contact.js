@@ -32,7 +32,7 @@ class Contact extends Component {
  
     axios({
       method: "POST", 
-      url:"http://localhost:3001/sendmail", 
+      url:"/sendmail", 
       data: {
           name: rname,   
           email: remail,  
