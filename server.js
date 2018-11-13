@@ -6,10 +6,35 @@ db = require('./models')
 const mongoose = require('mongoose')
 const axios = require('axios')
 const cheerio = require('cheerio')
+const nodemailer = require('nodemailer');
+const E0 = process.env.E0 || 'happylizardman22@gmail.com'
+const E1 =  process.env.E1 || 'freefood2018'
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+
+
+
+let transport = {
+  host: 'smtp.gmail.com',
+  auth: {
+    user: E0,
+    pass: E1
+  }
+}
+
+let transporter = nodemailer.createTransport(transport)
+
+transporter.verify((error, success) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Server is ready to take messages');
+  }
+});
 
 
 
@@ -19,7 +44,38 @@ if (process.env.NODE_ENV === "production") {
 
 }
 
+
 const mm = mongoose.connect(process.env.MONGODB_URI || "mongodb://testaccount:fakepassword1@ds241493.mlab.com:41493/deploytest", { useNewUrlParser : true});
+
+
+app.post('/sendmail', (req, res, next) => {
+  var name = req.body.name
+  var email = req.body.email
+  var message = req.body.message
+  var content = `name: ${name} \n email: ${email} \n message: ${message} `
+
+  var mail = {
+    from: name,
+    to: process.env.E0 || 'happylizardman22@gmail.com',  //Change to email address that you want to receive messages on
+    subject: 'New Message from Contact Form',
+    text: content
+  }
+
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
+      res.json({
+        msg: 'fail'
+      })
+    } else {
+      res.json({
+        msg: 'success'
+      })
+    }
+  }
+  );
+
+});
+
 
 app.get("/get/friends", function(req, res) {
 

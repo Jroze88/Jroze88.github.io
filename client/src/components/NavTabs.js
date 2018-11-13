@@ -5,7 +5,7 @@ import './navtabs.css';
 
 
 
-const NavTabs = () => (
+const NavTabs = props => (
 
 <ul>
 

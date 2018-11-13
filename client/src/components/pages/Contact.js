@@ -1,31 +1,52 @@
 import React, { Component } from 'react';
 import './about.css';
+import API from "../../utils/API";
 import axios from 'axios';
 
 class Contact extends Component {
 
 
-  handleSubmit(e){
+  state = {
+    userInfo : {
+      name : '',
+      email : '',
+      message: ''
+    }
+  }
+
+
+  handleSubmit = e => {
+
     e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+
+    let rname = ''
+    let remail = ''
+    let rmessage = ''
+    
+
+    rname = document.getElementById('name').value;
+    remail = document.getElementById('email').value;
+    rmessage = document.getElementById('message').value;
+
+
+ 
     axios({
-        method: "POST", 
-        url:"http://localhost:3002/send", 
-        data: {
-            name: name,   
-            email: email,  
-            messsage: message
-        }
-    }).then((response)=>{
-        if (response.data.msg === 'success'){
-            alert("Message Sent."); 
-            this.resetForm()
-        }else if(response.data.msg === 'fail'){
-            alert("Message failed to send.")
-        }
-    })
+      method: "POST", 
+      url:"http://localhost:3001/sendmail", 
+      data: {
+          name: rname,   
+          email: remail,  
+          messsage: rmessage
+      }
+  }).then((response)=>{
+      if (response.data.msg === 'success'){
+          alert("Message Sent."); 
+          this.resetForm()
+      }else if(response.data.msg === 'fail'){
+          alert("Message failed to send.")
+      }
+  })
+
 }
 
 
@@ -38,29 +59,37 @@ resetForm(){
 
 
     return(
+      <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
+<div className='row nameaddressrow'>
 
-  <div className="textdiv row">
-    <div className="col-md-2"></div>
+<div className='col-md-8 form-group'>
 
-  <div id="aboutinfo" className="col-md-8">
-  <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
-    <div className="form-group">
         <label for="name">Name</label>
-        <input type="text" className="form-control" id="name" />
+        <input type="text" autocomplete="new-password" className="form-control" id="name" />
+        <label className = 'emailabel'>Email address</label>
+        <input type="email" autocomplete="new-password" className='form-control' id="email" aria-describedby="emailHelp" />
+
+
     </div>
-    <div className="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
+    <div className='col-md-4'></div>
     </div>
-    <div className="form-group">
+<div className = 'row'>
+<div className='col-md-8'>
+<div className="form-group">
         <label for="message">Message</label>
-        <textarea className="form-control" rows="5" id="message"></textarea>
+        <textarea className="form-control" autocomplete="new-password" rows="5" id="message"></textarea>
     </div>
-    <button type="submit" className="btn btn-primary">Submit</button>
+    </div>
+    <div className='col-md-4'></div>
+    </div>
+    <div className = 'row'>
+<div className='col-md-8 form-group'>
+<button type="submit" className="btn submitform btn-primary">Submit</button>
+    </div>
+    <div className='col-md-4'></div>
+
+    </div>
 </form>
-  </div>
-  <div className="col-md-2"></div>
-  </div>
 
     )}
 };

@@ -30,6 +30,10 @@ getFriends : function (userInfo) {
   // Retrieves saved articles from the db
   getArticle: function() {
     return axios.get("/api/saved");
+  },
+
+  sendMail: function(name, email, message) {
+    return axios.get('/sendmail')
   }
 
 }

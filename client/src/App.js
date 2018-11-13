@@ -28,7 +28,7 @@ class App extends Component {
         <NavTabs />
         <Route exact path ="/" component={Home} />
         <Route path="/about" component={About} />
-        <Route exact path="/contact" component={Contact} />
+        <Route exact path="/contact" exact component={Contact} />
         <Route exact path="/articles" component={Article} />
         <Route exact path="/projects" component={Projects} />
         <Route exact path="/friendfinder" component={QuizQuestion} />

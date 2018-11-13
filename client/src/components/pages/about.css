@@ -35,7 +35,7 @@ h1 {
   color: rgb(124, 120, 133);
 }
 
-.btn {
+.learnmore, .learnless {
   position: relative;
   left: 10vw;
   color: rgb(124, 120, 133);
@@ -72,6 +72,50 @@ p {
 
 }
 
+#contact-form {
+  position: relative;
+  top: 20vh;
+  width: 60vw;
+  height: 70vh;
+}
+
+.submitform {
+  position: relative;
+  bottom: 0 !important;
+}
+
+#email {
+  bottom: 0 !important;
+  position: absolute !important;
+  opacity: 1 !important;
+  width: 400px !important;
+  height: 70px !important;
+  border: white !important;
+  cursor: text;
+  border-radius: 25px !important;
+  display: block;
+  background: rgb(82, 77, 77) !important;
+
+}
+
+#name {
+  background: rgb(82, 77, 77) !important;
+}
+
+.emailabel {
+  bottom: -14vh !important;
+  position: relative !important;
+  opacity: 1 !important;
+  display: block;
+}
+
+#message {
+  background: rgb(82, 77, 77) !important;
+}
+
+.nameaddressrow {
+  height: 35vh;
+}
 
 
 
