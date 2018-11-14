@@ -425,4 +425,6 @@ const spread =()=> {
         )
     }}
 
+
+
     export default ClickyGame

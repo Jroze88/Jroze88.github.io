@@ -1,0 +1,19 @@
+.page-footer {
+    position: absolute;
+    bottom: -30vh;
+  width: 100%;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.footertext, .cp {
+    font-size: 0.8em;
+    padding: 10px;
+    margin: 10px;
+
+}
+
+.footertext > strong {
+    color: rgb(78, 78, 78);
+}
+

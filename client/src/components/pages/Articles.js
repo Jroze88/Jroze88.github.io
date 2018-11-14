@@ -20,6 +20,8 @@ class Articles extends Component {
 
       e.preventDefault()
 
+      $('footer').css('bottom', '-200vh')
+
 
 
 
@@ -55,6 +57,7 @@ class Articles extends Component {
     
     render() {
         return(
+          <div>
             <div className="textdiv row">
             <div className="col-md-1"></div>
             <div className="col-md-5 current">
@@ -103,18 +106,9 @@ class Articles extends Component {
             
             </div>
             <div className="col-md-1"></div>
-            <div className="row contactdiv">
-            <div className="col-md-4"></div>
-            <div className="col-md-4 button">
-                
-                <button className="btn btn-danger" onClick={(e) => this.clickHandler(e)}>Go Fetch!</button>
-            
-            
-            </div>
-            <div className="col-md-4"></div>           
-            
-            
-            </div>
+            <button className="btn fetchbtn btn-danger" onClick={(e) => this.clickHandler(e)}>Go Fetch!</button>
+          </div>
+          
           </div>
         )
     };

@@ -1,6 +1,5 @@
 import React, { Component}  from 'react';
 import './nameprompt.css'
-import { Link } from "react-router-dom";
 
 
 
@@ -77,5 +76,6 @@ render() {
 
     )}
 }
+
 
     export default NamePrompt

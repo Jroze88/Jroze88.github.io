@@ -893,7 +893,11 @@ animation: spin1 6s infinite linear;
   .lotr {
     width: 100%;
     height: 100%;
-    background-image: url("/img/lotr.jpg");
+    background-image: url("/img/lotr.jpg"),     radial-gradient(
+        circle closest-side,
+        yellow,
+        #f06d06
+      );;
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -903,22 +907,30 @@ animation: spin1 6s infinite linear;
     width: 50%;
     height:50%;
     bottom: -20%;
-    left: -10%;
+    left: -40%;
     margin:0;
   }
 
   .flyinsoup {
     width: 100%;
     height: 100%;
-    background-image: url("/img/flyinsoup.jpg");
-    background-size: contain;
+    background-image: url("/img/flyinsoup.jpg"),     radial-gradient(
+        circle closest-side,
+        yellow,
+        #f06d06
+      );;
+    background-size: cover;
     background-repeat: no-repeat;
   }
 
   .pipboy {
     width: 100%;
     height: 100%;
-    background-image: url("/img/pipboy.jpg");
+    background-image: url("/img/pipboy.jpg"),     radial-gradient(
+        circle closest-side,
+        yellow,
+        #f06d06
+      );;
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -926,15 +938,23 @@ animation: spin1 6s infinite linear;
   .myhero {
     width: 100%;
     height: 100%;
-    background-image: url("/img/myhero.png");
+    background-image: url("/img/myhero.png"),     radial-gradient(
+        circle closest-side,
+        yellow,
+        #f06d06
+      );;
     background-size: contain;
     background-repeat: no-repeat;
   }
   .intelman {
     width: 100%;
     height: 100%;
-    background-image: url("/img/intelman.png");
-    background-size: contain;
+    background-image: url("/img/intelman.png"),     radial-gradient(
+        circle closest-side,
+        yellow,
+        #f06d06
+      );;
+    background-size: cover;
     background-repeat: no-repeat;
   }
 
@@ -2225,4 +2245,28 @@ animation: spin1 6s infinite linear;
 }/*#DIV_31:before*/
 
 
+.proj {
+    border-style: solid;
+    border-width: 5px;
+    border-color:#4d4340;
+    
+}
 
+.giftastic {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('/img/catface.jpg'),     radial-gradient(
+        circle closest-side,
+        yellow,
+        #f06d06
+      );
+}
+
+.caption {
+    font-size: 20px;
+    color: white; 
+    text-align: center;
+    background-color: #4d4340;
+}

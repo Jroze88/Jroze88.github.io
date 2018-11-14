@@ -7,8 +7,8 @@ const mongoose = require('mongoose')
 const axios = require('axios')
 const cheerio = require('cheerio')
 const nodemailer = require('nodemailer');
-const E0 = process.env.E0 || 'happylizardman22@gmail.com'
-const E1 =  process.env.E1 || 'freefood2018'
+const E0 = process.env.E0
+const E1 =  process.env.E1 
 
 
 // Define middleware here
@@ -53,6 +53,8 @@ app.post('/sendmail', (req, res, next) => {
   var email = req.body.email
   var message = req.body.message
   var content = `name: ${name} \n email: ${email} \n message: ${message} `
+
+  console.log(req.body.message)
 
   var mail = {
     from: name,

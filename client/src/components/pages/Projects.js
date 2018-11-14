@@ -20,34 +20,38 @@ class Projects extends Component {
             <div>
             <div className="textdiv row">
             <div className="col-2"></div>
-            <div className="col-2">
+            <div className="leftedge col-2">
 
-                <div className="lotr">
+                <div className="proj lotr">
                     <a href="https://Jroze88.github.io/TriviaGame/index">
                     <img className="projector" alt="The One Ring" src={ require('../../img/tele3.svg') } />
                     </a>
                 </div>
+                <div class="caption center-block">LOTR Riddles</div>
             
             </div>
             <div className="col-2"></div>
             <div className="col-2"> 
             
             
-            <div className="flyinsoup">
+            <div className="proj flyinsoup">
             <a href="https://evansimonross.github.io/Fly-in-Soup/">
                     <img className="projector" alt="A fly in some soup" src={ require('../../img/tele2.svg') } />
                     </a>
 
-                </div></div>
+                </div>
+                <div class="caption center-block">NYC Restaurant Food Grades</div>
+                </div>
             <div className="col-2"></div>
-            <div className="col-2">
+            <div className="col-2 edge">
             
             
-            <div className="pipboy">
+            <div className="proj pipboy">
                     <a href="https://Jroze88.github.io/Word-Guess-Game/index">
                     <img className="projector" alt="Pipboy from Fallout" src={ require('../../img/tele4.svg') } />
                     </a>
-                </div></div>
+                </div>
+                <div class="caption center-block">Video Game Hangman</div></div>
 
 
             </div>
@@ -55,13 +59,14 @@ class Projects extends Component {
 
             <div className ="row contactdiv">
 
-                <div className="col-2">
+                <div className="leftedge int col-2">
                 
-                <div className="intelman">
+                <div className="proj intelman">
                         <a href="https://intelman.herokuapp.com/">
                     <img className="projector" alt="Einstein" src={ require('../../img/tele3.svg') } />
                         </a>
-                 </div>       
+                 </div>    
+                 <div class="caption center-block">Automated Scripts</div>   
                 </div>
 
                 
@@ -69,31 +74,31 @@ class Projects extends Component {
                 
 
                 <div className="col-2">                </div>
-                <div className="col-2">
+                <div className="leftedge col-2">
 
-                                    <div className="myhero">
+                                    <div className="proj myhero">
                                     <a href="https://Jroze88.github.io/unit-4-game/index">
                     <img className="projector" alt="Almight!" src={ require('../../img/tele5.svg') } />
                     </a>
                 </div>
-                
+                <div class="caption center-block">MyHeroAcademia RPG (For Santiago!)</div>
                 </div>
                 <div className="col-2">          
 
                     
 
                 </div>
-                <div className="col-2">
+                <div className="catedge col-2">
                 
                 
-                <div className="giftastic">
+                <div className="proj giftastic">
                 <a href="https://Jroze88.github.io/GifTastic/index" >
-                                    <img className="projector" alt="Cat peeking" src={ require('../../img/tele5.svg') } />
+                                    <img className="projector" alt="Cat peeking" src={ require('../../img/tele3.svg') } />
                                     </a>
 
 
                 </div>
-                
+                <div class="caption center-block">Reaction Image Generator</div>
                 </div>
                 <div className="col-2"></div>
             
@@ -107,5 +112,6 @@ class Projects extends Component {
         )
     }
 }
+
 
 export default Projects

@@ -3,6 +3,7 @@ import './about.css';
 import API from "../../utils/API";
 import axios from 'axios';
 
+
 class Contact extends Component {
 
 
@@ -26,10 +27,13 @@ class Contact extends Component {
 
     rname = document.getElementById('name').value;
     remail = document.getElementById('email').value;
-    rmessage = document.getElementById('message').value;
+    rmessage = document.getElementsByClassName('message').value;
 
 
- 
+    console.log(rmessage)
+    
+
+
     axios({
       method: "POST", 
       url:"/sendmail", 
@@ -59,12 +63,13 @@ resetForm(){
 
 
     return(
+        <div>
       <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
 <div className='row nameaddressrow'>
 
 <div className='col-md-8 form-group'>
 
-        <label for="name">Name</label>
+        <label htmlFor="name">Name</label>
         <input type="text" autocomplete="new-password" className="form-control" id="name" />
         <label className = 'emailabel'>Email address</label>
         <input type="email" autocomplete="new-password" className='form-control' id="email" aria-describedby="emailHelp" />
@@ -76,8 +81,8 @@ resetForm(){
 <div className = 'row'>
 <div className='col-md-8'>
 <div className="form-group">
-        <label for="message">Message</label>
-        <textarea className="form-control" autocomplete="new-password" rows="5" id="message"></textarea>
+        <label htmlFor="message">Message</label>
+        <textarea className="form-control message" autocomplete="new-password" rows="5" id="message"></textarea>
     </div>
     </div>
     <div className='col-md-4'></div>
@@ -90,8 +95,10 @@ resetForm(){
 
     </div>
 </form>
+</div>
 
     )}
 };
+
 
 export default Contact;

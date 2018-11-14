@@ -45,3 +45,15 @@ strong {
     background-color: #b21f2e;
 }
 
+.fetchbtn {
+    width: 210px !important;
+    height: 60px !important;
+    font-size: 1.4em !important;
+    position: relative !important;
+    margin: 0;
+    bottom: 0;
+    left: calc(40vw - 105px);
+    padding: 0.4 em, 1.6 em !important;
+    background-color: #b21f2e !important;
+}
+
