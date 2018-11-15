@@ -1,11 +1,40 @@
-import React from "react";
+import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import logo from '../logo.svg';
 import './navtabs.css';
+import $ from 'jquery';
 
 
 
-const NavTabs = props => (
+class NavTabs extends Component {
+
+
+  state = {
+    menu : 'up'
+  }
+
+  clickHandler(e) {
+    e.preventDefault()
+
+    if (this.state.menu === 'up') {
+
+    $('.dropdown-menu').css('display', 'block')
+      this.setState({
+        menu : 'down'
+      })
+
+    } else if (this.state.menu === 'down') {
+      $('.dropdown-menu').css('display', 'none')
+      this.setState({
+        menu : 'up'
+      })
+    }
+
+
+  }
+
+  render() {
+return (
 
 <ul>
 
@@ -21,16 +50,42 @@ const NavTabs = props => (
   </a>
     
     </li>
-    <li className="nav-item active">
+    <li className="nav-item  active">
                           <Link
                           to="/projects"
                           className={
-                            window.location.pathname === "/projects" ? "nav-link active" : "nav-link"
+                            window.location.pathname === "/projects" ? "imp nav-link active" : "imp nav-link"
                           }
                         >
                           Projects
                         </Link>
     </li>
+
+    <li className="nav-item  active">
+                <Link
+                          to="/contact"
+                          className={
+                            window.location.pathname === "/contact" ? "imp nav-link active" : "imp nav-link"
+                          }
+                        >
+                          Contact
+                </Link>
+    
+    </li>
+    <li className="nav-item text-center  active">
+                <Link
+                          to="/about"
+                          className={
+                            window.location.pathname === "/about" ? "nav-link imp active" : " imp nav-link"
+                          }
+                        >
+                          About
+                </Link>
+    
+    </li>
+    <span style={{color: 'white'}} className="navbar-text">
+    &nbsp; Quick Additions:
+  </span>
     <li className="nav-item active">
                 <Link
                           to="/articles"
@@ -38,32 +93,43 @@ const NavTabs = props => (
                             window.location.pathname === "/articles" ? "nav-link active" : "nav-link"
                           }
                         >
-                          Articles
+                          eSports Tracker
                 </Link>
     
     </li>
     <li className="nav-item active">
                 <Link
-                          to="/contact"
+                          to="/nameprompt"
                           className={
-                            window.location.pathname === "/contact" ? "nav-link active" : "nav-link"
+                            window.location.pathname === "/nameprompt" || "/friendfinder" ? "nav-link active" : "nav-link"
                           }
                         >
-                          Contact
+                          Myers-Briggs Quiz
                 </Link>
     
     </li>
     <li className="nav-item active">
                 <Link
-                          to="/about"
+                          to="/clickygame"
                           className={
-                            window.location.pathname === "/about" ? "nav-link active" : "nav-link"
+                            window.location.pathname === "/clickygame" ? "nav-link active" : "nav-link"
                           }
                         >
-                          About
+                          React Card Clicker
                 </Link>
     
     </li>
+    <li className="nav-item dropdown">
+        <a onClick={(e) => this.clickHandler(e)} className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          More
+        </a>
+        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a className="dropdown-item" href="#"> LOTR Riddles</a>
+          <a className="dropdown-item" href="#">&#8594;Reaction Gifs</a>
+          <div className="dropdown-divider"></div>
+          <a className="dropdown-item" href="#">&#8594;NYC Health Inspections</a>
+        </div>
+      </li>
 
 
     </ul>
@@ -71,8 +137,8 @@ const NavTabs = props => (
 </nav>
 </ul>
 
-)
-
+)}
+}
 
 
 

@@ -5,6 +5,15 @@
   flex-flow: column;
 }
 
+.dropdown-menu {
+  background-color: rgb(83, 74, 74);
+}
+
+.dropdown-item {
+  color: white;
+}
+
+
 .animated-page-wrapper {
   position: absolute;
   top: 0;

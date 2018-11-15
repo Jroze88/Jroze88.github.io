@@ -426,7 +426,7 @@ class Intro extends Component {
 					Complete
 				</div>
 				<div id="DIV_9">
-					Start-to-finish App deployment.
+					Start-to-finish Website, Desktop/Mobile App deployment.
 				</div>
 			</div>
 		</div>
