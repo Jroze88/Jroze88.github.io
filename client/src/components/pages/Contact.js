@@ -64,15 +64,17 @@ resetForm(){
 
     return(
         <div>
-      <form className='contactstuff' id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
+      <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
 <div className='row nameaddressrow'>
 
 <div className='col-md-8 form-group'>
+        
+        <h1>Get in touch!</h1>
 
-        <label htmlFor="name">Name</label>
-        <input type="text" autocomplete="new-password" className="form-control" id="name" />
-        <label className = 'emailabel'>Email address</label>
-        <input type="email" autocomplete="new-password" className='form-control' id="email" aria-describedby="emailHelp" />
+        <label style={{display: 'none'}} htmlFor="name">Name</label>
+        <input placeholder="Name" type="text" autocomplete="new-password" className="form-control" id="name" />
+        <label style={{display: 'none'}} className = 'emailabel'>Email address</label>
+        <input placeholder="Email Address" type="email" autocomplete="new-password" className='form-control' id="email" aria-describedby="emailHelp" />
 
 
     </div>
@@ -81,8 +83,8 @@ resetForm(){
 <div className = 'row'>
 <div className='col-md-8'>
 <div className="form-group">
-        <label htmlFor="message">Message</label>
-        <textarea className="form-control message" autocomplete="new-password" rows="5" id="message"></textarea>
+        <label style={{display: 'none'}} htmlFor="message">Message</label>
+        <textarea placeholder="Message:" className="form-control message" autocomplete="new-password" rows="5" id="message"></textarea>
     </div>
     </div>
     <div className='col-md-4'></div>

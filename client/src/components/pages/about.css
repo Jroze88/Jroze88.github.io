@@ -3,9 +3,17 @@
   src: url('./04B.TTF');
 
 }
+
+@font-face {
+  font-family: 'Asap';
+  src: url('https://fonts.googleapis.com/css?family=Asap');
+
+}
+
 body {
   background-size: contain  !important;
   background-repeat: 'no-repeat'  !important;
+  font-family: 'Asap'
 }
 
 
@@ -37,28 +45,23 @@ h1 {
 .learnmore, .learnless {
   position: relative;
   left: 10vw;
-  color: rgb(202, 199, 209);
+  color: rgb(255, 255, 255);
   font-family: 'Courier New', Courier, monospace;
   background-color: grey;
+  top:10vh !important;
 }
 
-.btn > .learnmore, .learnless {
-
-  background-color: grey !important;
-
-}
-
-.btn > .learnless, .learnmores {
-
-  background-color: grey !important;
-
-}
 
 
 .firstp {
   position: relative;
   left: 10%;
   font-size: 1em;
+}
+
+.more {
+  position: relative;
+  top: 130%;
 }
 
 .secondp {
@@ -90,6 +93,11 @@ p {
   top: 20vh;
   width: 60vw;
   height: 70vh;
+  left: 10vw;
+}
+
+h1{
+  color: white;
 }
 
 .submitform {
@@ -105,14 +113,15 @@ p {
   height: 70px !important;
   border: white !important;
   cursor: text;
-  border-radius: 25px !important;
   display: block;
-  background: rgb(82, 77, 77) !important;
+  background: rgb(221, 216, 216) !important;
 
 }
 
 #name {
-  background: rgb(82, 77, 77) !important;
+  background: rgb(221, 216, 216) !important;
+  bottom: 75px;
+  border-radius: inherit !important;
 }
 
 .emailabel {
@@ -123,7 +132,8 @@ p {
 }
 
 #message {
-  background: rgb(82, 77, 77) !important;
+  background: rgb(221, 216, 216) !important;
+  width: 500px;
 }
 
 .nameaddressrow {

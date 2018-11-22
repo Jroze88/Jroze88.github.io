@@ -45,6 +45,12 @@ class Footer extends Component {
              
           }
 
+          if (window.location.pathname === '/about') {
+          
+            $('footer').css('bottom', '-60vh');
+        
+        }
+
         
 
 
@@ -65,6 +71,13 @@ class Footer extends Component {
       }
 
       componentDidMount() {
+
+        
+        if (window.location.pathname === '/about') {
+          
+            $('footer').css('bottom', '-60vh');
+        
+        }
 
         if (window.location.pathname === '/' || '' || '/home' || '/Home') {
             $('body').css("background-image", 'url("/img/black.jpg")');

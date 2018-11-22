@@ -414,9 +414,7 @@ const spread =()=> {
                   </div>
           </li>
         </ul>
-        
-        <button className="stack">Stack</button>
-        <button className="spread">Spread</button>
+
         
       </div>
       </div>

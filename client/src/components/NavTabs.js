@@ -54,7 +54,7 @@ return (
                           <Link
                           to="/projects"
                           className={
-                            window.location.pathname === "/projects" ? "imp nav-link active" : "imp nav-link"
+                            window.location.pathname === "/projects" ? "imp nav-link active" : "nav-link"
                           }
                         >
                           Projects
@@ -65,7 +65,7 @@ return (
                 <Link
                           to="/contact"
                           className={
-                            window.location.pathname === "/contact" ? "imp nav-link active" : "imp nav-link"
+                            window.location.pathname === "/contact" ? "imp nav-link active" : "nav-link"
                           }
                         >
                           Contact
@@ -76,7 +76,7 @@ return (
                 <Link
                           to="/about"
                           className={
-                            window.location.pathname === "/about" ? "nav-link imp active" : " imp nav-link"
+                            window.location.pathname === "/about" ? "nav-link imp active" : " nav-link"
                           }
                         >
                           About
@@ -86,18 +86,18 @@ return (
     <span style={{color: 'white'}} className="navbar-text">
     &nbsp; Quick Additions:
   </span>
-    <li className="nav-item floatl active">
+    <li className="nav-item active">
                 <Link
                           to="/articles"
                           className={
-                            window.location.pathname === "/articles" ? "nav-link active" : "nav-link"
+                            window.location.pathname === "/articles" ? "imp nav-link active" : "nav-link"
                           }
                         >
                           eSports Tracker
                 </Link>
     
     </li>
-    <li className="nav-item floatl active">
+    <li className="nav-item active">
                 <Link
                           to="/nameprompt"
                           className={
@@ -108,18 +108,18 @@ return (
                 </Link>
     
     </li>
-    <li className="nav-item floatl active">
+    <li className="nav-item active">
                 <Link
                           to="/clickygame"
                           className={
-                            window.location.pathname === "/clickygame" ? "nav-link active" : "nav-link"
+                            window.location.pathname === "/clickygame" ? "imp nav-link active" : "nav-link"
                           }
                         >
                           React Card Clicker
                 </Link>
     
     </li>
-    <li className="nav-item floatl dropdown">
+    <li className="nav-item dropdown">
         <a onClick={(e) => this.clickHandler(e)} className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           More
         </a>
