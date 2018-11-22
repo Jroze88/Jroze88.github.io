@@ -86,7 +86,7 @@ return (
     <span style={{color: 'white'}} className="navbar-text">
     &nbsp; Quick Additions:
   </span>
-    <li className="nav-item active">
+    <li className="nav-item floatl active">
                 <Link
                           to="/articles"
                           className={
@@ -97,7 +97,7 @@ return (
                 </Link>
     
     </li>
-    <li className="nav-item active">
+    <li className="nav-item floatl active">
                 <Link
                           to="/nameprompt"
                           className={
@@ -108,7 +108,7 @@ return (
                 </Link>
     
     </li>
-    <li className="nav-item active">
+    <li className="nav-item floatl active">
                 <Link
                           to="/clickygame"
                           className={
@@ -119,7 +119,7 @@ return (
                 </Link>
     
     </li>
-    <li className="nav-item dropdown">
+    <li className="nav-item floatl dropdown">
         <a onClick={(e) => this.clickHandler(e)} className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           More
         </a>

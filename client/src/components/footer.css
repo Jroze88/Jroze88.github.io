@@ -4,6 +4,7 @@
   width: 100%;
   margin-bottom: 0;
   padding-bottom: 0;
+  z-index: 5;
 }
 
 .footertext, .cp {
@@ -14,6 +15,18 @@
 }
 
 .footertext > strong {
-    color: rgb(78, 78, 78);
+    color: rgb(255, 255, 255);
+}
+
+.footertext {
+    color: rgb(196, 195, 195);
+}
+
+.footerlink {
+    color: rgb(139, 144, 168);
+}
+
+nav {
+    width: 100vw !important;
 }
 

@@ -64,7 +64,7 @@ resetForm(){
 
     return(
         <div>
-      <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
+      <form className='contactstuff' id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
 <div className='row nameaddressrow'>
 
 <div className='col-md-8 form-group'>

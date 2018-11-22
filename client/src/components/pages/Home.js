@@ -17,7 +17,7 @@ class Intro extends Component {
         window.onload = function() {
 
 
-            
+            $('html').css('background-image', 'url("/img/black.jpg")')
        
           
           
@@ -411,7 +411,7 @@ class Intro extends Component {
             <div id="starfield">
   <div className="namediv"><span className="name">Jano Roze</span><br></br><span className="title">STEM Disciplinarian <br></br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"&"} Full-Stack Developer</span>
   </div>
-
+    
   <div style={{display: 'none'}} id="DIV_1">
 	<div id="DIV_2">
 		<div id="DIV_3">
@@ -421,10 +421,10 @@ class Intro extends Component {
 				</div>
 			</div>
 			<div id="DIV_7">
-				<div id="DIV_8">
+				<div className='squaretext' id="DIV_8">
 					Complete
 				</div>
-				<div id="DIV_9">
+				<div className='squaretext' id="DIV_9">
 					Start-to-finish Website, Desktop/Mobile App deployment.
 				</div>
 			</div>
@@ -436,10 +436,10 @@ class Intro extends Component {
 				</div>
 			</div>
 			<div id="DIV_14">
-				<div id="DIV_15">
+				<div className='squaretext'  id="DIV_15">
 					Scaling
 				</div>
-				<div id="DIV_16">
+				<div className='squaretext'  id="DIV_16">
 					Large-scale distribution infrastructure.
 				</div>
 			</div>
@@ -453,10 +453,10 @@ class Intro extends Component {
 				</div>
 			</div>
 			<div id="DIV_22">
-				<div id="DIV_23">
+				<div className='squaretext'  id="DIV_23">
 					Intuitive
 				</div>
-				<div id="DIV_24">
+				<div className='squaretext'  id="DIV_24">
 					Easy to use, intuitive, UX/UI.
 				</div>
 			</div>
@@ -468,10 +468,10 @@ class Intro extends Component {
 				</div>
 			</div>
 			<div id="DIV_29">
-				<div id="DIV_30">
+				<div className='squaretext'  id="DIV_30">
 					Dynamic
 				</div>
-				<div id="DIV_31">
+				<div className='squaretext'  id="DIV_31">
 					Making pages come to life.
 				</div>
 			</div>

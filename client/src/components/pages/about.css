@@ -4,7 +4,6 @@
 
 }
 body {
-  background-image: url('/img/sky.jpg')  !important;
   background-size: contain  !important;
   background-repeat: 'no-repeat'  !important;
 }
@@ -18,7 +17,7 @@ body {
 
 .digital {
   font-family: '4b';
-  color: rgb(100, 189, 73);
+  color: rgb(226, 226, 226);
 }
 
 u {
@@ -28,18 +27,31 @@ u {
 p {
   display: inline-block;
   margin-left: 45px;
-  color: rgb(124, 120, 133);
+  color: rgb(216, 214, 221);
 }
 
 h1 {
-  color: rgb(124, 120, 133);
+  color: rgb(213, 209, 223);
 }
 
 .learnmore, .learnless {
   position: relative;
   left: 10vw;
-  color: rgb(124, 120, 133);
+  color: rgb(202, 199, 209);
   font-family: 'Courier New', Courier, monospace;
+  background-color: grey;
+}
+
+.btn > .learnmore, .learnless {
+
+  background-color: grey !important;
+
+}
+
+.btn > .learnless, .learnmores {
+
+  background-color: grey !important;
+
 }
 
 
@@ -69,6 +81,7 @@ p {
 .learnmore {
   position:relative;
   left: 30vw;
+  background-color: grey;
 
 }
 
@@ -81,7 +94,7 @@ p {
 
 .submitform {
   position: relative;
-  bottom: 0 !important;
+  bottom: 10% !important;
 }
 
 #email {
@@ -115,6 +128,18 @@ p {
 
 .nameaddressrow {
   height: 35vh;
+}
+
+.contactstuff {
+  background-color: white;
+  width: 80vw !important;
+}
+
+.abouttext {
+  background-color: grey;
+  padding: 20px;
+  text-align: center;
+  color: rgb(170, 160, 160);
 }
 
 

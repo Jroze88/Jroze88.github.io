@@ -5,11 +5,25 @@
   flex-flow: column;
 }
 
-#root {
-  background-size: cover;
+html {
+  height: 100%;
+  background-image: url('/img/wallpaper.png') !important;
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
-
+  background-size: cover;
+  background-size: 100%;
 }
+
+body {
+  background-color: #282c3400 !important;
+}
+
+html {
+  height: 100%;
+}
+
+
 
 .dropdown-menu {
   background-color: rgb(83, 74, 74);
@@ -56,3 +70,5 @@
     transform: rotate(360deg);
   }
 }
+
+
