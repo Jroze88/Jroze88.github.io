@@ -9,8 +9,17 @@ import $ from 'jquery';
 class Footer extends Component {
 
     componentDidUpdate() {
+
+    
+        if (window.location.pathname !== '/' || '' || '/home' || '/Home') {
+            $('#root').css("background-image", 'url("/img/wallpaper.png")');
+            $('#root').css('background-size', 'cover')
+            $('body').css('background-color', 'rgb(68, 65, 65)')
+        }
+
         if (window.location.pathname === '/about/learn') {
           $('footer').css('visibility', 'hidden')
+          
         } else {
             $('footer').css('visibility', 'visible') 
            
@@ -18,6 +27,7 @@ class Footer extends Component {
 
 
         if (window.location.pathname === '/projects') {
+            $('body').css('background-image', 'url("/img/supernova.jpg")')
             $('footer').css('bottom', '-50vh')
             $('.contactdiv').css('top', '65vh');
             $('.edge').css('position', 'relative')
@@ -33,8 +43,17 @@ class Footer extends Component {
       }
 
       componentDidMount() {
+
+      
+        if (window.location.pathname !== '/' || '' || '/home' || '/Home') {
+            $('#root').css("background-image", 'url("/img/wallpaper.png")');
+            $('#root').css('background-size', 'cover')
+            $('body').css('background-color', 'rgb(68, 65, 65)')
+        }
+
         if (window.location.pathname === '/about/learn') {
           $('footer').css('visibility', 'hidden')
+          
         } else {
             $('footer').css('visibility', 'visible') 
            
@@ -42,6 +61,7 @@ class Footer extends Component {
 
 
         if (window.location.pathname === '/projects') {
+            $('body').css('background-image', 'url("/img/supernova.jpg")')
             $('footer').css('bottom', '-50vh')
             $('.contactdiv').css('top', '65vh');
             $('.edge').css('position', 'relative')

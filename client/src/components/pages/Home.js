@@ -6,10 +6,10 @@ class Intro extends Component {
 
     componentDidMount() {
       
-
+        var aggregateTimer;
      
 
-      $('body').css("background-image", 'url("/image/sky.jpg")');
+
 
       $('.navbar').css("display", "none");
 
@@ -18,12 +18,12 @@ class Intro extends Component {
 
 
             
-          "use strict";    
+       
           
           
           
               
-          console.log(process.env.REACT_APP_E0);
+         
           
           
           var x = $(".hardcover_front1");
@@ -88,9 +88,7 @@ class Intro extends Component {
           var g =0;
           var k = 0;
           
-          var aggregateTimer;
-          
-          var starfield = document.getElementById('starfield')
+
           
           
           var superBright = function() {
@@ -136,7 +134,8 @@ class Intro extends Component {
               
               $('.namediv').fadeIn(1300);
               $('.navbar').fadeIn(1300);
-              $('.dot').css('display', 'none')
+              $('.dot').css('display', 'none');
+              
           
           
           

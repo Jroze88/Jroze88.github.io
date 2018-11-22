@@ -7,12 +7,12 @@ class Intro extends Component {
     componentDidMount() {
         window.onload = function() {
             
-          "use strict";    
+ 
           
           
           
               
-          console.log("loaded");
+       
           
           
           var x = $(".hardcover_front1");

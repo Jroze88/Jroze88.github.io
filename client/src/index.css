@@ -35,6 +35,7 @@
   position: relative;
   top: 4px;
 }
+
 .breadcrumb a:hover {
   text-decoration: none;
 }
@@ -77,6 +78,12 @@ body {
   background-size: cover;
   background-repeat: 'no-repeat';
 }
+
+#root {
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

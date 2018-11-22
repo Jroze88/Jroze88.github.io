@@ -8,7 +8,10 @@ class Projects extends Component {
 
     componentDidMount() {
 
-        $('body').css("background-image", 'url("/image/supernova.jpg")');
+        
+        
+        
+        
 
     }
 
@@ -27,7 +30,7 @@ class Projects extends Component {
                     <img className="projector" alt="The One Ring" src={ require('../../img/tele3.svg') } />
                     </a>
                 </div>
-                <div class="caption center-block">LOTR Riddles</div>
+                <div className="caption center-block">LOTR Riddles</div>
             
             </div>
             <div className="col-2"></div>
@@ -40,7 +43,7 @@ class Projects extends Component {
                     </a>
 
                 </div>
-                <div class="caption center-block">NYC Restaurant Food Grades</div>
+                <div className="caption center-block">NYC Restaurant Food Grades</div>
                 </div>
             <div className="col-2"></div>
             <div className="col-2 edge">
@@ -51,7 +54,7 @@ class Projects extends Component {
                     <img className="projector" alt="Pipboy from Fallout" src={ require('../../img/tele4.svg') } />
                     </a>
                 </div>
-                <div class="caption center-block">Video Game Hangman</div></div>
+                <div className="caption center-block">Video Game Hangman</div></div>
 
 
             </div>
@@ -66,7 +69,7 @@ class Projects extends Component {
                     <img className="projector" alt="Einstein" src={ require('../../img/tele3.svg') } />
                         </a>
                  </div>    
-                 <div class="caption center-block">Automated Scripts</div>   
+                 <div className="caption center-block">Automated Scripts</div>   
                 </div>
 
                 
@@ -81,7 +84,7 @@ class Projects extends Component {
                     <img className="projector" alt="Almight!" src={ require('../../img/tele5.svg') } />
                     </a>
                 </div>
-                <div class="caption center-block">MyHeroAcademia RPG (For Santiago!)</div>
+                <div className="caption center-block">MyHeroAcademia RPG (For Santiago!)</div>
                 </div>
                 <div className="col-2">          
 
@@ -98,7 +101,7 @@ class Projects extends Component {
 
 
                 </div>
-                <div class="caption center-block">Reaction Image Generator</div>
+                <div className="caption center-block">Reaction Image Generator</div>
                 </div>
                 <div className="col-2"></div>
             

@@ -13,6 +13,7 @@ import QuizQuestion from './components/pages/QuizQuestion'
 import Name from './components/pages/nameprompt'
 import Main from "./components/pages/Main";
 import Randomtables from "./components/pages/randomtables";
+import Footer from './components/Footer';
 
        /* <Route exact path="/friendquiz" component={QuizQuestion} /> */
 
@@ -26,6 +27,7 @@ class App extends Component {
       <Router>
       <div>
         <NavTabs />
+        <Footer />
         <Route exact path ="/" component={Home} />
         <Route path="/about" component={About} />
         <Route exact path="/contact" exact component={Contact} />

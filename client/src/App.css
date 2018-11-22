@@ -5,6 +5,12 @@
   flex-flow: column;
 }
 
+#root {
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
 .dropdown-menu {
   background-color: rgb(83, 74, 74);
 }
