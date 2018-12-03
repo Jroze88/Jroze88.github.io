@@ -1,0 +1,694 @@
+
+@font-face {
+    font-family: 'Asap';
+    src: url('https://fonts.googleapis.com/css?family=Asap');
+  
+  }
+
+
+
+
+
+body {
+    background-color: black !important;
+}
+
+ .dot {
+
+      margin:0;
+      padding:0;
+      height: 3px;
+      width: 3px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      -moz-box-shadow: 0px 0px 30px 2px rgb(163, 235, 235);
+     -webkit-box-shadow: 0px 0px 30px 2px rgb(163, 235, 235);
+     box-shadow: 0px 0px 30px 2px rgb(163, 235, 235);
+ }
+
+ .finaldot {
+     display: none;
+ }
+
+
+
+ @keyframes shadowPulse {
+  0% {
+      box-shadow: 0px 0px 30px 2px rgb(163, 235, 235);
+      height: 3px;
+      width: 3px;
+  }
+
+  40% {
+      box-shadow: 0px 0px 40px 140px whitesmoke;
+  }
+
+  100% {
+      box-shadow: 0px 60px 30px 2px rgb(19, 17, 17);
+      height: 0px;
+      width: 0px;
+  }
+}
+
+.name {
+  font-size: 2em;
+
+}
+
+.title {
+  margin-top: 0.2em;
+  padding:0;
+  font-family: 'Asap';
+ font-size: 0.5EM;
+}
+
+.shadow-pulse {
+  animation-name: shadowPulse;
+  animation-duration: 8.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+      opacity: 0.0;
+  }
+
+  100% {
+      opacity: 1.0;
+  }
+}
+
+.info {
+  margin:0;
+  padding:0;
+
+  animation-name: fade-in;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+
+  position: relative;
+  top: 40%;
+}
+
+
+.hardcover_front1 {
+  background:
+          radial-gradient(black 15%, transparent 16%) 0 0,
+          radial-gradient(black 15%, transparent 16%) 8px 8px,
+          radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+          radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+          background-color:#282828;
+          background-size:16px 16px;
+}
+
+.hardcover_front2 {
+  background:
+            radial-gradient(black 15%, transparent 16%) 0 0,
+            radial-gradient(black 15%, transparent 16%) 8px 8px,
+            radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+            radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+            background-color:#282828;
+            background-size:16px 16px;
+}
+
+
+
+#aboutme {
+ 
+  padding: 0;
+  margin: 0;
+  top: 30%;
+  left: calc(50% - 120px);
+  background-image: url('/img/galaxy.jpg');
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+#contact {
+ 
+  padding: 0;
+  margin: 0;
+  top: 70%;
+  left: 80%;
+  background-image: url('/img/whitegalaxy.gif');
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+#portfolio {
+ 
+  padding: 0;
+  margin: 0;
+  top: 70%;
+  left: 10%;
+  background-image: url('/img/redgalaxy.gif');
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+#trending {
+
+  padding: 0;
+  margin: 0;
+  top: 40%;
+  left: 65%;
+  background-image: url('/img/purplegalaxy.gif');
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+#stockprices {
+ 
+  padding: 0;
+  margin: 0;
+  top: 40%;
+  left: 20%;
+  background-image: url('/img/greengalaxy.gif');
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+
+ul {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+a {
+color: #2c3e50;
+text-decoration: none;
+}
+
+
+.hardcover_front1 img {
+    width:100%;
+    height:200%;
+    }
+    
+    .hardcover_front2 img {
+    width:100%;
+    height:200%;
+    }
+    
+    .align {
+    position:absolute;
+    clear: both;
+    margin:0;
+    padding:0;
+    width: 50%;
+    height:100%;
+      left:0;
+      top:0;
+    }
+    
+    .align2 {
+    position:absolute;
+    clear: both;
+    margin:0;
+    padding:0;
+    width: 50%;
+    height:100%;
+      right:0;
+      top:0;
+    }
+    
+    
+    .align > li {
+    width: 100%;
+    min-height: 100%;
+    padding:0;
+    margin:0;
+    display: inline-block;
+    left:0;
+    
+    }
+    
+    .align2 > li {
+    width: 100%;
+    min-height: 100%;
+    padding:0;
+    margin:0;
+    display: inline-block;
+    right:0;
+    
+    }
+    
+    #left_cover {
+    position:relative;
+    width:100%;
+    height:100%;
+    margin:0;
+    left:0;
+      background-color:red;
+      top:0;
+    }
+    
+    #right_cover {
+    position:relative;
+    width:100%;
+    height:100%;
+    margin:0;
+    right:0;
+      background-color:yellow;
+      top:0;
+    
+    }
+    
+    /* ///////////////////////////////////////////////////
+    
+    HARDCOVER
+    Table of Contents
+    
+    1. container
+    2. background & color
+    3. opening cover, back cover and pages
+    4. position, transform y transition
+    5. events
+    6. Bonus
+    - Cover design
+    - Ribbon
+    - Figcaption
+    7. mini-reset
+    
+    /////////////////////////////////////////////////////*/
+    
+    /*
+    1. container
+    */
+    
+    .component {
+    width:100%;
+    height:100%;
+    padding:0;
+    margin:0;
+    }
+    
+    .book {
+    position: absolute;
+    left:0;
+    margin:0;
+    padding:0;
+    width: 100%; 
+    height: 100%;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    }
+    
+    .book2 {
+    position: absolute;
+    right:0;
+    margin:0;
+    padding:0;
+    width: 100%; 
+    height: 100%;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    }
+    
+    
+    /* HARDCOVER FRONT */
+    .hardcover_front2 li:first-child {
+    background-color: red;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    }
+    
+    
+    
+    /* thickness of cover */
+    
+    
+    
+    
+    
+    
+    /* .hardcover_front1 {
+    -webkit-transform: rotateY(-14deg) translateZ(8px);
+    -moz-transform: rotateY(-14deg) translateZ(8px);
+    transform: rotateY(-14deg) translateZ(8px);
+    z-index: 100;
+    }
+    
+    .hardcover_front2 {
+    -webkit-transform: rotateY(14deg) translateZ(8px);
+    -moz-transform: rotateY(14deg) translateZ(8px);
+    transform: rotateY(14deg) translateZ(8px);
+    z-index: 100;
+    } */
+    
+    
+    /*
+    4. position, transform & transition
+    */
+    
+    .hardcover_front1,
+    .hardcover_front2,
+    .book_spine,
+    .hardcover_front1 li,
+    .hardcover_back li,
+    .book_spine li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    }
+    
+    .hardcover_animation1 {
+    -webkit-transform-origin: -30% 100%;
+    -moz-transform-origin: -30% 100%;
+    transform-origin: -30% 100%;
+    }
+    
+    .hardcover_animation2 {
+    -webkit-transform-origin: 130% 100%;
+    -moz-transform-origin: 130% 100%;
+    transform-origin: 130% 100%;
+    }
+    
+    .hardcover_animation1 {
+    -webkit-transition: all 1.8s ease-in;
+    -moz-transition: all 1.8s ease-in;
+    transition: all 1.8s ease-in;
+    }
+    
+    .hardcover_animation2 {
+    -webkit-transition: all 1.8s ease-in;
+    -moz-transition: all 1.8s ease-in;
+    transition: all 1.8s ease-in;
+    }
+    
+    
+    .hardcover_animation1 {
+    animation-iteration-count: 1;
+    -webkit-transform: rotateY(-90deg) translateZ(0);
+    -moz-transform: rotateY(-90deg) translateZ(0);
+    transform: rotateY(-90deg) translateZ(0);
+    z-index: 0;
+    }
+    
+    .hardcover_animation2 {
+    animation-iteration-count: 1;
+    -webkit-transform: rotateY(90deg) translateZ(0);
+    -moz-transform: rotateY(90deg) translateZ(0);
+    transform: rotateY(90deg) translateZ(0);
+    z-index: 0;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    /* Media Queries */
+    @media screen and (max-width: 37.8125em) {
+    .align > li {
+      width: 100%;
+      height:100%;
+      height: auto;
+      padding: 0;
+      margin:0;
+    }
+    
+    .book {
+      margin: 0 auto;
+    }
+    
+    
+    }
+    
+    .hero-logo-circles {
+      position:absolute;
+      margin:0;
+      left:calc(50vw - 160px);
+      padding-top:calc(50vh - 160px);
+      width:366px;
+      height:100vh;
+      display: block;
+      z-index: 3;
+      
+    }
+    
+    .color {
+        max-width:320px;
+        max-height:320px;
+    }
+    
+    
+    @-webkit-keyframes spin1 {
+    0% { transform-origin: center; -webkit-transform: rotate(0deg);}
+    100% {transform-origin: center; -webkit-transform: rotate(360deg);}
+    }
+    @-moz-keyframes spin1 {
+    0% {transform-origin: center; -moz-transform: rotate(0deg);}
+    100% {transform-origin: center; -moz-transform: rotate(360deg);}
+    }
+    @-o-keyframes spin1 {
+    0% {transform-origin: center; -o-transform: rotate(0deg);}
+    100% {transform-origin: center; -o-transform: rotate(360deg);}
+    }
+    @-ms-keyframes spin1 {
+    0% {transform-origin: center; -ms-transform: rotate(0deg);}
+    100% {transform-origin: center; -ms-transform: rotate(360deg);}
+    }
+    @-keyframes spin1 {
+    0% {transform-origin: center; transform: rotate(0deg);}
+    100% {transform-origin: center; transform: rotate(360deg);}
+    }
+    
+    @-keyframes turbospin {
+      0% {transform-origin: center; transform: rotate(0deg);}
+      100% {transform-origin: center; transform: rotate(360deg);}
+      }
+    
+      @-webkit-keyframes turbospin {
+          0% {transform-origin: center; transform: rotate(0deg);}
+          100% {transform-origin: center; transform: rotate(360deg);}
+          }
+          @-o-keyframes turbospin {
+              0% {transform-origin: center; transform: rotate(0deg);}
+              100% {transform-origin: center; transform: rotate(360deg);}
+              }
+              @-ms-keyframes turbospin {
+                  0% {transform-origin: center; transform: rotate(0deg);}
+                  100% {transform-origin: center; transform: rotate(360deg);}
+                  }
+                  @-moz-keyframes turbospin {
+                      0% {transform-origin: center; transform: rotate(0deg);}
+                      100% {transform-origin: center; transform: rotate(360deg);}
+                      }
+    
+    
+    .turbospin {
+      
+          animation-name: turbospin;
+          animation-duration: 0.5s;
+          animation-iteration-count: 3;
+          animation-timing-function: linear;
+      
+    }
+    
+    
+    .blue1 {
+      display: block;
+      background-image:url("/img/blue1.svg");
+      position: absolute;
+      margin:0;
+      padding:0;
+      width:366px;
+      height:366px;
+      background-size:100%;
+      background-repeat:no-repeat;
+      -webkit-animation: spin1 30s infinite linear;
+    -moz-animation: spin1 30s infinite linear;
+    -o-animation: spin1 30s infinite linear;
+    -ms-animation: spin1 30s infinite linear;
+    animation: spin1 30s infinite linear;
+      /* // iteration; // duration; timing // */
+    }
+    
+      .blue2 {
+        background-image:url("/img/blue2.svg");
+        position: absolute;
+        display: block;
+        margin:0;
+        padding:0;
+        width:366px;
+        height:366px;
+        background-size:100%;
+        background-repeat:no-repeat;
+        -webkit-animation: spin1 25s infinite linear;
+      -moz-animation: spin1 25s infinite linear;
+      -o-animation: spin1 25s infinite linear;
+      -ms-animation: spin1 25s infinite linear;
+      animation: spin1 25s infinite linear;
+      }
+    
+      .green1 {
+        background-image:  url("/img/green1.svg");
+        position: absolute;
+        display: block;
+        margin:0;
+        padding:0;
+        width:366px;
+        height:366px;
+        background-size:100%;
+        background-repeat:no-repeat;
+        -webkit-animation: spin1 42s infinite linear;
+      -moz-animation: spin1 42s infinite linear;
+      -o-animation: spin1 42s infinite linear;
+      -ms-animation: spin1 42s infinite linear;
+      animation: spin1 42s infinite linear;
+      }
+    
+      .green2 {
+        display: block;
+      background-image:  url("/img/green2.svg");
+      position: absolute;
+      margin:0;
+      padding:0;
+      width:366px;
+      height:366px;
+      background-size:100%;;
+      background-repeat:no-repeat;
+      -webkit-animation: spin1 38s infinite linear;
+    -moz-animation: spin1 38s infinite linear;
+    -o-animation: spin1 38s infinite linear;
+    -ms-animation: spin1 38s infinite linear;
+    animation: spin1 38s infinite linear;
+      }
+    
+      .yellow1 {
+        display: block;
+      background-image:  url("/img/yellow1.svg");
+      position: absolute;
+      margin:0;
+      padding:0;
+      width:366px;
+      height:366px;
+      background-size:100%;;
+      background-repeat:no-repeat;
+      -webkit-animation: spin1 47s infinite linear;
+    -moz-animation: spin1 47s infinite linear;
+    -o-animation: spin1 47s infinite linear;
+    -ms-animation: spin1 47s infinite linear;
+    animation: spin1 47s infinite linear;
+      }
+    
+      .yellow2 {
+        display: block;
+        background-image:url("/img/yellow2.svg");
+        position: absolute;
+        margin:0;
+        padding:0;
+        width:366px;
+        height:366px;
+        background-size:100%;
+        background-repeat:no-repeat;
+        -webkit-animation: spin1 27s infinite linear;
+      -moz-animation: spin1 27s infinite linear;
+      -o-animation: spin1 27s infinite linear;
+      -ms-animation: spin1 27s infinite linear;
+      animation: spin1 27s infinite linear;
+      }
+    
+      .orange1 {
+        display: block;
+          background-image:url("/img/orange1.svg");
+          position: absolute;
+          width:366px;
+          height:366px;
+          margin:0;
+          padding:0;
+          background-size:100%;
+          background-repeat:no-repeat;
+          -webkit-animation: spin1 39s infinite linear;
+        -moz-animation: spin1 39s infinite linear;
+        -o-animation: spin1 39s infinite linear;
+        -ms-animation: spin1 39s infinite linear;
+        animation: spin1 39s infinite linear;
+    
+      }
+    
+      .orange2 {
+        display: block;
+      background-image:  url("/img/orange2.svg");
+      position: absolute;
+      margin:0;
+      padding:0;
+      width:366px;
+      height:366px;
+      background-size:100%;
+      background-repeat:no-repeat;
+      -webkit-animation: spin1 6s infinite linear;
+    -moz-animation: spin1 6s infinite linear;
+    -o-animation: spin1 6s infinite linear;
+    -ms-animation: spin1 6s infinite linear;
+    animation: spin1 6s infinite linear;
+      }
+    
+      .red1 {
+        display: block;
+        background-image:url("/img/red1.svg");
+        position: absolute;
+        width:366px;
+        height:366px;
+        margin:0;
+        padding:0;
+    
+        background-size:100%;
+        background-repeat:no-repeat;
+        -webkit-animation: spin1 22s infinite linear;
+      -moz-animation: spin1 22s infinite linear;
+      -o-animation: spin1 22s infinite linear;
+      -ms-animation: spin1 22s infinite linear;
+      animation: spin1 22s infinite linear;
+      }
+    
+      .red2 {
+        display: block;
+        background-image:url("/img/red2.svg");
+        position: absolute;
+        margin:0;
+        padding:0;
+        width:366px;
+        height:366px;
+        background-size:100%;
+        background-repeat:no-repeat;
+        -webkit-animation: spin1 17s infinite linear;
+      -moz-animation: spin1 17s infinite linear;
+      -o-animation: spin1 17s infinite linear;
+      -ms-animation: spin1 17s infinite linear;
+      animation: spin1 17s infinite linear;
+      }
+
+      .namediv {
+        line-height: 0.8em;
+        position:absolute;
+        width:500px;
+        left: calc(54% - 150px);
+        bottom: 35%;
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 2em;
+        color: rgb(240, 235, 235);
+        display: none;
+        font-family: 'Asap';
+      }

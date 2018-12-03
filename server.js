@@ -9,6 +9,9 @@ const cheerio = require('cheerio')
 const nodemailer = require('nodemailer');
 const E0 = process.env.E0
 const E1 =  process.env.E1 
+const faker = require("faker");
+const AccessToken = require("twilio").jwt.AccessToken;
+const VideoGrant = AccessToken.VideoGrant;
 
 
 // Define middleware here
@@ -77,6 +80,38 @@ app.post('/sendmail', (req, res, next) => {
   );
 
 });
+
+app.get('/token', function(req, res) {
+  var identity = faker.name.findName();
+
+  let token = new AccessToken(
+
+    proccess.env.TWILIO_ACCOUNT_SID,
+    process.env.TWILIO_API_KEY,
+    process.env.TWILIO_API_SECRET
+
+
+  );
+
+  token.identity = identity;
+
+  const grant = new VideoGrant();
+
+  token.addGrant(grant);
+
+  console.log(token)
+  console.log(token.toJwt())
+
+
+  res.send({
+    identity:identity,
+    token: token.toJwt()
+  });
+
+
+
+
+})
 
 
 app.get("/get/friends", function(req, res) {

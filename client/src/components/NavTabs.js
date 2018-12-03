@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
-import logo from '../logo.svg';
-import './navtabs.css';
+import {Nav, Navbar, NavItem, MenuItem, NavDropdown} from 'react-bootstrap'
 import $ from 'jquery';
+import logo from '../logo.svg';
 
 
 
@@ -34,108 +33,53 @@ class NavTabs extends Component {
   }
 
   render() {
+
+    
+
+    const styles ={
+      logoStyle : {
+      width: '30%',
+      height: '30%'
+    },
+    navStuff : {
+      position: 'relative',
+      width: '100vw',
+      left: '0',
+      marginBottom : '0'
+    }
+  }
+
+
 return (
 
-<ul>
+<Navbar style={styles.navStuff} inverse collapseOnSelect>
+  <Navbar.Header>
+    <Navbar.Brand pullLeft>
 
-<nav className="col-md-12 navbar fixed-top navbar-expand-md navbar-light bg-faded">
+    <img style={styles.logoStyle} src={logo} className="brand" alt="" />
 
-<div className="collapse navbar-collapse bg-transparent" id="navbarNav">
+    </Navbar.Brand>
+  </Navbar.Header>
+  <Nav pullRight>
+    <NavItem eventKey={1} href="/about">
+      About
+    </NavItem>
+    <NavItem eventKey={2} href="/contact">
+      Contact
+    </NavItem>
+    <NavItem eventKey={3} href="/projects">
+      Projects
+    </NavItem>
+    <NavDropdown eventKey={4} title="Dropdown" id="basic-nav-dropdown">
+      <MenuItem eventKey={4.1}>Action</MenuItem>
+      <MenuItem eventKey={4.2}>Another action</MenuItem>
+      <MenuItem eventKey={4.3}>Something else here</MenuItem>
+      <MenuItem divider />
+      <MenuItem eventKey={4.4}>Separated link</MenuItem>
+    </NavDropdown>
+  </Nav>
+</Navbar>
 
-  <ul className="navbar-nav">
-    <li className ="nav-item">
-
-      <a className="navbar-brand" href="https://reactjs.org/">
-    <img src={logo} className="brand" alt="" />
-  </a>
-    
-    </li>
-    <li className="nav-item  active">
-                          <Link
-                          to="/projects"
-                          className={
-                            window.location.pathname === "/projects" ? "imp nav-link active" : "nav-link"
-                          }
-                        >
-                          Projects
-                        </Link>
-    </li>
-
-    <li className="nav-item  active">
-                <Link
-                          to="/contact"
-                          className={
-                            window.location.pathname === "/contact" ? "imp nav-link active" : "nav-link"
-                          }
-                        >
-                          Contact
-                </Link>
-    
-    </li>
-    <li className="nav-item text-center  active">
-                <Link
-                          to="/about"
-                          className={
-                            window.location.pathname === "/about" ? "nav-link imp active" : " nav-link"
-                          }
-                        >
-                          About
-                </Link>
-    
-    </li>
-    <span style={{color: 'white'}} className="navbar-text">
-    &nbsp; Quick Additions:
-  </span>
-    <li className="nav-item active">
-                <Link
-                          to="/articles"
-                          className={
-                            window.location.pathname === "/articles" ? "imp nav-link active" : "nav-link"
-                          }
-                        >
-                          eSports Tracker
-                </Link>
-    
-    </li>
-    <li className="nav-item active">
-                <Link
-                          to="/nameprompt"
-                          className={
-                            window.location.pathname === "/nameprompt" || "/friendfinder" ? "nav-link active" : "nav-link"
-                          }
-                        >
-                          Myers-Briggs Quiz
-                </Link>
-    
-    </li>
-    <li className="nav-item active">
-                <Link
-                          to="/clickygame"
-                          className={
-                            window.location.pathname === "/clickygame" ? "imp nav-link active" : "nav-link"
-                          }
-                        >
-                          React Card Clicker
-                </Link>
-    
-    </li>
-    <li className="nav-item dropdown">
-        <a onClick={(e) => this.clickHandler(e)} className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          More
-        </a>
-        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a className="dropdown-item" href="#"> LOTR Riddles</a>
-          <a className="dropdown-item" href="#">&#8594;Reaction Gifs</a>
-          <div className="dropdown-divider"></div>
-          <a className="dropdown-item" href="#">&#8594;NYC Health Inspections</a>
-        </div>
-      </li>
-
-
-    </ul>
-</div>
-</nav>
-</ul>
 
 )}
 }

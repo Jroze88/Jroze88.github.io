@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import './intro.css'
 
 
 class Intro extends Component {
 
     componentDidMount() {
+      
+        var aggregateTimer;
+     
+
+
+      $('.navbar').css("display", "none");
+
+
         window.onload = function() {
-            
- 
+
+
+            $('html').css('background-image', 'url("/img/black.jpg")')
+       
           
           
           
               
-       
+         
           
           
           var x = $(".hardcover_front1");
@@ -77,9 +88,7 @@ class Intro extends Component {
           var g =0;
           var k = 0;
           
-          var aggregateTimer;
-          
-          var starfield = document.getElementById('starfield')
+
           
           
           var superBright = function() {
@@ -91,31 +100,11 @@ class Intro extends Component {
           
               setTimeout(function() {
           
-                  var aboutMe = document.createElement('div');
-                  var contact = document.createElement('div');
-                  var portfolio = document.createElement('div');
-                  var trending = document.createElement('div');
-                  var stockprices = document.createElement('div');
-                  
-                  
-          
-                  aboutMe.id = 'aboutme';
-                  contact.id = 'contact';
-                  portfolio.id = 'portfolio';
-                  trending.id = 'trending';
-                  stockprices.id = 'stockprices';
-          
-                  document.getElementById("starfield").appendChild(aboutMe);
-                  document.getElementById("starfield").appendChild(contact);
-                  document.getElementById("starfield").appendChild(portfolio);
-                  document.getElementById("starfield").appendChild(trending);
-                  document.getElementById("starfield").appendChild(stockprices);
-          
-                  aboutMe.className = 'info';
-                  contact.className = 'info';
-                  portfolio.className = 'info';
-                  trending.className = 'info';
-                  stockprices.className = 'info';
+                  let blah = $('#DIV_1')
+
+                  blah.css('display', 'block')
+
+                  blah.addClass('info')
           
     
                   
@@ -134,7 +123,7 @@ class Intro extends Component {
           
                       thisIsntEvenMyFinalForm();
           
-                  },8500);
+                  },6500);
           
               }
           
@@ -143,8 +132,12 @@ class Intro extends Component {
           var thisIsntEvenMyFinalForm = function () {
           
               
-              $('.namediv').fadeIn(900);
-              $('.navbar').fadeIn(900);
+              $('.namediv').fadeIn(1300);
+              $('.navbar').fadeIn(1300);
+              $('.dot').css('display', 'none');
+              setTimeout(function() {
+                window.location.href = "/home"
+              },4550)
           
           
           
@@ -165,8 +158,8 @@ class Intro extends Component {
                   star.stop(true, true);
           
           
-                      y = (30 + (Math.floor(Math.random() * 5)))
-                      x = (50 + (Math.floor(Math.random() * 5)))
+                      y = (25 + (Math.floor(Math.random() * 5)))
+                      x = (20 + (Math.floor(Math.random() * 5)))
           
                       star.animate({top: y + "%", left: x + "%"}, 1200);
               }
@@ -178,8 +171,8 @@ class Intro extends Component {
                       
                    
           
-                      y = (75 + (Math.floor(Math.random() * 5)))
-                      x = (85 + (Math.floor(Math.random() * 5)))
+                      y = (45 + (Math.floor(Math.random() * 5)))
+                      x = (13 + (Math.floor(Math.random() * 5)))
           
                       star.animate({top: y + "%", left: x + "%"}, 1200);
               }
@@ -188,8 +181,8 @@ class Intro extends Component {
                   star = $("#" + i);   
                   
                   star.stop(true, true);
-                      y = (75 + (Math.floor(Math.random() * 5)))
-                      x = (17 + (Math.floor(Math.random() * 5)))
+                      y = (65 + (Math.floor(Math.random() * 5)))
+                      x = (20 + (Math.floor(Math.random() * 5)))
           
                       star.animate({top: y + "%", left: x + "%"}, 1200);
           
@@ -199,8 +192,8 @@ class Intro extends Component {
                       star = $("#" + i);   
                   
                   star.stop(true, true); 
-                      y = (42 + (Math.floor(Math.random() * 5)))
-                      x = (75 + (Math.floor(Math.random() * 5)))
+                      y = (25 + (Math.floor(Math.random() * 5)))
+                      x = (5 + (Math.floor(Math.random() * 5)))
           
                       star.animate({top: y + "%", left: x + "%"}, 1200);
                   }
@@ -214,8 +207,8 @@ class Intro extends Component {
                           star = $("#" + i);   
                   
                           star.stop(true, true); 
-                      y = (45 + (Math.floor(Math.random() * 5)))
-                      x = (26 + (Math.floor(Math.random() * 5)))
+                      y = (65 + (Math.floor(Math.random() * 5)))
+                      x = (5 + (Math.floor(Math.random() * 5)))
           
                       star.animate({top: y + "%", left: x + "%"}, 1200);
                   } 
@@ -417,12 +410,10 @@ class Intro extends Component {
       render() {
           return(
               
-            <div>
-
-
-  <div className="namediv"><span className="name">Jano Roze</span><br></br><span className="title">&nbsp &nbsp &nbsp Full-Stack Developer</span>
+            <div id="starfield">
+  <div className="namediv"><span className="name">Jano Roze</span><br></br><span className="title">STEM Disciplinarian <br></br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"&"} Full-Stack Developer</span>
   </div>
-
+  
             <div className="hero-logo-circles">
                     <div className="blue1 blue1-rotate color"></div>
                     <div className="blue2 color"></div>
@@ -435,14 +426,10 @@ class Intro extends Component {
                     <div className="green1 color"></div>
                     <div className="green2 color"></div>
                 </div>
-
-
     <ul className="align">
       <li>
         <figure className='book'>
-
           
-
           <ul className='hardcover_front1' id="left_cover">
             
             <li>
@@ -454,11 +441,9 @@ class Intro extends Component {
             
           </ul>
     
-
         </figure>
   </li>
       </ul>
-
       
       <ul className="align2">
         <figure className='book2'>
@@ -472,16 +457,12 @@ class Intro extends Component {
                 </li>
                 
               </ul> 
-
         </figure>
       
     </ul>
     </div>
           )
       }
-
-
-
 }
 
 export default Intro
