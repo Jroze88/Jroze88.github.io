@@ -39,7 +39,8 @@ class NavTabs extends Component {
     const styles ={
       logoStyle : {
       width: '30%',
-      height: '30%'
+      height: '30%',
+      padding: '10px'
     },
     navStuff : {
       position: 'relative',

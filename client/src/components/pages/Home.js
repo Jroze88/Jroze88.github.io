@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import $ from 'jquery'
 import { Carousel } from 'react-bootstrap'
 import About from './about'
+import Contact from './contact'
 
 
 class Home extends React.Component {
@@ -30,18 +31,24 @@ class Home extends React.Component {
         cardbg : {
           backgroundImage : 'url("/carousel.png"), url("/img/black.jpg")',
           width : '100vw',
-          height : '95vh'
+          height : '95vh',
         },
         textstyle : {
           color : 'white',
           fontSize : '2em',
           textAlign : 'center',
-          backgroundColor : 'rgba(0, 0, 0, 0.425)'
+          backgroundColor : 'rgba(0, 0, 0, 0.425)',
+          padding : '10px',
+          marginTop : '20px',
+          marginBottom : '10px'
         },
         subtext : {
           color : '#808080',
           fontSize : '0.7em',
           textAlign : 'center'
+        },
+        numbers : {
+          fontSize : '0.9em'
         }
       }
   
@@ -55,24 +62,22 @@ class Home extends React.Component {
           <Carousel.Item style = {style.cardbg}>
             <About subtext = {style.subtext} textstyle = {style.textstyle} />
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <br></br>
+              <h3 style={style.numbers}>[1/3]</h3>
+             
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item  style = {style.cardbg}>
-            <img width={'100%'} height={'90%'} style={{visibility: 'hidden'}} alt="900x500" src="/carousel.png" />
+          <Contact />
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3 style={style.numbers}>[2/3]</h3>
+              
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item style = {style.cardbg}>
             <img width={'100%'} height={'90%'} style={{visibility: 'hidden'}} alt="900x500" src="/carousel.png" />
             <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
+              <h3 style={style.numbers}>[3/3]</h3>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>

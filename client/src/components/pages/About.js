@@ -12,8 +12,8 @@ const About = props => (
     <h1>Hello!<br></br> My name is Jano Roze...</h1><br></br><br></br>
     <p>
       I am a Laboratory Researcher and Full Stack Developer. As an impassioned
-      problem solver, I am equally comfortable drawing upon a wide [array] of my own experiences, employing the insights of my peers or
-      independently hacking away at new technologies to create practical solutons. A true generalist, I am able to retain a deep skillset
+      problem solver I am equally comfortable drawing upon a wide [array] of my own experiences, employing the insights of my peers or
+      independently hacking away at new technologies to create practical solutons. A true generalist; able to retain a deep skillset
       in a wide range of topics and learn on the go. Please feel free to reach out by clicking the 'Contact' link in the navbar above!
     </p>
     <br></br>

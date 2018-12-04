@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './App.css';
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import NavTabs from './components/NavTabs'
+import Footer from './components/Footer'
 import $ from 'jquery'
 import {
   BrowserRouter as Router,
@@ -26,6 +27,14 @@ import Intro from './components/pages/Intro'
 
 class App extends Component {
   render() {
+
+    const style = {
+      body : {
+        
+      }
+    }
+
+
     return (
 
  
@@ -46,7 +55,7 @@ class App extends Component {
                   <Route exact path='/NYTsearch' component={Main} />
                   <Route exact path='/randomtables' component={Randomtables} />
                   <Route exact path='/videotest' component={VideoTest} /> */}
-             
+             <Footer />
              </div>      
     </Router>
 
