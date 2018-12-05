@@ -1,4 +1,5 @@
 import React from "react";
+import PageHeader from 'react-bootstrap'
 
 
 
@@ -28,7 +29,7 @@ const About = props => (
   <div className="col-md-2"></div>
 
   </div>
-  
+
 );
 
 export default About;

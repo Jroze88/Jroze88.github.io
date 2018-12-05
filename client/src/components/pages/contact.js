@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap'
 import axios from 'axios';
+import ModalPopup from './Modal'
 
 
 class Contact extends Component {
@@ -9,23 +10,29 @@ class Contact extends Component {
 
     
         this.state = {
-            userInfo : {
+        
               name : '',
               email : '',
               message: '',
               nmcounter: 0,
               mlcounter : 0,
               msgcounter : 0
-            }
+            
           }
         }
     
       getMessageValidationState() {
 
-        if (this.state.msgcounter > 10) return 'success';
+        if (this.state.msgcounter >= 10) return 'success';
         else if (this.state.msgcounter > 5) return 'warning';
         else if (this.state.msgcounter > 0) return 'error';
         return null;
+      }
+
+      getEmailValidationState() {
+        const emailcont = this.state.email
+        if (this.state.email === '') return null
+        else if (emailcont.includes('@')) return 'success';
       }
     
       handleNameChange(e) {
@@ -93,7 +100,7 @@ class Contact extends Component {
 
 resetForm(){
   this.setState({
-        userInfo : {
+     
           name : '',
           email : '',
           message: '',
@@ -101,7 +108,7 @@ resetForm(){
           mlcounter : 0,
           msgcounter : 0
         
-      }
+      
   })
 }
 
@@ -113,18 +120,10 @@ resetForm(){
           color : 'white'
           }
       }
-    const FieldGroup = function({ id, label, help, ...props })  {
-        return (
-          <FormGroup controlId={id}>
-            <ControlLabel>{label}</ControlLabel>
-            <FormControl {...props} />
-            
-          </FormGroup>
-        );
-    }
+
 
    return (
-
+    
         <div className="textdiv row">
         <div className="col-md-4"></div>
     
@@ -133,32 +132,45 @@ resetForm(){
         <Form >
 
     
-    <FieldGroup
-      id="forminlineText"
-      type="text"
-      placeholder="Enter text"
-      onChange = {(e) => this.handleNameChange(e)}
-    />
-    <FieldGroup
-      id="forminlineEmail"
-      type="email"
-      placeholder="Enter Email"
-      onChange = {(e) => this.handleEmailChange(e)}
-    /><br></br><br></br>
+    <FormGroup
+          type="text"
+      >     
+     <FormControl 
+     componentClass="textarea"
+    onChange = {(e) => this.handleNameChange(e)}
+    value = {this.state.name}
+    placeholder="Name" />
+     <FormControl.Feedback />
+     </FormGroup>
+
 
     <FormGroup
-    validationState={this.getMessageValidationState()}   
-    controlId="formBasicText">
+      type="text"      
+      validationState={this.getEmailValidationState()} 
+    >
+       <FormControl componentClass="textarea"
+        onChange = {(e) => this.handleEmailChange(e)}
+        validationState={this.getEmailValidationState()}  
+        value = {this.state.email}
+        placeholder="Email" />
+        <FormControl.Feedback />
+        </FormGroup>
+        <br></br><br></br>
+
+    <FormGroup
+    validationState={this.getMessageValidationState()}  
+    type='text' 
+    >
       <FormControl componentClass="textarea"
        onChange = {(e) => this.handleMessageChange(e)} 
-      
+       value = {this.state.message}
         placeholder="Shoot me a message:" />
         <FormControl.Feedback />
     </FormGroup>
     
         
     
-        <Button type="submit">Submit</Button>
+        <Button onClick={(e) => {this.handleSubmit(e)}} type="submit">Submit</Button>
       </Form>
       </div>
       <div className="col-md-4"></div>
