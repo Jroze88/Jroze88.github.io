@@ -33,7 +33,18 @@ render(){
 
 <Grid>
   <Row className='textdiv' Style={rowstyle}>
-    <Col xs={12} md={4}>
+    <Col xs={12} lg={4}>
+    {/* <Modal show={this.state.show} onHide={this.handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>{this.props.modalTitle}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+            {this.props.modalBody}
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={this.handleClose}>Close</Button>
+            </Modal.Footer>
+          </Modal> */}
     <Panel.Heading>
             <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
 
@@ -62,7 +73,7 @@ render(){
         </Panel>
 
     </Col>
-    <Col xs={12} md={4}>
+    <Col xs={12} lg={4}>
     <Panel.Heading>
             <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
 
@@ -88,7 +99,7 @@ render(){
         </Panel>
 
     </Col>
-    <Col xs={12} md={4}>
+    <Col xs={12} lg={4}>
     <Panel.Heading>
             <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
 
@@ -116,7 +127,7 @@ render(){
     </Col>
   </Row>
   <Row className='textdiv' Style={rowstyle}>
-    <Col xs={12} md={4}>
+    <Col xs={12} lg={4}>
     <Panel.Heading>
             <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
 
@@ -142,7 +153,7 @@ render(){
         </Panel>
 
     </Col>
-    <Col xs={12} md={4}>
+    <Col xs={12} lg={4}>
     <Panel.Heading>
             <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
 
@@ -168,7 +179,7 @@ render(){
         </Panel>
 
     </Col>
-    <Col xs={12} md={4}>
+    <Col xs={12} lg={4}>
     <Panel.Heading>
             <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
 
