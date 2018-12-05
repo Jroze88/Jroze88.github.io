@@ -2,8 +2,13 @@
   "name": "jroze",
   "version": "1.0.0",
   "description": "Jano Roze Port",
+    "engines": {
+    "node": "8.11.2",
+    "npm": "6.4.1"
+  },
   "main": "server.js",
   "scripts": {
+    "analyze": "source-map-explorer build/static/js/main.*",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
@@ -35,6 +40,7 @@
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
+    "source-map-explorer": "^1.6.0",
     "twilio": "^3.25.0",
     "twilio-video": "^2.0.0-beta4",
     "yarn": "^1.12.3"
