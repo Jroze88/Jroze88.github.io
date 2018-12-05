@@ -3,6 +3,7 @@ import $ from 'jquery'
 import { Carousel } from 'react-bootstrap'
 import About from './about'
 import Contact from './contact'
+import Projects from './projects'
 
 
 class Home extends React.Component {
@@ -75,7 +76,7 @@ class Home extends React.Component {
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item style = {style.cardbg}>
-            <img width={'100%'} height={'90%'} style={{visibility: 'hidden'}} alt="900x500" src="/carousel.png" />
+            <Projects />
             <Carousel.Caption>
               <h3 style={style.numbers}>[3/3]</h3>
             </Carousel.Caption>

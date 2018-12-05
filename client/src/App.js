@@ -11,10 +11,10 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
-// import About from "./components/pages/About"
-// import Contact from "./components/pages/Contact"
+import About from "./components/pages/about"
+import Contact from "./components/pages/contact"
 // import Article from "./components/pages/Articles"
-// import Projects from "./components/pages/Projects"
+import Projects from "./components/pages/projects"
 import Home from "./components/pages/Home"
 import Intro from './components/pages/Intro'
 // import ClickyGame from './components/pages/clickygame'
@@ -45,11 +45,10 @@ class App extends Component {
 
                <Route exact path ="/" component={Intro} />
                <Route exact path ="/home" component={Home} />
-                  {/* <Route path="/about" component={About} />
                   <Route exact path="/contact" exact component={Contact} />
-                  <Route exact path="/articles" component={Article} />
+                  {/* <Route exact path="/articles" component={Article} /> */}
                   <Route exact path="/projects" component={Projects} />
-                  <Route exact path="/friendfinder" component={QuizQuestion} />
+                  {/* <Route exact path="/friendfinder" component={QuizQuestion} />
                   <Route exact path='/name' component={Name}/> 
                   <Route exact path="/clickygame" component={ClickyGame} />
                   <Route exact path='/NYTsearch' component={Main} />

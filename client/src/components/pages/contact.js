@@ -116,19 +116,28 @@ resetForm(){
   render() {
       const formstyle = {
           card : {
-          marginTop : '10%',
-          color : 'white'
+          marginTop : '8%',
+          color : 'white',
+          backgroundColor : '#36454f',
+          padding: '30px',
+
           }
       }
+      const headerS = {
+        paddingTop : '0'
+      }
+
 
 
    return (
     
         <div className="textdiv row">
-        <div className="col-md-4"></div>
+        <div  className="col-md-4"></div>
     
-      <div  style = {formstyle.card}  id="aboutinfo"className="col-md-4">
+      <div  style = {formstyle.card}   id="aboutinfo"className="col-md-4">
+      <div style={headerS} className='page-header'>
       <h1>Let's Talk!</h1>
+      </div>
         <Form >
 
     
