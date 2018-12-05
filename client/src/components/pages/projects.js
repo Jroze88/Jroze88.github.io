@@ -33,7 +33,7 @@ render(){
 
 <Grid>
   <Row className='textdiv' Style={rowstyle}>
-    <Col xs={6} md={4}>
+    <Col xs={12} md={4}>
     <Panel.Heading>
             <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
 
@@ -62,7 +62,7 @@ render(){
         </Panel>
 
     </Col>
-    <Col xs={6} md={4}>
+    <Col xs={12} md={4}>
     <Panel.Heading>
             <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
 
@@ -88,7 +88,7 @@ render(){
         </Panel>
 
     </Col>
-    <Col xs={6} md={4}>
+    <Col xs={12} md={4}>
     <Panel.Heading>
             <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
 
@@ -116,7 +116,7 @@ render(){
     </Col>
   </Row>
   <Row className='textdiv' Style={rowstyle}>
-    <Col xs={6} md={4}>
+    <Col xs={12} md={4}>
     <Panel.Heading>
             <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
 
@@ -142,7 +142,7 @@ render(){
         </Panel>
 
     </Col>
-    <Col xs={6} md={4}>
+    <Col xs={12} md={4}>
     <Panel.Heading>
             <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
 
@@ -168,7 +168,7 @@ render(){
         </Panel>
 
     </Col>
-    <Col xs={6} md={4}>
+    <Col xs={12} md={4}>
     <Panel.Heading>
             <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
 
