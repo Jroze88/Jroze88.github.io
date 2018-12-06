@@ -1,0 +1,19 @@
+
+
+
+
+
+
+
+
+input[type=text] {
+  opacity: 1 !important;
+  width: 200px  !important;
+  height: 50px  !important;
+  background-color: rgb(65, 48, 63) !important;
+  border: #34495e !important;
+  cursor: text;
+  border-radius: 5px !important;
+
+}
+  

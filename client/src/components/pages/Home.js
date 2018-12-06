@@ -40,7 +40,7 @@ class Home extends React.Component {
           textAlign : 'center',
           backgroundColor : 'rgba(0, 0, 0, 0.425)',
           padding : '10px',
-          marginTop : '20px',
+          marginTop : '10vh',
           marginBottom : '10px'
         },
         subtext : {
@@ -50,12 +50,16 @@ class Home extends React.Component {
         },
         numbers : {
           fontSize : '0.9em'
+        },
+        carousel : {
+          marginTop : '10vh'
         }
       }
   
       return (
         
         <Carousel
+        
           activeIndex={index}
           direction={direction}
           onSelect={this.handleSelect}

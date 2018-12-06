@@ -11,19 +11,15 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
-import About from "./components/pages/about"
 import Contact from "./components/pages/contact"
 // import Article from "./components/pages/Articles"
 import Projects from "./components/pages/projects"
 import Home from "./components/pages/Home"
 import Intro from './components/pages/Intro'
-// import ClickyGame from './components/pages/clickygame'
-// import QuizQuestion from './components/pages/QuizQuestion'
-// import Name from './components/pages/nameprompt'
-// import Main from "./components/pages/Main";
-// import Randomtables from "./components/pages/randomtables";
-// import Footer from './components/Footer';
-// import VideoTest from './components/pages/videotest'
+import ClickyGame from './components/pages/otherpages/clickygame'
+import QuizQuestion from './components/pages/otherpages/QuizQuestion'
+import Name from './components/pages/otherpages/nameprompt'
+
 
 class App extends Component {
   render() {
@@ -41,20 +37,16 @@ class App extends Component {
       <Router>
       <div>
       <NavTabs />
-        {/* <Footer /> */}
+        
 
                <Route exact path ="/" component={Intro} />
                <Route exact path ="/home" component={Home} />
                   <Route exact path="/contact" exact component={Contact} />
-                  {/* <Route exact path="/articles" component={Article} /> */}
                   <Route exact path="/projects" component={Projects} />
-                  {/* <Route exact path="/friendfinder" component={QuizQuestion} />
                   <Route exact path='/name' component={Name}/> 
                   <Route exact path="/clickygame" component={ClickyGame} />
-                  <Route exact path='/NYTsearch' component={Main} />
-                  <Route exact path='/randomtables' component={Randomtables} />
-                  <Route exact path='/videotest' component={VideoTest} /> */}
-             <Footer />
+                  <Route exact path ='/friendfinder' component={QuizQuestion} />
+                  <Footer />
              </div>      
     </Router>
 

@@ -71,12 +71,15 @@ return (
     <NavItem eventKey={3} href="/projects">
       Projects
     </NavItem>
-    <NavDropdown eventKey={4} title="Dropdown" id="basic-nav-dropdown">
-      <MenuItem eventKey={4.1}>Action</MenuItem>
-      <MenuItem eventKey={4.2}>Another action</MenuItem>
-      <MenuItem eventKey={4.3}>Something else here</MenuItem>
+    <NavDropdown eventKey={4} title="More Info" id="basic-nav-dropdown">
+      <MenuItem href="/skills" eventKey={4.1}>Skills Breakdown</MenuItem>
+      <MenuItem href="/cv" eventKey={4.2}>Resume/CV</MenuItem>
+    </NavDropdown>
+    <NavDropdown eventKey={5} title="Odds and Ends" id="basic-nav-dropdown">
+      <MenuItem href="/name" eventKey={5.1}>Myers-Briggs</MenuItem>
+      <MenuItem href="/clickygame" eventKey={5.2}>Card Flipper</MenuItem>
       <MenuItem divider />
-      <MenuItem eventKey={4.4}>Separated link</MenuItem>
+      <MenuItem href='https://github.com/Jroze88' eventKey={5.3}>Github</MenuItem>
     </NavDropdown>
   </Nav>
 </Navbar>

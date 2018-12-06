@@ -28,16 +28,21 @@ render(){
     }
     const projectPanels = {
         overflow : 'hidden'
+       
+    }
+    const colstyle = {
+      overflow : 'hidden',
+      marginTop : '5vh'
     }
     return(
 
 <Grid>
-  <Row className='textdiv' Style={rowstyle}>
-    <Col style={projectPanels} xs={12} lg={4}>
+  <Row Style={rowstyle}>
+    <Col style={colstyle} xs={12} lg={4}>
   
    
 
-        <br />
+      
 
          <Panel bsStyle="warning">
         <Panel.Heading>
@@ -46,7 +51,7 @@ render(){
           </Panel.Heading>
             <Panel.Body>
             <div className ='wrap'>
-            <iframe type='text/html' className="" style={projectPanels} className='frame' src="https://runeskype.herokuapp.com/dm" />
+            <iframe type='text/html'style={projectPanels} className='frame' src="https://runeskype.herokuapp.com/dm" />
             </div><br></br>
       <Panel.Toggle componentClass="a"><Button>
           Show Technologies
@@ -97,7 +102,7 @@ render(){
         
 
     </Col>
-    <Col style={projectPanels} xs={12} lg={4}>
+    <Col style={colstyle} xs={12} lg={4}>
 
 
         <br />
@@ -149,7 +154,7 @@ render(){
         </Panel>
 
     </Col>
-    <Col style={projectPanels} xs={12} lg={4}>
+    <Col style={colstyle} xs={12} lg={4}>
 
 
         <br />
@@ -176,8 +181,8 @@ render(){
 
     </Col>
   </Row>
-  <Row className='textdiv' Style={rowstyle}>
-    <Col style={projectPanels} xs={12} lg={4}>
+  <Row Style={rowstyle}>
+    <Col style={colstyle} xs={12} lg={4}>
 
 
         <br />
@@ -221,7 +226,7 @@ render(){
         </Panel>
 
     </Col>
-    <Col style={projectPanels} xs={12} lg={4}>
+    <Col style={colstyle} xs={12} lg={4}>
 
 
         <br />
@@ -271,7 +276,7 @@ render(){
         </Panel>
 
     </Col>
-    <Col style={projectPanels} xs={12} lg={4}>
+    <Col style={colstyle} xs={12} lg={4}>
 
 
         <br />
