@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel,Grid, Row, Col, Thumbnail, Button } from 'react-bootstrap'
+import {  Table, Panel,Grid, Row, Col, Thumbnail, Button } from 'react-bootstrap'
 import '../../index.css'
 
 
@@ -33,87 +33,137 @@ render(){
 
 <Grid>
   <Row className='textdiv' Style={rowstyle}>
-    <Col xs={12} lg={4}>
-    {/* <Modal show={this.state.show} onHide={this.handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>{this.props.modalTitle}</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-            {this.props.modalBody}
-            </Modal.Body>
-            <Modal.Footer>
-              <Button onClick={this.handleClose}>Close</Button>
-            </Modal.Footer>
-          </Modal> */}
-    <Panel.Heading>
-            <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
-
-          </Panel.Heading>
+    <Col style={projectPanels} xs={12} lg={4}>
+  
+   
 
         <br />
-        <Panel expanded={this.state.open}>
-          
-            <Panel.Body >
-            <a href='https://jroze88.github.io/GifTastic/'>
-                <div className ='wrap'>
-                
-            <iframe type='text/html' onClick={(e) => {this.handleReDirect(e)}} className="" style={projectPanels} className='frame' src="https://jroze88.github.io/GifTastic/" />
-            </div>
-            </a>
+
+         <Panel bsStyle="warning">
+        <Panel.Heading>
+            <Panel.Title>Video Chatroom with Boardgame Support<small> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Latest)</small></Panel.Title>
+
+          </Panel.Heading>
+            <Panel.Body>
+            <div className ='wrap'>
+            <iframe type='text/html' className="" style={projectPanels} className='frame' src="https://runeskype.herokuapp.com/dm" />
+            </div><br></br>
       <Panel.Toggle componentClass="a"><Button>
-          Click to toggle
+          Show Technologies
         </Button></Panel.Toggle>
             </Panel.Body>
             <Panel.Collapse>
           <Panel.Footer id="collapsible-panel-example-1" >
-    blah blah<br></br>
-    blah
+          <Table striped bordered condensed hover>
+                <thead>
+                  <tr>
+                    <th>Tech (Under Development)</th></tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                              <td>Node/Express Server</td>
+                            </tr>
+                            <tr>
+                              <td>DOM Managerment completely with React</td>
+                            </tr>
+                            <tr>
+                              <td>Firebase Real-Time Chat</td>
+                            </tr>
+                            <tr>
+                              <td>GCloud User Uploads</td>
+                            </tr>
+                            <tr>
+                              <td>Twilio Live Video Stream Chatrooms</td>
+                            </tr>
+                            <tr>
+                              <td>Chance.js Randomization Events</td>
+                            </tr>
+                            <tr>
+                              <td>Hard-coded User Map 'embeds'</td>
+                            </tr>
+                            <tr>
+                              <td>Heroku Deployment</td>
+                            </tr>
+                            <tr>
+                              <td>WebRTC Peer-to-Peer Realtime Communication</td><br></br>::In the works::
+                            </tr>
+                       </tbody>
+               
+    
+              </Table>
           </Panel.Footer>
           </Panel.Collapse>
         </Panel>
+        
 
     </Col>
-    <Col xs={12} lg={4}>
-    <Panel.Heading>
-            <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
+    <Col style={projectPanels} xs={12} lg={4}>
 
-          </Panel.Heading>
 
         <br />
-        <Panel >
-          
+        <Panel bsStyle="warning" expanded={this.state.open}>
+        <Panel.Heading>
+            <Panel.Title>NYC Restaurant Health Inspect Grade Map</Panel.Title>
+
+          </Panel.Heading>
             <Panel.Body>
             <div className ='wrap'>
             <iframe type='text/html' className="" style={projectPanels} className='frame' src="https://evansimonross.github.io/Fly-in-Soup/" />
-            </div>
+            </div><br></br>
       <Panel.Toggle componentClass="a"><Button >
-          Click to toggle
+          Show Technologies
         </Button></Panel.Toggle>
             </Panel.Body>
             <Panel.Collapse>
           <Panel.Footer id="collapsible-panel-example-1" >
-    blah blah<br></br>
-    blah
+          <Table striped bordered condensed hover>
+                <thead>
+                  <tr>
+                    <th>Tech</th></tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                              <td>Bootstrap</td>
+                            </tr>
+                            <tr>
+                              <td>Node</td>
+                            </tr>
+                            <tr>
+                              <td>NYC Board of Health API</td>
+                            </tr>
+                            <tr>
+                              <td>MapBox API</td>
+                            </tr>
+                            <tr>
+                              <td>Geocoding</td>
+                            </tr>
+                            <tr>
+                              <td>User Authentication</td>
+                            </tr>
+                        </tbody>
+                
+            
+              </Table>
           </Panel.Footer>
           </Panel.Collapse>
         </Panel>
 
     </Col>
-    <Col xs={12} lg={4}>
-    <Panel.Heading>
-            <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
+    <Col style={projectPanels} xs={12} lg={4}>
 
-          </Panel.Heading>
 
         <br />
-        <Panel >
-          
+        <Panel bsStyle="warning" expanded={this.state.open}>
+        <Panel.Heading>
+            <Panel.Title>Lord of the Rings timed Riddle Game</Panel.Title>
+
+          </Panel.Heading>
             <Panel.Body>
             <div className ='wrap'>
             <iframe type='text/html' className="" style={projectPanels} className='frame' src="https://jroze88.github.io/TriviaGame/" />
-            </div>
+            </div><br></br>
       <Panel.Toggle componentClass="a"><Button>
-          Click to toggle
+          Show Technologies
         </Button></Panel.Toggle>
             </Panel.Body>
             <Panel.Collapse>
@@ -127,90 +177,159 @@ render(){
     </Col>
   </Row>
   <Row className='textdiv' Style={rowstyle}>
-    <Col xs={12} lg={4}>
-    <Panel.Heading>
-            <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
+    <Col style={projectPanels} xs={12} lg={4}>
 
-          </Panel.Heading>
 
         <br />
-        <Panel expanded={this.state.open}>
-          
+        <Panel bsStyle="warning" expanded={this.state.open}>
+        <Panel.Heading>
+            <Panel.Title>Video Game Themed Hang Man</Panel.Title>
+
+          </Panel.Heading>
             <Panel.Body >
+
                 <div className ='wrap'>
             <iframe type='text/html' className="" style={projectPanels} className='frame' src="https://jroze88.github.io/Word-Guess-Game/" />
-            </div>
+            </div><br></br>
       <Panel.Toggle componentClass="a"><Button>
-          Click to toggle
+          Show Technologies
         </Button></Panel.Toggle>
             </Panel.Body>
             <Panel.Collapse>
           <Panel.Footer id="collapsible-panel-example-1" >
-    blah blah<br></br>
-    blah
+          <Table striped bordered condensed hover>
+                <thead>
+                  <tr>
+                    <th>Tech</th></tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                              <td>Dynamic HTML Generation</td>
+                            </tr>
+                            <tr>
+                              <td>Gihpy API</td>
+                            </tr>
+                            <tr>
+                              <td>LocalStorage</td>
+                            </tr>
+                        </tbody>
+               
+    
+              </Table>
           </Panel.Footer>
           </Panel.Collapse>
         </Panel>
 
     </Col>
-    <Col xs={12} lg={4}>
-    <Panel.Heading>
-            <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
+    <Col style={projectPanels} xs={12} lg={4}>
 
-          </Panel.Heading>
 
         <br />
-        <Panel >
-          
+        <Panel bsStyle="warning" expanded={this.state.open}>
+        <Panel.Heading>
+            <Panel.Title>Simple My Hero Academia RPG</Panel.Title>
+
+          </Panel.Heading>
             <Panel.Body>
+
             <div className ='wrap'>
             <iframe type='text/html' className="" style={projectPanels} className='frame' src="https://jroze88.github.io/unit-4-game/" />
-            </div>
+            </div><br></br>
       <Panel.Toggle componentClass="a"><Button >
-          Click to toggle
+          Show Technologies
         </Button></Panel.Toggle>
             </Panel.Body>
             <Panel.Collapse>
           <Panel.Footer id="collapsible-panel-example-1" >
-    blah blah<br></br>
-    blah
+          <Table striped bordered condensed hover>
+                <thead>
+                  <tr>
+                    <th>Tech</th></tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                              <td>Constructor Classes</td>
+                            </tr>
+                            <tr>
+                              <td>Embedded Object Properties</td>
+                            </tr>
+                            <tr>
+                              <td>CSS Animations</td>
+                            </tr>
+                            <tr>
+                              <td>jQuery</td>
+                            </tr>
+                            <tr>
+                              <td>jQuery Modals</td>
+                            </tr>
+                        </tbody>
+               
+    
+              </Table>
           </Panel.Footer>
           </Panel.Collapse>
         </Panel>
 
     </Col>
-    <Col xs={12} lg={4}>
-    <Panel.Heading>
-            <Panel.Title>Title that functions as a collapse toggle</Panel.Title>
+    <Col style={projectPanels} xs={12} lg={4}>
 
-          </Panel.Heading>
 
         <br />
-        <Panel >
-          
-            <Panel.Body>
-            <div className ='wrap'>
-            <iframe type='text/html' className="" style={projectPanels} className='frame' src="https://runeskype.herokuapp.com/dm" />
+        <Panel bsStyle="warning" expanded={this.state.open}>
+        <Panel.Heading>
+            <Panel.Title>Social Media Reaction Gif Generator</Panel.Title>
+
+          </Panel.Heading>
+            <Panel.Body >
+            <a href='https://jroze88.github.io/GifTastic/'>
+                <div className ='wrap'>
+                
+            <iframe type='text/html' onClick={(e) => {this.handleReDirect(e)}} className="" style={projectPanels} className='frame' src="https://jroze88.github.io/GifTastic/" />
             </div>
+            </a><br></br>
       <Panel.Toggle componentClass="a"><Button>
-          Click to toggle
+          Show Technologies
         </Button></Panel.Toggle>
             </Panel.Body>
             <Panel.Collapse>
           <Panel.Footer id="collapsible-panel-example-1" >
-    blah blah<br></br>
-    blah
+          <Table striped bordered condensed hover>
+                <thead>
+                  <tr>
+                    <th>Tech</th></tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                              <td>Dynamic HTML Generation</td>
+                            </tr>
+                            <tr>
+                              <td>Gihpy API</td>
+                            </tr>
+                            <tr>
+                              <td>LocalStorage</td>
+                            </tr>
+                        </tbody>
+                
+
+              </Table>
           </Panel.Footer>
           </Panel.Collapse>
         </Panel>
 
     </Col>
   </Row>
-</Grid>
 
+
+<Row>
+    <Col xs={12} lg={4} center>
+    <small>Portfolio Page styled, written and generated completely with React</small>
+    </Col>
+ 
+</Row>
+</Grid>
 /* <div>
         <Button onClick={() => this.setState({ open: !this.state.open })}>
-          Click to toggle
+          Show Technologies
         </Button>
         <br />
         <Panel id="collapsible-panel-example-1" expanded={this.state.open}>
