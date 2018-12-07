@@ -73,14 +73,15 @@ class Home extends React.Component {
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item  style = {style.cardbg}>
-          <Contact />
+          <Projects />
             <Carousel.Caption>
               <h3 style={style.numbers}>[2/3]</h3>
               
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item style = {style.cardbg}>
-            <Projects />
+            
+            <Contact />
             <Carousel.Caption>
               <h3 style={style.numbers}>[3/3]</h3>
             </Carousel.Caption>

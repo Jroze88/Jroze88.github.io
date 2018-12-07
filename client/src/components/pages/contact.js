@@ -136,7 +136,7 @@ resetForm(){
     
       <div  style = {formstyle.card}   id="aboutinfo"className="col-md-4">
       <div style={headerS} className='page-header'>
-      <h1>Let's Talk!</h1>
+      <h1>Contact me:</h1>
       </div>
         <Form >
 
