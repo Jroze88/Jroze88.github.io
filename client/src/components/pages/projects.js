@@ -51,7 +51,7 @@ render(){
 
          <Panel bsStyle="warning">
         <Panel.Heading>
-            <Panel.Title>Video Chatroom with Boardgame Support<small> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Latest)</small></Panel.Title>
+            <Panel.Title><a href='https://runeskype.herokuapp.com/dm'>Video Chatroom with Boardgame Support</a><small> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Latest)</small></Panel.Title>
 
           </Panel.Heading>
             <Panel.Body>
@@ -113,7 +113,7 @@ render(){
         <br />
         <Panel bsStyle="warning" expanded={this.state.open}>
         <Panel.Heading>
-            <Panel.Title>NYC Restaurant Health Inspect Grade Map</Panel.Title>
+            <Panel.Title><a href='https://evansimonross.github.io/Fly-in-Soup/'>NYC Restaurant Health Inspect Grade Map</a></Panel.Title>
 
           </Panel.Heading>
             <Panel.Body>
@@ -165,7 +165,7 @@ render(){
         <br />
         <Panel bsStyle="warning" expanded={this.state.open}>
         <Panel.Heading>
-            <Panel.Title>Lord of the Rings timed Riddle Game</Panel.Title>
+            <Panel.Title> <a href='https://jroze88.github.io/TriviaGame/'>Lord of the Rings timed Riddle Game</a></Panel.Title>
 
           </Panel.Heading>
             <Panel.Body>
@@ -210,7 +210,7 @@ render(){
         <br />
         <Panel bsStyle="warning" expanded={this.state.open}>
         <Panel.Heading>
-            <Panel.Title>Video Game Themed Hang Man</Panel.Title>
+            <Panel.Title> <a href='https://jroze88.github.io/Word-Guess-Game/'>Video Game Themed Hang Man</a></Panel.Title>
 
           </Panel.Heading>
             <Panel.Body >
@@ -254,7 +254,7 @@ render(){
         <br />
         <Panel bsStyle="warning" expanded={this.state.open}>
         <Panel.Heading>
-            <Panel.Title>Simple My Hero Academia RPG</Panel.Title>
+            <Panel.Title><a href='https://jroze88.github.io/unit-4-game/'>Simple My Hero Academia RPG</a></Panel.Title>
 
           </Panel.Heading>
             <Panel.Body>
@@ -304,7 +304,7 @@ render(){
         <br />
         <Panel bsStyle="warning" expanded={this.state.open}>
         <Panel.Heading>
-            <Panel.Title>Social Media Reaction Gif Generator</Panel.Title>
+            <Panel.Title><a href='https://jroze88.github.io/GifTastic/'>Social Media Reaction Gif Generator </a></Panel.Title>
 
           </Panel.Heading>
             <Panel.Body >
