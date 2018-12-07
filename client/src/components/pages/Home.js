@@ -66,6 +66,14 @@ class Home extends React.Component {
         >
           <Carousel.Item style = {style.cardbg}>
             <About subtext = {style.subtext} textstyle = {style.textstyle} />
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <Carousel.Caption>
               <br></br>
               <h3 style={style.numbers}>[1/3]</h3>
@@ -74,6 +82,14 @@ class Home extends React.Component {
           </Carousel.Item>
           <Carousel.Item  style = {style.cardbg}>
           <Projects />
+          <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <Carousel.Caption>
               <h3 style={style.numbers}>[2/3]</h3>
               
@@ -82,6 +98,14 @@ class Home extends React.Component {
           <Carousel.Item style = {style.cardbg}>
             
             <Contact />
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <Carousel.Caption>
               <h3 style={style.numbers}>[3/3]</h3>
             </Carousel.Caption>

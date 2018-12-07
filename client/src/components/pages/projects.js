@@ -38,6 +38,9 @@ render(){
       overflow : 'hidden',
       marginTop : '5vh'
     }
+    const subtext = {
+      color : 'white'
+    }
     return(
 
 <Grid>
@@ -349,7 +352,7 @@ render(){
 
 <Row>
     <Col xs={12} lg={4} center>
-    <small>Portfolio Page styled, written and generated completely with React</small>
+    <small style={subtext}>Portfolio Page styled, written and generated completely with React</small>
     </Col>
  
 </Row>
