@@ -173,8 +173,25 @@ render(){
             </Panel.Body>
             <Panel.Collapse>
           <Panel.Footer id="collapsible-panel-example-1" >
-    blah blah<br></br>
-    blah
+          <Table striped bordered condensed hover>
+                <thead>
+                  <tr>
+                    <th>Tech</th></tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                              <td>Animations</td>
+                            </tr>
+                            <tr>
+                              <td>jQuery</td>
+                            </tr>
+                            <tr>
+                              <td>Web App Timing</td>
+                            </tr>
+                        </tbody>
+                
+            
+              </Table>
           </Panel.Footer>
           </Panel.Collapse>
         </Panel>
