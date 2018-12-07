@@ -26,6 +26,10 @@ render(){
     const rowstyle = {
         margin: '20px'
     }
+    const title = {
+      color: 'white',
+      fontSize : '2em'
+    }
     const projectPanels = {
         overflow : 'hidden'
        
@@ -38,10 +42,11 @@ render(){
 
 <Grid>
   <Row Style={rowstyle}>
+  <h2 style={title}>Projects:</h2>
     <Col style={colstyle} xs={12} lg={4}>
   
    
-
+      
       
 
          <Panel bsStyle="warning">

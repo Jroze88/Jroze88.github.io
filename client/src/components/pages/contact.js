@@ -127,16 +127,21 @@ resetForm(){
         paddingTop : '0'
       }
 
+      const title = {
+        color: 'white',
+        fontSize : '2em'
+      }
 
 
    return (
     
         <div className="textdiv row">
+          <h2 style={title}>Contact:</h2>
         <div  className="col-md-4"></div>
     
       <div  style = {formstyle.card}   id="aboutinfo"className="col-md-4">
       <div style={headerS} className='page-header'>
-      <h1>Contact me:</h1>
+      <h1>Get in touch!</h1>
       </div>
         <Form >
 
