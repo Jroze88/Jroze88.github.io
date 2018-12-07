@@ -19,6 +19,8 @@ import Intro from './components/pages/Intro'
 import ClickyGame from './components/pages/otherpages/clickygame'
 import QuizQuestion from './components/pages/otherpages/QuizQuestion'
 import Name from './components/pages/otherpages/nameprompt'
+import CV from './components/pages/cs'
+import Skilltree from './components/pages/skilltree'
 
 
 class App extends Component {
@@ -46,6 +48,8 @@ class App extends Component {
                   <Route exact path='/name' component={Name}/> 
                   <Route exact path="/clickygame" component={ClickyGame} />
                   <Route exact path ='/friendfinder' component={QuizQuestion} />
+                  <Route exact path ='/cv' component = {CV} />
+                  <Route exact path ='/skilltree' component = {Skilltree} />
                   <Footer />
              </div>      
     </Router>

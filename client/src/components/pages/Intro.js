@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import './intro.css'
+import Image from 'react-bootstrap'
 
 
 class Intro extends Component {
@@ -123,7 +124,7 @@ class Intro extends Component {
           
                       thisIsntEvenMyFinalForm();
           
-                  },6500);
+                  },4500);
           
               }
           
@@ -131,9 +132,9 @@ class Intro extends Component {
           
           var thisIsntEvenMyFinalForm = function () {
           
-              
-              $('.namediv').fadeIn(1300);
-              $('.navbar').fadeIn(1300);
+            $('.pic').fadeIn(700);
+              $('.namediv').fadeIn(700);
+              $('.navbar').fadeIn(700);
               $('.dot').css('display', 'none');
               setTimeout(function() {
                 window.location.href = "/home"
@@ -412,6 +413,10 @@ class Intro extends Component {
               
             <div id="starfield">
   <div className="namediv"><span className="name">Jano Roze</span><br></br><span className="title">STEM Disciplinarian <br></br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"&"} Full-Stack Developer</span>
+  </div>
+
+  <div className='pic'>
+           
   </div>
   
             <div className="hero-logo-circles">

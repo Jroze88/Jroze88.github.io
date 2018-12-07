@@ -1,5 +1,4 @@
 import React from "react";
-import PageHeader from 'react-bootstrap'
 
 
 
@@ -14,15 +13,15 @@ const About = props => (
     <p>
       I am a Laboratory Researcher and Full Stack Developer. As an impassioned
       problem solver I am equally comfortable drawing upon a wide [array] of my own experiences, employing the insights of my peers or
-      independently hacking away at new technologies to create practical solutons. A true generalist; able to retain a deep skillset
-      in a wide range of topics and learn on the go. Please feel free to reach out by clicking the 'Contact' link in the navbar above!
+      independently hacking away at new technologies to create practical solutons. A strong generalist; I retain a deep skillset
+      in a wide range of topics and 'learn on the go.' Please feel free to reach out by clicking the 'Contact' link in the navbar above!
     </p>
     <br></br>
     <br></br>
     <div style={props.subtext}>
     Relevant Technologies: HTML, CSS, Javascript, jQuery, Node,<br></br>
-    Express, React, Vue, Python, Django, MongoDB, MySQL, ECMA6+, React-Native, <br></br>
-    Twilio, Heroku, Firebase, Gcloud, WebRTC
+    Express, React for Web and Mobile Apps, Vue, Python, Django, MongoDB, MySQL, ECMA6+,<br></br>
+    Twilio, Heroku, Firebase, GCloud, WebRTC
     </div>
   </div>
   </div>

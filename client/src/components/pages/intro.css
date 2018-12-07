@@ -692,3 +692,17 @@ text-decoration: none;
         display: none;
         font-family: 'Asap';
       }
+
+      .pic {
+        width: 412px;
+        height: 400px;
+        position:absolute;
+        left: 10%;
+        top : 20%;
+        display: none;
+        border-radius: 50% !important;
+        overflow: hidden;
+        background-image: url('/img/profile.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+      }

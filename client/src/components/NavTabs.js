@@ -72,8 +72,9 @@ return (
       Projects
     </NavItem>
     <NavDropdown eventKey={4} title="More Info" id="basic-nav-dropdown">
-      <MenuItem href="/skills" eventKey={4.1}>Skills Breakdown</MenuItem>
-      <MenuItem href="/cv" eventKey={4.2}>Resume/CV</MenuItem>
+    <MenuItem href="/cv" eventKey={4.1}>Resume/CV</MenuItem>
+      <MenuItem href="/skilltree" eventKey={4.2}>Skills Breakdown</MenuItem>
+      
     </NavDropdown>
     <NavDropdown eventKey={5} title="Odds and Ends" id="basic-nav-dropdown">
       <MenuItem href="/name" eventKey={5.1}>Myers-Briggs</MenuItem>
