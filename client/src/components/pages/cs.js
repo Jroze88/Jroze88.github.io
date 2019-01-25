@@ -24,7 +24,7 @@ class CV extends Component {
                 <Col xs={10} md={10}>
                 
                 <img style={imgstyle} src='/img/res1.jpg' />
-                <img style={imgstyle} src='/img/res2.jpg' />
+           
                 
                 </Col>
                 <Col md={2}></Col>
