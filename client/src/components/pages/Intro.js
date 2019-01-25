@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import './intro.css'
-import Image from 'react-bootstrap'
 
 
 class Intro extends Component {

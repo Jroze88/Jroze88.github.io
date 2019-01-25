@@ -74,13 +74,15 @@ return (
     <NavDropdown eventKey={4} title="More Info" id="basic-nav-dropdown">
     <MenuItem href="/cv" eventKey={4.1}>Resume/CV</MenuItem>
       <MenuItem href="/skilltree" eventKey={4.2}>Skills Breakdown</MenuItem>
+            <MenuItem divider />
+      <MenuItem href='https://github.com/Jroze88' eventKey={4.3}>Github</MenuItem>
+      <MenuItem href='http://www.linkedin.com/in/jano-roze' eventKey={4.4}>LinkedIn</MenuItem>
       
     </NavDropdown>
     <NavDropdown eventKey={5} title="Odds and Ends" id="basic-nav-dropdown">
       <MenuItem href="/name" eventKey={5.1}>Myers-Briggs</MenuItem>
       <MenuItem href="/clickygame" eventKey={5.2}>Card Flipper</MenuItem>
-      <MenuItem divider />
-      <MenuItem href='https://github.com/Jroze88' eventKey={5.3}>Github</MenuItem>
+
     </NavDropdown>
   </Nav>
 </Navbar>
