@@ -56,9 +56,11 @@ class App extends Component {
                   <Route exact path ='/friendfinder' component={QuizQuestion} />
                   <Route exact path ='/cv' component = {CV} />
                   <Route exact path ='/skilltree' component = {Skilltree} />
-                  <BrowserView >
-                  <Footer />
-                  </BrowserView>
+                  {isBrowser ? (
+                  <Footer />) :
+                    ('')
+                  }
+                  
              </div>      
     </Router>
 
