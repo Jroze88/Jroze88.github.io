@@ -21,15 +21,21 @@ import QuizQuestion from './components/pages/otherpages/QuizQuestion'
 import Name from './components/pages/otherpages/nameprompt'
 import CV from './components/pages/cs'
 import Skilltree from './components/pages/skilltree'
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile
-} from "react-device-detect";
 
 
 class App extends Component {
+
+
+  state = {
+    width : window.innerWidth
+}
+
+componentDidMount = () => {
+  console.log(this.state.width)
+}
+
+
+
   render() {
 
     const style = {
@@ -56,8 +62,10 @@ class App extends Component {
                   <Route exact path ='/friendfinder' component={QuizQuestion} />
                   <Route exact path ='/cv' component = {CV} />
                   <Route exact path ='/skilltree' component = {Skilltree} />
-                  <Footer />
-                  
+                  {this.state.width > 750 ?
+                  (<Footer />) :
+                  ('')
+                  }
              </div>      
     </Router>
 
