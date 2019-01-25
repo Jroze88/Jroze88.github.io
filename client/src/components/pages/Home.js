@@ -13,7 +13,8 @@ class Home extends React.Component {
   
       this.state = {
         index: 0,
-        direction: null
+        direction: null,
+        width: window.innerWidth
       };
     }
   
@@ -33,7 +34,7 @@ class Home extends React.Component {
           width : '100vw',
           height : '95vh',
         },
-        textstyle : {
+        textStyle : {
           color : 'white',
           fontSize : '2em',
           textAlign : 'center',
@@ -46,6 +47,15 @@ class Home extends React.Component {
           color : '#808080',
           fontSize : '0.7em',
           textAlign : 'center'
+        },
+        textStyleMobile :{
+          color : 'white',
+          fontSize : '1em',
+          textAlign : 'center',
+          backgroundColor : 'rgba(0, 0, 0, 0.425)',
+          padding : '10px',
+          marginTop : '10vh',
+          marginBottom : '10px'
         },
         numbers : {
           fontSize : '0.9em'
@@ -64,7 +74,12 @@ class Home extends React.Component {
           onSelect={this.handleSelect}
         >
           <Carousel.Item style = {style.cardbg}>
-            <About subtext = {style.subtext} textstyle = {style.textstyle} />
+          {this.state.width > 750 ? (
+          <About subtext = {style.subtext} textstyle = {style.textStyle} /> )
+          :
+          ( <About subtext = {style.subtext} textstyle = {style.textStyleMobile} />
+          )}
+           
             <br></br>
             <br></br>
             <br></br>
