@@ -1,19 +1,8 @@
+h1 {
+  color: green;
+}
+
 body {
-    overflow-x: hidden;
-    background-image: url("/img/black.jpg");
+  text-align: center;
+  margin: auto;
 }
-
-#starfield {
-    width: 100vw;
-    height: 100vh
-}
-
-/* @media only screen and (max-width: 750px) { */
-    footer {
-      display: none;
-    }
-  /* } */
-
-
-
-
