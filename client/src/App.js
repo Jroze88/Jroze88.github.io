@@ -6,7 +6,12 @@ import {
 } from 'react-router-dom';
 import NavTabs from './NavTabs';
 import ReportForm from './contact';
-import Home from './Home'
+import Home from './Home';
+// import Contact from "./pages/contact"
+// import Projects from "./pages/projects"
+// import Intro from './pages/Intro'
+// import CV from './components/pages/cs'
+// import Skilltree from './components/pages/skilltree'
 
 
 class App extends Component {
@@ -19,14 +24,24 @@ class App extends Component {
     return (
 
       <Router>
-      <div>
+      <div className='main'>
       <NavTabs />
-      <Route exact path="/asoiaf" exact component={ReportForm} />
-      <Route exact path ="/" component={Home} />
+        
 
-      </div>      
+               {/* <Route exact path ="/" component={Intro} />
+               
+                  <Route exact path="/contact" exact component={Contact} />
+                  <Route exact path="/projects" component={Projects} />
+                  <Route exact path='/name' component={Name}/> 
+                  <Route exact path="/clickygame" component={ClickyGame} />
+                  <Route exact path ='/friendfinder' component={QuizQuestion} />
+                  <Route exact path ='/cv' component = {CV} />
+                  <Route exact path ='/skilltree' component = {Skilltree} /> */}
+                  <Route exact path="/asoiaf" exact component={ReportForm} />
+                  <Route exact path ="/" component={Home} />
+                  {/* <Footer /> */}
+             </div>      
      </Router>
-
     );
   }
 }
