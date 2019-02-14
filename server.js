@@ -15,7 +15,7 @@ if(process.env.NODE_ENV === "development") { // Configuration for development en
   app.use(webpackDevMiddleware(webpackCompiler));
   app.use(express.static(path.join(__dirname, "app")));
 } else if(process.env.NODE_ENV === "production") { // Configuration for production environment
-  app.use(express.static(path.join(__dirname, "dist")));
+  app.use(express.static(path.join(__dirname, "client/build")));
 }
 
 // Send every request to the React app
