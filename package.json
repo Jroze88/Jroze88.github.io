@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node -r dotenv/config server.js",
+    "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "install": "cd client && yarn install",
@@ -23,7 +23,8 @@
     "babel-polyfill": "^6.26.0",
     "dotenv": "^6.2.0",
     "express": "^4.16.3",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "yarn": "^1.13.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
