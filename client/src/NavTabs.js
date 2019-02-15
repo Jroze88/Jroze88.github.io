@@ -24,20 +24,27 @@ class NavTabs extends Component {
     }
 
     const styles = {
-      backgroundColor: '#343a4050'
+      maxWidth: '230px',
+      maxHeight: 'auto',
+      marginTop: '15%'
+    }
+
+    const NavStyle = {
+      overflow: 'visible',
+      height: '80px'
     }
 
 
 return (
 
-  <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+  <Navbar style = {NavStyle} bg="dark" variant="dark">
+    <Navbar.Brand href="#home"><img className='d-none d-lg-block' src='logo.png' style={styles} /></Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link href="#home">Home</Nav.Link>
       <Nav.Link href="#features">Features</Nav.Link>
       <Nav.Link href="#pricing">Pricing</Nav.Link>
     </Nav>
-    <Form inline>
+    <Form className='d-none d-md-inline' inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />
       <Button variant="outline-info">Search</Button>
     </Form>

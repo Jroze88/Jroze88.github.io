@@ -9,5 +9,6 @@ body {
 }
 
 .main {
-  background-image: url('map.jpg')
+  background-image: url('map.jpg');
+  background-size: 'cover'
 }
