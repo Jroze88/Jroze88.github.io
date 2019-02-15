@@ -246,7 +246,7 @@ tournamentNameSet = (e)=> {
 tournamentDaySet = (e)=> {
   if (e.target.value !== 'Day') {
   this.setState({ 
-    tournamentDay: e.target.value.toUpperCase()
+    TournamentDay: e.target.value
  });
 }
 }
@@ -255,7 +255,7 @@ tournamentYearSet = (e)=> {
   if (e.target.value !== 'Year') {
   this.setState({ 
     
-    tournamentYear: e.target.value.toUpperCase()
+    TournamentYear: e.target.value
  });
 }
 }
@@ -263,7 +263,7 @@ tournamentYearSet = (e)=> {
 tournamentMonthSet = (e)=> {
   if (e.target.value !== 'Month') {
   this.setState({ 
-    tournamentMonth: e.target.value.toUpperCase()
+    TournamentMonth: e.target.value
  });
 }
 }
@@ -530,8 +530,9 @@ return <tr><td>{`${person.placement}`}</td><td>{`${person.name}`}</td><td>{`${pe
       aria-describedby="basic-addon2"
     /><br />
         <Form.Control onChange={this.tournamentMonthSet} as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
-        value = {this.state.tournamentMonth}
+        
 placeholder="Month"
+value = {this.state.tournamentMonth}
     >     
     <option>Month</option>
     <option>Jan</option>
@@ -590,6 +591,7 @@ placeholder="Year"
 value = {this.state.tournamentYear}
     >
           <option>Year</option>
+          <option>2018</option>
       <option>2019</option>
       <option>2020</option>
       </Form.Control>
