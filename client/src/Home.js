@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Carousel } from 'react-bootstrap'
-// import About from './about'
-// import Contact from './contact'
-// import Projects from './projects'
+import Carousel from 'react-bootstrap/Carousel'
+import About from './about'
+import Contact from './contact'
+import Projects from './projects'
 
 
 class Home extends React.Component {
@@ -13,7 +13,8 @@ class Home extends React.Component {
   
       this.state = {
         index: 0,
-        direction: null
+        direction: null,
+        width: window.innerWidth
       };
     }
   
@@ -33,7 +34,7 @@ class Home extends React.Component {
           width : '100vw',
           height : '95vh',
         },
-        textstyle : {
+        textStyle : {
           color : 'white',
           fontSize : '2em',
           textAlign : 'center',
@@ -47,6 +48,15 @@ class Home extends React.Component {
           fontSize : '0.7em',
           textAlign : 'center'
         },
+        textStyleMobile :{
+          color : 'white',
+          fontSize : '1em',
+          textAlign : 'center',
+          backgroundColor : 'rgba(0, 0, 0, 0.425)',
+          padding : '10px',
+          marginTop : '10vh',
+          marginBottom : '10px'
+        },
         numbers : {
           fontSize : '0.9em'
         },
@@ -57,60 +67,65 @@ class Home extends React.Component {
   
       return (
         
-        // <Carousel
+        <Carousel
         
-        //   activeIndex={index}
-        //   direction={direction}
-        //   onSelect={this.handleSelect}
-        // >
-        //   <Carousel.Item style = {style.cardbg}>
-        //     <About subtext = {style.subtext} textstyle = {style.textstyle} />
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <Carousel.Caption>
-        //       <br></br>
-        //       <h3 style={style.numbers}>[1/3]</h3>
+          activeIndex={index}
+          direction={direction}
+          onSelect={this.handleSelect}
+        >
+          <Carousel.Item style = {style.cardbg}>
+          {this.state.width > 750 ? (
+          <About subtext = {style.subtext} textstyle = {style.textStyle} /> )
+          :
+          ( <About subtext = {style.subtext} textstyle = {style.textStyleMobile} />
+          )}
+           
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Carousel.Caption>
+              <br></br>
+              <h3 style={style.numbers}>[1/3]</h3>
              
-        //     </Carousel.Caption>
-        //   </Carousel.Item>
-        //   <Carousel.Item  style = {style.cardbg}>
-        //   <Projects />
-        //   <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <Carousel.Caption>
-        //       <h3 style={style.numbers}>[2/3]</h3>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item  style = {style.cardbg}>
+          <Projects />
+          <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Carousel.Caption>
+              <h3 style={style.numbers}>[2/3]</h3>
               
-        //     </Carousel.Caption>
-        //   </Carousel.Item>
-        //   <Carousel.Item style = {style.cardbg}>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item style = {style.cardbg}>
             
-        //     <Contact />
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <br></br>
-        //     <Carousel.Caption>
-        //       <h3 style={style.numbers}>[3/3]</h3>
-        //     </Carousel.Caption>
-        //   </Carousel.Item>
-        // </Carousel>
-   <div></div>
+            <Contact />
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Carousel.Caption>
+              <h3 style={style.numbers}>[3/3]</h3>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+   
       );
     }
   }

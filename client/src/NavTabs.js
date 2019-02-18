@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import Nav from 'react-bootstrap/Nav'
+import NavDropdown from 'react-bootstrap/NavDropdown'
 import Navbar from 'react-bootstrap/Navbar'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import FormControl from 'react-bootstrap/FormControl'
+import Nav from 'react-bootstrap/Nav'
+import $ from 'jquery';
 
 
 
@@ -14,41 +13,84 @@ class NavTabs extends Component {
     menu : 'up'
   }
 
+  clickHandler(e) {
+    e.preventDefault()
+
+    if (this.state.menu === 'up') {
+
+    $('.dropdown-menu').css('display', 'block')
+      this.setState({
+        menu : 'down'
+      })
+
+    } else if (this.state.menu === 'down') {
+      $('.dropdown-menu').css('display', 'none')
+      this.setState({
+        menu : 'up'
+      })
+    }
+
+
+  }
 
   render() {
 
-    const title = {
-      color: 'white',
-      fontSize : '1.0em',
-      textAlign: 'center'
-    }
+    
 
-    const styles = {
-      maxWidth: '230px',
-      maxHeight: 'auto',
-      marginTop: '15%'
+    const styles ={
+      logoStyle : {
+      width: '30%',
+      height: '30%',
+      padding: '10px'
+    },
+    navStuff : {
+      position: 'relative',
+      width: '100vw',
+      left: '0',
+      marginBottom : '0'
     }
-
-    const NavStyle = {
-      overflow: 'visible',
-      height: '80px'
-    }
+  }
 
 
 return (
 
-  <Navbar style = {NavStyle} bg="dark" variant="dark">
-    <Navbar.Brand href="#home"><img className='d-none d-lg-block' src='logo.png' style={styles} /></Navbar.Brand>
-    <Nav className="mr-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
-    </Nav>
-    <Form className='d-none d-md-inline' inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-info">Search</Button>
-    </Form>
-  </Navbar>
+<Navbar style={styles.navStuff} inverse collapseOnSelect>
+
+  <Navbar.Brand href="#home">
+      <img
+        src={require("./logo.svg")}
+        width="30"
+        height="30"
+        className="d-inline-block align-top"
+        alt="React Bootstrap logo"
+      />
+    </Navbar.Brand>
+
+  <Nav pullRight>
+    <Nav.Link eventKey={1} href="/home">
+      Home
+    </Nav.Link>
+    <Nav.Link eventKey={2} href="/contact">
+      Contact
+    </Nav.Link>
+    <Nav.Link eventKey={3} href="/projects">
+      Projects
+    </Nav.Link>
+    <NavDropdown eventKey={4} title="More Info" id="basic-nav-dropdown">
+    <NavDropdown.Item href="/cv" eventKey={4.1}>Resume/CV</NavDropdown.Item>
+      <NavDropdown.Item href="/skilltree" eventKey={4.2}>Skills Breakdown</NavDropdown.Item>
+            <NavDropdown.Item divider />
+      <NavDropdown.Item href='https://github.com/Jroze88' eventKey={4.3}>Github</NavDropdown.Item>
+      <NavDropdown.Item href='http://www.linkedin.com/in/jano-roze' eventKey={4.4}>LinkedIn</NavDropdown.Item>
+      
+    </NavDropdown>
+    <NavDropdown eventKey={5} title="Odds and Ends" id="basic-nav-dropdown">
+      <NavDropdown.Item href="/name" eventKey={5.1}>Myers-Briggs</NavDropdown.Item>
+      <NavDropdown.Item href="/clickygame" eventKey={5.2}>Card Flipper</NavDropdown.Item>
+
+    </NavDropdown>
+  </Nav>
+</Navbar>
 
 
 )}

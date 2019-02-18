@@ -6,12 +6,13 @@ import {
 } from 'react-router-dom';
 import NavTabs from './NavTabs';
 import ReportForm from './contact';
-import Home from './Home';
-// import Contact from "./pages/contact"
-// import Projects from "./pages/projects"
-// import Intro from './pages/Intro'
-// import CV from './components/pages/cs'
-// import Skilltree from './components/pages/skilltree'
+// import Home from './Home';
+import ClickyGame from './clickygame'
+// import Contact from "./contact"
+// import Projects from "./projects"
+// import Intro from './Intro'
+// import CV from './cs'
+// import Skilltree from './skilltree'
 
 
 class App extends Component {
@@ -28,17 +29,21 @@ class App extends Component {
       <NavTabs />
         
 
-               {/* <Route exact path ="/" component={Intro} />
-               
-                  <Route exact path="/contact" exact component={Contact} />
-                  <Route exact path="/projects" component={Projects} />
+               {/* 
                   <Route exact path='/name' component={Name}/> 
-                  <Route exact path="/clickygame" component={ClickyGame} />
+
                   <Route exact path ='/friendfinder' component={QuizQuestion} />
-                  <Route exact path ='/cv' component = {CV} />
-                  <Route exact path ='/skilltree' component = {Skilltree} /> */}
+                   */}
                   <Route exact path="/asoiaf" exact component={ReportForm} />
-                  <Route exact path ="/" component={Home} />
+                  {/* <Route exact path ="/Home" component={Home} />
+                  <Route exact path ='/cv' component = {CV} />
+                  <Route exact path ='/skilltree' component = {Skilltree} />
+                  <Route exact path ="/" component={Intro} /> */}
+               
+                  {/* <Route exact path="/contact" exact component={Contact} />
+                  <Route exact path="/projects" component={Projects} /> */}
+                   <Route exact path="/clickygame" component={ClickyGame} /> 
+
                   {/* <Footer /> */}
              </div>      
      </Router>

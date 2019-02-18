@@ -3,6 +3,8 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const mongoose = require('mongoose')
+const model = require('./Models')
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -17,6 +19,41 @@ if(process.env.NODE_ENV === "development") { // Configuration for development en
 } else if(process.env.NODE_ENV === "production") { // Configuration for production environment
   app.use(express.static(path.join(__dirname, "client/build")));
 }
+
+
+
+const mm = mongoose.connect(process.env.MONGODB_URI || "mongodb://testaccount:fakepassword1@ds241493.mlab.com:41493/deploytest", { useNewUrlParser : true});
+
+
+
+
+app.post("/post/tournamentresults", function(req, res) {
+  console.log(req.body)
+  model
+  .create(
+    {
+    tournamentName: req.body.tournamentName,
+    tournamentDate:  req.body.tournamentDate,
+    players :  req.body.players
+  },
+  function(err, inserted) {
+    if (err) {
+      // Log the error if one is encountered during the query
+      console.log(err);
+    }
+    else {
+
+      console.log(inserted)
+    }
+  });
+
+
+  console.log(req.body)
+});
+
+
+
+
 
 // Send every request to the React app
 // Define any API routes before this runs
