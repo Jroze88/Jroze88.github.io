@@ -3,9 +3,7 @@ import { Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootst
 import axios from 'axios';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import FacebookBox from 'mdi-react/FacebookBoxIcon'
-import FacebookMessenger from 'mdi-react/FacebookMessengerIcon'
-import Twitter from 'mdi-react/TwitterIcon'
+
 
 
 class Contact extends Component {
@@ -207,9 +205,7 @@ resetForm(){
       </div>
 
       <div class="icon-wrap flex row">
-    <FacebookBox style={mdiIcon} className='mdi-icon' />
-    <FacebookMessenger style={mdiIcon} className='mdi-icon' />
-    <Twitter  style={mdiIcon} className='mdi-icon' />
+
     </div>
      
     </Col>
