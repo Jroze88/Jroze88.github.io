@@ -28,31 +28,23 @@ class Projects extends Component {
         }
 
 render(){
-    const rowstyle = {
-        margin: '20px'
-    }
-    const title = {
-      color: 'white',
-      fontSize : '2em'
-    }
-    const projectPanels = {
-        overflow : 'hidden'
-       
-    }
-    const colstyle = {
-      overflow : 'hidden',
-      marginTop : '5vh'
-    }
-    const subtext = {
-      color : 'white'
-    }
+
+
+  const cardStyle = {
+    margin: '2em'
+  }
+
+  const projectPanels = {
+    
+  }
+
     return(
 
 <Container flex>
   <Row>
-
-  <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="holder.js/100px180" />
+    
+  <Card style = {cardStyle} style={{ width: '20em' }}>
+  <iframe type='text/html' className="" style={projectPanels} className='frame' src="https://evansimonross.github.io/Fly-in-Soup/" />
   <Card.Body>
     <Card.Title>Card Title</Card.Title>
     <Card.Text>
@@ -74,7 +66,7 @@ render(){
 </Card>
 
 <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="holder.js/100px180" />
+<iframe type='text/html' onClick={(e) => {this.handleReDirect(e)}} className="" style={projectPanels} className='frame' src="https://jroze88.github.io/GifTastic/" />
   <Card.Body>
     <Card.Title>Card Title</Card.Title>
     <Card.Text>
@@ -96,7 +88,7 @@ render(){
 </Card>
 
 <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="holder.js/100px180" />
+<iframe type='text/html'style={projectPanels} className='frame' src="https://janoroze.herokuapp.com/asoiaf" />
   <Card.Body>
     <Card.Title>Card Title</Card.Title>
     <Card.Text>
@@ -118,7 +110,7 @@ render(){
 </Card>
 
 <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="holder.js/100px180" />
+<iframe type='text/html'style={projectPanels} className='frame' src="https://runeskype.herokuapp.com/dm" />
   <Card.Body>
     <Card.Title>Card Title</Card.Title>
     <Card.Text>
