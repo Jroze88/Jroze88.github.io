@@ -8,4 +8,186 @@ body {
   overflow:hidden;
  
 }
+.abouttext {
+  font-size: 1.0em;
+  color: whitesmoke;
+}
+
+.techtext {
+  color: rgba(128, 128, 128, 0.616);
+  font-size: 0.7em;
+}
+
+.navbar {
+  background-color: #1B242F!important;
+  border-bottom: 3px solid #04C2C9;
+
+}
+
+.navbar-nav a {
+  color: #fff!important;
+}
+
+.textdiv {
+  height: 100%;
+}
+
+
+
+
+
+
+
+/* portrait phone (< 480px) */
+@media screen and (max-width:29.9999em) {
+
+
+ div.carousel-item.active {
+   height: auto!important;
+ }
+
+
+
+  body {
+    overflow-Y: scroll!important;
+  }
+
+  .textdiv {
+    width: 100%!important;
+    margin-top: 15px;
+    padding: 0 1em 0 3em;
+  }
+
+  .abouttext {
+    font-size: 1.0em;
+    color: whitesmoke;
+  }
+  h1 {
+    font-size: 1.2em;
+  }
+
+  h3 {
+    display: none;
+  }
+
+  nav.navbar {
+    height: 7vh;
+    padding: 0;
+  }
+  .navbar-toggler {
+    height: 100%;
+    background-image: url('./togglericon.jpg');
+    background-size: 30%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .navbar-toggler-icon {
+    visibility: hidden;
+  }
+
+  .techtext {
+    display: none;
+  }
+
+}
+
+/* landscape phone and portrait tablet (>= 480px < 960px) */
+@media screen and (min-width:30em) and (max-width:59.9999em) {
+
+
+  div.carousel-item.active {
+    height: auto!important;
+  }
+
+  .carousel-inner {
+    overflow-Y: scroll;
+  }
+
+  .carousel {
+    overflow-Y: scroll;
+  }
+
+  .abouttext {
+    font-size: 1.3em;
+    color: whitesmoke;
+  }
+
+  body {
+    overflow-Y: scroll;
+  }
+
+
+  .abouttext {
+    font-size: 1.2em;
+    color: whitesmoke;
+    overflow-Y: scroll;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
+
+  nav.navbar {
+    height: 7vh;
+    padding: 0;
+ 
+  }
+  .navbar-toggler {
+    height: 100%;
+    background-image: url('./togglericon.jpg');
+    background-size: 30%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .navbar-toggler-icon {
+    visibility: hidden!important;
+  }
+
+  p {
+    margin-top: 1em;
+  }
+
+  .techtext {
+    color: rgba(128, 128, 128, 0.616);
+  }
+
+}
+
+/* landscape tablet and normal monitor (>= 960px < 1440px) */
+@media screen and (min-width:60em) {
+
+
+
+  .carousel {
+    height: 100vh;
+  }
+
+  .textdiv {
+    height: 100vh;
+    padding: 10vh;
+  }
+  
+}
+
+/* bigger monitor (>= 1440px) */
+/* @media screen and (min-width:90em) {
+
+  .textdiv {
+    width: 90vw;
+  }
+
+  .carousel {
+    height: 100vh;
+  }
+
+} */
+
+/* big monitor (>= 1920px) */
+/* @media screen and (min-width:120em) {
+
+
+} */
+
+
 

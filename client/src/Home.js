@@ -33,7 +33,7 @@ class Home extends React.Component {
         cardbg : {
           width : '100vw',
           height : '95vh',
-          backgroundImage: `url(${brownbg})`,
+          backgroundColor: `#252934`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat'
@@ -70,36 +70,32 @@ class Home extends React.Component {
       }
   
       return (
-        
-<Carousel>
+    
+<Carousel activeIndex={index}
+        direction={direction}
+        onSelect={this.handleSelect} keyboard={true}
+        interval={0}>
   <Carousel.Item style={style.cardbg}>
+  <About />
     <Carousel.Caption>
       <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+
     </Carousel.Caption>
   </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={brownbg}
-      alt="Third slide"
-    />
+  <Carousel.Item  style={style.cardbg}>
+        <Contact />
 
     <Carousel.Caption>
       <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item style={style.cardbg}>
-    <img
-      className="d-block w-100"
-      src={brownbg}
-      alt="Third slide"
-    />
+        <Projects />
 
-    <Carousel.Caption style={style.cardbg}>
+    <Carousel.Caption>
       <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>

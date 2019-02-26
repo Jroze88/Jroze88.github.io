@@ -1,13 +1,15 @@
 import React from "react";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col'
 
 
 
 const About = props => (
 
-  <div className="textdiv row">
-    <div className="col-md-2"></div>
 
-  <div id="aboutinfo" className="col-md-8">
+  <Row className="textdiv">
+
+  <Col md={{ span: 8, offset: 2 }} sm={12}  id="aboutinfo" >
   <div className = 'abouttext' style={props.textstyle}>
     <h1>Hello!<br></br> My name is Jano Roze...</h1><br></br><br></br>
     <p>
@@ -18,16 +20,17 @@ const About = props => (
     </p>
     <br></br>
     <br></br>
-    <div style={props.subtext}>
+    <div className='techtext'>
     Relevant Technologies: HTML, CSS, Javascript, jQuery, Node,<br></br>
     Express, React for Web and Mobile Apps, Vue, Python, Django, MongoDB, MySQL, ECMA6+,<br></br>
     Twilio, Heroku, Firebase, GCloud, WebRTC
     </div>
   </div>
-  </div>
-  <div className="col-md-2"></div>
+  </Col>
 
-  </div>
+ 
+
+  </Row>
 
 );
 

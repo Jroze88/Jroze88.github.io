@@ -5,9 +5,11 @@
   padding-left: 0;  
 }
 
-.card {
+.__card {
   transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   perspective: 1000;
+  transform: perspective(1000px);
+  transform-style: preserve-3d;
   -ms-transform: perspective(1000px);
   -moz-transform: perspective(1000px);
   -ms-transform-style: preserve-3d;
@@ -22,47 +24,47 @@
   margin: 30px 0 15px 15px;
 
 }
-.card:nth-child(5n) {
+.__card:nth-child(5n) {
   margin-right: 0;
 }
-.card.ani0 {
+.__card.ani0 {
   right: 948px;
   bottom: 326px;
 }
-.card.ani1 {
+.__card.ani1 {
   right: 711px;
   bottom: 326px;
 }
-.card.ani2 {
+.__card.ani2 {
   right: 474px;
   bottom: 326px;
 }
-.card.ani3 {
+.__card.ani3 {
   right: 237px;
   bottom: 326px;
 }
-.card.ani4 {
+.__card.ani4 {
   right: 0;
   bottom: 326px;
 }
-.card.ani5 {
+.__card.ani5 {
   right: 948px;
   bottom: 0;
 }
-.card.ani6 {
+.__card.ani6 {
   right: 711px;
   bottom: 0;
 }
-.card.ani7 {
+.__card.ani7 {
   right: 474px;
   bottom: 0;
 }
-.card.ani8 {
+.__card.ani8 {
   right: 237px;
   bottom: 0;
 }
 
-.card.ani9 {
+.__card.ani9 {
     bottom: 0;
     right: 0;
 }
@@ -86,13 +88,15 @@
   color: white;
 }
 
-.card {
+.__card {
+  perspective: 1000;
   -webkit-perspective: 1000;
   background: rgba(204, 204, 204, 0);
   margin: 100px auto;
 }
 /* entire container, keeps perspective */
-.card {
+.__card {
+  perspective: 1000;
   -webkit-perspective: 1000;
   background: rgba(204, 204, 204, 0);
   margin: 100px auto;
@@ -114,6 +118,8 @@
 
 /* flip speed goes here */
 .flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
 	-webkit-transition: 0.6s;
 	-webkit-transform-style: preserve-3d;
   position: relative;
@@ -122,6 +128,7 @@
 
 /* hide back of pane during swap */
 .front, .back {
+  backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
 	position: absolute;
 	top: 0;
@@ -209,15 +216,6 @@
   background-repeat: no-repeat;
 }
 
-
-input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  width: 222px;
-  height: 311px;
-  z-index: 5;
-}
 
 
 

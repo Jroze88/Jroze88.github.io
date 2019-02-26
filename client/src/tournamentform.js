@@ -554,8 +554,8 @@ toggleVisibility = () => {
         <br />
         <br />   
 
-          <Col md = {2}></Col>
-          <Col md={8} sm={12}>
+          <Col md = {1}></Col>
+          <Col md={10} sm={12}>
           <Table responsive style={table}  striped bordered hover variant="dark">
   <thead>
     <tr>
@@ -596,7 +596,7 @@ return <tr><td>{`${person.placement}`}</td><td>{`${person.name}`}</td><td>{`${pe
 
 </Table>;
 </Col>
-<Col md = {2}> <br />
+<Col md = {1}> <br />
         <br /> <button onClick={this.handleDBSend} style={crowButton}>Submit<br />Results</button></Col>
 </Row>
 <Row>
@@ -701,9 +701,9 @@ value = {this.state.tournamentYear}
       </Form.Control>
     </Form.Group>
 
-    <Form.Group  style={formstyle}as={Col} controlId="formGridPassword">
+    <Form.Group  style={formstyle}as={Col} controlId="formGridText">
       <Form.Label style={headerS}>Player Name</Form.Label>
-      <Form.Control onChange= {this.handleNameChange} type="text" value = { this.state.playerName}placeholder="Name" />
+      <Form.Control onChange= {this.handleNameChange} type="text" value = { this.state.playerName} placeholder="Name" />
     </Form.Group>
 
 

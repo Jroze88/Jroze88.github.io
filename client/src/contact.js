@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap'
 import axios from 'axios';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 
 class Contact extends Component {
@@ -123,7 +125,8 @@ resetForm(){
           }
       }
       const headerS = {
-        paddingTop : '0'
+        paddingTop : '0',
+        color: '#04C2C9'
       }
 
       const title = {
@@ -133,14 +136,18 @@ resetForm(){
 
 
    return (
+
+    <Row className = 'contactformspan'>
     
-        <div className="textdiv row">
+    <Col  md={{ span: 8, offset: 2 }} sm={12}>
           <h2 style={title}>Contact:</h2>
-        <div  className="col-md-4"></div>
+
     
-      <div  style = {formstyle.card}   id="aboutinfo"className="col-md-4">
+      <div  style = {formstyle.card}   id="aboutinfo">
       <div style={headerS} className='page-header'>
-      <h1>Get in touch!</h1>
+      Have a question or want to work together?
+      <br></br>
+      <br></br>
       </div>
         <Form >
 
@@ -186,8 +193,9 @@ resetForm(){
         <Button onClick={(e) => {this.handleSubmit(e)}} type="submit">Submit</Button>
       </Form>
       </div>
-      <div className="col-md-4"></div>
-      </div>
+     
+    </Col>
+      </Row>
 /* //         <div>
 //       <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
 // <div className='row nameaddressrow'>
