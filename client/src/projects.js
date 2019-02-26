@@ -6,6 +6,8 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Dropdown from 'react-bootstrap/Dropdown'
+import asoiaflogo from './logo.png'
+import { CardGroup } from 'react-bootstrap';
 
 
 
@@ -27,134 +29,188 @@ class Projects extends Component {
             window.location.href= e.target.src
         }
 
+
+
 render(){
 
 
   const cardStyle = {
-    margin: '2em'
+    margin: '10px',
+    maxWidth: '400px',
+    padding: '0.8em',
+    display: 'inline-block',
+    backgroundColor: 'grey'
   }
+
+  const asoiafcardStyle = {
+    margin: '10px',
+    maxWidth: '820px',
+    height: 'auto',
+    backgroundColor: 'grey'
+  }
+
 
   const projectPanels = {
     
   }
 
+  const asoiafpic = {
+    cursor: 'Pointer'
+  }
+
+  const dndcard = {
+    margin: '10px',
+    maxWidth: '820px'
+  }
+
+  const oTTGlink = {
+    border: 'solid black'
+  }
+
+  const projectcontain = {
+    width: '100vw',
+    margin: 0,
+    padding: '2vh 4vw 2vh 8vw',
+    backgroundColor: '#cdcdcd'
+  }
+
     return(
 
-<Container flex>
-  <Row>
+
+        <Row style={projectcontain}>
+         
+<Col md={5}>
+
+<Card style = {asoiafcardStyle}>
+<a style = {asoiafpic} src="https://janoroze.herokuapp.com/asoiaf" ><img style= {{maxWidth: '350px'}}src={asoiaflogo} /></a>
+  <Card.Body>
+    <Card.Title>Tournament Reporting for CMON's<br></br>Game of Thrones </Card.Title>
+    <Card.Text>
+      Client for populating DB with nationwide results<br></br>
+      including player lists, unit breakdown, etc
+      for reporting to <br></br> On the Table Gaming's <a style={oTTGlink} href='https://asoiafcc.com'>ASOIAFcc.com</a> 
+    </Card.Text>
+    <Dropdown as={ButtonGroup}>
+  <Button variant="success">Split Button</Button>
+
+  <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+
+  <Dropdown.Menu>
+    <Dropdown.Item hred="#/action-1">Action</Dropdown.Item>
+    <Dropdown.Item hred="#/action-2">Another action</Dropdown.Item>
+    <Dropdown.Item hred="#/action-3">Something else</Dropdown.Item>
+  </Dropdown.Menu>
+</Dropdown>
+  </Card.Body>
+</Card>
+
+
+
+
+
+
+</Col>
+
+<Col md={7} center>
+       
     
-  <Card style = {cardStyle} style={{ width: '20em' }}>
-  <iframe type='text/html' className="" style={projectPanels} className='frame' src="https://evansimonross.github.io/Fly-in-Soup/" />
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </Card.Text>
-    <Dropdown as={ButtonGroup}>
-  <Button variant="success">Split Button</Button>
-
-  <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
-
-  <Dropdown.Menu>
-    <Dropdown.Item hred="#/action-1">Action</Dropdown.Item>
-    <Dropdown.Item hred="#/action-2">Another action</Dropdown.Item>
-    <Dropdown.Item hred="#/action-3">Something else</Dropdown.Item>
-  </Dropdown.Menu>
-</Dropdown>
-  </Card.Body>
-</Card>
-
-<Card style={{ width: '18rem' }}>
-<iframe type='text/html' onClick={(e) => {this.handleReDirect(e)}} className="" style={projectPanels} className='frame' src="https://jroze88.github.io/GifTastic/" />
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </Card.Text>
-    <Dropdown as={ButtonGroup}>
-  <Button variant="success">Split Button</Button>
-
-  <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
-
-  <Dropdown.Menu>
-    <Dropdown.Item hred="#/action-1">Action</Dropdown.Item>
-    <Dropdown.Item hred="#/action-2">Another action</Dropdown.Item>
-    <Dropdown.Item hred="#/action-3">Something else</Dropdown.Item>
-  </Dropdown.Menu>
-</Dropdown>
-  </Card.Body>
-</Card>
-
-<Card style={{ width: '18rem' }}>
-<iframe type='text/html'style={projectPanels} className='frame' src="https://janoroze.herokuapp.com/asoiaf" />
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </Card.Text>
-    <Dropdown as={ButtonGroup}>
-  <Button variant="success">Split Button</Button>
-
-  <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
-
-  <Dropdown.Menu>
-    <Dropdown.Item hred="#/action-1">Action</Dropdown.Item>
-    <Dropdown.Item hred="#/action-2">Another action</Dropdown.Item>
-    <Dropdown.Item hred="#/action-3">Something else</Dropdown.Item>
-  </Dropdown.Menu>
-</Dropdown>
-  </Card.Body>
-</Card>
-
-<Card style={{ width: '18rem' }}>
-<iframe type='text/html'style={projectPanels} className='frame' src="https://runeskype.herokuapp.com/dm" />
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </Card.Text>
-    <Dropdown as={ButtonGroup}>
-  <Button variant="success">Split Button</Button>
-
-  <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
-
-  <Dropdown.Menu>
-    <Dropdown.Item hred="#/action-1">Action</Dropdown.Item>
-    <Dropdown.Item hred="#/action-2">Another action</Dropdown.Item>
-    <Dropdown.Item hred="#/action-3">Something else</Dropdown.Item>
-  </Dropdown.Menu>
-</Dropdown>
-  </Card.Body>
-</Card>
+       <Card className='dndcard'  style={dndcard}>
+     <iframe type='text/html'style={projectPanels} className='frame' src="https://runeskype.herokuapp.com/dm" />
+       <Card.Body>
+         <Card.Title>Card Title</Card.Title>
+         <Card.Text>
+           Some quick example text to build on the card title and make up the bulk of
+           the card's content.
+         </Card.Text>
+         <Dropdown as={ButtonGroup}>
+       <Button variant="success">Split Button</Button>
+     
+       <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+     
+       <Dropdown.Menu>
+         <Dropdown.Item hred="#/action-1">Action</Dropdown.Item>
+         <Dropdown.Item hred="#/action-2">Another action</Dropdown.Item>
+         <Dropdown.Item hred="#/action-3">Something else</Dropdown.Item>
+       </Dropdown.Menu>
+     </Dropdown>
+       </Card.Body>
+     </Card>
+     
+     
+     <CardGroup>
+     
+     <Card style = {cardStyle} >
+       <iframe type='text/html' className="" style={projectPanels} className='frame' src="https://evansimonross.github.io/Fly-in-Soup/" />
+       <Card.Body>
+         <Card.Title>Fly In Soup</Card.Title>
+         <Card.Text>
+           Interactive Map for NYC.gov <br></br>Restaurant Health Inspection Grades
+         </Card.Text>
+         <Dropdown as={ButtonGroup}>
+       <Button variant="success">Split Button</Button>
+     
+       <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+     
+       <Dropdown.Menu>
+         <Dropdown.Item hred="#/action-1">Action</Dropdown.Item>
+         <Dropdown.Item hred="#/action-2">Another action</Dropdown.Item>
+         <Dropdown.Item hred="#/action-3">Something else</Dropdown.Item>
+       </Dropdown.Menu>
+     </Dropdown>
+       </Card.Body>
+     </Card>
+          
+     <Card style = {cardStyle}>
+     <iframe type='text/html' onClick={(e) => {this.handleReDirect(e)}} className="" style={projectPanels} className='frame' src="https://jroze88.github.io/GifTastic/" />
+       <Card.Body>
+         <Card.Title>Favorite Reaction Gifs Manager</Card.Title>
+         <Card.Text>
+           <br></br>
+         ¯\_(ツ)_/¯ 
+         <br></br>
+         </Card.Text>
+         <Dropdown as={ButtonGroup}>
+       <Button variant="success">Split Button</Button>
+     
+       <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+     
+       <Dropdown.Menu>
+         <Dropdown.Item hred="#/action-1">Action</Dropdown.Item>
+         <Dropdown.Item hred="#/action-2">Another action</Dropdown.Item>
+         <Dropdown.Item hred="#/action-3">Something else</Dropdown.Item>
+       </Dropdown.Menu>
+     </Dropdown>
+       </Card.Body>
+     </Card>
+     </CardGroup>
+     
+     
+     </Col>
 
 </Row>
 
 
-  </Container>
+
   
             /* <div className ='wrap'>
             <iframe type='text/html'style={projectPanels} className='frame' src="https://runeskype.herokuapp.com/dm" />
-            </div><br></br> */
+            </div>      */
            
             /* <div className ='wrap'>
             <iframe type='text/html' className="" style={projectPanels} className='frame' src="https://evansimonross.github.io/Fly-in-Soup/" />
-            </div><br></br> */
+            </div>      */
     
             /* <div className ='wrap'>
             <iframe type='text/html' className="" style={projectPanels} className='frame' src="https://jroze88.github.io/TriviaGame/" />
-            </div><br></br> */
+            </div>      */
            
                 /* <div className ='wrap'>
             <iframe type='text/html' className="" style={projectPanels} className='frame' src="https://jroze88.github.io/Word-Guess-Game/" />
-            </div><br></br> */
+            </div>      */
 /* 
             <div className ='wrap'>
             <iframe type='text/html' className="" style={projectPanels} className='frame' src="https://jroze88.github.io/unit-4-game/" />
-            </div><br></br> */
+            </div>      */
 
            
             /* <a href='https://jroze88.github.io/GifTastic/'>

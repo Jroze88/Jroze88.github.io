@@ -13,9 +13,23 @@ body {
   color: whitesmoke;
 }
 
+.contactformspan {
+  background-color: '#6c757d'
+}
+
 .techtext {
   color: rgba(128, 128, 128, 0.616);
   font-size: 0.7em;
+}
+
+.mdi-icon:hover {
+  fill: blue;
+  cursor: 'pointer'
+}
+
+.mdi-icon {
+  max-width: '40px';
+
 }
 
 .navbar {
@@ -24,12 +38,32 @@ body {
 
 }
 
+.hellomynameis h1 {
+  color: rgb(247, 122, 84)!important;
+}
+
+.hellomynameis h2 {
+  color:  rgb(247, 122, 84)!important;
+}
+
 .navbar-nav a {
   color: #fff!important;
 }
 
 .textdiv {
   height: 100%;
+}
+
+.messagearea::placeholder {
+  font-weight: 'bold'!important
+}
+
+.dndcard {
+  background-color: rgb(255, 119, 119);
+}
+
+.card {
+  display: 'inline-block'!important
 }
 
 
@@ -41,10 +75,18 @@ body {
 /* portrait phone (< 480px) */
 @media screen and (max-width:29.9999em) {
 
+  div.card {
+    width: 100vw!important;
+  }
 
  div.carousel-item.active {
    height: auto!important;
  }
+
+ .dndcard {
+  width: 100vw!important;
+  margin: 0!important;
+}
 
 
 
@@ -94,6 +136,10 @@ body {
 
 /* landscape phone and portrait tablet (>= 480px < 960px) */
 @media screen and (min-width:30em) and (max-width:59.9999em) {
+
+  div.card {
+    margin: 2em!important;
+  }
 
 
   div.carousel-item.active {

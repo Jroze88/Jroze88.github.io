@@ -78,7 +78,7 @@ class Home extends React.Component {
   <Carousel.Item style={style.cardbg}>
   <About />
     <Carousel.Caption>
-      <h3>First slide label</h3>
+      <h3>- _ _</h3>
 
     </Carousel.Caption>
   </Carousel.Item>
@@ -86,7 +86,7 @@ class Home extends React.Component {
         <Contact />
 
     <Carousel.Caption>
-      <h3>Second slide label</h3>
+      <h3>_ - _</h3>
 
     </Carousel.Caption>
   </Carousel.Item>
@@ -94,7 +94,7 @@ class Home extends React.Component {
         <Projects />
 
     <Carousel.Caption>
-      <h3>Third slide label</h3>
+      <h3></h3>
 
     </Carousel.Caption>
   </Carousel.Item>

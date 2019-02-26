@@ -133,10 +133,10 @@ class ClickyGame extends Component {
 /////////////////////////////////
        
 const stack =() => {        
-        $(".card").each(function(e) {
+        $(".__card").each(function(e) {
       
           setTimeout(function() {
-            $(".card").eq(e).attr("class", "card");
+            $(".__card").eq(e).attr("class", "card");
           }, e * 150)
           
         });       
@@ -147,10 +147,10 @@ const stack =() => {
       
 const spread =()=> {
         
-        $(".card").each(function(e) {
+        $(".__card").each(function(e) {
       
           setTimeout(function() {
-            $(".card").eq(e).attr("class", "card ani" + e);
+            $(".__card").eq(e).attr("class", "card ani" + e);
           }, e * 150)
 
 
@@ -283,7 +283,7 @@ const spread =()=> {
 
         <ul className="list">
           <li className= {`card ${this.state.animate ? " " : " ani1 "}`}>
-            <div className=  "flip-container" onClick={this.cardClick}>
+            <div className=  "flip-container" onClick={this.__cardClick}>
             
                  <div  className="flipper">
              
@@ -298,7 +298,7 @@ const spread =()=> {
           </li>
           <li className= {`card ${this.state.animate ? " " : " ani2 "}`}>
 
-            <div className=  "flip-container" onClick={this.cardClick}>
+            <div className=  "flip-container" onClick={this.__cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
                          
@@ -311,7 +311,7 @@ const spread =()=> {
           </li>
           <li className= {`card ${this.state.animate ? " " : " ani3 "}`}>
   
-            <div className=  "flip-container" onClick={this.cardClick}>
+            <div className=  "flip-container" onClick={this.__cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
                          
@@ -324,7 +324,7 @@ const spread =()=> {
           </li>
           <li className= {`card ${this.state.animate ? " " : " ani4 "}`}>
   
-            <div className=  "flip-container" onClick={this.cardClick}>
+            <div className=  "flip-container" onClick={this.__cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
                          
@@ -337,7 +337,7 @@ const spread =()=> {
           </li>
           <li className= {`card ${this.state.animate ? " " : " ani5 "}`}>
       
-               <div className=  "flip-container" onClick={this.cardClick}>
+               <div className=  "flip-container" onClick={this.__cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
                          
@@ -350,7 +350,7 @@ const spread =()=> {
           </li>
           <li className= {`card ${this.state.animate ? " " : " ani6 "}`}>
      
-            <div className=  "flip-container" onClick={this.cardClick}>
+            <div className=  "flip-container" onClick={this.__cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
                          
@@ -363,7 +363,7 @@ const spread =()=> {
             </li>
           <li className= {`card ${this.state.animate ? " " : " ani7 "}`}>
       
-            <div className=  "flip-container" onClick={this.cardClick}>
+            <div className=  "flip-container" onClick={this.__cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
                          
@@ -376,7 +376,7 @@ const spread =()=> {
           </li>
           <li className= {`card ${this.state.animate ? " " : " ani8 "}`}>
       
-            <div className=  "flip-container" onClick={this.cardClick}>
+            <div className=  "flip-container" onClick={this.__cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
                          
@@ -389,7 +389,7 @@ const spread =()=> {
           </li>
           <li className= {`card ${this.state.animate ? " " : " ani9 "}`}>
         
-            <div className=  "flip-container" onClick={this.cardClick}>
+            <div className=  "flip-container" onClick={this.__cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
                          
@@ -402,7 +402,7 @@ const spread =()=> {
           </li>
           <li className= {`card ${this.state.animate ? " " : " ani0 "}`}>
          
-            <div className=  "flip-container" onClick={this.cardClick}>
+            <div className=  "flip-container" onClick={this.__cardClick}>
                  <div  className="flipper">
 		                  <div  className="front">
                          

@@ -11,12 +11,15 @@ const About = props => (
 
   <Col md={{ span: 8, offset: 2 }} sm={12}  id="aboutinfo" >
   <div className = 'abouttext' style={props.textstyle}>
-    <h1>Hello!<br></br> My name is Jano Roze...</h1><br></br><br></br>
+    <span className='hellomynameis'><h1>Hello!</h1><br></br> <h2> My name is Jano Roze...</h2><br></br><br></br></span>
     <p>
-      I am a Laboratory Researcher and Full Stack Developer. As an impassioned
-      problem solver I am equally comfortable drawing upon a wide [array] of my own experiences, employing the insights of my peers or
-      independently hacking away at new technologies to create practical solutons. A strong generalist; I am comfortable working in a 
-       wide range of topics and 'learning on the fly.' Please feel free to reach out by clicking the 'Contact' link above!
+    "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos
+     dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi,
+      id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi
+       optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+        Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae
+         non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis
+          doloribus asperiores repellat."
     </p>
     <br></br>
     <br></br>

@@ -3,6 +3,9 @@ import { Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootst
 import axios from 'axios';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import FacebookBox from 'mdi-react/FacebookBoxIcon'
+import FacebookMessenger from 'mdi-react/FacebookMessengerIcon'
+import Twitter from 'mdi-react/TwitterIcon'
 
 
 class Contact extends Component {
@@ -134,10 +137,19 @@ resetForm(){
         fontSize : '2em'
       }
 
+      const contactbg = {
+        backgroundColor: '#36454f'
+      }
+
+      const mdiIcon = {
+        cursor: 'pointer',
+        width: '40px'
+      }
+
 
    return (
 
-    <Row className = 'contactformspan'>
+    <Row style={contactbg} className = 'contactformspan'>
     
     <Col  md={{ span: 8, offset: 2 }} sm={12}>
           <h2 style={title}>Contact:</h2>
@@ -181,10 +193,10 @@ resetForm(){
     validationState={this.getMessageValidationState()}  
     type='text' 
     >
-      <FormControl componentClass="textarea"
+      <FormControl className="messagearea"
        onChange = {(e) => this.handleMessageChange(e)} 
        value = {this.state.message}
-        placeholder="Shoot me a message:" />
+        placeholder="Your message!" />
         <FormControl.Feedback />
     </FormGroup>
     
@@ -193,8 +205,16 @@ resetForm(){
         <Button onClick={(e) => {this.handleSubmit(e)}} type="submit">Submit</Button>
       </Form>
       </div>
+
+      <div class="icon-wrap flex row">
+    <FacebookBox style={mdiIcon} className='mdi-icon' />
+    <FacebookMessenger style={mdiIcon} className='mdi-icon' />
+    <Twitter  style={mdiIcon} className='mdi-icon' />
+    </div>
      
     </Col>
+
+
       </Row>
 /* //         <div>
 //       <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
