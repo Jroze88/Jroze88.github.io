@@ -3,7 +3,9 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import $ from 'jquery';
-
+import FormControl from 'react-bootstrap/FormControl'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 
 class NavTabs extends Component {
@@ -37,59 +39,34 @@ class NavTabs extends Component {
 
     
 
-    const styles ={
-      logoStyle : {
-      width: '30%',
-      height: '30%',
-      padding: '10px'
-    },
-    navStuff : {
-      position: 'relative',
-      width: '100vw',
-      left: '0',
-      marginBottom : '0'
-    }
-  }
+const navStyle = {
+  height: '5vh',
+  margin: '0'
+}
 
 
 return (
 
-<Navbar style={styles.navStuff} inverse collapseOnSelect>
-
-  <Navbar.Brand href="#home">
-      <img
-        src={require("./logo.svg")}
-        width="30"
-        height="30"
-        className="d-inline-block align-top"
-        alt="React Bootstrap logo"
-      />
-    </Navbar.Brand>
-
-  <Nav pullRight>
-    <Nav.Link eventKey={1} href="/home">
-      Home
-    </Nav.Link>
-    <Nav.Link eventKey={2} href="/contact">
-      Contact
-    </Nav.Link>
-    <Nav.Link eventKey={3} href="/projects">
-      Projects
-    </Nav.Link>
-    <NavDropdown eventKey={4} title="More Info" id="basic-nav-dropdown">
-    <NavDropdown.Item href="/cv" eventKey={4.1}>Resume/CV</NavDropdown.Item>
-      <NavDropdown.Item href="/skilltree" eventKey={4.2}>Skills Breakdown</NavDropdown.Item>
-            <NavDropdown.Item divider />
-      <NavDropdown.Item href='https://github.com/Jroze88' eventKey={4.3}>Github</NavDropdown.Item>
-      <NavDropdown.Item href='http://www.linkedin.com/in/jano-roze' eventKey={4.4}>LinkedIn</NavDropdown.Item>
-      
-    </NavDropdown>
-    <NavDropdown eventKey={5} title="Odds and Ends" id="basic-nav-dropdown">
-      <NavDropdown.Item href="/name" eventKey={5.1}>Myers-Briggs</NavDropdown.Item>
-      <NavDropdown.Item href="/clickygame" eventKey={5.2}>Card Flipper</NavDropdown.Item>
-
-    </NavDropdown>
-  </Nav>
+<Navbar bg="light" expand="lg">
+  <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="mr-auto">
+      <Nav.Link href="#home">Home</Nav.Link>
+      <Nav.Link href="#link">Link</Nav.Link>
+      <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+      </NavDropdown>
+    </Nav>
+    <Form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+      <Button variant="outline-success">Search</Button>
+    </Form>
+  </Navbar.Collapse>
 </Navbar>
 
 

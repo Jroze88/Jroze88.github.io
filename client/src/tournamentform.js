@@ -5,12 +5,13 @@ import Container from 'react-bootstrap/Container'
 import Table from 'react-bootstrap/Table'
 import Form from 'react-bootstrap/Form'
 import InputGroup from 'react-bootstrap/InputGroup'
-import  Button  from 'react-bootstrap/Button'
+import Button  from 'react-bootstrap/Button'
 import axios from 'axios';
 import border from './border.jpg'
 import waxButton from './waxbutton.png'
 import crow from './crow.png'
 import $ from 'jquery'
+import mapbg from './map.jpg'
 
 
 
@@ -60,7 +61,29 @@ class ReportForm extends Component {
 //         else if (emailcont.includes('@')) return 'success';
 //       }
 
+componentWillMount = () => {
 
+  const pagebg = {
+    backgroundImage: `url(${mapbg})`,
+    backgroundSize: '100% 100%',
+    backgroundRepeat: 'no-repeat',
+    width: '100vw',
+    height: '100vh'
+  }
+  document.body.style.backgroundImage = `url(${mapbg})`
+  document.body.style.overflowY = 'scroll'
+  document.body.style.backgroundSize = 'cover'
+  document.body.style.backgroundPosition = 'center'
+  document.body.style.backgroundRepeat = 'no-repeat'
+}
+
+componentWillUnmount = () => {
+  document.body.style.backgroundImage = null
+  document.body.style.overflowY = 'hidden'
+  document.body.style.backgroundSize = null
+  document.body.style.backgroundPosition = null
+  document.body.style.backgroundRepeat =  null
+}
 
 sendResults = (tournamentResults) => {
 
@@ -446,6 +469,8 @@ toggleVisibility = () => {
         marginBottom: 0
       }
 
+
+
       
 
       const table = {
@@ -523,7 +548,8 @@ toggleVisibility = () => {
 
 
    return (
-     <Container>
+
+     <div>
       <Row>
         <br />
         <br />   
@@ -790,7 +816,7 @@ value = {this.state.tournamentYear}
 </Form>;
       </Col>
       </Row>
-      </Container>
+      </div>
 
 
     )}

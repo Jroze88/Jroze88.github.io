@@ -5,8 +5,8 @@ import {
   Route
 } from 'react-router-dom';
 import NavTabs from './NavTabs';
-import ReportForm from './contact';
-// import Home from './Home';
+import ReportForm from './tournamentform';
+import Home from './Home';
 import ClickyGame from './clickygame'
 // import Contact from "./contact"
 // import Projects from "./projects"
@@ -35,8 +35,8 @@ class App extends Component {
                   <Route exact path ='/friendfinder' component={QuizQuestion} />
                    */}
                   <Route exact path="/asoiaf" exact component={ReportForm} />
-                  {/* <Route exact path ="/Home" component={Home} />
-                  <Route exact path ='/cv' component = {CV} />
+                  <Route exact path ="/Home" component={Home} />
+                  {/* <Route exact path ='/cv' component = {CV} />
                   <Route exact path ='/skilltree' component = {Skilltree} />
                   <Route exact path ="/" component={Intro} /> */}
                

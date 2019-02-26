@@ -3,6 +3,7 @@ import Carousel from 'react-bootstrap/Carousel'
 import About from './about'
 import Contact from './contact'
 import Projects from './projects'
+import brownbg from './brownbg.jpg'
 
 
 class Home extends React.Component {
@@ -30,9 +31,12 @@ class Home extends React.Component {
       const { index, direction } = this.state;
       const style = {
         cardbg : {
-          backgroundImage : 'url("/carousel.png"), url("/img/black.jpg")',
           width : '100vw',
           height : '95vh',
+          backgroundImage: `url(${brownbg})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
         },
         textStyle : {
           color : 'white',
@@ -67,64 +71,38 @@ class Home extends React.Component {
   
       return (
         
-        <Carousel
-        
-          activeIndex={index}
-          direction={direction}
-          onSelect={this.handleSelect}
-        >
-          <Carousel.Item style = {style.cardbg}>
-          {this.state.width > 750 ? (
-          <About subtext = {style.subtext} textstyle = {style.textStyle} /> )
-          :
-          ( <About subtext = {style.subtext} textstyle = {style.textStyleMobile} />
-          )}
-           
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <Carousel.Caption>
-              <br></br>
-              <h3 style={style.numbers}>[1/3]</h3>
-             
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item  style = {style.cardbg}>
-          <Projects />
-          <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <Carousel.Caption>
-              <h3 style={style.numbers}>[2/3]</h3>
-              
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item style = {style.cardbg}>
-            
-            <Contact />
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <Carousel.Caption>
-              <h3 style={style.numbers}>[3/3]</h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
+<Carousel>
+  <Carousel.Item style={style.cardbg}>
+    <Carousel.Caption>
+      <h3>First slide label</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src={brownbg}
+      alt="Third slide"
+    />
+
+    <Carousel.Caption>
+      <h3>Second slide label</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item style={style.cardbg}>
+    <img
+      className="d-block w-100"
+      src={brownbg}
+      alt="Third slide"
+    />
+
+    <Carousel.Caption style={style.cardbg}>
+      <h3>Third slide label</h3>
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+</Carousel>
    
       );
     }
