@@ -10,9 +10,10 @@ import Home from './Home';
 import ClickyGame from './clickygame'
 // import Contact from "./contact"
 // import Projects from "./projects"
-// import Intro from './Intro'
+import Intro from './Intro'
 // import CV from './cs'
 // import Skilltree from './skilltree'
+import starfallBG from './starfallbg'
 
 
 class App extends Component {
@@ -37,13 +38,13 @@ class App extends Component {
                   <Route exact path="/asoiaf" exact component={ReportForm} />
                   <Route exact path ="/Home" component={Home} />
                   {/* <Route exact path ='/cv' component = {CV} />
-                  <Route exact path ='/skilltree' component = {Skilltree} />
-                  <Route exact path ="/" component={Intro} /> */}
+                  <Route exact path ='/skilltree' component = {Skilltree} /> */}
+                  <Route exact path ="/" component={Intro} />
                
                   {/* <Route exact path="/contact" exact component={Contact} />
                   <Route exact path="/projects" component={Projects} /> */}
                    <Route exact path="/clickygame" component={ClickyGame} /> 
-
+                  <Route exact path = '/starfallbg' component={starfallBG} />
                   {/* <Footer /> */}
              </div>      
      </Router>

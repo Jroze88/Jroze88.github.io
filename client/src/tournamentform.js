@@ -274,6 +274,11 @@ handleSubmit = e => {
 
 }
 
+
+
+
+
+
 handleDBSend = () => {
 
   let tournamentResults = {
@@ -329,6 +334,8 @@ tournamentMonthSet = (e)=> {
 }
 }
 
+
+
 toggleVisibility = () => {
   if (this.state.tournamentName !== '') {
   this.setState({
@@ -340,25 +347,52 @@ toggleVisibility = () => {
 }
 
   handleArmy1 = e => {
+
+
     let army1 = e.clipboardData.getData('text/plain')
 
-
+    let finalList1= []
 
     let army1List = army1.split(/(\u2022)/)
 
-    for (var i = 0; i < army1List.length; i++) {
+    let army1ListBreaks = []
 
-      if (army1List[i] === '/(\u2022)/') {
-        army1List.splice(i, 1);
+    let army1ListBreaksPrime = []
+
+
+    for (let i = 0; i < army1List.length; i++) {
+
+      let tempList1 = army1List[i].split(/(\n)/g)
+
+      for (let k = 0; k < tempList1.length; k++) {
+
+        if (tempList1[k].length !== 0 && tempList1[k].length !== 1) {
+          army1ListBreaksPrime.push(tempList1[k])
+        }
+
       }
 
+
+
+
     }
-   
+
+
+    
+
+
+  
+
+
     setTimeout(function() {
-      console.log(army1List)
+
+      console.log(army1ListBreaksPrime)
+
+      
+
 
       this.setState({
-        playerArmy1 : army1List
+        playerArmy1 : army1ListBreaksPrime
       })
       
     }.bind(this), 1000)
@@ -367,25 +401,55 @@ toggleVisibility = () => {
   }
 
   handleArmy2 = e => {
+
+
+
     let army2 = e.clipboardData.getData('text/plain')
 
-    
+    let finalList2= []
 
     let army2List = army2.split(/(\u2022)/)
 
-    for (var i = 0; i < army2List.length; i++) {
+    let army2ListBreaks = []
 
-      if (army2List[i] === '/(\u2022)/') {
-        army2List.splice(i, 1);
+    let army2ListBreaksPrime = []
+
+
+    for (let i = 0; i < army2List.length; i++) {
+
+      let tempList2 = army2List[i].split(/(\n)/g)
+
+      for (let k = 0; k < tempList2.length; k++) {
+
+        if (tempList2[k].length !== 0 && tempList2[k].length !== 1) {
+          army2ListBreaksPrime.push(tempList2[k])
+        }
+
       }
 
+
+
+
     }
-   
+
+
+    
+
+
+  
+
+
     setTimeout(function() {
-      console.log(army2List)
+
+      console.log(army2ListBreaksPrime)
+
+      
+
+
       this.setState({
-        playerArmy2 : army2List
+        playerArmy2 : army2ListBreaksPrime
       })
+      
     }.bind(this), 1000)
 
     

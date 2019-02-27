@@ -17,7 +17,7 @@ class Intro extends Component {
         window.onload = function() {
 
 
-            $('html').css('background-image', 'url("/img/black.jpg")')
+           
        
           
           

@@ -10,7 +10,11 @@
 
 
 body {
-    background-color: black !important;
+    background-color: #212529;
+}
+
+#starfield {
+  height: 100vh;
 }
 
  .dot {
@@ -22,8 +26,7 @@ body {
       background-color: #bbb;
       border-radius: 50%;
       display: inline-block;
-      -moz-box-shadow: 0px 0px 30px 2px rgb(163, 235, 235);
-     -webkit-box-shadow: 0px 0px 30px 2px rgb(163, 235, 235);
+
      box-shadow: 0px 0px 30px 2px rgb(163, 235, 235);
  }
 
@@ -504,7 +507,7 @@ text-decoration: none;
     
     .blue1 {
       display: block;
-      background-image:url("/img/blue1.svg");
+      background-image:url("./img/blue1.svg");
       position: absolute;
       margin:0;
       padding:0;
@@ -521,7 +524,7 @@ text-decoration: none;
     }
     
       .blue2 {
-        background-image:url("/img/blue2.svg");
+        background-image:url("./img/blue2.svg");
         position: absolute;
         display: block;
         margin:0;
@@ -538,7 +541,7 @@ text-decoration: none;
       }
     
       .green1 {
-        background-image:  url("/img/green1.svg");
+        background-image:  url("./img/green1.svg");
         position: absolute;
         display: block;
         margin:0;
@@ -556,7 +559,7 @@ text-decoration: none;
     
       .green2 {
         display: block;
-      background-image:  url("/img/green2.svg");
+      background-image:  url("./img/green2.svg");
       position: absolute;
       margin:0;
       padding:0;
@@ -573,7 +576,7 @@ text-decoration: none;
     
       .yellow1 {
         display: block;
-      background-image:  url("/img/yellow1.svg");
+      background-image:  url("./img/yellow1.svg");
       position: absolute;
       margin:0;
       padding:0;
@@ -590,7 +593,7 @@ text-decoration: none;
     
       .yellow2 {
         display: block;
-        background-image:url("/img/yellow2.svg");
+        background-image:url("./img/yellow2.svg");
         position: absolute;
         margin:0;
         padding:0;
@@ -607,7 +610,7 @@ text-decoration: none;
     
       .orange1 {
         display: block;
-          background-image:url("/img/orange1.svg");
+          background-image:url("./img/orange1.svg");
           position: absolute;
           width:366px;
           height:366px;
@@ -625,7 +628,7 @@ text-decoration: none;
     
       .orange2 {
         display: block;
-      background-image:  url("/img/orange2.svg");
+      background-image:  url("./img/orange2.svg");
       position: absolute;
       margin:0;
       padding:0;
@@ -642,7 +645,7 @@ text-decoration: none;
     
       .red1 {
         display: block;
-        background-image:url("/img/red1.svg");
+        background-image:url("./img/red1.svg");
         position: absolute;
         width:366px;
         height:366px;
@@ -660,7 +663,7 @@ text-decoration: none;
     
       .red2 {
         display: block;
-        background-image:url("/img/red2.svg");
+        background-image:url("./img/red2.svg");
         position: absolute;
         margin:0;
         padding:0;
@@ -697,7 +700,7 @@ text-decoration: none;
         display: none;
         border-radius: 50% !important;
         overflow: hidden;
-        background-image: url('/img/profile.jpg');
+        background-image: url('./img/profile.jpg');
         background-size: cover;
         background-repeat: no-repeat;
       }

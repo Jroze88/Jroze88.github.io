@@ -2,6 +2,53 @@ h1 {
   color: green;
 }
 
+.starfall {
+
+  height: 2px;
+  width: 2px;
+  margin: 0;
+  padding: 0;
+  background-color: #bbb;
+  border-radius: 50%;
+
+}
+
+.startails {
+  height: 1px;
+  width: 500px;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(187, 187, 187, 0.582);
+  display: inline-block;
+  overflow: show;
+
+
+  /* transform: rotateX(45deg) rotateY(-75deg) */
+  /* animation: spinbeta 47s infinite linear; */
+
+}
+
+@-webkit-keyframes spinbeta {
+  0% {transform-origin: center; -webkit-transform: rotateX(45deg);}
+  100% {transform-origin: center; -webkit-transform: rotateX(-45deg);}
+  }
+
+#starfallfield {
+  height:100vh;
+  width: 100vw;
+  overflow: hidden;
+  
+animation: spinalpha 30s  linear infinite;
+  /* animation: spinbeta  15s  linear infinite alternate; */
+  transform: rotateY(45deg) rotateX(45deg) rotate(-45deg)
+}
+
+@-webkit-keyframes spinalpha {
+  0% { transform-origin: center; -webkit-transform:  rotateY(90deg) rotateX(90deg);}
+  50% { transform-origin: center; -webkit-transform:  rotateY(0deg) rotateX(0deg);}
+  100% {transform-origin: center; -webkit-transform:  rotateY(90deg) rotateX(90deg);}
+  }
+
 body {
   text-align: center;
   margin: auto;
@@ -33,7 +80,7 @@ body {
 }
 
 .navbar {
-  background-color: #1B242F!important;
+  background-color: rgb(30, 255, 0)!important;
   border-bottom: 3px solid #04C2C9;
 
 }
@@ -236,4 +283,95 @@ body {
 } */
 
 
+/* ////// C0MET EFFECT /////// */
 
+
+/* #comets{
+  position:relative;
+  top:-150px;
+  width:100vw;
+  text-align: left; 
+  height: 100%; 
+  min-height: 900px;
+  overflow:hidden;
+}
+
+
+
+#comets i:nth-child(1){
+  left: 50vw;
+  height:73px; 
+  width:3px;
+  background-color: #fff;
+  -webkit-animation-delay: 1s;
+}
+#comets i:nth-child(3){
+  height:11px; 
+  width:3px;
+  -webkit-animation: falling3 4s 3s infinite;
+  left: 10vw;
+background-color: #fff;
+-webkit-animation-delay: 1s;
+}
+#comets i:nth-child(2){
+  -webkit-animation: falling2 3s 1s infinite;
+  left: 30vw;
+  height:70px; 
+  width:4px;
+  background-color: #fff;
+  -webkit-animation-delay: 1s;
+
+}
+
+
+
+
+@-webkit-keyframes falling {
+
+  0% {
+    -webkit-transform: translate3d(100px,0px,0px) rotate(160deg);
+  }
+
+  3% {
+    -webkit-transform:
+    translate3d(450px,900px,0) rotate(160deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform:
+    translate3d(450px,900px,0) rotate(160deg);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes falling3 {
+ 0% {
+  -webkit-transform: translate3d(0,0,0) rotate(150deg);
+}
+
+10% {
+  -webkit-transform: translate3d(430px,640px,0) rotate(150deg);
+  opacity: 0;
+}
+
+100% {
+  -webkit-transform: translate3d(430px,640px,0) rotate(150deg);
+  opacity: 0;
+}
+}
+
+@-webkit-keyframes falling2 {
+ 0% {
+  -webkit-transform:translate3d(100px,0,0) rotate(130deg);
+}
+
+15% {
+  -webkit-transform:translate3d(800px,580px,0) rotate(130deg);
+  opacity: 0;
+}
+
+100% {
+  -webkit-transform: translate3d(800px,680px,0) rotate(180deg);
+  opacity: 0;
+}
+} */
