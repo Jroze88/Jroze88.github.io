@@ -25,9 +25,9 @@ class ReportForm extends Component {
         this.state = {
         
               tournamentName : '',
-              TournamentMonth : '',
-              TournamentYear: '',
-              TournamentDay : '',
+              TournamentMonth : null,
+              TournamentYear: null,
+              TournamentDay : null,
               numberOfPlayers : 0,
               players : [],
               currentPlayer : null,
@@ -87,14 +87,19 @@ componentWillUnmount = () => {
 
 sendResults = (tournamentResults) => {
 
-  axios.post("/post/tournamentresults", tournamentResults)
+  axios.post("/post/tournamentresults", tournamentResults).then(response => { 
+    console.log(response)
+  })
+  .catch(error => {
+      console.log(error.response)
+  });
 
-  setTimeout(function() {
+  // setTimeout(function() {
 
-    alert('Results Logged')
-      window.location.reload();
+  //   alert('Results Logged')
+  //     window.location.reload();
 
-  }, 1200)
+  // }, 1200)
       
    
 
@@ -287,6 +292,8 @@ handleDBSend = () => {
     players : []
   }
 
+  console.log(tournamentResults)
+
 
   tournamentResults = {
     tournamentName : this.state.tournamentName,
@@ -296,8 +303,11 @@ handleDBSend = () => {
 
   console.log(tournamentResults)
 
+  setTimeout(function() {
 
-  this.sendResults(tournamentResults)
+    this.sendResults(tournamentResults)
+  }, 1000)
+  
 
 }
 
@@ -394,6 +404,8 @@ toggleVisibility = () => {
       this.setState({
         playerArmy1 : army1ListBreaksPrime
       })
+
+      
       
     }.bind(this), 1000)
 
