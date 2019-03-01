@@ -8,8 +8,8 @@ import NavTabs from './NavTabs';
 import ReportForm from './tournamentform';
 import Home from './Home';
 import ClickyGame from './clickygame'
-// import Contact from "./contact"
-// import Projects from "./projects"
+import Contact from "./contact"
+import Projects from "./projects"
 import Intro from './Intro'
 // import CV from './cs'
 // import Skilltree from './skilltree'
@@ -41,8 +41,8 @@ class App extends Component {
                   <Route exact path ='/skilltree' component = {Skilltree} /> */}
                   <Route exact path ="/" component={Intro} />
                
-                  {/* <Route exact path="/contact" exact component={Contact} />
-                  <Route exact path="/projects" component={Projects} /> */}
+                  <Route exact path="/contact" exact component={Contact} />
+                  <Route exact path="/projects" component={Projects} />
                    <Route exact path="/clickygame" component={ClickyGame} /> 
                   <Route exact path = '/starfallbg' component={starfallBG} />
                   {/* <Footer /> */}

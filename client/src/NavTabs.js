@@ -37,7 +37,9 @@ class NavTabs extends Component {
 
   render() {
 
-    
+    const warningstyle = {
+      color: 'red'
+    }
 
 const navStyle = {
   height: '5vh',
@@ -56,7 +58,7 @@ return (
       <Nav.Link href="#link">Link</Nav.Link>
       <Nav.Link href="#home"><p style={{color: '#F77A55'}}>Projects</p></Nav.Link>
       <Nav.Link href="#link">Link</Nav.Link>
-      <Nav.Link  href="#home">Currently re-adding content after major site update - Check back soon!</Nav.Link>
+      <Nav.Link href="#home"><p style={warningstyle}>Currently re-adding content after major site update - Check back soon!</p></Nav.Link>
       <NavDropdown title="Dropdown" id="basic-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
