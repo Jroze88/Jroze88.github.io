@@ -51,6 +51,12 @@ app.post("/post/tournamentresults", function(req, res) {
   console.log(req.body)
 });
 
+app.post("/get/tournamentresults", function(req, res) {
+  
+
+  console.log(req.body)
+});
+
 
 
 

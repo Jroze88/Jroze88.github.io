@@ -25,9 +25,9 @@ class ReportForm extends Component {
         this.state = {
         
               tournamentName : '',
-              TournamentMonth : null,
-              TournamentYear: null,
-              TournamentDay : null,
+              tournamentMonth : '',
+              tournamentYear: '',
+              tournamentDay : '',
               numberOfPlayers : 0,
               players : [],
               currentPlayer : null,
@@ -295,68 +295,70 @@ handleDBSend = () => {
     players : []
   }
 
-  console.log(tournamentResults)
+
 
 
   tournamentResults = {
     tournamentName : this.state.tournamentName,
-    tournamentDate : this.state.tournamentDay + '/' + this.state.tournamentMonth + '/' + this.state.TournamentYear,
+    tournamentDate : this.state.tournamentDay + '/' + this.state.tournamentMonth + '/' + this.state.tournamentYear,
     players : this.state.players
   }
 
-  console.log(tournamentResults)
+
 
   setTimeout(function() {
 
     this.sendResults(tournamentResults)
-  }, 1000)
+  }.bind(this), 1000)
   
 
 }
 
 tournamentNameSet = (e)=> {
-  if (e.target.value.length > 3) {
+
   this.setState({ 
-    tournamentName: e.target.value.toUpperCase()
+    tournamentName: e.target.value
  });
-}
+
 }
 
 tournamentDaySet = (e)=> {
-  if (e.target.value !== 'Day') {
+
   this.setState({ 
-    TournamentDay: e.target.value
+    tournamentDay: e.target.value
  });
-}
+
+
+
 }
 
 tournamentYearSet = (e)=> {
-  if (e.target.value !== 'Year') {
+ 
   this.setState({ 
     
-    TournamentYear: e.target.value
+    tournamentYear: e.target.value
  });
-}
+
 }
 
 tournamentMonthSet = (e)=> {
-  if (e.target.value !== 'Month') {
+
   this.setState({ 
-    TournamentMonth: e.target.value
+    tournamentMonth: e.target.value
  });
-}
+
 }
 
 
 
 toggleVisibility = () => {
-  if (this.state.tournamentName !== '') {
+  if (this.state.tournamentName !== '' && this.state.tournamentDay !== 'Day' && this.state.tournamentMonth !== 'Month') {
   this.setState({
     toggleVis : true
   })
 }
 
-  console.log(this.state.tournamentName)
+  console.log(`${this.state.tournamentName} ${this.state.tournamentDay} ${this.state.tournamentMonth}`)
 }
 
   handleArmy1 = e => {
@@ -710,71 +712,66 @@ return <tr><td>{`${person.placement}`}</td><td>{`${person.name}`}</td><td>{`${pe
       aria-label="Tournament Name"
       aria-describedby="basic-addon2"
     /><br />
-        <Form.Control onChange={this.tournamentMonthSet} as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
-        
-placeholder="Month"
-value = {this.state.tournamentMonth}
-    >     
+        <Form.Control as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}}   onChange={this.tournamentMonthSet} value={this.state.tournamentMonth}  >     
     <option>Month</option>
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-    <option>6</option>
-    <option>7</option>
-    <option>8</option>
-    <option>9</option>
-    <option>10</option>
-    <option>11</option>
-      <option>12</option>
+    <option value='1'>1</option>
+    <option value='2'>2</option>
+    <option value='3'>3</option>
+    <option value='4'>4</option>
+    <option value='5'>5</option>
+    <option value='6'>6</option>
+    <option value='7'>7</option>
+    <option value='8'>8</option>
+    <option value='9'>9</option>
+    <option value='10'>10</option>
+    <option value='11'>11</option>
+      <option value='12'>12</option>
       
       </Form.Control>
       <Form.Control className='datestyle' onChange={this.tournamentDaySet} as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
-placeholder="Day"
-value = {this.state.tournamentDay}
+  value={this.state.tournamentDay} 
     >
      <option>Day</option>
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-    <option>6</option>
-    <option>7</option>
-    <option>8</option>
-    <option>9</option>
-    <option>10</option>
-    <option>11</option>
-      <option>12</option>
-      <option>13</option>
-      <option>14</option>
-      <option>15</option>
-      <option>16</option>
-      <option>17</option>
-      <option>18</option>
-      <option>19</option>
-      <option>20</option>
-      <option>21</option>
-      <option>22</option>
-      <option>23</option>
-      <option>24</option>
-      <option>25</option>
-      <option>26</option>
-      <option>27</option>
-      <option>28</option>
-      <option>29</option>
-      <option>30</option>
-      <option>31</option>
+     <option value='1'>1</option>
+    <option value='2'>2</option>
+    <option value='3'>3</option>
+    <option value='4'>4</option>
+    <option value='5'>5</option>
+    <option value='6'>6</option>
+    <option value='7'>7</option>
+    <option value='8'>8</option>
+    <option value='9'>9</option>
+    <option value='10'>10</option>
+    <option value='11'>11</option>
+      <option value='12'>12</option>
+      <option value='13'>1</option>
+    <option value='14'>2</option>
+    <option value='15'>3</option>
+    <option value='16'>4</option>
+    <option value='17'>5</option>
+    <option value='18'>6</option>
+    <option value='19'>7</option>
+    <option value='20'>8</option>
+    <option value='21'>9</option>
+    <option value='22'>10</option>
+    <option value='23'>11</option>
+      <option value='24'>12</option>
+      <option value='25'>5</option>
+    <option value='26'>6</option>
+    <option value='27'>7</option>
+    <option value='28'>8</option>
+    <option value='29'>9</option>
+    <option value='30'>10</option>
+    <option value='31'>11</option>
+ 
   </Form.Control>
     <Form.Control className='datestyle' onChange={this.tournamentYearSet} as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
-placeholder="Year" 
-value = {this.state.tournamentYear}
+  value={this.state.tournamentYear} 
     >
           <option>Year</option>
-          <option>2018</option>
-      <option>2019</option>
-      <option>2020</option>
+          <option value='2018'>2018</option>
+      <option value='2019'>2019</option>
+      <option value='2029'>2020</option>
       </Form.Control>
     <InputGroup.Append>
       <Button className='btn-info' onClick={this.toggleVisibility}  style = {{fontSize : '0.7em'}} style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} variant="primary">Add </Button>
