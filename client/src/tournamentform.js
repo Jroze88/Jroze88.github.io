@@ -7,9 +7,9 @@ import Form from 'react-bootstrap/Form'
 import InputGroup from 'react-bootstrap/InputGroup'
 import Button  from 'react-bootstrap/Button'
 import axios from 'axios';
-import border from './border.jpg'
+import border from './border.gif'
 import waxButton from './waxbutton.png'
-import crow from './crow.png'
+import crow from './crowicon.gif'
 import $ from 'jquery'
 import mapbg from './map.jpg'
 
@@ -61,28 +61,31 @@ class ReportForm extends Component {
 //         else if (emailcont.includes('@')) return 'success';
 //       }
 
-componentWillMount = () => {
+componentDidMount = () => {
+  const navb = document.querySelector('nav.navbar')
 
-  const pagebg = {
-    backgroundImage: `url(${mapbg})`,
-    backgroundSize: '100% 100%',
-    backgroundRepeat: 'no-repeat',
-    width: '100vw',
-    height: '100vh'
-  }
+
+  // document.body.style.backgroundColor = 'darkgray'
   document.body.style.backgroundImage = `url(${mapbg})`
   document.body.style.overflowY = 'scroll'
-  document.body.style.backgroundSize = 'cover'
-  document.body.style.backgroundPosition = 'center'
+  document.body.style.backgroundSize = '100% 100%'
   document.body.style.backgroundRepeat = 'no-repeat'
+  document.body.style.backgroundAttachment = 'attached'
+  navb.style.display = 'none'
+
+  const starf = document.querySelector('#starfield')
+
+  starf.style.display = 'none'
 }
 
 componentWillUnmount = () => {
+  const navb = document.querySelector('nav.navbar')
   document.body.style.backgroundImage = null
   document.body.style.overflowY = 'hidden'
   document.body.style.backgroundSize = null
   document.body.style.backgroundPosition = null
   document.body.style.backgroundRepeat =  null
+  navb.style.display = 'block'
 }
 
 sendResults = (tournamentResults) => {
@@ -547,22 +550,34 @@ toggleVisibility = () => {
 
 
 
-      
-
       const table = {
         marginTop: '3%',
         
       }
 
+      // const notScroll = {
+      //   backgroundImg :`url(${border})`,
+      //   backgroundSize: '100% 100%',
+      //   backgroundRepeat: 'no-repeat',
+      //   color: 'white',
+      //   padding: '5%',
+      //   paddingTop: '5%',
+      //   fontSize: '0.8em',
+      //   marginBottom: '10%',
+      //   visibility: 'hidden'
+      // }
+
       const scroll = {
-        backgroundImage: `url(${border})`,
+        backgroundImage :`url(${border})`,
         backgroundSize: '100% 100%',
         backgroundRepeat: 'no-repeat',
         color: 'white',
         padding: '5%',
-        paddingTop: '0',
+        paddingTop: '5%',
         fontSize: '0.8em',
-        marginBottom: '10%'
+        marginBottom: '10%',
+
+        
       }
 
       const buttonStyle = {
@@ -570,20 +585,20 @@ toggleVisibility = () => {
         backgroundSize: '100% 100%',
         backgroundRepeat: 'no-repeat',
         color: 'white',
-        height: '100px',
-        width: '100px',
-        backgroundColor: '#fbf6f2'
+        height: '9em',
+        width: '9em',
+        backgroundColor: '#fbf6f200',
+        border: 'none'
 
       }
 
       const checkformstyle = {
-        color: 'black',
+        color: 'whitesmoke',
         textAlign: 'center',
         margin: '5px'
       }
 
       const titleStyle = {
-        width: '100%',
         fontSize: '2.5em',
         color: 'red',
         textAlign: 'center',
@@ -605,15 +620,23 @@ toggleVisibility = () => {
         height: '100%',
         backgroundImage: `url(${crow})`,
         backgroundSize: 'contain',
-        color: 'yellow',
+        color: 'red',
         backgroundColor: '#ffffff00',
         border: 'none',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center'
+        backgroundPosition: 'top',
+        cursor: 'pointer'
+
       }
 
       const cursor = {
          cursor: 'grabbing'
+      }
+
+      const crowButtonStyle = {
+        visibility: 'hidden',
+        width: '100%',
+        height: '100%'
       }
 
 
@@ -630,8 +653,8 @@ toggleVisibility = () => {
         <br />
         <br />   
 
-          <Col md = {1}></Col>
-          <Col md={10} sm={12}>
+      <Col md = {1}></Col>
+          <Col md={8} sm={12}>
           <Table responsive style={table}  striped bordered hover variant="dark">
   <thead>
     <tr>
@@ -672,18 +695,18 @@ return <tr><td>{`${person.placement}`}</td><td>{`${person.name}`}</td><td>{`${pe
 
 </Table>;
 </Col>
-<Col md = {1}> <br />
-        <br /> <button onClick={this.handleDBSend} style={crowButton}>Submit<br />Results</button></Col>
+<Col md = {2}> <br />
+        <br /> <button onClick={this.handleDBSend} style = {crowButton }><img style={crowButtonStyle} src={crow}></img></button></Col>
 </Row>
 <Row>
      
     
-      <Col style={scroll}  md={{ span: 8, offset: 2 }} sm={12}>
+      <Col style = {this.state.toggleVis ? scroll : {visibility : 'hidden'}} md={{ span: 8, offset: 2 }} sm={12}>
       <div style={{visibility: 'hidden'}}>Title</div>
       <div  style =  {this.state.toggleVis ? titleStyle : notTitleStyle}>{this.state.tournamentName}</div>
-      <InputGroup >
+      <InputGroup style={{maxWidth: '800px'}} >
       <Form.Control onChange={this.tournamentNameSet}  style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
-      placeholder="Tourny Name"
+      placeholder="Event Name"
       aria-label="Tournament Name"
       aria-describedby="basic-addon2"
     /><br />
@@ -707,7 +730,7 @@ value = {this.state.tournamentMonth}
       <option>12</option>
       
       </Form.Control>
-      <Form.Control onChange={this.tournamentDaySet} as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
+      <Form.Control className='datestyle' onChange={this.tournamentDaySet} as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
 placeholder="Day"
 value = {this.state.tournamentDay}
     >
@@ -744,8 +767,8 @@ value = {this.state.tournamentDay}
       <option>30</option>
       <option>31</option>
   </Form.Control>
-    <Form.Control onChange={this.tournamentYearSet} as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
-placeholder="Year"
+    <Form.Control className='datestyle' onChange={this.tournamentYearSet} as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
+placeholder="Year" 
 value = {this.state.tournamentYear}
     >
           <option>Year</option>
@@ -754,10 +777,10 @@ value = {this.state.tournamentYear}
       <option>2020</option>
       </Form.Control>
     <InputGroup.Append>
-      <Button onClick={this.toggleVisibility} style = {{visibility: this.state.toggleVis ? 'hidden' : 'visibile'}} style = {{fontSize : '0.7em'}} variant="primary">Add </Button>
+      <Button className='btn-danger' onClick={this.toggleVisibility}  style = {{fontSize : '0.7em'}} style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} variant="primary">Add </Button>
     </InputGroup.Append>
   </InputGroup>
-      <Form onSubmit={this.handleSubmit.bind(this)}>
+      <Form   onSubmit={this.handleSubmit.bind(this)}>
       <Form.Label style={headerS} style={{visibility: 'hidden'}}>New Player:</Form.Label>
   <Form.Row>
   <Form.Group style={formstyle} controlId="formGridState">
@@ -854,7 +877,7 @@ value = {this.state.tournamentYear}
       <option>Neutral</option>
       </Form.Control>
     </Form.Group>
-    Stats
+
     <Form.Group  style={formstyle}as={Col} controlId="formGridPassword">
       <Form.Label style={headerS}>Total VP</Form.Label>
       <Form.Control onChange={this.handleVPChange} value={this.state.playerVP} type="text" placeholder="VP" />
@@ -865,7 +888,7 @@ value = {this.state.tournamentYear}
     </Form.Group>
   </Form.Row>
 
-  <Form.Group id="formGridTextArea">
+  <Form.Group  id="formGridTextArea">
   <InputGroup>
     <InputGroup.Prepend>
       <InputGroup.Text  style={formstyle}>Copy/Paste ASOIAF Builder<br />
@@ -889,7 +912,7 @@ value = {this.state.tournamentYear}
   <button style={buttonStyle}>
     Add Player
   </button>
-</Form>;
+</Form>
       </Col>
       </Row>
       </div>

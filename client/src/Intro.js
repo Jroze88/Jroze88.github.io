@@ -5,6 +5,9 @@ import './intro.css'
 
 class Intro extends Component {
 
+
+
+
     componentDidMount() {
       
         var aggregateTimer;
@@ -16,15 +19,6 @@ class Intro extends Component {
 
         window.onload = function() {
 
-
-           
-       
-          
-          
-          
-              
-         
-          
           
           var x = $(".hardcover_front1");
           var y = $(".hardcover_front2");
