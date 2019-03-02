@@ -777,7 +777,7 @@ value = {this.state.tournamentYear}
       <option>2020</option>
       </Form.Control>
     <InputGroup.Append>
-      <Button className='btn-danger' onClick={this.toggleVisibility}  style = {{fontSize : '0.7em'}} style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} variant="primary">Add </Button>
+      <Button className='btn-info' onClick={this.toggleVisibility}  style = {{fontSize : '0.7em'}} style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} variant="primary">Add </Button>
     </InputGroup.Append>
   </InputGroup>
       <Form   onSubmit={this.handleSubmit.bind(this)}>
