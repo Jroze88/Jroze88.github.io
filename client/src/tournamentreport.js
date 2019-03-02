@@ -24,7 +24,7 @@ class TournamentReport extends Component {
     
         this.state = {
         
-              tournamentResults: null
+              rawResults: []
             
           }
         }
@@ -32,15 +32,41 @@ class TournamentReport extends Component {
 
 
 
-    componentWillMount() {
+    componentWillMount = () => {
 
-        axios.get("/get/tournamentresults", tournamentResults).then(response => { 
-            console.log(response)
-          })
-          .catch(error => {
-              console.log(error.response)
-          });
+        axios.get("/get/tournamentresults").then(response => { 
+    
 
+            let result = []
+
+            for (let i = 0; i < response.data.length; i++) {
+
+
+               result.push(response.data[i])
+             
+
+
+                   
+                
+            }
+
+            console.log(result)
+
+            this.setState({
+                rawResults : this.state.rawResults.concat(result)
+            })
+
+            
+
+
+          }).catch(error => {
+            console.log(error.response)
+        });
+
+          setTimeout(function() {
+              console.log(this.state)
+          }.bind(this), 3000)
+         
 
 
     }

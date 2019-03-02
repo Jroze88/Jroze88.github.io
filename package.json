@@ -28,6 +28,7 @@
     "jquery": "^3.3.1",
     "mongoose": "^5.4.13",
     "popper.js": "^1.14.7",
+    "react-transition-group": "^2.6.0",
     "yarn": "^1.13.0"
   },
   "devDependencies": {

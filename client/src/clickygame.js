@@ -4,422 +4,133 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 import $ from 'jquery';
+import Button from 'react-bootstrap/Button'
+import { Transition } from 'react-transition-group';
 
-class ScoreCounter extends Component {
-
-  render() {
-    return(
-      <p>Score :{this.props.score}</p>
-
-    )
-  }
-  
-}
 
 class ClickyGame extends Component {
 
   constructor(props) {
     super(props);
       this.state = {
-            score: 0,
-            flipped : ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9', 'm0'],
-            animate: false,
-            lastPicked : ''
+            animate: false
           };
         }
-
-        componentWillUnmount() {
-          
-        }
-
-
-
-
-        shuffleCards = () => {
-
-
-          this.setState({animate : true})
-          
-          setTimeout(function() {
-            this.resetShuffle()
-          }.bind(this), 1500)
-
-
-        }
-
-        resetShuffle = () => {this.setState({animate: false})}
-
 
 
      
 
-      
-
-
-
-
-
-
-      componentDidMount() {
-
-      const addPoints = () => { 
-        setTimeout(function() {
-          this.setState({ score : defaultScore})
-          console.log(this.state.score)
-           }.bind(this), 200)
+      stackCards = () => {
+        this.setState({
+          animate: true
+        })
       }
 
-      let defaultScore =0;
-       const removeFlippedCard =() => {
-        setTimeout(function() {
-          this.setState({ flipped: this.state.flipped.map(function(x, f) { return cards[f] }),
-                          lastPicked : [flippedCard]})
-          console.log(this.state.lastPicked)
-          console.log(this.state.flipped)
-        }.bind(this), 2000)
-      }
-       const initiateShuffle =() => {
-          setTimeout(function() {
-            this.setState({animate: true})
-          }.bind(this), 2000)
-        }
-
-
-        let cards = this.state.flipped;
-        let randomCards =[];
-        let flippedCard = [];
-        let cardBacks = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9', 'm0']
-
-        const shuffle = function(array) {
-          var currentIndex = array.length, temporaryValue, randomIndex;
-        
-          // While there remain elements to shuffle...
-          while (0 !== currentIndex) {
-        
-            // Pick a remaining element...
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
-        
-            // And swap it with the current element.
-            temporaryValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue;
-          }
-        
-          return array;
-        }
-
-        if ($('.input').checked === false) {
-          console.log('woot')
-        }
-
-        randomCards = shuffle(cardBacks);
-
-            
-  
-            
-            $('.back').each(function(e) {   
-  
-  
-              $('.back').eq(e).addClass(randomCards[e]);
-  
-          });
-
-      
-
-
-      
-
-/////////////////////////////////
-       
-const stack =() => {        
-        $(".__card").each(function(e) {
-      
-          setTimeout(function() {
-            $(".__card").eq(e).attr("class", "card");
-          }, e * 150)
-          
-        });       
+      dealCards = () => {
+        this.setState({
+          animate: false
+        })
       }
 
 
-/////////////////////////////////////
-      
-const spread =()=> {
-        
-        $(".__card").each(function(e) {
-      
-          setTimeout(function() {
-            $(".__card").eq(e).attr("class", "card ani" + e);
-          }, e * 150)
-
-
-          
-        });
-        
-      }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////      
-
-
-
-
-      $('.front').on('click', function(e) {
-
-       
-
-          
-          
-
-       flippedCard = $(this.nextSibling).attr('class').replace('back ', '');
-
-       let index = 0;
-       index = cards.indexOf(flippedCard)
-
-       console.log(index)
-
-       if (index >= 0) {
-        defaultScore += 100;
-        addPoints()
-
-      cards.splice(cards.indexOf(flippedCard), 1)
-      console.log(cards)
-      
-      
-      
-
-       
-      $(this.parentElement.parentElement).addClass('flip');
-      $(this.parentElement).addClass('flip');
-      $(this.nextElementSibling).addClass('flip');
-
-        $(this.parentElement.parentElement).css('-webkit-transform', 'rotateY(180deg)');
-        $(this.parentElement).css('-webkit-transform', 'rotateY(180deg)');
-        // $(this).css('-webkit-transform', 'rotateY(180deg)');
-        $(this.nextElementSibling).css('-webkit-transform', 'rotateY(180deg)');
-
-
-        
-
-        
-        setTimeout(function() {
-
-          $('.flip').css('-webkit-transform', '');
-          $('.flip').removeClass('flip');
-
-        }, 1990)
-
-
-        setTimeout(function () {
-          initiateShuffle()
-          removeFlippedCard()
-        }, 2000)
-
-
-
-        setTimeout(function() {
-          spread()
-        }, 5200)
-      }
-
-      else {
-
-        $(this.parentElement.parentElement).css('-webkit-transform', 'rotateY(180deg)');
-        $(this.parentElement).css('-webkit-transform', 'rotateY(180deg)');
-        // $(this).css('-webkit-transform', 'rotateY(180deg)');
-        $(this.nextElementSibling).css('-webkit-transform', 'rotateY(180deg)');
-
-
-      }
-            
-            
-
-
-
-
-
-
-      })
-
-                    
-                     
-
-
-
-
-
-
-      
-      
-      
-      
-           
- 
-    };
 
 
 
 
     render() {
 
+        const unitArray = ['crannog', 'crannog', 'crannog', 'crannog', 'crannog', 'crannog', 'crannog']
+  
+      const flipstyles = {
+        height: '150px',
+        width: '250px'
+      }
+
+
+          const transitionStyles = {
+            entering: { transition: 'all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55)', transform: 'translateX(100px)'},
+            entered:  { transform: 'translateX(100px)' },
+            // exiting:  { transition: 'all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55)', transform: 'translateX(-100px)'},
+            // exited: { transform: 'translateX(0%)' },
+          };
+
         return(
-            <Container>
-              <Row>
-            
-                <Col xs={12} md={10}>
-
-                  <div className="announcement">
-
-                 Feeling lucky? Click a card to reveal it. Don't reveal the same card twice.
-                  
-                  </div>
-                  <div className="scorediv">
-
-                  <ScoreCounter score = {this.state.score} />
-
-                  </div>
-
-
             <div >
-
-        <ul className="list">
-          <li className= {`card ${this.state.animate ? " " : " ani1 "}`}>
-            <div className=  "flip-container" onClick={this.__cardClick}>
-            
-                 <div  className="flipper">
-             
-		                  <div  className="front ">
-                      
-		                  </div>
-		                  <div  className="back">
-                          
-		            </div>
-	            </div>
-                  </div>
-          </li>
-          <li className= {`card ${this.state.animate ? " " : " ani2 "}`}>
-
-            <div className=  "flip-container" onClick={this.__cardClick}>
-                 <div  className="flipper">
-		                  <div  className="front">
-                         
-		                  </div>
-		                  <div  className="back ">
-                          
-		            </div>
-	            </div>
-                  </div>
-          </li>
-          <li className= {`card ${this.state.animate ? " " : " ani3 "}`}>
-  
-            <div className=  "flip-container" onClick={this.__cardClick}>
-                 <div  className="flipper">
-		                  <div  className="front">
-                         
-		                  </div>
-		                  <div  className="back ">
-                          
-		            </div>
-	            </div>
-                  </div>
-          </li>
-          <li className= {`card ${this.state.animate ? " " : " ani4 "}`}>
-  
-            <div className=  "flip-container" onClick={this.__cardClick}>
-                 <div  className="flipper">
-		                  <div  className="front">
-                         
-		                  </div>
-		                  <div  className="back">
-                          
-		            </div>
-	            </div>
-                  </div>
-          </li>
-          <li className= {`card ${this.state.animate ? " " : " ani5 "}`}>
-      
-               <div className=  "flip-container" onClick={this.__cardClick}>
-                 <div  className="flipper">
-		                  <div  className="front">
-                         
-		                  </div>
-		                  <div  className="back">
-                          
-		            </div>
-	            </div>
-                  </div>
-          </li>
-          <li className= {`card ${this.state.animate ? " " : " ani6 "}`}>
-     
-            <div className=  "flip-container" onClick={this.__cardClick}>
-                 <div  className="flipper">
-		                  <div  className="front">
-                         
-		                  </div>
-		                  <div  className="back">
-                          
-		            </div>
-	            </div>
-                  </div>
-            </li>
-          <li className= {`card ${this.state.animate ? " " : " ani7 "}`}>
-      
-            <div className=  "flip-container" onClick={this.__cardClick}>
-                 <div  className="flipper">
-		                  <div  className="front">
-                         
-		                  </div>
-		                  <div  className="back ">
-                          
-		            </div>
-	            </div>
-                  </div>
-          </li>
-          <li className= {`card ${this.state.animate ? " " : " ani8 "}`}>
-      
-            <div className=  "flip-container" onClick={this.__cardClick}>
-                 <div  className="flipper">
-		                  <div  className="front">
-                         
-		                  </div>
-		                  <div  className="back ">
-                          
-		            </div>
-	            </div>
-                  </div>
-          </li>
-          <li className= {`card ${this.state.animate ? " " : " ani9 "}`}>
         
-            <div className=  "flip-container" onClick={this.__cardClick}>
-                 <div  className="flipper">
-		                  <div  className="front">
-                         
-		                  </div>
-		                  <div  className="back  ">
-                          
-		            </div>
-	            </div>
+{/* 
+         style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state]
+                  }} */}
+
+
+
+
+         <Button onClick={this.dealCards}>Deal</Button>
+         <Button onClick={this.stackCards}>Stack</Button>
+
+ 
+         {/* <Transition in={this.state.animate} timeout={1100}>
+         {state => (
+              <li  style={transitionStyles[state]} className= {' __card'}>
+              <div className=  "flip-container" onClick={this.__cardClick}>
+              
+                   <div  className="flipper">
+               
+                        <div  className="front ">
+                        
+                        </div>
+                        <div  className="back">
+                            
                   </div>
-          </li>
-          <li className= {`card ${this.state.animate ? " " : " ani0 "}`}>
+                </div>
+                    </div>
+            </li>
+        )}
+              </Transition> */}
+                  
+
+        
+                  
+  
+          
+               
          
-            <div className=  "flip-container" onClick={this.__cardClick}>
-                 <div  className="flipper">
-		                  <div  className="front">
-                         
-		                  </div>
-		                  <div  className="back">
-                          
-		            </div>
-	            </div>
+                  <ul className="list">
+
+              {unitArray.map((person, index) => {
+              return(  <li style={flipstyles} key={index} className= {' __card'}>
+              <div className=  "flip-container" style={flipstyles} onClick={this.__cardClick}>
+              
+                   <div className="flipper">
+               
+                        <div style={flipstyles} style={{backgroundImage: `url(./${person}front)` }}  className="front ">
+                        
+                        </div>
+                        <div style={flipstyles} style={{backgroundImage: `url(./${person}back)` }} className="back">
+                            
                   </div>
-          </li>
+                </div>
+                    </div>
+            </li>)
+
+})}
+      
+     
+          
+          
+
+
+       
+         
+         
         </ul>
 
         
+   
+
+
       </div>
-      </Col>
-      </Row>
-      </Container>
 
         )
     }}

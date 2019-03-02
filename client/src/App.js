@@ -14,6 +14,7 @@ import Intro from './Intro'
 // import CV from './cs'
 // import Skilltree from './skilltree'
 import starfallBG from './starfallbg'
+import TournamentReport from './tournamentreport'
 
 
 class App extends Component {
@@ -40,7 +41,7 @@ class App extends Component {
                   {/* <Route exact path ='/cv' component = {CV} />
                   <Route exact path ='/skilltree' component = {Skilltree} /> */}
                   <Route exact path ="/" component={Intro} />
-               
+                  <Route exact path ="/report" component={TournamentReport} />
                   <Route exact path="/contact" exact component={Contact} />
                   <Route exact path="/projects" component={Projects} />
                    <Route exact path="/clickygame" component={ClickyGame} /> 

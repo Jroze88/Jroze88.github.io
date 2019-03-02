@@ -5,10 +5,18 @@ import './intro.css'
 
 class Intro extends Component {
 
+    componentWillUnmount = () => {
+        $('#starfield').css('display', 'none')
+    }
 
 
 
     componentDidMount() {
+
+
+        $('#starfield').css('height', '100vh')
+
+ 
       
         var aggregateTimer;
      

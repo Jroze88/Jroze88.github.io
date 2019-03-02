@@ -51,8 +51,13 @@ app.post("/post/tournamentresults", function(req, res) {
   console.log(req.body)
 });
 
-app.post("/get/tournamentresults", function(req, res) {
+app.get("/get/tournamentresults", function(req, res) {
   
+  model
+      .find({ })
+      .then(function(dbModel) {
+        res.json(dbModel)
+      });
 
   console.log(req.body)
 });

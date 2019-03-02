@@ -1,106 +1,117 @@
 
 
 .list {
-  height: 652px;
+  height: 100vh;
   padding-left: 0;  
 }
 
+
+
 .__card {
-  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  perspective: 1000;
-  transform: perspective(1000px);
-  transform-style: preserve-3d;
-  -ms-transform: perspective(1000px);
-  -moz-transform: perspective(1000px);
-  -ms-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
   float: left;
-  width: 222px;
-  height: 311px;
+  width: 250px;
+  height: 150px;
   background-color: rgba(238, 238, 238, 0);
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  margin: 30px 0 15px 15px;
+  margin: 10px;
 
 }
-.__card:nth-child(5n) {
+
+
+
+/* .star-enter {
+
+  top: 0;
+  left: 0;
+  transform: translateY(240px) translateX(299px) scale(1.75);
+}
+.star-enter-active {
+  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  top: 240px;
+  left: 299px;
+}
+
+.star-exit {
+
+
+  top: 240px;
+  left: 299px;
+  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.star-exit-active {
+  top: 0;
+  left: 0;
+ 
+} */
+
+
+
+
+
+
+/* .__card:nth-child(5n) {
   margin-right: 0;
 }
 .__card.ani0 {
-  right: 948px;
-  bottom: 326px;
+  position: relative;
+  top: 0;
+  right: 0;
 }
 .__card.ani1 {
-  right: 711px;
-  bottom: 326px;
+  position: relative;
+  top: 0;
+  right: 0;
 }
 .__card.ani2 {
-  right: 474px;
-  bottom: 326px;
+  position: relative;
+  top: 0;
+  right: 0;
 }
 .__card.ani3 {
-  right: 237px;
-  bottom: 326px;
+  position: relative;
+  top: 0;
+  right: 0;
 }
 .__card.ani4 {
+  position: relative;
+  top: 0;
   right: 0;
-  bottom: 326px;
 }
 .__card.ani5 {
-  right: 948px;
-  bottom: 0;
+  position: relative;
+  top: 0;
+  right: 0;
 }
 .__card.ani6 {
-  right: 711px;
-  bottom: 0;
+  position: relative;
+  top: 0;
+  right: 0;
 }
 .__card.ani7 {
-  right: 474px;
-  bottom: 0;
+  position: relative;
+  top: 0;
+  right: 0;
 }
 .__card.ani8 {
-  right: 237px;
-  bottom: 0;
+  position: relative;
+  top: 0;
+  right: 0;
 }
 
 .__card.ani9 {
-    bottom: 0;
-    right: 0;
-}
+  position: relative;
+  top: 0;
+  right: 0;
+} */
 
 
-
-.scorediv {
-
-  width: 100px;
-  height: 100px;
-  border-color: aliceblue;
-  border: 15px;
-  text-align: center;
-  color: white;
-}
-
-.announcement {
-
-  height: 10vh;
-  text-align: center;
-  color: white;
-}
 
 .__card {
   perspective: 1000;
   -webkit-perspective: 1000;
   background: rgba(204, 204, 204, 0);
-  margin: 100px auto;
 }
 /* entire container, keeps perspective */
-.__card {
-  perspective: 1000;
-  -webkit-perspective: 1000;
-  background: rgba(204, 204, 204, 0);
-  margin: 100px auto;
-}
+
 
 /* flip the pane when clicked */
 /* .flip-container:hover .flipper, .flip-container.hover .flipper {
@@ -108,8 +119,8 @@
 } */
 
 .flip-container, .front, .back {
-  width: 222px;
-  height: 311px;
+width: 250px;
+height: 150px;
 }
 
 .flip-container {
@@ -140,8 +151,8 @@
 /* front pane, placed above back */
 .front {
   z-index: 2;
-  background-image: url('./img/cardback_37.gif');
-  background-size: contain;
+
+  background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
@@ -150,72 +161,3 @@
   -webkit-transform: rotateY(180deg);
  
 }
-
-.m1 {
-  background-image: url('./img/noblesacrifice1.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.m2 {
-  background-image: url('./img/KnifeJuggler2.gif');
-  background-size: contain;
-  background-repeat: no-repeat;
-  
-}
-
-.m3 {
-  background-image: url('./img/eggnapper3.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.m4 {
-
-  background-image: url('./img/ogremagi4.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-
-}
-
-.m5 {
-  background-image: url('./img/leeroy5.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-
-}
-
-.m6 {
-  background-image: url('./img/bigtimeracketeer6.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.m7 {
-  background-image: url('./img/sunsorrow7.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-
-}
-
-.m8 {
-  background-image: url('./img/ragnaros8.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.m9 {
-  background-image: url('./img/ragnaros9.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.m0 {
-  background-image: url('./img/ragnaros10.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-
-
-

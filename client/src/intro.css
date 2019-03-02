@@ -13,9 +13,7 @@ body {
     background-color: #212529;
 }
 
-#starfield {
-  height: 100vh;
-}
+
 
  .dot {
 
@@ -171,11 +169,31 @@ body {
 }
 
 
-ul {
+ul.align {
 margin: 0;
 padding: 0;
 list-style: none;
 }
+
+ul.align2 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  }
+
+  
+ul#left_cover {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  }
+
+  
+ul#right_cover {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  }
 
 a {
 color: #2c3e50;
