@@ -12,6 +12,7 @@ import waxButton from './waxbutton.png'
 import crow from './crowicon.gif'
 import $ from 'jquery'
 import mapbg from './map.jpg'
+import encoder from './decoder.js'
 
 
 
@@ -42,6 +43,8 @@ class ReportForm extends Component {
               trackStats : false,
               playerArmy1 : [],
               playerArmy2 : [],
+              playerArmy1Encoded : [],
+              playerArmy2Encoded : [],
               toggleVis : false
             
           }
@@ -61,6 +64,8 @@ class ReportForm extends Component {
 //         else if (emailcont.includes('@')) return 'success';
 //       }
 
+
+
 componentDidMount = () => {
   const navb = document.querySelector('nav.navbar')
 
@@ -77,6 +82,98 @@ componentDidMount = () => {
 
   starf.style.display = 'none'
 }
+
+encodeUnitArray = (unitArray) => {
+
+  var encodedArmy = []
+
+  var encodeArmy = []
+
+
+
+  var encodeArmy1 = []
+
+
+
+
+
+
+
+  for (let k = 0; k < unitArray.length; k++) {
+
+    var current = unitArray[k]
+
+   
+    
+
+    if (unitArray[k].charAt(0) === ' ') {
+
+      current = current.substring(1, unitArray[k].length)
+    }
+
+    if (current.includes('(')) {
+      current = current.substring(0, current.length - 5)
+    }
+
+    
+
+    current = current.replace(' (\.+\)', '')
+    
+   
+
+    if (current.includes(' with')) {
+      current = current.substring(6, current.length)
+      encodeArmy.push(current.toLowerCase())
+    } else if (current.includes('Commander: ')) {
+    current = current.replace('Commander: ', '')
+    encodeArmy.push(current.toLowerCase())
+    } else { 
+
+      encodeArmy.push(current.toLowerCase())
+
+    }
+
+    
+  if (k === unitArray.length -1 ) {
+
+    
+
+
+    for (let j = 0; j < encodeArmy.length; j++) {    
+    
+    
+    
+      if (encoder.allUnits[encodeArmy]) {
+        
+        encodeArmy1.push(encoder.allUnits[encodeArmy[j]])
+
+
+        
+        
+      }
+      else {
+    
+        
+        encodeArmy1.push(encodeArmy[j])
+      }
+    
+     }
+    
+     encodedArmy = encodeArmy1
+    
+     console.log(this.state)
+    
+     return encodeArmy1
+  }
+
+  }
+
+
+  
+
+}
+
+
 
 componentWillUnmount = () => {
   const navb = document.querySelector('nav.navbar')
@@ -108,6 +205,11 @@ sendResults = (tournamentResults) => {
 
 
 }
+
+
+
+
+
     
       handleNameChange = e => {
         this.setState({ 
@@ -115,6 +217,7 @@ sendResults = (tournamentResults) => {
          });
         
       }
+
 
       handleVPChange = e => {
         this.setState({ 
@@ -152,11 +255,11 @@ sendResults = (tournamentResults) => {
       }
 
       handleArmychange = e => {
-        if (e.target.value !== '---') {
+       
         this.setState({ 
             playerArmyType: e.target.value
          });
-        }
+        
         
       }
 
@@ -242,7 +345,9 @@ handleSubmit = e => {
           VP : this.state.playerVP,
           PD : this.state.playerPD,
           army1 : this.state.playerArmy1,
-          army2 : this.state.playerArmy2
+          army2 : this.state.playerArmy2,
+          army1Encoded : this.state.playerArmy1Encoded,
+          army2Encoded : this.state.playerArmy2Encoded
           }
 
           console.log(this.state)
@@ -252,9 +357,7 @@ handleSubmit = e => {
 
         this.setState({
            players : this.state.players.concat(currentPlayer)
-        })
-
-        setTimeout(function() {
+        },function() {
           console.log(this.state)
 
           this.setState({
@@ -269,10 +372,12 @@ handleSubmit = e => {
             playerD : 0,
             trackStats : false,
             playerArmy1 : '',
-            playerArmy2 : ''
+            playerArmy2 : '',
+            army1Encoded : [],
+            army2Encoded : []
           })
 
-        }.bind(this), 800)
+        })
 
         
 
@@ -288,6 +393,8 @@ handleSubmit = e => {
 
 
 handleDBSend = () => {
+
+
 
   let tournamentResults = {
     tournamentName : '',
@@ -307,7 +414,6 @@ handleDBSend = () => {
 
 
   setTimeout(function() {
-
     this.sendResults(tournamentResults)
   }.bind(this), 1000)
   
@@ -391,24 +497,28 @@ toggleVisibility = () => {
 
 
     }
-
-
-    
-
-
-  
-
-
     setTimeout(function() {
 
-      console.log(army1ListBreaksPrime)
-
       
+
+     
+
+      let temporaryEncodedArray = this.encodeUnitArray(army1ListBreaksPrime)
+      
+      console.log(temporaryEncodedArray)
 
 
       this.setState({
         playerArmy1 : army1ListBreaksPrime
       })
+
+      setTimeout(function() {
+
+        this.setState({
+          playerArmy1Encoded : temporaryEncodedArray
+        })
+
+      }.bind(this), 1000)
 
       
       
@@ -451,28 +561,42 @@ toggleVisibility = () => {
 
 
     
-
+   
 
   
 
 
     setTimeout(function() {
 
-      console.log(army2ListBreaksPrime)
+      
 
       
+
+      let temporaryEncodedArray2 = this.encodeUnitArray(army2ListBreaksPrime)
+
+      console.log(temporaryEncodedArray2)
 
 
       this.setState({
         playerArmy2 : army2ListBreaksPrime
       })
+
+      setTimeout(function() {
+
+        this.setState({
+          playerArmy2Encoded : temporaryEncodedArray2
+        })
+
+      }.bind(this), 1000)
+
+      
       
     }.bind(this), 1000)
 
     
   }
 
-
+  
 
 //   handleSubmit = e => {
 

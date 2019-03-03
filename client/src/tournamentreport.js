@@ -5,10 +5,11 @@ import $ from 'jquery'
 import Container from 'react-bootstrap/Container'
 import Table from 'react-bootstrap/Table'
 import Form from 'react-bootstrap/Form'
-
+import encoder from './decoder.js'
 import axios from 'axios';
 import ClickyGame from './clickygame'
 import border from './bordersmall.gif'
+import Encoder from './decoder'
 
 
 
@@ -25,7 +26,8 @@ class TournamentReport extends Component {
         
               rawResults: [],
               activeTournament: [],
-              otherTournaments: {}
+              otherTournaments: {},
+              theseUnits: []
             
           }
         }
@@ -103,6 +105,28 @@ class TournamentReport extends Component {
             return events
   }
 
+  superHighLevelEncryptionAlgorithm = (arr) => {
+
+    for (let i = 0; i < arr.length; i++) {
+
+        let decodedthing = Encoder[arr[i]]
+
+
+        setTimeout(function() {
+
+            if (decodedthing) {
+                this.setState({
+                    theseUnits : this.theseUnits.concat(decodedthing)
+                })
+            } 
+
+
+        }, 1000)
+
+
+
+  }
+  }
 
 
 
@@ -122,7 +146,7 @@ class TournamentReport extends Component {
 
                result.push(response.data[i])
              
-
+                this.superHighLevelEncryptionAlgorithm(response.data.activeTournament["0"].players["0"].army1Encoded)
 
                    
                 
@@ -160,6 +184,7 @@ class TournamentReport extends Component {
 
 
     }
+
 
 
     render() {
