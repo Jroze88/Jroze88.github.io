@@ -194,7 +194,7 @@ body {
 }
 
 /* landscape phone and portrait tablet (>= 480px < 960px) */
-@media screen and (min-width:30em) and (max-width:59.9999em) {
+@media screen and (min-width:30em) and (max-width:49.9999em) {
 
   div.card {
     margin: 2em!important;
@@ -260,9 +260,11 @@ body {
 }
 
 /* landscape tablet and normal monitor (>= 960px < 1440px) */
-@media screen and (min-width:60em) {
+@media screen and (min-width:50em) {
 
-
+  .container {
+    max-width: 100vw!important;
+  }
 
   .carousel {
     height: 100vh;
@@ -387,3 +389,9 @@ background-color: #fff;
   opacity: 0;
 }
 } */
+
+.results {
+
+  margin: '3em';
+  padding: '3em'
+}

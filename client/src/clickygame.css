@@ -1,107 +1,32 @@
-
-
-.list {
-  height: 100vh;
-  padding-left: 0;  
+*{
+  background-size: 100%
 }
+/* 
+.list {
+  max-height: 200vh;
+  padding-left: 0;  
+} */
 
 
 
 .__card {
-  float: left;
+  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  perspective: 1000;
+  -ms-transform: perspective(1000px);
+  -moz-transform: perspective(1000px);
+  -ms-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
   width: 250px;
   height: 150px;
   background-color: rgba(238, 238, 238, 0);
-  margin: 10px;
-
+  position: relative
+  
 }
 
 
 
-/* .star-enter {
-
-  top: 0;
-  left: 0;
-  transform: translateY(240px) translateX(299px) scale(1.75);
-}
-.star-enter-active {
-  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  top: 240px;
-  left: 299px;
-}
-
-.star-exit {
 
 
-  top: 240px;
-  left: 299px;
-  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-.star-exit-active {
-  top: 0;
-  left: 0;
- 
-} */
-
-
-
-
-
-
-/* .__card:nth-child(5n) {
-  margin-right: 0;
-}
-.__card.ani0 {
-  position: relative;
-  top: 0;
-  right: 0;
-}
-.__card.ani1 {
-  position: relative;
-  top: 0;
-  right: 0;
-}
-.__card.ani2 {
-  position: relative;
-  top: 0;
-  right: 0;
-}
-.__card.ani3 {
-  position: relative;
-  top: 0;
-  right: 0;
-}
-.__card.ani4 {
-  position: relative;
-  top: 0;
-  right: 0;
-}
-.__card.ani5 {
-  position: relative;
-  top: 0;
-  right: 0;
-}
-.__card.ani6 {
-  position: relative;
-  top: 0;
-  right: 0;
-}
-.__card.ani7 {
-  position: relative;
-  top: 0;
-  right: 0;
-}
-.__card.ani8 {
-  position: relative;
-  top: 0;
-  right: 0;
-}
-
-.__card.ani9 {
-  position: relative;
-  top: 0;
-  right: 0;
-} */
 
 
 
@@ -119,8 +44,9 @@
 } */
 
 .flip-container, .front, .back {
-width: 250px;
-height: 150px;
+  width: 250px;
+  height: 150px;
+  background-size: '100%'
 }
 
 .flip-container {
@@ -143,7 +69,8 @@ height: 150px;
 	-webkit-backface-visibility: hidden;
 	position: absolute;
 	top: 0;
-	left: 0;
+  left: 0;
+  background-size: '100%'
 }
 
 
@@ -152,12 +79,29 @@ height: 150px;
 .front {
   z-index: 2;
 
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
 }
 
 /* back, initially hidden pane */
 .back {
   -webkit-transform: rotateY(180deg);
- 
+
+}
+
+.zoomed {
+  animation: zoomBG 6s;
+
+}
+
+
+  @keyframes zoomBG {
+    0%   {background-size: 100%; }
+    25%  {background-size: 160%;
+          background-position: top right }
+    50%  {background-size: 160%; 
+      background-position: top right}
+    75%  {background-size: 160%; 
+      background-position: top right}
+    85% {background-size: 160%; 
+      background-position: top right}
+    100% {background-size: 100%; }
 }
