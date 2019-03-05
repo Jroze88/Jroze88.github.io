@@ -339,6 +339,31 @@ handleSubmit = e => {
         })
 
 
+        if (this.state.playerArmy1[0].includes('action')) {
+
+          this.setState({
+            army1Title : false
+          })
+
+        } else {
+          this.setState({
+            army1Title : true
+          })
+        }
+
+        if (this.state.playerArmy2[0].includes('action')) {
+
+          this.setState({
+            army2Title : false
+          })
+
+        } else {
+          this.setState({
+            army2Title : true
+          })
+        }
+
+
 
     
           
@@ -351,11 +376,14 @@ handleSubmit = e => {
           army : this.state.playerArmyType,
           VP : this.state.playerVP,
           PD : this.state.playerPD,
+          army1Title : this.state.army1Title,
+          army2Title : this.state.army2Title,
           army1 : this.state.playerArmy1,
           army2 : this.state.playerArmy2,
           army1Encoded : this.state.playerArmy1Encoded,
           army2Encoded : this.state.playerArmy2Encoded
           }
+
 
           console.log(this.state)
 
@@ -792,7 +820,7 @@ toggleVisibility = () => {
       <Col md = {1}></Col>
           <Col  md={8} sm={12}>
           <Table responsive style={table}  striped  hover>
-  <thead style = {cursor}  style={{backgroundImage:`url(${smallbt})`, backgroundSize : '100% 100%', backgroundOrigin: 'center', backgroundColor: 'rgba(0, 128, 0, 0)'}}>
+  <thead style = {cursor}  style={{backgroundImage:`url(${require('./BGText.png')})`, backgroundSize : 'contain', backgroundPosition: 'center', backgroundColor: 'rgba(0, 128, 0, 0)'}}>
     <tr>
       <th onClick={() => this.sortBy('placement')} > <span style={lighttext}>Click to sort &#8594;</span></th>
       <th  style = {cursor}  onClick={() => this.sortBy('name')} >Player Name</th>
@@ -802,7 +830,6 @@ toggleVisibility = () => {
       <th > <p style={{visibility : 'hidden'}}>editediteditedi</p></th>
     </tr>
   </thead>
-
   
     
    
@@ -833,7 +860,7 @@ toggleVisibility = () => {
 
 
 
-return (<tr style={{backgroundImage:`url(${bgcollect})`, backgroundSize : '100% 100%', border: 'none', backgroundOrigin: 'center', backgroundColor: 'rgba(0, 128, 0, 0)'}}> <td style={{backgroundImage : 'url(./bg' + person.placement + ')', backgroundSize: '100%', backgroundPosition : 'center'}}>{person.placement}</td> 
+return (<tr > <td style={person.placement < 3 ? {backgroundImage : `url(${require(`./bg${person.placement}.png`)})`, backgroundSize: 'contain', backgroundRepeat : 'no-repeat', backgroundPosition : 'center'} : {backgroundColor : 'none'}}>{person.placement}</td> 
 
 <td style={{ border: 'none'}}>{`${person.name}`}</td><td>{`${person.wins} - ${person.losses} - ${person.draws}`}</td><td>{`${person.army}`}</td><td>{`${person.VP} - ${person.PD}`}</td><td><Button id={index} onClick={e => this.handlePlayerDelete(e)} variant="danger">Delete</Button></td></tr>
 )

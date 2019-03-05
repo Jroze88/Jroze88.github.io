@@ -137,7 +137,12 @@ class TournamentReport extends Component {
 
     for (let i = 4; i < arr.length; i++) {
 
-        
+
+        if (arr[i].includes(`/\r/`)) {
+            arr[i] = arr[i].replace(`/\r/`, '')
+        }
+
+
        
 
         if (arr[i].includes('non-combat')) {
@@ -167,8 +172,9 @@ class TournamentReport extends Component {
         combatUnits.push(decodedthing)
                 console.log(decodedthing)
 
-         } else if (this.state.unitAttachments.indexOf(arr[i]) > 0) {
+         } else if (this.state.attachmentNames.indexOf(arr[i]) > 0) {
             console.log(arr[i] + ' is an attachment')
+            continue
         } else {
 
             let decodedthing = {
@@ -251,11 +257,8 @@ class TournamentReport extends Component {
                     if (response.data[0].players[0].army1[i].includes('ommander')) {
                         let commanderIndex = i
                      
-                            commanderIndexName = response.data[0].players[0].army1[i]
-                            commanderfilter = response.data[0].players[0].army1[i].toLowerCase()
-                            commanderfilter = commanderfilter.substring(11, commanderfilter.length - 1)
-                            console.log(commanderfilter)
-                            commanderfilter = Encoder[commanderfilter]        
+                            
+                            commanderfilter = Encoder[response.data[0].players[0].army1Encoded[i]]        
                             
                             commanderIndex = commanderfilter
                             this.setState({
@@ -286,7 +289,7 @@ class TournamentReport extends Component {
 
                 this.setState({
                     unitsWithAttachments : attachments,
-                    unitAttachments : attachmentNames,                   
+                    attachmentNames : attachmentNames,                   
                     rawResults : response.data,
                     activeTournament: response.data[0]
                 }, function() {
@@ -378,7 +381,7 @@ class TournamentReport extends Component {
                     </Col>
                     <Col md={4}>
                         <ul className = 'list'>
-                        <span>{this.state.theseNCUsNames.length ? this.state.theseNCUsNames.map((element, i) => `NCU's : ${element}`)
+                        <span>{this.state.theseNCUsNames.length ? this.state.theseNCUsNames.map((element, i) => `${element}`)
                         :'' } </span>
                     <TransitionGroup className="cardsTransition">  
 
@@ -430,7 +433,8 @@ class TournamentReport extends Component {
 { this.state.theseUnits.map((element, i) =>       
 
 
-    i !== 0 ?
+   element.unit === undefined || element === undefined  ? ''
+   :
     
     <CSSTransition
     key={i}
@@ -455,7 +459,7 @@ class TournamentReport extends Component {
                 </div>
                     </div>
                 </li>
-                </CSSTransition> : '')}
+                </CSSTransition>)}
 
                             
                 </TransitionGroup>               

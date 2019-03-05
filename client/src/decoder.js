@@ -17,7 +17,7 @@ let Encoder = {
   'house tully sworn shield' : 10206,
   'summer' : 10207,
   'house umber greataxes' : 10208,
-  'crannogmen trackers' : 10209,
+  'crannogman trackers' : 10209,
    "eddard's honor guard ": 10212,
   'savage giant' : 10301,
   'free folk trappers' : 10302,
