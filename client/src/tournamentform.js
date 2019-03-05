@@ -51,7 +51,7 @@ class ReportForm extends Component {
               playerArmy2 : [],
               playerArmy1Encoded : [],
               playerArmy2Encoded : [],
-              toggleVis : false
+              toggleVis : true
             
           }
         }
