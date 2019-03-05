@@ -27,169 +27,36 @@ const mm = mongoose.connect(process.env.MONGODB_URI || "mongodb://testaccount:fa
 
 
 
-    let sendEncodedResultsDB = (tournamentReport) => {
 
 
+
+
+    app.post("/post/tournamentresults", function(req, res) {
+      console.log(req.body)
       model
-    .create(
-      {
-      tournamentName: tournamentReport.tournamentName,
-      tournamentDate:  tournamentReport.tournamentDate,
-      players :  tournamentReport.players
-    },
-    function(err, inserted) {
-      if (err) {
-        // Log the error if one is encountered during the query
-        console.log(err);
-      }
-      else {
-  
-        console.log(inserted)
-      }
+      .create(
+        {
+        tournamentName: req.body.tournamentName,
+        tournamentDate:  req.body.tournamentDate,
+        players :  req.body.players
+      },
+      function(err, inserted) {
+        if (err) {
+          // Log the error if one is encountered during the query
+          console.log(err);
+        }
+        else {
+    
+          console.log(inserted)
+        }
+      });
+    
+    
+      console.log(req.body)
     });
-
-
-
-    }
-
-
-
-
-app.post("/post/tournamentresults", function(req, res) {
-
-  var tournamentReport = req.body
-
-  console.log(Object.keys(tournamentReport.players + ' received'))
-
-
-
-
-
-  var encodedArmy1 = []
-
-  var encodedArmy2 = []
-
-  var readyCheck = false
-
-
-
-
-
-
-
-
-
-
-
-  for (let i = 0; i < 10; i++) {
-
-
-
-    if (tournamentReport.players[i]) {
-
-      var current = i
-
-
-  
-  
-      for (let k= 0; i < tournamentReport.players[current].army1Encoded.length; k++) {
-  
-        var encodeThisArmy1 = []
-  
-        encodeThisArmy1.push(encoder[tournamentReport.players[current].army1Encoded[k]])
     
-       
-  
-    
-      }
-    
-    
-      for (let j = 0; j < tournamentReport.players[current].army2Encoded.length; j++) {
-  
-        var encodeThisArmy2 = []
-    
-        encodeThisArmy2.push(encoder[tournamentReport.players[current].army2Encoded[j]])
-    
-    
-      
-  
-    
-      }
-  
-    tournamentReport.players[current].army1EncodedNum = encodeThisArmy1
-
-    tournamentReport.players[current].army2EncodedNum = encodeThisArmy2
 
 
-
-    } else {
-
-     
-  
-  
-        return readyCheck = true
-  
-  
-
-
-    }
-
-   
-
-
-
-
-  }
-
-  model
-  .create(
-    {
-    tournamentName: tournamentReport.tournamentName,
-    tournamentDate:  tournamentReport.tournamentDate,
-    players :  tournamentReport.players
-  },
-  function(err, inserted) {
-    if (err) {
-      // Log the error if one is encountered during the query
-      console.log(err);
-    }
-    else {
-
-      console.log(inserted)
-    }
-  });
-
-
-
-
-
-
-
-
-  //  setTimeout(function() {
-
-
-       
-
-    
-  //       sendEncodedResults(tournamentReport)
-  //       console.log('done encoding')
-
-  //   sendEncodedResultsDB(tournamentReport)
-  
-
-
-
-  //   }, 3000).bind(this)
-
-
-
-
-
-
-
-
-});
 
 app.get("/get/tournamentresults", function(req, res) {
 

@@ -111,11 +111,15 @@ class TournamentReport extends Component {
 
   superHighLevelEncryptionAlgorithm = (arr) => {
 
+    let totalArray = []
+
     for (let i = 0; i < arr.length; i++) {
 
-        let totalArray = []
+        
 
         let decodedthing = Encoder[arr[i]]
+
+        totalArray.push(decodedthing)
  
 
 
@@ -148,38 +152,27 @@ class TournamentReport extends Component {
         $('body').css('overflowY', 'scroll')
 
         axios.get("/get/tournamentresults").then(response => { 
-    
 
-            let result = []
-
-            for (let i = 0; i < response.data.length; i++) {
-
-
-               result.push(response.data[i])
-             
-                
-
-                   
-                
-            }
 
           
             console.log(response.data)
 
             this.setState({
-                rawResults : result,
-                activeTournament: result[0]
+                rawResults : response.data,
+                activeTournament: response.data[0]
             },
             function() {
 
-                this.superHighLevelEncryptionAlgorithm(result[0].players["0"].army1Encoded)
+                this.superHighLevelEncryptionAlgorithm(response.data[0].players[0].army1Encoded)
                 
             })
 
+            response.data.splice(0, 1)
+
             
-            result.splice(0, 1)
+       
             this.setState({
-                otherTournaments: this.state.otherTournaments = result
+                otherTournaments: this.state.otherTournaments = response.data
             })
             console.log(this.state)
 
@@ -223,12 +216,13 @@ class TournamentReport extends Component {
              
                     </Col>
                     <Col md={9}>
-                   
+                    <ul className='list'>
 
-                    {this.state.renderUnits ? (this.state.theseUnits.map((element, i) =>    <ul className='list'><ClickyGame key={i} unit = {element} /></ul>)) : '' }
+                   
+                        { this.state.theseUnits.map((element, i) =>    <ClickyGame key={i} unit = {element} />)}
                 
            
-                
+                    </ul>
             </Col>
             </Row>
             </Container>

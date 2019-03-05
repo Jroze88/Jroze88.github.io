@@ -350,8 +350,6 @@ handleSubmit = e => {
           army : this.state.playerArmyType,
           VP : this.state.playerVP,
           PD : this.state.playerPD,
-          army1 : this.state.playerArmy1,
-          army2 : this.state.playerArmy2,
           army1Encoded : this.state.playerArmy1Encoded,
           army2Encoded : this.state.playerArmy2Encoded,
           army1EncodedNum : [],
