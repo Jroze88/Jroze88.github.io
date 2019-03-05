@@ -7,9 +7,10 @@ import Table from 'react-bootstrap/Table'
 import Form from 'react-bootstrap/Form'
 import encoder from './decoder.js'
 import axios from 'axios';
-import ClickyGame from './clickygame'
+import Figure from 'react-bootstrap/Figure'
 import border from './bordersmall.gif'
 import Encoder from './decoder'
+import Transition from 'react-transition-group'
 
 
 
@@ -65,7 +66,7 @@ class TournamentReport extends Component {
 
             const playerstanding = {
                 color: 'whitesmoke',
-                fontSize: '0.8em'
+                fontSize: '0.5em'
             }
 
             const otherevents = {
@@ -75,7 +76,7 @@ class TournamentReport extends Component {
             const resultsStyle = {
                 backgroundImage: `url(${border})`,
                 backgroundSize: `100% 100%`,
-                padding: '2em'
+                padding: '1em'
             }
     
 
@@ -277,62 +278,63 @@ class TournamentReport extends Component {
 
 
     render() {
-  
-        
-        const playerstanding = {
-            color: 'whitesmoke'
-        }
 
 
+            
 
-        const otherevents = {
-            width: '100%',
-            backgroundImg: `url(${border})`
-        }
-
-        const num = this.state.theseUnits
 
         return(
             <Container flex>
-                <Row>
-                    <Col style={{paddingRight: '0'}} md={3}>
+                <Row  style={{maxHeight: '50vh'}}>
+                    <Col style={{maxHeight: '50vh', paddingRight: '0', overflowY : 'scroll'}} md={2}>
                  {this.otherTournamentsPopulate()}
                                               
 
              
              
                     </Col>
-                    <Col md={9}>
-                    <ul className='list'>
+                    <Col md={10}>
+                    
+            </Col>
+            </Row>
+            <Row>
+                <Col xs={12}>
+            <ul className='list'>
 
                    
-                        { this.state.theseUnits.map((element, i) =>  
+{ this.state.theseUnits.map((element, i) =>       
+
+
+    i !== 0 ?
+    
+               
+                <li className= ' __card' style={element.unit > 20000 ? {height: '260px', width: '190px'} : {height: '260px', width: '190px'}}  >
+                <div className=  "flip-container" onClick={this.__cardClick}>
+
+                    <div className="flipper">
+                {console.log(element)}
+                        <div style = {element.unit > 20000 ? {backgroundImage : `url(${images[(element.unit + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} : {backgroundImage : `url(${images[(element.unit + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '190px'}} className="front "  >
                         
+                        </div>
+                        <div  style=  {element.unit > 20000 ? {backgroundImage : `url(${images[(element.unit + 'b.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} : {backgroundImage : `url(${images[(element.unit + 'b.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '190px'}} >
+                            
+                    </div>
+                </div>
+                    </div>
+                </li>
+
                             
                             
-
-                                        <li className= ' __card' style={parseInt(element.unit) > 20000 ? {height: '260px', width: '190px'} : {height: '200px', width: '350px'}}  >
-                                        <div className=  "flip-container" onClick={this.__cardClick}>
-
-                                            <div className="flipper">
-                                        {console.log(element)}
-                                                <div style = {parseInt(element.unit) > 20000 ? {backgroundImage : `url(${images[(element.unit + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} : {backgroundImage : `url(${images[(element.unit + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '200px', width: '350px'}} className="front "  >
-                                                
-                                                </div>
-                                                <div  style=  {parseInt(element.unit) > 20000 ? {backgroundImage : `url(${images[(element.unit + 'b.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} : {backgroundImage : `url(${images[(element.unit + 'b.jpg')]})`, backgroundSize: '100% 100%', height: '200px', width: '350px'}} >
-                                                    
-                                            </div>
-                                        </div>
-                                            </div>
-                                        </li>
+                                    
 
 
 
-                        )}
-                        
-           
-                    </ul>
-            </Col>
+
+                    :  ''  )}
+
+
+                        </ul>
+                        </Col>
             </Row>
             </Container>
         
