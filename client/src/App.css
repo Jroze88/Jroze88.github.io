@@ -1,5 +1,35 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
 
+tr {
+  background-image: url('./BGCollection.png');
+  background-size: '100% 100%';
+  border: none
+}
+
+td * {
+  border: none;
+}
+
+th * {
+  border: none;
+}
+
+tr * {
+  border: none;
+}
+
+th, th * {
+  border: none!important;
+}
+
+
+
+button {
+  background-color: rgba(0, 128, 0, 0);
+  border: none!important;
+  cursor: pointer;
+
+}
 
 * {
   font-family: 'Merriweather', serif;

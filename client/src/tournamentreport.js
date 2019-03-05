@@ -27,7 +27,9 @@ class TournamentReport extends Component {
               rawResults: [],
               activeTournament: [],
               otherTournaments: {},
-              theseUnits: []
+              theseUnits : [],
+              renderUnits: false
+
             
           }
         }
@@ -105,28 +107,37 @@ class TournamentReport extends Component {
             return events
   }
 
+
+
   superHighLevelEncryptionAlgorithm = (arr) => {
 
     for (let i = 0; i < arr.length; i++) {
 
+        let totalArray = []
+
         let decodedthing = Encoder[arr[i]]
+ 
 
 
-        setTimeout(function() {
+            if (i === arr.length - 1) {
 
-            if (decodedthing) {
                 this.setState({
-                    theseUnits : this.theseUnits.concat(decodedthing)
+                    theseUnits : totalArray,
+                    renderUnits : true
+                }, function() {
+                    console.log(this.state)
                 })
-            } 
+
+            
+            }
 
 
-        }, 1000)
+            }
 
 
 
   }
-  }
+  
 
 
 
@@ -146,33 +157,31 @@ class TournamentReport extends Component {
 
                result.push(response.data[i])
              
-                this.superHighLevelEncryptionAlgorithm(response.data.activeTournament["0"].players["0"].army1Encoded)
+                
 
                    
                 
             }
 
           
+            console.log(response.data)
 
             this.setState({
-                rawResults : this.state.rawResults.concat(result)
+                rawResults : result,
+                activeTournament: result[0]
             },
             function() {
+
+                this.superHighLevelEncryptionAlgorithm(result[0].players["0"].army1Encoded)
                 
-                this.setState({
-                    activeTournament: this.state.activeTournament.concat(result[0])
-                }, function() {
-
-                    result.splice(0, 1)
-                    this.setState({
-                        otherTournaments: this.state.otherTournaments = result
-                    })
-                    console.log(this.state)
-                })
-
             })
 
             
+            result.splice(0, 1)
+            this.setState({
+                otherTournaments: this.state.otherTournaments = result
+            })
+            console.log(this.state)
 
 
           }).catch(error => {
@@ -188,36 +197,38 @@ class TournamentReport extends Component {
 
 
     render() {
-        const unitArray = ['crannog', 'crannog', 'crannog', 'crannog', 'crannog', 'crannog', 'crannog', 'crannog', 'crannog', 'crannog']
+  
         
         const playerstanding = {
             color: 'whitesmoke'
         }
+
+
 
         const otherevents = {
             width: '100%',
             backgroundImg: `url(${border})`
         }
 
+        const num = this.state.theseUnits
 
         return(
             <Container flex>
                 <Row>
-                    <Col md={3}>
+                    <Col style={{paddingRight: '0'}} md={3}>
                  {this.otherTournamentsPopulate()}
                                               
 
              
              
                     </Col>
-                    <Col className = 'card-area' md={9}>
-                <ul className='list'>
-                {unitArray.map((person, index) => {
-                    return(
-                <ClickyGame key={index} aniIndex={index} unitName={person} />
-                    )}
-            )}
-            </ul>
+                    <Col md={9}>
+                   
+
+                    {this.state.renderUnits ? (this.state.theseUnits.map((element, i) =>    <ul className='list'><ClickyGame key={i} unit = {element} /></ul>)) : '' }
+                
+           
+                
             </Col>
             </Row>
             </Container>

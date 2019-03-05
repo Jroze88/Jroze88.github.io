@@ -1,12 +1,8 @@
 import React, { Component}  from 'react';
 import './clickygame.css'
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
-import Container from 'react-bootstrap/Container'
+import cardF from './10101f.jpg'
+import cardB  from './10101b.jpg'
 import $ from 'jquery';
-import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
-import CardGroup from 'react-bootstrap/CardGroup'
 
 
 
@@ -123,67 +119,35 @@ class ClickyGame extends Component {
 
     render() {
 
-   
-
-         
-          //   entering: { transition: 'all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55)', transform: 'translateX(-100%)'},
-          //   entered:  { transform: 'translateX(0)' },
-          //   // exiting:  { transition: 'all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55)', transform: 'translateX(-100px)'},
-          //   // exited: { transform: 'translateX(0%)' },
-          // };
-
-          const cardWhole = {
-            width: '300px',
-            height: '250px',
-            display: 'inline-box',
-            padding: '0.8em',
-            margin: '10px'
-          }
-
-
-        
-
-        return(
-          <CardGroup>
-          <Card style={cardWhole}>
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-            <Card.Text>
-            <li className={`__card ani${this.props.aniIndex}`}>
-            <div className=  "flip-container" >
-            
-                 <div  className="flipper">
-             
-                      <div  style={{backgroundImage: `url(./${this.props.unitName}front.png)`}} className="front ">
-                      
-                      </div>
-                      <div  style={{backgroundImage: `url(./${this.props.unitName}back.png)`}} className="back">
-                          
-                </div>
-              </div>
-                  </div>
-          </li>
-            </Card.Text>
-            <Card.Link href="#">Card Link</Card.Link>
-            <Card.Link href="#">Another Link</Card.Link>
-          </Card.Body>
-        </Card>
-        </CardGroup>
-
- 
-      
-      )
-
-
-
+      const cardWhole = {
+        backgroundSize: '100% 100%',
+        backgroundImage: `url(/10101f)` 
+      } 
 
      
 
+     
 
-        
-    }}
+      return(
+            <li className= ' __card'>
+              <div className=  "flip-container" onClick={this.__cardClick}>
+              
+                   <div className="flipper">
+               
+                        <div style={{backgroundImage : require(`./gotimg/${this.props.unit}F`)}}  className="front ">
+                        
+                        </div>
+                        <div  style={{backgroundImage : require(`./gotimg/${this.props.unit}B`)}} className="back">
+                            
+                  </div>
+                </div>
+                    </div>
+            </li>
 
+       
+     )}
+
+      }
 
 
     export default ClickyGame

@@ -16,11 +16,10 @@
   -moz-transform: perspective(1000px);
   -ms-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
+  float: left;
   width: 250px;
   height: 150px;
   background-color: rgba(238, 238, 238, 0);
-  position: relative
-  
 }
 
 

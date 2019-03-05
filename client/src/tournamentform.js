@@ -8,13 +8,19 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import Button  from 'react-bootstrap/Button'
 import axios from 'axios';
 import border from './border.gif'
-import waxButton from './waxbutton.png'
+import waxButton from './waxbutton.gif'
 import crow from './crowicon.gif'
 import $ from 'jquery'
 import mapbg from './map.jpg'
-import encoder from './decoder.js'
+
+import addTournament from './iconOrder.png'
+import Figure from 'react-bootstrap/Figure'
+import smallbt from './BGText.png'
+
+import bgcollect from './BGCollection.png'
 
 
+import Encoder from './decoder.js';
 
 
 
@@ -73,7 +79,7 @@ componentDidMount = () => {
   // document.body.style.backgroundColor = 'darkgray'
   document.body.style.backgroundImage = `url(${mapbg})`
   document.body.style.overflowY = 'scroll'
-  document.body.style.backgroundSize = '100% 100%'
+  document.body.style.backgroundSize = 'cover'
   document.body.style.backgroundRepeat = 'no-repeat'
   document.body.style.backgroundAttachment = 'attached'
   navb.style.display = 'none'
@@ -143,9 +149,9 @@ encodeUnitArray = (unitArray) => {
     
     
     
-      if (encoder.allUnits[encodeArmy]) {
+      if (Encoder[encodeArmy]) {
         
-        encodeArmy1.push(encoder.allUnits[encodeArmy[j]])
+        encodeArmy1.push(Encoder[encodeArmy[j]])
 
 
         
@@ -347,7 +353,9 @@ handleSubmit = e => {
           army1 : this.state.playerArmy1,
           army2 : this.state.playerArmy2,
           army1Encoded : this.state.playerArmy1Encoded,
-          army2Encoded : this.state.playerArmy2Encoded
+          army2Encoded : this.state.playerArmy2Encoded,
+          army1EncodedNum : [],
+          army2EncodedNum : []
           }
 
           console.log(this.state)
@@ -399,17 +407,15 @@ handleDBSend = () => {
   let tournamentResults = {
     tournamentName : '',
     tournamentDate : '',
-    players : []
-  }
-
-
-
-
-  tournamentResults = {
+    players : [],
     tournamentName : this.state.tournamentName,
     tournamentDate : this.state.tournamentDay + '/' + this.state.tournamentMonth + '/' + this.state.tournamentYear,
     players : this.state.players
   }
+
+
+
+
 
 
 
@@ -681,6 +687,11 @@ toggleVisibility = () => {
         
       }
 
+      const newTournamentButton = {
+        curosr: 'pointer',
+
+      }
+
       // const notScroll = {
       //   backgroundImg :`url(${border})`,
       //   backgroundSize: '100% 100%',
@@ -710,7 +721,7 @@ toggleVisibility = () => {
         backgroundImage: `url(${waxButton})`,
         backgroundSize: '100% 100%',
         backgroundRepeat: 'no-repeat',
-        color: 'white',
+        color: 'black',
         height: '9em',
         width: '9em',
         backgroundColor: '#fbf6f200',
@@ -780,16 +791,16 @@ toggleVisibility = () => {
         <br />   
 
       <Col md = {1}></Col>
-          <Col md={8} sm={12}>
-          <Table responsive style={table}  striped bordered hover variant="dark">
-  <thead>
+          <Col  md={8} sm={12}>
+          <Table responsive style={table}  striped  hover>
+  <thead style = {cursor}  style={{backgroundImage:`url(${smallbt})`, backgroundSize : '100% 100%', backgroundOrigin: 'center', backgroundColor: 'rgba(0, 128, 0, 0)'}}>
     <tr>
-      <th style = {cursor}  onClick={() => this.sortBy('placement')} > <span style={lighttext}>Click to sort &#8594;</span> <br />#  </th>
+      <th onClick={() => this.sortBy('placement')} > <span style={lighttext}>Click to sort &#8594;</span></th>
       <th  style = {cursor}  onClick={() => this.sortBy('name')} >Player Name</th>
       <th style = {cursor}   onClick={() => this.sortBy('wins')} >Final Record</th>
       <th style = {cursor}   onClick={() => this.sortBy('army')} >Army</th>
       <th  style = {cursor}  onClick={() => this.sortBy('VP')} >VP - DP</th>
-      <th>Edit</th>
+      <th > <p style={{visibility : 'hidden'}}>editediteditedi</p></th>
     </tr>
   </thead>
 
@@ -800,7 +811,7 @@ toggleVisibility = () => {
      <span>Please Enter Tournament Date/Name <br />  then fill out the form below to add players</span>
    ) :
    null}
-   <tbody>
+   <tbody > 
 
     
   
@@ -811,18 +822,33 @@ toggleVisibility = () => {
       <td></td>
     </tr> */}
 </tbody>
+
+
+
+
+
+
+
+
 {this.state.players.map((person, index) => {
 
-console.log(person)
 
-return <tr><td>{`${person.placement}`}</td><td>{`${person.name}`}</td><td>{`${person.wins} - ${person.losses} - ${person.draws}`}</td><td>{`${person.army}`}</td><td>{`${person.VP} - ${person.PD}`}</td><td><Button id={index} onClick={e => this.handlePlayerDelete(e)} variant="danger">Delete</Button></td></tr>
 
+return (<tr style={{backgroundImage:`url(${bgcollect})`, backgroundSize : '100% 100%', border: 'none', backgroundOrigin: 'center', backgroundColor: 'rgba(0, 128, 0, 0)'}}> <td style={{backgroundImage : 'url(./bg' + person.placement + ')', backgroundSize: '100%', backgroundPosition : 'center'}}>{person.placement}</td> 
+
+<td style={{ border: 'none'}}>{`${person.name}`}</td><td>{`${person.wins} - ${person.losses} - ${person.draws}`}</td><td>{`${person.army}`}</td><td>{`${person.VP} - ${person.PD}`}</td><td><Button id={index} onClick={e => this.handlePlayerDelete(e)} variant="danger">Delete</Button></td></tr>
+)
 })}
+
+
+
+
+
 
 </Table>;
 </Col>
 <Col md = {2}> <br />
-        <br /> <button onClick={this.handleDBSend} style = {crowButton }><img style={crowButtonStyle} src={crow}></img></button></Col>
+        <br /> <button style = {{visibility: this.state.toggleVis ? 'visible' : 'hidden'}}   onClick={this.handleDBSend} style = {crowButton } ><img style={crowButtonStyle} src={crow}  ></img></button></Col>
 </Row>
 <Row>
      
@@ -830,12 +856,13 @@ return <tr><td>{`${person.placement}`}</td><td>{`${person.name}`}</td><td>{`${pe
       <Col style = {this.state.toggleVis ? scroll : {visibility : 'hidden'}} md={{ span: 8, offset: 2 }} sm={12}>
       <div style={{visibility: 'hidden'}}>Title</div>
       <div  style =  {this.state.toggleVis ? titleStyle : notTitleStyle}>{this.state.tournamentName}</div>
-      <InputGroup style={{maxWidth: '800px'}} >
+      <div style={{maxWidth: '800px'}} style = {{display: this.state.toggleVis ? 'none' : 'block'}}  >
       <Form.Control onChange={this.tournamentNameSet}  style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
       placeholder="Event Name"
       aria-label="Tournament Name"
       aria-describedby="basic-addon2"
     /><br />
+  
         <Form.Control as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}}   onChange={this.tournamentMonthSet} value={this.state.tournamentMonth}  >     
     <option>Month</option>
     <option value='1'>1</option>
@@ -897,10 +924,11 @@ return <tr><td>{`${person.placement}`}</td><td>{`${person.name}`}</td><td>{`${pe
       <option value='2019'>2019</option>
       <option value='2029'>2020</option>
       </Form.Control>
-    <InputGroup.Append>
-      <Button className='btn-info' onClick={this.toggleVisibility}  style = {{fontSize : '0.7em'}} style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} variant="primary">Add </Button>
-    </InputGroup.Append>
-  </InputGroup>
+
+      <button style={newTournamentButton} onClick={this.toggleVisibility}  style = {{fontSize : '0.7em'}} style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} > <div style={{width: '110px',height: '110px', backgroundImage: `url(${addTournament})`, borderRadius : '50%', boxShadow: 'inset 0 0 10px #000000'}} ></div></button>
+ 
+   
+  </div>
       <Form   onSubmit={this.handleSubmit.bind(this)}>
       <Form.Label style={headerS} style={{visibility: 'hidden'}}>New Player:</Form.Label>
   <Form.Row>
@@ -1030,9 +1058,18 @@ return <tr><td>{`${person.placement}`}</td><td>{`${person.name}`}</td><td>{`${pe
   </InputGroup>
   </Form.Group>
 
-  <button style={buttonStyle}>
-    Add Player
+  <Figure>
+
+  <button onClick={this.handleSubmit} style={buttonStyle}>
+ 
   </button>
+ 
+  <Figure.Caption>
+    Add Player
+  </Figure.Caption>
+</Figure>
+
+
 </Form>
       </Col>
       </Row>
