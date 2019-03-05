@@ -10,7 +10,7 @@ import axios from 'axios';
 import Figure from 'react-bootstrap/Figure'
 import border from './bordersmall.gif'
 import Encoder from './decoder'
-import Transition from 'react-transition-group'
+import {TransitionGroup, CSSTransition} from 'react-transition-group'
 
 
 
@@ -39,9 +39,11 @@ class TournamentReport extends Component {
               theseUnits : [{}],
               thisCommander : '',
               theseNCUs: [],
-              renderUnits: false,
+              renderCombatUnits: false,
+              renderCommander: false,
               unitsWithAttachments: [],
-              attachmentNames: []
+              attachmentNames: [],
+              theseNCUsNames : []
 
             
           }
@@ -127,9 +129,7 @@ class TournamentReport extends Component {
         
     let combatUnits = [{}]
     let NCUs = []
-    this.setState ({
-        thisCommander : arr[1]
-    })
+
 
     let k = 100
 
@@ -185,6 +185,10 @@ class TournamentReport extends Component {
             unit : Encoder[arr[i]]
         } 
 
+        this.setState({
+            theseNCUsNames : this.state.theseNCUsNames.push(this.state.activeTournament.players[0].army1[i])
+        })
+
         NCUs.push(decodedthing)
     }
 
@@ -197,7 +201,7 @@ class TournamentReport extends Component {
     this.setState({
         theseUnits : combatUnits,
         theseNCUs : NCUs,
-        renderUnits : true
+        renderCombatUnits : true
     }, function() {
         console.log(this.state)
     })
@@ -212,6 +216,11 @@ class TournamentReport extends Component {
 
     componentWillMount = () => {
 
+        let commanderIndex;
+        let commanderIndexName;
+        let commanderfilter
+        let commanderfilter1
+
 
 
         $('body').css('overflowY', 'scroll')
@@ -222,12 +231,9 @@ class TournamentReport extends Component {
           
             console.log(response.data)
 
-            this.setState({
-                rawResults : response.data,
-                activeTournament: response.data[0]
-            },
-            function() {
-
+            
+         
+                console.log(this.state.activeTournament)
                 let attachments = []
                 let attachmentNames = []
 
@@ -242,25 +248,56 @@ class TournamentReport extends Component {
 
                     }
 
+                    if (response.data[0].players[0].army1[i].includes('ommander')) {
+                        let commanderIndex = i
+                     
+                            commanderIndexName = response.data[0].players[0].army1[i]
+                            commanderfilter = response.data[0].players[0].army1[i].toLowerCase()
+                            commanderfilter = commanderfilter.substring(11, commanderfilter.length - 1)
+                            console.log(commanderfilter)
+                            commanderfilter = Encoder[commanderfilter]        
+                            
+                            commanderIndex = commanderfilter
+                            this.setState({
+                                thisCommander : commanderIndexName,
+                                thisCommanderCode : commanderIndex,
+                                renderCommander : true,
+                                        })
+                    
+                   
+                    }
+
+                    if (response.data[0].players[0].army1Encoded[i].includes('faction')) {
+                        this.setState({
+                            thisCommanderCode : Encoder[response.data[0].players[0].army1Encoded[i+1]]
+                        })
+                    }
+
                 }
+
+
+
+
+
+            
+                
+            
+
 
                 this.setState({
                     unitsWithAttachments : attachments,
-                    unitAttachments : attachmentNames
+                    unitAttachments : attachmentNames,                   
+                    rawResults : response.data,
+                    activeTournament: response.data[0]
                 }, function() {
                     this.superHighLevelEncryptionAlgorithm(response.data[0].players[0].army1Encoded)
                 })
 
-               
-                
-            })
-
-            response.data.splice(0, 1)
-
+        
             
        
             this.setState({
-                otherTournaments: this.state.otherTournaments = response.data
+                otherTournaments: response.data
             })
             console.log(this.state)
 
@@ -279,7 +316,17 @@ class TournamentReport extends Component {
 
     render() {
 
+       
 
+                const defaultStyle = {
+                transition: `opacity 300ms ease-in-out`,
+                opacity: 0,
+                }
+
+                const transitionStyles = {
+                entering: { opacity: 0 },
+                entered:  { opacity: 1 },
+                };
             
 
 
@@ -293,22 +340,65 @@ class TournamentReport extends Component {
              
              
                     </Col>
-                    <Col md={10}>
-                    
-            </Col>
-            </Row>
-            <Row>
-                <Col xs={12}>
-            <ul className='list'>
+                    <Col style={{color: 'white'}} md={3}>
+                    <ul className='list'>
+                    <span>{this.state.thisCommander} </span>
+                    <TransitionGroup className = 'commanderCards'>
+                    {this.state.renderCommander ? (
+                            <CSSTransition
+                     
+                            timeout={19000}
+                            classNames="star1"
+                            on={this.state.renderCommander}
+                            exit={!this.state.renderUnits}
+                          >
+                        
+                                   
+                                    <li className= 'star1 __card' style={{height: '260px', width: '190px',  transition: `all  ${2 + 0.5}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}>
+                                    <div className=  "flip-container" >
 
+                                    <div className="flipper">
+
+                                    <div style = {{backgroundImage : `url(${images[(this.state.thisCommanderCode + 'b.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'}} className="front "  >
+
+                                    </div>
+                                    <div  style=  {{backgroundImage : `url(${images[(this.state.thisCommanderCode + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} } className = 'back' >
+
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </li>
+
+                                    </CSSTransition>
+                                    ) :
+                                    null}
+                   </TransitionGroup>
+                   </ul>
                    
-{ this.state.theseUnits.map((element, i) =>       
+                    </Col>
+                    <Col md={4}>
+                        <ul className = 'list'>
+                        <span>{this.state.theseNCUsNames.length ? this.state.theseNCUsNames.map((element, i) => `NCU's : ${element}`)
+                        :'' } </span>
+                    <TransitionGroup className="cardsTransition">  
+
+
+
+{ this.state.theseNCUs.map((element, i) =>       
 
 
     i !== 0 ?
     
-               
-                <li className= ' __card' style={element.unit > 20000 ? {height: '260px', width: '190px'} : {height: '260px', width: '190px'}}  >
+    <CSSTransition
+    key={i}
+    timeout={19000}
+    classNames="star2"
+    in={this.state.renderUnits}
+    exit={!this.state.renderUnits}
+  >
+              <li className= 'star2 __card' style={element.unit > 20000 ? {height: '260px', width: '190px',  transition: `all ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
+                 {height: '260px', width: '190px',  transition: `all  ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
+                  >
                 <div className=  "flip-container" onClick={this.__cardClick}>
 
                     <div className="flipper">
@@ -322,15 +412,55 @@ class TournamentReport extends Component {
                 </div>
                     </div>
                 </li>
+                </CSSTransition> : '')}
 
                             
+                </TransitionGroup>               
+                </ul>
+                    </Col>
+            </Row>
+            <Row>
+                <Col xs={12}>
+            <ul className='list'>
+
+            <TransitionGroup className="cardsTransition">  
+
+
+
+{ this.state.theseUnits.map((element, i) =>       
+
+
+    i !== 0 ?
+    
+    <CSSTransition
+    key={i}
+    timeout={19000}
+    classNames="star"
+    in={this.state.renderUnits}
+    exit={!this.state.renderUnits}
+  >
+              <li className= 'star __card' style={element.unit > 20000 ? {height: '260px', width: '190px',  transition: `all ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
+                 {height: '260px', width: '190px',  transition: `all  ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
+                  >
+                <div className=  "flip-container" onClick={this.__cardClick}>
+
+                    <div className="flipper">
+                {console.log(element)}
+                        <div style = {element.unit > 20000 ? {backgroundImage : `url(${images[(element.unit + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} : {backgroundImage : `url(${images[(element.unit + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '190px'}} className="front "  >
+                        
+                        </div>
+                        <div  style=  {element.unit > 20000 ? {backgroundImage : `url(${images[(element.unit + 'b.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} : {backgroundImage : `url(${images[(element.unit + 'b.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '190px'}} >
                             
+                    </div>
+                </div>
+                    </div>
+                </li>
+                </CSSTransition> : '')}
+
+                            
+                </TransitionGroup>               
                                     
 
-
-
-
-                    :  ''  )}
 
 
                         </ul>

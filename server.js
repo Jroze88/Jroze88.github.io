@@ -68,7 +68,7 @@ app.get("/get/tournamentresults", function(req, res) {
         res.json(dbModel)
       });
 
-  console.log(req.body)
+  console.log(res.data)
 });
 
 

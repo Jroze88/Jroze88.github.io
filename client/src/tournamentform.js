@@ -133,6 +133,7 @@ encodeUnitArray = (unitArray) => {
     } else if (current.includes('Commander: ')) {
     current = current.replace('Commander: ', '')
     encodeArmy.push(current.toLowerCase())
+      
     } else { 
 
       encodeArmy.push(current.toLowerCase())
