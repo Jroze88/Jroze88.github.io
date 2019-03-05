@@ -89,7 +89,7 @@ class TournamentReport extends Component {
 
                         
                         
-                        let eventTitle = `Event: TEST${i}`
+                        let eventTitle = this.state.otherTournaments[i].tournamentName
                         table = []
                         
 
@@ -256,9 +256,11 @@ class TournamentReport extends Component {
 
                     if (response.data[0].players[0].army1[i].includes('ommander')) {
                         let commanderIndex = i
+
+                        commanderfilter = response.data[0].players[0].army1Encoded[i]
                      
-                            
-                            commanderfilter = Encoder[response.data[0].players[0].army1Encoded[i]]        
+                            // commanderfilter = commanderfilter.Replace('\r', '')
+                            commanderfilter = Encoder[commanderfilter]        
                             
                             commanderIndex = commanderfilter
                             this.setState({

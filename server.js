@@ -63,7 +63,7 @@ app.get("/get/tournamentresults", function(req, res) {
   
   
   model
-      .find({ }).sort('-date')
+      .find({ }).sort({"date" : -1})
       .then(function(dbModel) {
         res.json(dbModel)
       });

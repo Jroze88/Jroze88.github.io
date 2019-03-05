@@ -146,13 +146,13 @@
   right: 0!important;
   top: 0!important
 }
-.star-exit {
+/* .star-exit {
   transform: translateX('-100vw') translateY('-100vh')!important
 }
 .star-exit-active {
   right: -100vw!important;
   top: -100vw!important
-}
+} */
 
 .star1 {
   right: -100vw!important;
@@ -165,13 +165,13 @@
   right: 0!important;
   top: 0!important
 }
-.star1-exit {
+/* .star1-exit {
   transform: translateX('-100vw') translateY('-100vh')!important
 }
 .star1-exit-active {
   right: -100vw!important;
   top: -100vw!important
-}
+} */
 
 .star2 {
   right: -100vw!important;
@@ -184,10 +184,10 @@
   right: 0!important;
   top: 0!important
 }
-.star2-exit {
+/* .star2-exit {
   transform: translateX('-100vw') translateY('-100vh')!important
 }
 .star2-exit-active {
   right: -100vw!important;
   top: -100vw!important
-}
+} */
