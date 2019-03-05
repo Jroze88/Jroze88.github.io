@@ -27,41 +27,41 @@ class ClickyGame extends Component {
 
       componentDidMount = () => {
 
-        // $('.front').on( "click", function(e) {
-        // console.log(this)
-        //   $(this.parentElement.parentElement).addClass('flip');
-        //   $(this.parentElement).addClass('flip');
-        //   $(this.nextElementSibling).addClass('flip');
+        $('.front').on( "click", function(e) {
+        console.log(this)
+          $(this.parentElement.parentElement).addClass('flip');
+          $(this.parentElement).addClass('flip');
+          $(this.nextElementSibling).addClass('flip');
     
-        //     $(this.parentElement.parentElement).css('-webkit-transform', 'rotateY(180deg)');
-        //     $(this.parentElement).css('-webkit-transform', 'rotateY(180deg)');
-        //     // $(this).css('-webkit-transform', 'rotateY(180deg)');
-        //     $(this.nextElementSibling).css('-webkit-transform', 'rotateY(180deg)');
+            $(this.parentElement.parentElement).css('-webkit-transform', 'rotateY(180deg)');
+            $(this.parentElement).css('-webkit-transform', 'rotateY(180deg)');
+            // $(this).css('-webkit-transform', 'rotateY(180deg)');
+            $(this.nextElementSibling).css('-webkit-transform', 'rotateY(180deg)');
         
-        //     setTimeout(function() {
+            setTimeout(function() {
 
-        //       $('.flip').css('-webkit-transform', '');
-        //       $('.flip').removeClass('flip');
+              $('.flip').css('-webkit-transform', '');
+              $('.flip').removeClass('flip');
     
-        //     }, 1890)
+            }, 1890)
 
-        // })
+        })
 
-        // $('.front').mouseover(function(e) {
+        $('.front').mouseover(function(e) {
 
 
-        //  $(e.target).addClass('zoomed')
+         $(e.target).addClass('zoomed')
     
            
         
-        //     setTimeout(function() {
+            setTimeout(function() {
 
               
-        //       $(e.target).removeClass('zoomed');
+              $(e.target).removeClass('zoomed');
     
-        //     }, 6090)
+            }, 6090)
 
-        // })
+        })
 
         // let ost = $('.__card').offsetTop
 
@@ -130,18 +130,18 @@ class ClickyGame extends Component {
 
       return(
             <li className= ' __card'>
-              <div className=  "flip-container" onClick={this.__cardClick}>
+              {/* <div className=  "flip-container" onClick={this.__cardClick}>
               
                    <div className="flipper">
                
-                        <div style={{backgroundImage : `require('./gotimg/${this.props.unit}F')`}}  className="front ">
+                        <div style = {{backgroundImage : `url(${require(`./gotimg/${element}f.jpg`)})`, backgroundSize: '100% 100%'}}  className="front ">
                         
                         </div>
-                        <div  style={{backgroundImage : `require('./gotimg/${this.props.unit}B')`}} className="back">
+                        <div  style = {{backgroundImage : `url(${require(`./gotimg/${element}b.jpg`)})`, backgroundSize: '100% 100%'}} className="back">
                             
                   </div>
                 </div>
-                    </div>
+                    </div> */}
             </li>
 
        

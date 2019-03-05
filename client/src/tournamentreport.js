@@ -15,6 +15,14 @@ import Encoder from './decoder'
 
 
 
+function importAll (r) {
+    let images = {};
+    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); })
+    return images;
+
+}
+
+const images = importAll(require.context('./gotimg', false, /\.(png|jpe?g|svg)$/))
 
 
 class TournamentReport extends Component {
@@ -27,8 +35,12 @@ class TournamentReport extends Component {
               rawResults: [],
               activeTournament: [],
               otherTournaments: {},
-              theseUnits : [],
-              renderUnits: false
+              theseUnits : [{}],
+              thisCommander : '',
+              theseNCUs: [],
+              renderUnits: false,
+              unitsWithAttachments: [],
+              attachmentNames: []
 
             
           }
@@ -110,37 +122,89 @@ class TournamentReport extends Component {
 
 
   superHighLevelEncryptionAlgorithm = (arr) => {
+      
+        
+    let combatUnits = [{}]
+    let NCUs = []
+    this.setState ({
+        thisCommander : arr[1]
+    })
 
-    let totalArray = []
+    let k = 100
 
-    for (let i = 0; i < arr.length; i++) {
+    
+
+    for (let i = 4; i < arr.length; i++) {
+
+        
+       
+
+        if (arr[i].includes('non-combat')) {
+
+            console.log(arr[i])
+
+            this.setState({
+                theseUnits : combatUnits
+            })
+
+            k = i
+            
+
+        }
+
+        if (i < k) {
+
+        
+        if (this.state.unitsWithAttachments.includes(i)) {
+
+            
+        
+        let decodedthing = {
+            unit : Encoder[arr[i]],
+            attachment :  Encoder[arr[i + 1]]
+        } 
+        combatUnits.push(decodedthing)
+                console.log(decodedthing)
+
+         } else if (this.state.unitAttachments.indexOf(arr[i]) > 0) {
+            console.log(arr[i] + ' is an attachment')
+        } else {
+
+            let decodedthing = {
+                unit : Encoder[arr[i]]
+            }
+
+            combatUnits.push(decodedthing)
+
+        }
+
+    } else {
+
+        let decodedthing = {
+            unit : Encoder[arr[i]]
+        } 
+
+        NCUs.push(decodedthing)
+    }
 
         
 
-        let decodedthing = Encoder[arr[i]]
-
-        totalArray.push(decodedthing)
- 
 
 
-            if (i === arr.length - 1) {
-
-                this.setState({
-                    theseUnits : totalArray,
-                    renderUnits : true
-                }, function() {
-                    console.log(this.state)
-                })
-
-            
-            }
-
-
-            }
+    } 
+    
+    this.setState({
+        theseUnits : combatUnits,
+        theseNCUs : NCUs,
+        renderUnits : true
+    }, function() {
+        console.log(this.state)
+    })
 
 
 
   }
+
   
 
 
@@ -163,7 +227,30 @@ class TournamentReport extends Component {
             },
             function() {
 
-                this.superHighLevelEncryptionAlgorithm(response.data[0].players[0].army1Encoded)
+                let attachments = []
+                let attachmentNames = []
+
+                for (let i = 0; i < response.data[0].players[0].army1.length; i++ ) {
+
+                    if (response.data[0].players[0].army1[i].includes('with')) {
+                        let attachment = i - 1
+                        attachments.push(attachment)
+
+                        let attachmentName = response.data[0].players[0].army1Encoded[i]
+                        attachmentNames.push(attachmentName)
+
+                    }
+
+                }
+
+                this.setState({
+                    unitsWithAttachments : attachments,
+                    unitAttachments : attachmentNames
+                }, function() {
+                    this.superHighLevelEncryptionAlgorithm(response.data[0].players[0].army1Encoded)
+                })
+
+               
                 
             })
 
@@ -219,8 +306,30 @@ class TournamentReport extends Component {
                     <ul className='list'>
 
                    
-                        { this.state.theseUnits.map((element, i) =>    <ClickyGame key={i} unit = {element} />)}
-                
+                        { this.state.theseUnits.map((element, i) =>  
+                        
+                            
+                            
+
+                                        <li className= ' __card' style={parseInt(element.unit) > 20000 ? {height: '260px', width: '190px'} : {height: '200px', width: '350px'}}  >
+                                        <div className=  "flip-container" onClick={this.__cardClick}>
+
+                                            <div className="flipper">
+                                        {console.log(element)}
+                                                <div style = {parseInt(element.unit) > 20000 ? {backgroundImage : `url(${images[(element.unit + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} : {backgroundImage : `url(${images[(element.unit + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '200px', width: '350px'}} className="front "  >
+                                                
+                                                </div>
+                                                <div  style=  {parseInt(element.unit) > 20000 ? {backgroundImage : `url(${images[(element.unit + 'b.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} : {backgroundImage : `url(${images[(element.unit + 'b.jpg')]})`, backgroundSize: '100% 100%', height: '200px', width: '350px'}} >
+                                                    
+                                            </div>
+                                        </div>
+                                            </div>
+                                        </li>
+
+
+
+                        )}
+                        
            
                     </ul>
             </Col>
