@@ -261,15 +261,12 @@ class TournamentReport extends Component {
  
   
 
-    for (let i = 3; i < NCUdivider; i++) {
+    for (let i = 2; i < NCUdivider; i++) {
 
 
         if (obj.encoded[i].includes('with')) {
 
-            
-
-
-            if (combatUnits[combatUnits.length-1]) {
+             
 
                 let thisAttachment = obj.encoded[i].toLowerCase()
 
@@ -282,18 +279,20 @@ class TournamentReport extends Component {
                     code : Encoder[thisAttachment],
                 }
                 combatUnits[combatUnits.length-1].hasAttachment = true
-            }
 
+            } else {
 
-        } else {
-
-            let encodeArg = obj.encoded[i]
+                let encodeArg = obj.encoded[i]
+                encodeArg = encodeArg.toLowerCase()
+                console.log(encodeArg)
        let thisUnit = {
         name : obj.unEncoded[i],
-        code : Encoder[encodeArg.toLowerCase()],
+        code : Encoder[encodeArg],
         attachment : null,
         hasAttachment : false
        } 
+
+       console.log(thisUnit)
 
         if (thisUnit.code !== undefined) {
             combatUnits.push(thisUnit)

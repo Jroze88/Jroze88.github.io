@@ -6,7 +6,7 @@ let Encoder={
 'housecleganemountainsmen':10103,
 'pyromancers':10104,
 'knightsofcasterlyrock':10105,
-'lannistercrowssbowmen':10106,
+'lannistercrossbowmen':10106,
 'gregorcleganemountainthatrides':10107,
 'thewarriorssons':10108,
 'starkswornswords':10201,
