@@ -12,6 +12,7 @@ import Encoder from './decoder'
 import {TransitionGroup, CSSTransition} from 'react-transition-group'
 import ReactDOM from 'react-dom';
 import Footer from './Footer'
+import { isNullOrUndefined } from 'util';
 
 
 
@@ -133,13 +134,26 @@ class TournamentReport extends Component {
                 renderCombatUnits : false,
                 renderNCUs : false,
                 renderCommander : false,
-                activeList : {
-                encoded : this.state.activeTournament.players[randomList].army1Encoded,
-                unEncoded : this.state.activeTournament.players[randomList].army1
-            }
-            }, function() {
-                this.superHighLevelEncryptionAlgorithm(this.state.activeList)
+                commander : {},
+                activeList : false,
+                combatUnits : [],
+                NCUs : []
             })
+
+            setTimeout(() => {
+                this.setState({
+
+                    activeList : {
+                    encoded : this.state.activeTournament.players[randomList].army1Encoded,
+                    unEncoded : this.state.activeTournament.players[randomList].army1
+                }
+                }, function() {
+                    this.superHighLevelEncryptionAlgorithm(this.state.activeList)
+                })
+              }, 3200)
+
+
+
 
 
         }
@@ -247,35 +261,45 @@ class TournamentReport extends Component {
  
   
 
-    for (let i = combatDivider + 1; i < NCUdivider; i++) {
+    for (let i = 3; i < NCUdivider; i++) {
 
 
         if (obj.encoded[i].includes('with')) {
 
-            let thisAttachment = obj.encoded[i].toLowerCase()
+            
+
+
+            if (combatUnits[combatUnits.length-1]) {
+
+                let thisAttachment = obj.encoded[i].toLowerCase()
 
             thisAttachment = thisAttachment.replace('with', '')
 
-            combatUnits[combatUnits.length-1].attachment =  {
-                name : obj.unEncoded[i],
-                code : Encoder[thisAttachment],
+
+
+                combatUnits[combatUnits.length-1].attachment =  {
+                    name : obj.unEncoded[i],
+                    code : Encoder[thisAttachment],
+                }
+                combatUnits[combatUnits.length-1].hasAttachment = true
             }
-            combatUnits[combatUnits.length-1].hasAttachment = true
-            
-            console.log(thisAttachment)
-            console.log(Encoder[thisAttachment])
+
 
         } else {
 
-
+            let encodeArg = obj.encoded[i]
        let thisUnit = {
         name : obj.unEncoded[i],
-        code : Encoder[obj.encoded[i].toLowerCase()],
+        code : Encoder[encodeArg.toLowerCase()],
         attachment : null,
         hasAttachment : false
        } 
 
-       combatUnits.push(thisUnit)
+        if (thisUnit.code !== undefined) {
+            combatUnits.push(thisUnit)
+        }
+
+       
     }
     }
 
@@ -457,8 +481,8 @@ class TournamentReport extends Component {
  
   >   
 
-              <Card xs={12} className={this.state.isMobile ? "star1m __statcard  __card" : `star1N${i} __statcard  __card`} style={element.code > 20000 ? {height: '260px', width: '190px',  transition: `all ${1 +1.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
-                 {height: '260px', width: '210px',  transition: `all  ${1 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
+              <Card xs={12} className={this.state.isMobile ? "star1m __statcard  __card" : `star1N${i} __statcard  __card`} style={element.code > 20000 ? {height: '260px', width: '190px',  transition: `all ${2*i +1.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
+                 {height: '260px', width: '210px',  transition: `all  ${2*i + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
                   >
                
                         <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
@@ -498,7 +522,7 @@ class TournamentReport extends Component {
 
    {element.hasAttachment ?
 
-              <Card xs={12} className={this.state.isMobile ? "star1m __statcard  __card" : "star1 __statcard  __card"} style={element.code > 20000 ? {height: '250px', width: '210px',  transition: `all ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
+              <Card xs={12} className={this.state.isMobile ? "star1m __statcard  __card" : "star1 __statcard  __card"} style={element.code > 20000 ? {height: '250px', width: '210px',  transition: `all ${3+ 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
                  {height: '260px', width: '210px',  transition: `all  ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
                   >
                   <div style={{width: '105px', height: '130px', zIndex: '-2', top : '-30px', right: '-10%', position: 'absolute', backgroundImage : `url(${images[(element.attachment.code + 'f.jpg')]})`, backgroundSize: '100% 100%'}}></div>
@@ -508,7 +532,7 @@ class TournamentReport extends Component {
                 </Card> :
 
 <Card xs={12} className= 'star __statcard __card' style={element.code > 20000 ? {height: '260px', width: '210px',  transition: `all ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
-{height: '260px', width: '210px',  transition: `all  ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
+{height: '260px', width: '210px',  transition: `all  ${3 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
  >
 <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
 
