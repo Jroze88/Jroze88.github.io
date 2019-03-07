@@ -3,11 +3,10 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import $ from 'jquery'
 import Container from 'react-bootstrap/Container'
-import Table from 'react-bootstrap/Table'
-import Form from 'react-bootstrap/Form'
-import encoder from './decoder.js'
+import Card from 'react-bootstrap/Card'
+
 import axios from 'axios';
-import Figure from 'react-bootstrap/Figure'
+import Table from 'react-bootstrap/Table'
 import border from './bordersmall.gif'
 import Encoder from './decoder'
 import {TransitionGroup, CSSTransition} from 'react-transition-group'
@@ -41,11 +40,53 @@ class TournamentReport extends Component {
               commander : {},
               NCUs : [],
               combatUnits : [],
-              renderNCUs  : false
+              renderNCUs  : false,
+              
 
 
             
           }
+        }
+
+        populateList = () => {
+
+            let armyList = []
+
+            if (!this.state.activeList.unEncoded[0].includes('faction')) {
+                let thisLine = <li data={`${0}`} style={{fontSize: '0.8em' , listStyleType: 'none', textAlign: 'center', textDecoration: 'underline'}}>`{this.state.activePlayer.name}'s {this.state.activeList.unEncoded[0]}`</li>
+            armyList.push(thisLine)
+            } else if (this.state.activeList.unEncoded[0].includes('Faction')) {
+                let thisLine = <li data={`${0}`} style={{fontSize: '0.8em' , listStyleType: 'none'}}>{this.state.activeList.unEncoded[0]}</li>
+            armyList.push(thisLine)
+            }
+            
+
+            for (let i = 1; i < this.state.activeList.unEncoded.length - 1; i++) {
+
+
+                if (this.state.activeList.unEncoded[i].includes('with')) {
+                    let thisLine = <li data={`${i}`} style={{fontSize: '0.8em', textAlign: 'center',  listStyleType: 'none'}}>=>{this.state.activeList.unEncoded[i]}</li>
+                    armyList.push(thisLine)
+                } else if (this.state.activeList.unEncoded[i].includes('Faction')) {
+                    let thisLine = <li data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList.unEncoded[i]}</li>
+                armyList.push(thisLine)
+                }  else  if (this.state.activeList.unEncoded[i].includes('Commander')) {
+                    let thisLine = <li data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList.unEncoded[i]}</li>
+                armyList.push(thisLine)
+                } else  if (this.state.activeList.unEncoded[i].includes('Points')) {
+                    let thisLine = <li  data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList.unEncoded[i]}</li>
+                armyList.push(thisLine)
+                } else {
+                    let thisLine = <li data={`${i}`} style={{fontSize: '0.8em'}}>{this.state.activeList.unEncoded[i]}</li>
+                armyList.push(thisLine)
+                }
+
+
+                
+            }
+
+
+            return armyList
         }
 
         componentDidMount = () => {
@@ -165,13 +206,16 @@ class TournamentReport extends Component {
 
             let thisAttachment = obj.encoded[i].toLowerCase()
 
+            thisAttachment = thisAttachment.replace('with', '')
+
             combatUnits[combatUnits.length-1].attachment =  {
                 name : obj.unEncoded[i],
                 code : Encoder[thisAttachment],
             }
             combatUnits[combatUnits.length-1].hasAttachment = true
             
-            
+            console.log(thisAttachment)
+            console.log(Encoder[thisAttachment])
 
         } else {
 
@@ -230,11 +274,14 @@ class TournamentReport extends Component {
 
 
                 console.log(response.data[0].players[0].army1Encoded)
+
+                let firstPlayer = response.data[0].players[0]
             
 
 
                 this.setState({                  
                     activeTournament: response.data[0],
+                    activePlayer : firstPlayer,
                     activeList : {
                         encoded : response.data[0].players[0].army1Encoded,
                         unEncoded : response.data[0].players[0].army1
@@ -278,8 +325,8 @@ class TournamentReport extends Component {
 
 
         return(
-            <Container flex>
-                <Row  style={{maxHeight: '50vh'}}>
+            <Container  flex>
+                <Row  style={{maxHeight: '50vh', padding: '20px'}}>
                     <Col style={{maxHeight: '50vh', paddingRight: '0', overflowY : 'scroll'}} md={2}>
                  {this.otherTournamentsPopulate()}
                                               
@@ -287,12 +334,12 @@ class TournamentReport extends Component {
              
              
                     </Col>
-                    <Col style={{color: 'white'}} md={5}>
+                    <Col style={{color: 'white'}} md={3}>
                     <ul className='list'>
-                    <span>{this.state.commander.name} </span>
+                    
                     <TransitionGroup className = 'commanderCards'>
                   
-      
+                    <Card.Title style={{fontSize: '1.2em'}}>{this.state.commander.name}</Card.Title>
 
 
 {this.state.commander.code === undefined || this.state.commander === undefined  ? ''
@@ -305,34 +352,46 @@ class TournamentReport extends Component {
                          
                           >
 
-                          
-                        
+                
                                    
-                                    <li className= 'star1 __card' style={{height: '260px', width: '190px',  transition: `all  ${2 + 0.5}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}>
-                                    <div className=  "flip-container" >
-
-                                    <div className="flipper">
-
-                                    <div style = {{backgroundImage : `url(${images[(this.state.commander.code + 'b.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'}} className="front "  >
-
+                                    <Card className= 'star1 __card' style={{height: '260px', width: '210px',  transition: `all  ${2 + 0.5}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}>
+                                  <div style = {{backgroundImage : `url(${images[(this.state.commander.code + 'b.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'}} className="front "  >
                                     </div>
-                                    <div  style=  {{backgroundImage : `url(${images[(this.state.commander.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} } className = 'back' >
-
-                                    </div>
-                                    </div>
-                                    </div>
-                                    </li>
-
+                              </Card>
+                    
                                     </CSSTransition>}
                                    
                    </TransitionGroup>
                    </ul>
                    
                     </Col>
-                    <Col md={5}>
+
+
+
+
+
+
+
+
+
+                    <Col md = {3}>
+                    <div style={{textAlign: 'left'}} className = 'armylist'>{this.state.activeList ? this.populateList() : ''}</div>
+                    </Col>
+
+
+
+
+
+
+
+
+
+
+
+                    <Col style={{color: 'white', fontSize: '1em'}}  md={4}>
                         <ul className = 'list'>
                     <TransitionGroup className="cardsTransition">  
-
+                    <Card.Title style={{fontSize: '1em'}}> Non-Combat Units:<ul>{ this.state.NCUs.map((element, i) =>          <li>{element.name}</li>)}</ul> </Card.Title>
 
 
 { this.state.NCUs.map((element, i) =>       
@@ -347,23 +406,17 @@ class TournamentReport extends Component {
     classNames="star"
     in={this.state.renderCombatUnits}
  
-  >
-              <li className= 'star __card' style={element.code > 20000 ? {height: '260px', width: '190px',  transition: `all ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
-                 {height: '260px', width: '190px',  transition: `all  ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
+  >   
+              <Card className= 'star __card' style={element.code > 20000 ? {height: '260px', width: '190px',  transition: `all ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
+                 {height: '260px', width: '210px',  transition: `all  ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
                   >
-                <div className=  "flip-container" onClick={this.__cardClick}>
-
-                    <div className="flipper">
-                {console.log(element)}
-                        <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '190px'}} className="front "  >
-                        
-                        </div>
-                        <div  style=  {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'b.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} : {backgroundImage : `url(${images[(element.code + 'b.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '190px'}} >
-                            
+               
+                        <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
+                    
                     </div>
-                </div>
-                    </div>
-                </li>
+                    
+                </Card>
+     
                 </CSSTransition>)}
 
                             
@@ -371,13 +424,13 @@ class TournamentReport extends Component {
                 </ul>
                     </Col>
             </Row>
-            <Row>
-                <Col xs={12}>
+            <Row style = {{padding: '20px', overflowX : 'scroll'}}>
+                <Col style={{color: 'white'}}  xs={12}>
             <ul className='list'>
 
             <TransitionGroup className="cardsTransition">  
 
-
+            
 
 { this.state.combatUnits.map((element, i) =>       
 
@@ -391,23 +444,27 @@ class TournamentReport extends Component {
     classNames="star"
     in={this.state.renderCombatUnits}
  
-  >
-              <li className= 'star __card' style={element.code > 20000 ? {height: '260px', width: '190px',  transition: `all ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
-                 {height: '260px', width: '190px',  transition: `all  ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
-                  >
-                <div className=  "flip-container" onClick={this.__cardClick}>
+  >       
 
-                    <div className="flipper">
-                {console.log(element)}
-                        <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '190px'}} className="front "  >
-                        
-                        </div>
-                        <div  style=  {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'b.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} : {backgroundImage : `url(${images[(element.code + 'b.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '190px'}} >
-                            
+   {element.hasAttachment ?
+
+              <Card className= 'star __card' style={element.code > 20000 ? {height: '260px', width: '210px',  transition: `all ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
+                 {height: '260px', width: '210px',  transition: `all  ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
+                  >
+  <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
+  <div style={{width: '105px', height: '130px', zIndex: '-2', top : '-10%', right: '-10%', position: 'absolute', backgroundImage : `url(${images[(element.attachment.code + 'f.jpg')]})`, backgroundSize: '100% 100%'}}></div>
                     </div>
-                </div>
-                    </div>
-                </li>
+                </Card> :
+
+<Card className= 'star __card' style={element.code > 20000 ? {height: '260px', width: '210px',  transition: `all ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
+{height: '260px', width: '210px',  transition: `all  ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
+ >
+<div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
+
+   </div>
+</Card>}
+
+
                 </CSSTransition>)}
 
                             
