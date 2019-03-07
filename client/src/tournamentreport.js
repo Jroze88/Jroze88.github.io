@@ -150,7 +150,7 @@ class TournamentReport extends Component {
                 }, function() {
                     this.superHighLevelEncryptionAlgorithm(this.state.activeList)
                 })
-              }, 3200)
+              }, 2200)
 
 
 
@@ -257,7 +257,7 @@ class TournamentReport extends Component {
 
    
         let NCUs = []
-        let combatUnits = []
+        let combatUnits = [{}]
  
   
 
@@ -285,6 +285,8 @@ class TournamentReport extends Component {
                 let encodeArg = obj.encoded[i]
                 encodeArg = encodeArg.toLowerCase()
                 console.log(encodeArg)
+
+
        let thisUnit = {
         name : obj.unEncoded[i],
         code : Encoder[encodeArg],

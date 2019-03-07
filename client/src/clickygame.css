@@ -267,8 +267,8 @@ body {
   transform: translateX('-710px') translateY('-550px')!important
 }
 .star10-enter-active {
-  right: 0px!important;
-  top: 0px!important;
+  right: -35px!important;
+  top: -250px!important;
   padding: 0!important
 }
 
@@ -280,8 +280,8 @@ body {
   transform: translateX('710px') translateY('-550px')!important
 }
 .star11-enter-active {
-  right: -235px!important;
-  top: -520px!important;
+  right: -35px!important;
+  top: -250px!important;
   padding: 0!important
 }
 
@@ -293,8 +293,8 @@ body {
   transform: translateX('410px') translateY('550px')!important
 }
 .star12-enter-active {
-  right: -465px!important;
-  top: -780px!important;
+  right: -265px!important;
+  top: -510px!important;
   padding: 0!important
 }
 
@@ -306,8 +306,8 @@ body {
   transform: translateX('310px') translateY('550px')!important
 }
 .star14-enter-active {
-  right: -940px!important;
-  top: -1300px!important;
+  right: -740px!important;
+  top: -1030px!important;
   padding: 0!important
 }
 
@@ -319,22 +319,22 @@ body {
   transform: translateX('310px') translateY('550px')!important
 }
 .star13-enter-active {
-  right: -705px!important;
-  top: -1040px!important;
+  right: -505px!important;
+  top: -770px!important;
   padding: 0!important;
 }
 
-.star10 {
+.star15 {
   right: -610px!important;
   top: -610px!important;
 }
-.star10-enter {
+.star15-enter {
   transform: translateX('310px') translateY('550px')!important
 }
-.star10-enter-active {
-  right: 0px!important;
-  top: -260px!important;
-  padding: 0!important
+.star15-enter-active {
+  right: -965px!important;
+  top: -1290px!important;
+  padding: 0!important;
 }
 
 .star10 {
