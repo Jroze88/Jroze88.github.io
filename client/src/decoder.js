@@ -20,7 +20,7 @@ let Encoder={
 'crannogmantrackers':10209,
 "eddard'shonorguard":10212,
 'savagegiant':10301,
-'freefolktrappers':10302,
+'freefolktrapper':10302,
 'freefolkraiders':10303,
 'spearwives':10304,
 'houseboltoncutthroats':10401,
