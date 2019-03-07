@@ -761,14 +761,14 @@ toggleVisibility = () => {
       <Col md = {1}></Col>
           <Col  md={8} sm={12}>
           <Table responsive style={table}  striped  hover>
-  <thead style = {cursor} >
-    <tr  style={{backgroundImage:`url(${require('./BGCollection.png')})`, backgroundSize : '100% 100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: 'rgba(0, 128, 0, 0)'}}>
-      <th onClick={() => this.sortBy('placement')} > <span style={lighttext}>Click to sort &#8594;</span></th>
-      <th  style = {cursor}  onClick={() => this.sortBy('name')} >Player Name</th>
-      <th style = {cursor}   onClick={() => this.sortBy('wins')} >Final Record</th>
-      <th style = {cursor}   onClick={() => this.sortBy('army')} >Army</th>
-      <th  style = {cursor}  onClick={() => this.sortBy('VP')} >VP - DP</th>
-      <th > <p style={{visibility : 'hidden'}}>editediteditedi</p></th>
+  <thead className='trtable' style = {cursor} >
+    <tr className='trtable' style={{backgroundImage:`url(${require('./BGCollection.png')})`, backgroundSize : '100% 100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: 'rgba(0, 128, 0, 0)'}}>
+      <th className='trtable' onClick={() => this.sortBy('placement')} > <span style={lighttext}>Click to sort &#8594;</span></th>
+      <th className='trtable' style = {cursor}  onClick={() => this.sortBy('name')} >Player Name</th>
+      <th className='trtable' style = {cursor}   onClick={() => this.sortBy('wins')} >Final Record</th>
+      <th className='trtable' style = {cursor}   onClick={() => this.sortBy('army')} >Army</th>
+      <th  className='trtable' style = {cursor}  onClick={() => this.sortBy('VP')} >VP - DP</th>
+      <th className='trtable' > <p style={{visibility : 'hidden'}}>editediteditedi</p></th>
     </tr>
   </thead>
   
@@ -801,9 +801,9 @@ toggleVisibility = () => {
 
 
 
-return (<tr style={{backgroundImage:`url(${bgpaper})`, backgroundSize : '100% 100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: 'rgba(0, 128, 0, 0)'}}> <td style={person.placement < 3 ? {backgroundImage : `url(${require(`./bg${person.placement}.png`)})`, backgroundSize: 'contain', backgroundRepeat : 'no-repeat', backgroundPosition : 'center'} : {backgroundColor : 'none'}}>{person.placement}</td> 
+return (<tr className='trtable' style={{backgroundImage:`url(${bgpaper})`, backgroundSize : '100% 100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: 'rgba(0, 128, 0, 0)'}}> <td className='trtable' style={person.placement < 3 ? {backgroundImage : `url(${require(`./bg${person.placement}.png`)})`, backgroundSize: 'contain', backgroundRepeat : 'no-repeat', backgroundPosition : 'center'} : {backgroundColor : 'none'}}>{person.placement}</td> 
 
-<td style={{ border: 'none'}}>{`${person.name}`}</td><td>{`${person.wins} - ${person.losses} - ${person.draws}`}</td><td>{`${person.army}`}</td><td>{`${person.VP} - ${person.PD}`}</td><td><Button id={index} onClick={e => this.handlePlayerDelete(e)} variant="danger">Delete</Button></td></tr>
+<td className='trtable' style={{ border: 'none'}}>{`${person.name}`}</td><td className='trtable'>{`${person.wins} - ${person.losses} - ${person.draws}`}</td><td className='trtable'>{`${person.army}`}</td><td className='trtable'>{`${person.VP} - ${person.PD}`}</td><td className='trtable'><Button id={index} onClick={e => this.handlePlayerDelete(e)} variant="danger">Delete</Button></td></tr>
 )
 })}
 

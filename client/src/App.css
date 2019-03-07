@@ -7,25 +7,25 @@ ul.list {
 
 
 
-tr {
+tr.trtable {
   background-image: url('./BGCollection.png');
   background-size: '100% 100%';
   border: none
 }
 
-td * {
+td.trtable  {
   border: none;
 }
 
-th * {
+th.trtable  {
   border: none;
 }
 
-tr * {
+tr.trtable {
   border: none;
 }
 
-th, th * {
+th.trtable, th.trtable {
   border: none!important;
 }
 
