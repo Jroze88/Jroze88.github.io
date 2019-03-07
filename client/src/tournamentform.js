@@ -12,12 +12,10 @@ import waxButton from './waxbutton.gif'
 import crow from './crowicon.gif'
 import $ from 'jquery'
 import mapbg from './map.jpg'
-
+import bgpaper from './whitepaper.jpg'
 import addTournament from './iconOrder.png'
 import Figure from 'react-bootstrap/Figure'
-import smallbt from './BGText.png'
 
-import bgcollect from './BGCollection.png'
 
 
 import Encoder from './decoder.js';
@@ -51,7 +49,7 @@ class ReportForm extends Component {
               playerArmy2 : [],
               playerArmy1Encoded : [],
               playerArmy2Encoded : [],
-              toggleVis : true
+              toggleVis : false
             
           }
         }
@@ -74,6 +72,8 @@ class ReportForm extends Component {
 
 componentDidMount = () => {
   const navb = document.querySelector('nav.navbar')
+  $('#sticky-footer').css('display', 'none')
+  
 
 
   // document.body.style.backgroundColor = 'darkgray'
@@ -93,90 +93,21 @@ encodeUnitArray = (unitArray) => {
 
   var encodedArmy = []
 
-  var encodeArmy = []
-
-
-
-  var encodeArmy1 = []
-
-
-
-
 
 
 
   for (let k = 0; k < unitArray.length; k++) {
 
-    var current = unitArray[k]
-
-   
-    
-
-    if (unitArray[k].charAt(0) === ' ') {
-
-      current = current.substring(1, unitArray[k].length)
-    }
-
-    if (current.includes('(')) {
-      current = current.substring(0, current.length - 5)
-    }
-
-    
-
-    current = current.replace(' (\.+\)', '')
-    
-   
-
-    if (current.includes(' with')) {
-      current = current.substring(6, current.length)
-      encodeArmy.push(current.toLowerCase())
-    } else if (current.includes('Commander: ')) {
-    current = current.replace('Commander: ', '')
-    encodeArmy.push(current.toLowerCase())
-      
-    } else { 
-
-      encodeArmy.push(current.toLowerCase())
-
-    }
-
-    
-  if (k === unitArray.length -1 ) {
-
-    
 
 
-    for (let j = 0; j < encodeArmy.length; j++) {    
-    
-    
-    
-      if (Encoder[encodeArmy]) {
-        
-        encodeArmy1.push(Encoder[encodeArmy[j]])
-
-
-        
-        
-      }
-      else {
-    
-        
-        encodeArmy1.push(encodeArmy[j])
-      }
-    
-     }
-    
-     encodedArmy = encodeArmy1
-    
-     console.log(this.state)
-    
-     return encodeArmy1
+    encodedArmy.push(unitArray[k].replace(/[^A-Za-z]/g,''))
   }
 
-  }
-
-
+  console.log(encodedArmy)
   
+
+
+  return encodedArmy
 
 }
 
@@ -351,7 +282,7 @@ handleSubmit = e => {
           })
         }
 
-        if (this.state.playerArmy2[0].includes('action')) {
+        if (this.state.playerArmy2 && this.state.playerArmy2[0].includes('action')) {
 
           this.setState({
             army2Title : false
@@ -540,6 +471,8 @@ toggleVisibility = () => {
       
       console.log(temporaryEncodedArray)
 
+      console.log(army1ListBreaksPrime)
+
 
       this.setState({
         playerArmy1 : army1ListBreaksPrime
@@ -565,10 +498,13 @@ toggleVisibility = () => {
 
 
     let army2 = e.clipboardData.getData('text/plain')
+    console.log(army2)
 
     let finalList2= []
 
     let army2List = army2.split(/(\u2022)/)
+
+    console.log(army2List)
 
     let army2ListBreaks = []
 
@@ -820,8 +756,8 @@ toggleVisibility = () => {
       <Col md = {1}></Col>
           <Col  md={8} sm={12}>
           <Table responsive style={table}  striped  hover>
-  <thead style = {cursor}  style={{backgroundImage:`url(${require('./BGText.png')})`, backgroundSize : 'contain', backgroundPosition: 'center', backgroundColor: 'rgba(0, 128, 0, 0)'}}>
-    <tr>
+  <thead style = {cursor} >
+    <tr  style={{backgroundImage:`url(${require('./BGCollection.png')})`, backgroundSize : '100% 100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: 'rgba(0, 128, 0, 0)'}}>
       <th onClick={() => this.sortBy('placement')} > <span style={lighttext}>Click to sort &#8594;</span></th>
       <th  style = {cursor}  onClick={() => this.sortBy('name')} >Player Name</th>
       <th style = {cursor}   onClick={() => this.sortBy('wins')} >Final Record</th>
@@ -834,7 +770,7 @@ toggleVisibility = () => {
     
    
    {this.state.players.length === 0 ? (
-     <span>Please Enter Tournament Date/Name <br />  then fill out the form below to add players</span>
+     <span style={{color : 'whitesmoke'}}>Please Enter Tournament Date/Name <br />  then fill out the form below to add players</span>
    ) :
    null}
    <tbody > 
@@ -860,7 +796,7 @@ toggleVisibility = () => {
 
 
 
-return (<tr > <td style={person.placement < 3 ? {backgroundImage : `url(${require(`./bg${person.placement}.png`)})`, backgroundSize: 'contain', backgroundRepeat : 'no-repeat', backgroundPosition : 'center'} : {backgroundColor : 'none'}}>{person.placement}</td> 
+return (<tr style={{backgroundImage:`url(${bgpaper})`, backgroundSize : '100% 100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: 'rgba(0, 128, 0, 0)'}}> <td style={person.placement < 3 ? {backgroundImage : `url(${require(`./bg${person.placement}.png`)})`, backgroundSize: 'contain', backgroundRepeat : 'no-repeat', backgroundPosition : 'center'} : {backgroundColor : 'none'}}>{person.placement}</td> 
 
 <td style={{ border: 'none'}}>{`${person.name}`}</td><td>{`${person.wins} - ${person.losses} - ${person.draws}`}</td><td>{`${person.army}`}</td><td>{`${person.VP} - ${person.PD}`}</td><td><Button id={index} onClick={e => this.handlePlayerDelete(e)} variant="danger">Delete</Button></td></tr>
 )
@@ -879,7 +815,7 @@ return (<tr > <td style={person.placement < 3 ? {backgroundImage : `url(${requir
 <Row>
      
     
-      <Col style = {this.state.toggleVis ? scroll : {visibility : 'hidden'}} md={{ span: 8, offset: 2 }} sm={12}>
+      <Col style = {scroll} md={{ span: 8, offset: 2 }} sm={12}>
       <div style={{visibility: 'hidden'}}>Title</div>
       <div  style =  {this.state.toggleVis ? titleStyle : notTitleStyle}>{this.state.tournamentName}</div>
       <div style={{maxWidth: '800px'}} style = {{display: this.state.toggleVis ? 'none' : 'block'}}  >
@@ -888,7 +824,7 @@ return (<tr > <td style={person.placement < 3 ? {backgroundImage : `url(${requir
       aria-label="Tournament Name"
       aria-describedby="basic-addon2"
     /><br />
-  
+ 
         <Form.Control as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}}   onChange={this.tournamentMonthSet} value={this.state.tournamentMonth}  >     
     <option>Month</option>
     <option value='1'>1</option>
@@ -951,11 +887,11 @@ return (<tr > <td style={person.placement < 3 ? {backgroundImage : `url(${requir
       <option value='2029'>2020</option>
       </Form.Control>
 
-      <button style={newTournamentButton} onClick={this.toggleVisibility}  style = {{fontSize : '0.7em'}} style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} > <div style={{width: '110px',height: '110px', backgroundImage: `url(${addTournament})`, borderRadius : '50%', boxShadow: 'inset 0 0 10px #000000'}} ></div></button>
+      <button style={newTournamentButton} onClick={this.toggleVisibility}  style = {{fontSize : '0.7em'}} style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} > <div style={{width: '110px',height: '110px', backgroundImage: `url(${addTournament})`, backgroundPosition: 'center', boxShadow: 'inset 0 0 10px #000000'}} ></div></button>
  
    
   </div>
-      <Form   onSubmit={this.handleSubmit.bind(this)}>
+      <Form style = {{visibility: this.state.toggleVis ? 'visible' : 'hidden'}}   onSubmit={this.handleSubmit.bind(this)}>
       <Form.Label style={headerS} style={{visibility: 'hidden'}}>New Player:</Form.Label>
   <Form.Row>
   <Form.Group style={formstyle} controlId="formGridState">
