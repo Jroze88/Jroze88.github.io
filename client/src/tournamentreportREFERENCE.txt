@@ -95,20 +95,14 @@ class TournamentReport extends Component {
         }
 
         windowCheck = () => {
-            if (window.innerWidth <= 300) {
+            if (window.innerWidth <= 500) {
                 this.setState({
                     isMobile : true
-                },function() {
-                    $('#sticky-footer').css('display', 'none')
-                    $('body').css('overflowY', 'hidden')
                 })
                 
             } else {
                 this.setState({
                     isMobile : false
-                },function() {
-                    $('#sticky-footer').css('display', 'block')
-                    $('body').css('overflowY', 'scroll')
                 })
             }
         }
@@ -117,9 +111,9 @@ class TournamentReport extends Component {
 
             let clientSize = $('.col-md-9').clientTop
             console.log(clientSize)
-         
+            $('nav.navbar').css('display', 'none')
 
-            
+            this.windowCheck()
 
         }
 
@@ -140,7 +134,7 @@ class TournamentReport extends Component {
 
             const playerstanding = {
                 color: 'whitesmoke',
-                fontSize: '0.8em',
+                fontSize: '0.5em',
                 textAlign: 'left'
             }
 
@@ -298,8 +292,6 @@ class TournamentReport extends Component {
 
         window.addEventListener('resize', this.windowCheck);
 
-        this.windowCheck()
-
 
         $('body').css('overflowY', 'scroll')
 
@@ -358,7 +350,7 @@ class TournamentReport extends Component {
 
         return(
             <Container flex>
-                <Row  style={{minHeight: '800', maxHeight : '800', minWidth:  '1454', maxWidth: '1454', padding: '0', margin: '0'}}>
+                <Row  style={{minHeight: '800', minWidth:  '1454', padding: '0', margin: '0'}}>
                     <Col style={{minheight: '350', maxHeight: '350px', paddingRight: '0', overflowY : 'scroll', WebkitOverflowScrolling : 'auto'}}>
                  {this.otherTournamentsPopulate()}
                                               
@@ -366,7 +358,7 @@ class TournamentReport extends Component {
              
              
                     </Col>
-                    <Col style={{minHeight: '350px', maxHeight: '350px', minWidth: '300px', maxWidth: '300px', color: 'white'}}>
+                    <Col style={{height: '350px', width: '300px', color: 'white'}}>
                     <ul className='list'>
                     
                     <TransitionGroup className = 'commanderCards'>
@@ -406,7 +398,7 @@ class TournamentReport extends Component {
 
 
 
-                    <Col style={{minHeight: '350px', minWidth: '280px', maxWidth: '280px', maxHeight: '350px', padding: '0'}}>
+                    <Col style={{minHeight: '350px', minWidth: '280px', maxWidth: '280px', padding: '0'}}>
                     <div style={{textAlign: 'left'}} className = 'armylist'>{this.state.activeList ? this.populateList() : ''}</div>
                     </Col>
 

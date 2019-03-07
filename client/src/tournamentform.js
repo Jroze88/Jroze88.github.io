@@ -72,7 +72,12 @@ class ReportForm extends Component {
 
 componentDidMount = () => {
   const navb = document.querySelector('nav.navbar')
-  $('#sticky-footer').css('display', 'none')
+
+
+  if (this.state.isMobile) {
+    $('#sticky-footer').css('display', 'none')
+  }
+
   
 
 

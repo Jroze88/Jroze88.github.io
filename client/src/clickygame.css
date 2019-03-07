@@ -5,6 +5,11 @@
   padding-left: 0;  
 } */
 
+body {
+  background-image: url('HouseStarkBG.jpg')!important;
+  background-size: 'contain'!important
+}
+
 
 
 .__card {
@@ -16,13 +21,13 @@
   transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
-  float: left;
+
   width: 350px;
   height: 200px;
   background-color: rgba(238, 238, 238, 0);
   margin: 0 20px 0 0;
   overflow: show;
- position: relative;
+
  
 }
 
@@ -30,7 +35,16 @@
   color: whitesmoke;
   font-size: '0.2em'!important;
   text-align: 'left';
-  list-style-type: 'none'
+  
+}
+
+.__statcard {
+   border-bottom: 1px solid;
+  
+  
+
+    box-shadow: 5px 10px #161010;
+
 }
 
 
@@ -180,16 +194,17 @@
   top: -100vw!important
 } */
 
-.star2 {
-  right: -100vw!important;
-  top: -100vh!important
+.star1C {
+  right: -600px!important;
+  top: -600px!important
 }
-.star2-enter {
-  transform: translateX('100vw') translateY('100vh')!important
+.star1C-enter {
+  transform: translateX('550px')!important;
+  transform: translateY('550px')!important
 }
-.star2-enter-active {
-  right: 0!important;
-  top: 0!important
+.star1C-enter-active {
+  right: 60px!important;
+  top: 70px!important
 }
 /* .star2-exit {
   transform: translateX('-100vw') translateY('-100vh')!important
@@ -198,3 +213,132 @@
   right: -100vw!important;
   top: -100vw!important
 } */
+
+.star1N0 {
+  right: -310px!important;
+  top: -310px!important;
+}
+.star1N0-enter {
+  transform: translateX('290px') translateY('310px')!important
+}
+.star1N0-enter-active {
+  right: 30px!important;
+  top: 0px!important;
+}
+
+.star1N1 {
+  right: -610px!important;
+  top: -610px!important;
+}
+.star1N1-enter {
+  transform: translateX('310px') translateY('550px')!important
+}
+.star1N1-enter-active {
+  right: -170px!important;
+  top: -260px!important;
+  padding: 0!important
+}
+
+.star1N2 {
+  right: -610px!important;
+  top: -610px!important;
+}
+.star1N2-enter {
+  transform: translateX('310px') translateY('550px')!important
+}
+.star1N2-enter-active {
+  right: 20px!important;
+  top: -520px!important;
+  padding: 0!important
+}
+
+.star10 {
+  right: -610px!important;
+  top: -610px!important;
+}
+.star10-enter {
+  transform: translateX('310px') translateY('550px')!important
+}
+.star10-enter-active {
+  right: 0px!important;
+  top: -260px!important;
+  padding: 0!important
+}
+
+.star11 {
+  right: -610px!important;
+  top: -610px!important;
+}
+.star11-enter {
+  transform: translateX('310px') translateY('550px')!important
+}
+.star11-enter-active {
+  right: -235px!important;
+  top: -520px!important;
+  padding: 0!important
+}
+
+.star12{
+  right: -610px!important;
+  top: -610px!important;
+}
+.star12-enter {
+  transform: translateX('310px') translateY('550px')!important
+}
+.star12-enter-active {
+  right: -465px!important;
+  top: -780px!important;
+  padding: 0!important
+}
+
+.star14 {
+  right: -610px!important;
+  top: -610px!important;
+}
+.star14-enter {
+  transform: translateX('310px') translateY('550px')!important
+}
+.star14-enter-active {
+  right: -705px!important;
+  top: -1040px!important;
+  padding: 0!important
+}
+
+.star13 {
+  right: -610px!important;
+  top: -610px!important;
+}
+.star13-enter {
+  transform: translateX('310px') translateY('550px')!important
+}
+.star10-enter-active {
+  right: -940px!important;
+  top: -1320px!important;
+  padding: 0!important;
+}
+
+.star10 {
+  right: -610px!important;
+  top: -610px!important;
+}
+.star10-enter {
+  transform: translateX('310px') translateY('550px')!important
+}
+.star10-enter-active {
+  right: 0px!important;
+  top: -260px!important;
+  padding: 0!important
+}
+
+.star10 {
+  right: -610px!important;
+  top: -610px!important;
+}
+.star10-enter {
+  transform: translateX('310px') translateY('550px')!important
+}
+.star10-enter-active {
+  right: 0px!important;
+  top: -260px!important;
+  padding: 0!important
+}

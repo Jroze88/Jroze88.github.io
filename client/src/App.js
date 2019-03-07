@@ -18,6 +18,7 @@ import TournamentReport from './tournamentreport'
 import Footer from './Footer'
 
 
+
 class App extends Component {
 
 
@@ -47,7 +48,8 @@ class App extends Component {
                   <Route exact path="/projects" component={Projects} />
                    <Route exact path="/clickygame" component={ClickyGame} /> 
                   <Route exact path = '/starfallbg' component={starfallBG} />
-                  <Footer />
+                  
+            <Footer />
              </div>      
      </Router>
     );
