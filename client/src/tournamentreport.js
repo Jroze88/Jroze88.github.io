@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row'
 import $ from 'jquery'
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
-
+import Button from 'react-bootstrap/Button'
 import axios from 'axios';
 import Table from 'react-bootstrap/Table'
 import border from './bordersmall.gif'
@@ -57,13 +57,9 @@ class TournamentReport extends Component {
 
             let armyList = []
 
-            if (!this.state.activeList.unEncoded[0].includes('faction')) {
-                let thisLine = <li data={`${0}`} style={{fontSize: '0.8em', listStyleType: 'none', textAlign: 'center', textDecoration: 'underline'}}>`{this.state.activePlayer.name}'s {this.state.activeList.unEncoded[0]}`</li>
+                let thisLine = <li data={`${0}`}  onClick = {this.swapLists} style={{fontSize: '0.8em', listStyleType: 'none', textAlign: 'center', textDecoration: 'underline'}}>`{this.state.activePlayer.name}'s {this.state.activeList.unEncoded[0]}`</li>
             armyList.push(thisLine)
-            } else if (this.state.activeList.unEncoded[0].includes('Faction')) {
-                let thisLine = <li data={`${0}`} style={{fontSize: '0.8em' , listStyleType: 'none'}}>{this.state.activeList.unEncoded[0]}</li>
-            armyList.push(thisLine)
-            }
+   
             
 
             for (let i = 1; i < this.state.activeList.unEncoded.length - 1; i++) {
@@ -123,7 +119,28 @@ class TournamentReport extends Component {
 
         }
 
-        themeCheck = () => {
+
+
+        swapLists = () => {
+
+            let randomList = Math.floor(Math.random() * 3)
+
+            console.log(randomList)
+
+            console.log('check')
+
+            this.setState({
+                renderCombatUnits : false,
+                renderNCUs : false,
+                renderCommander : false,
+                activeList : {
+                encoded : this.state.activeTournament.players[randomList].army1Encoded,
+                unEncoded : this.state.activeTournament.players[randomList].army1
+            }
+            }, function() {
+                this.superHighLevelEncryptionAlgorithm(this.state.activeList)
+            })
+
 
         }
 
@@ -316,8 +333,8 @@ class TournamentReport extends Component {
                     activeTournament: response.data[0],
                     activePlayer : firstPlayer,
                     activeList : {
-                        encoded : response.data[0].players[0].army1Encoded,
-                        unEncoded : response.data[0].players[0].army1
+                        encoded : response.data[1].players[0].army1Encoded,
+                        unEncoded : response.data[1].players[0].army1
                     },
                     otherTournaments: response.data
                 }, function() {
@@ -362,7 +379,7 @@ class TournamentReport extends Component {
                     <Col style={{minheight: '350', maxHeight: '350px', paddingRight: '0', overflowY : 'scroll', WebkitOverflowScrolling : 'auto'}}>
                  {this.otherTournamentsPopulate()}
                                               
-
+                    <Button onClick = {this.swapLists}>ClickSwap</Button>
              
              
                     </Col>
@@ -387,7 +404,7 @@ class TournamentReport extends Component {
                 
                                    
                                     <Card xs={12} className={this.state.isMobile ? "star1m __statcard  __card" : "star1C __statcard  __card"} style={{height: '260px', width: '210px', position: 'absolute', transition: `all  ${2 + 0.5}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}>
-                                  <div style = {{backgroundImage : `url(${images[(this.state.commander.code + 'b.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'}} className="front "  >
+                                  <div   style = {{backgroundImage : `url(${images[(this.state.commander.code + 'b.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'}} className="front "  >
                                     </div>
                               </Card>
                     
