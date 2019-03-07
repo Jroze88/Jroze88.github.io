@@ -83,7 +83,7 @@ componentDidMount = () => {
 
   // document.body.style.backgroundColor = 'darkgray'
   document.body.style.backgroundImage = `url(${mapbg})`
-  document.body.style.overflowY = 'scroll'
+  document.body.style.overflowY = 'hidden'
   document.body.style.backgroundSize = 'cover'
   document.body.style.backgroundRepeat = 'no-repeat'
   document.body.style.backgroundAttachment = 'attached'
