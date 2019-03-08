@@ -29,6 +29,7 @@
     "mongoose": "^5.4.13",
     "popper.js": "^1.14.7",
     "react": "^16.8.4",
+    "react-burger-menu": "^2.6.5",
     "react-dom": "^16.8.4",
     "react-sticky-footer": "0.1.0-rc3",
     "react-transition-group": "^2.6.0",

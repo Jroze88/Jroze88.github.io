@@ -208,6 +208,12 @@ sendResults = (tournamentResults) => {
         
       }
 
+      checkBackSpace = (e) => {
+        if (e.keyCode === 8 || e.keyCode === 46) {
+         e.target.value= ''
+        }
+      }
+
       handleStandingChange = e => {
         this.setState({ 
             playerStanding: e.target.value
@@ -270,11 +276,8 @@ handleSubmit = e => {
           playerArmy2 : army2
         })
 
-        if (this.state.playerName && this.state.playerArmyType && this.state.tournamentName && this.state.playerStanding && this.state.playerArmy1) {
+        if (this.state.playerName && this.state.playerArmyType && this.state.tournamentName && this.state.playerStanding) {
 
-        this.setState({
-          numberOfPlayers : this.state.numberOfPlayers + 1
-        })
 
 
         if (this.state.playerArmy1[0].includes('action')) {
@@ -399,6 +402,14 @@ tournamentNameSet = (e)=> {
 
 }
 
+playerNumber = (e)=> {
+
+  this.setState({ 
+    NumbeOfPlayers: e.target.value
+ });
+
+}
+
 tournamentDaySet = (e)=> {
 
   this.setState({ 
@@ -430,6 +441,7 @@ tournamentMonthSet = (e)=> {
 
 toggleVisibility = () => {
   if (this.state.tournamentName !== '' && this.state.tournamentDay !== 'Day' && this.state.tournamentMonth !== 'Month') {
+    this.populateOptions()
   this.setState({
     toggleVis : true
   })
@@ -572,7 +584,14 @@ toggleVisibility = () => {
     
   }
 
-  
+  populateOptions = () => {
+    let options = []
+    for (let i = 0; i < this.state.numberOfPlayers; i++) {
+      options.push(<option>{i+1}</option>)
+    }
+
+    return <span>{options}</span>
+  }
 
 //   handleSubmit = e => {
 
@@ -830,7 +849,13 @@ return (<tr className='trtable' style={{backgroundImage:`url(${bgpaper})`, backg
       placeholder="Event Name"
       aria-label="Tournament Name"
       aria-describedby="basic-addon2"
-    /><br />
+    />     
+     {/* <Form.Control onChange={this.playerNumber}  style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
+    placeholder="Participants"
+    aria-label="Participants"
+    aria-describedby="basic-addon2"
+  /> */}
+  <br />
  
         <Form.Control as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}}   onChange={this.tournamentMonthSet} value={this.state.tournamentMonth}  >     
     <option>Month</option>
@@ -864,25 +889,25 @@ return (<tr className='trtable' style={{backgroundImage:`url(${bgpaper})`, backg
     <option value='10'>10</option>
     <option value='11'>11</option>
       <option value='12'>12</option>
-      <option value='13'>1</option>
-    <option value='14'>2</option>
-    <option value='15'>3</option>
-    <option value='16'>4</option>
-    <option value='17'>5</option>
-    <option value='18'>6</option>
-    <option value='19'>7</option>
-    <option value='20'>8</option>
-    <option value='21'>9</option>
-    <option value='22'>10</option>
-    <option value='23'>11</option>
-      <option value='24'>12</option>
-      <option value='25'>5</option>
-    <option value='26'>6</option>
-    <option value='27'>7</option>
-    <option value='28'>8</option>
-    <option value='29'>9</option>
-    <option value='30'>10</option>
-    <option value='31'>11</option>
+      <option value='13'>13</option>
+    <option value='14'>14</option>
+    <option value='15'>15</option>
+    <option value='16'>16</option>
+    <option value='17'>17</option>
+    <option value='18'>18</option>
+    <option value='19'>19</option>
+    <option value='20'>20</option>
+    <option value='21'>21</option>
+    <option value='22'>22</option>
+    <option value='23'>23</option>
+      <option value='24'>24</option>
+      <option value='25'>25</option>
+    <option value='26'>26</option>
+    <option value='27'>27</option>
+    <option value='28'>28</option>
+    <option value='29'>29</option>
+    <option value='30'>30</option>
+    <option value='31'>31</option>
  
   </Form.Control>
     <Form.Control className='datestyle' onChange={this.tournamentYearSet} as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
@@ -904,17 +929,37 @@ return (<tr className='trtable' style={{backgroundImage:`url(${bgpaper})`, backg
   <Form.Group style={formstyle} controlId="formGridState">
       <Form.Label style={headerS}>Standing</Form.Label>
       <Form.Control onChange = {this.handleStandingChange} value={this.state.playerStanding} as="select">
-      <option>-</option>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      <option>6</option>
-      <option>7</option>
-      <option>8</option>
-      <option>9</option>
-      <option>10</option>
+      <option value='1'>1</option>
+    <option value='2'>2</option>
+    <option value='3'>3</option>
+    <option value='4'>4</option>
+    <option value='5'>5</option>
+    <option value='6'>6</option>
+    <option value='7'>7</option>
+    <option value='8'>8</option>
+    <option value='9'>9</option>
+    <option value='10'>10</option>
+    <option value='11'>11</option>
+      <option value='12'>12</option>
+      <option value='13'>13</option>
+    <option value='14'>14</option>
+    <option value='15'>15</option>
+    <option value='16'>16</option>
+    <option value='17'>17</option>
+    <option value='18'>18</option>
+    <option value='19'>19</option>
+    <option value='20'>20</option>
+    <option value='21'>21</option>
+    <option value='22'>22</option>
+    <option value='23'>23</option>
+      <option value='24'>24</option>
+      <option value='25'>25</option>
+    <option value='26'>26</option>
+    <option value='27'>27</option>
+    <option value='28'>28</option>
+    <option value='29'>29</option>
+    <option value='30'>30</option>
+    <option value='31'>31</option>
       </Form.Control>
     </Form.Group>
 
@@ -1013,7 +1058,7 @@ return (<tr className='trtable' style={{backgroundImage:`url(${bgpaper})`, backg
                                           List Here: (1st)
     </InputGroup.Text>
     </InputGroup.Prepend>
-    <Form.Control value={this.state.playerArmy1} onPaste={this.handleArmy1} className='army1' as="textarea" aria-label="With textarea" />
+    <Form.Control value={this.state.playerArmy1} onKeyDown={this.checkBackSpace} onPaste={this.handleArmy1} className='army1' as="textarea" aria-label="With textarea" />
   </InputGroup>
   </Form.Group>
   <Form.Group id="formGridTextArea">

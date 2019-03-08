@@ -6,6 +6,16 @@ import $ from 'jquery';
 
 
 
+
+function importAll (r) {
+  let images = {};
+  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); })
+  return images;
+
+}
+
+const images = importAll(require.context('./gotimg', false, /\.(png|jpe?g|svg)$/))
+
 class ClickyGame extends Component {
 
   constructor(props) {
@@ -130,18 +140,18 @@ class ClickyGame extends Component {
 
       return(
             <li className= ' __card'>
-              {/* <div className=  "flip-container" onClick={this.__cardClick}>
+              <div className=  "flip-container" onClick={this.__cardClick}>
               
                    <div className="flipper">
                
-                        <div style = {{backgroundImage : `url(${require(`./gotimg/${element}f.jpg`)})`, backgroundSize: '100% 100%'}}  className="front ">
+                        <div style={{backgroundImage : `url(${images[(this.props.code + 'f.jpg')]})`, backgroundHeight: 'contain', backgroundSize: '100% 100%', backgroundRepeat: 'no-repeat',}} className="front ">
                         
                         </div>
-                        <div  style = {{backgroundImage : `url(${require(`./gotimg/${element}b.jpg`)})`, backgroundSize: '100% 100%'}} className="back">
+                        <div   className="back">
                             
                   </div>
                 </div>
-                    </div> */}
+                    </div>
             </li>
 
        

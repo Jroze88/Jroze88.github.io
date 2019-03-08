@@ -346,7 +346,21 @@ class TournamentReportm extends Component {
     
 
    console.log(this.state)
+   $('.front').mouseover(function(e) {
 
+
+    $(e.target).addClass('zoomed')
+
+      
+   
+       setTimeout(function() {
+
+         
+         $(e.target).removeClass('zoomed');
+
+       }, 6090)
+
+   })
 
  
 }
