@@ -30,6 +30,7 @@
     "popper.js": "^1.14.7",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-sticky-footer": "0.1.0-rc3",
     "react-transition-group": "^2.6.0",
     "tabler-react": "^1.28.0",
     "yarn": "^1.13.0"

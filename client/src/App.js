@@ -14,8 +14,6 @@ import Intro from './Intro'
 // import CV from './cs'
 // import Skilltree from './skilltree'
 import starfallBG from './starfallbg'
-import TournamentReport from './tournamentreport'
-import test from './test'
 import TournamentReportm from './tournamentreport-m'
 
 
@@ -50,8 +48,8 @@ class App extends Component {
                   <Route exact path="/projects" component={Projects} />
                    <Route exact path="/clickygame" component={ClickyGame} /> 
                   <Route exact path = '/starfallbg' component={starfallBG} />
-                  <Route exact path = '/test' component={TournamentReportm} />
-                  
+           
+           
         
              </div>      
      </Router>

@@ -14,6 +14,7 @@ import { Page, Grid, StoreCard, Table, Card, Badge } from "tabler-react";
 import Button from 'react-bootstrap/Button'
 import SiteWrapper from "./SiteWrapper.react";
 import testimg from './10101btest.jpg'
+import StickyFooter from 'react-sticky-footer'
 
 
 
@@ -536,7 +537,7 @@ class TournamentReportm extends Component {
          
             {element.hasAttachment ?
          
-         <div  className= {`star1${i}m __statcard __card`} style={{position: 'relative' ,height: '260px', width: '210px',  transition: `all  ${1 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
+         <div  className= {`star1${i}m __statcard __card`} style={{marginBottom: '45px', marginRight: '60px', position: 'relative' ,height: '260px', width: '210px',  transition: `all  ${1 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
           >  <div style={{width: '105px', height: '130px', zIndex: '-2', position: 'absolute', top: '-40px', right: '-40px', backgroundImage : `url(${images[(element.attachment.code + 'f.jpg')]})`, backgroundSize: '100% 100%'}}></div>
                         
          <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
@@ -544,7 +545,7 @@ class TournamentReportm extends Component {
             </div>
          </div> :
          
-         <div  className= {`star1${i}m __statcard __card`} style={{position: 'relative' ,height: '260px', width: '210px',  transition: `all  ${1 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
+         <div  className= {`star1${i}m __statcard __card`} style={{marginBottom: '45px',position: 'relative' ,height: '260px', width: '210px',  transition: `all  ${1 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
           >
          <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
          
@@ -558,6 +559,26 @@ class TournamentReportm extends Component {
                                </Table.Col>
           </Grid.Row>
         </Page.Content>
+        <StickyFooter
+    bottomThreshold={99999}
+    normalStyles={{
+    backgroundColor: "#343a40",
+    padding: "0.5em",
+    fontSize: '0.5em',
+    color: '#738597'
+    }}
+    stickyStyles={{
+    backgroundColor: "#343a40",
+    padding: "0.5em",
+    width: '100vw',
+    fontSize: '0.5em',
+    color: '#738597'
+    }}
+>
+<div>
+Copyright &copy; <a style={{color: 'lightblue'}} href="https://cmon.com/products">CMON</a> A Song of Ice and Fire, <a style={{color: 'lightblue'}} href="https://asoiafcc.com">OnTheTableGaming</a>, <a style={{color: 'lightblue'}} href="/home">Jano Roze</a>. List generation by <a style={{color: 'lightblue'}} href='https://asoiafbuilder.com'>ASOIAFBuilder</a>
+</div>
+</StickyFooter>
       </SiteWrapper>)
 //         <Container >
 //         <Row  style={{minHeight: '800px', maxHeight : '800px', minWidth:  '1454px', maxWidth: '1454px', padding: '0', margin: '0'}}>
