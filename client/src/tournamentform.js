@@ -78,6 +78,8 @@ componentDidMount = () => {
     $('#sticky-footer').css('display', 'none')
   }
 
+  $('body').css('overflow-y', 'scroll')
+
   
 
 

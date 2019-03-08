@@ -161,6 +161,10 @@ body {
   overflow-X: hidden!important
 }
 
+body {
+  overflow-y: scroll!important
+}
+
 
 
 
