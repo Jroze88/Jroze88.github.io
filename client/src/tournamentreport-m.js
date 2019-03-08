@@ -514,7 +514,7 @@ class TournamentReportm extends Component {
             </Grid.Col>
           </Grid.Row>
           <Grid.Row>
-          <Table.Col>
+          <Table.Col style={{overflowX : 'scroll'}}>
                      
                      <TransitionGroup className="cardsTransition">  
          
@@ -529,24 +529,22 @@ class TournamentReportm extends Component {
              <CSSTransition
              key={i}
             unmountOnExit
-             classNames="star"
-             in={this.state.renderCombatUnits}
-             classNames={`star1${i}`}
+        
+             on={this.state.renderCombatUnits}
+             classNames={`star1${i}m`}
            >       
          
             {element.hasAttachment ?
          
-                       <div  className={`star1${i} __statcard  __card`} style={element.code > 20000 ? {height: '250px', width: '210px',  transition: `all ${3+ 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
-                          {height: '260px', width: '210px',  transition: `all  ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
-                           >
-                           <div style={{width: '105px', height: '130px', zIndex: '-2', position: 'absolute', backgroundImage : `url(${images[(element.attachment.code + 'f.jpg')]})`, backgroundSize: '100% 100%'}}></div>
-           <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
-           
-                             </div>
-                         </div> :
+         <div  className= {`star1${i}m __statcard __card`} style={{position: 'relative' ,height: '260px', width: '210px',  transition: `all  ${1 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
+          >  <div style={{width: '105px', height: '130px', zIndex: '-2', position: 'absolute', top: '-40px', right: '-40px', backgroundImage : `url(${images[(element.attachment.code + 'f.jpg')]})`, backgroundSize: '100% 100%'}}></div>
+                        
+         <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
          
-         <div  className= 'star1${i} __statcard __card' style={element.code > 20000 ? {height: '260px', width: '210px',  transition: `all ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
-         {height: '260px', width: '210px',  transition: `all  ${3 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
+            </div>
+         </div> :
+         
+         <div  className= {`star1${i}m __statcard __card`} style={{position: 'relative' ,height: '260px', width: '210px',  transition: `all  ${1 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
           >
          <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
          
@@ -555,8 +553,7 @@ class TournamentReportm extends Component {
          
          
                          </CSSTransition>)}
-         
-                                     
+                                    
                          </TransitionGroup>    
                                </Table.Col>
           </Grid.Row>
