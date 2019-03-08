@@ -21,7 +21,7 @@ body {
   transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
-
+  float:left;
   width: 350px;
   height: 200px;
   background-color: rgba(238, 238, 238, 0);
@@ -29,6 +29,19 @@ body {
   overflow: show;
 
  
+}
+
+.card {
+  border : none;
+    background-color : rgba(238, 238, 238, 0);
+}
+
+#root > div > div > div > div.page-content > div > div.row.row > div.col.col-lg-9 > div > table > tbody > tr:nth-child(1) {
+  background-color : rgba(238, 238, 238, 0);
+}
+
+#root > div > div > div > div.page-content > div > div.row.row > div.col.col-lg-9 > div > table > tbody {
+  background-color : rgba(238, 238, 238, 0);
 }
 
 .star1m {
@@ -47,7 +60,8 @@ body {
 
 .__statcard {
    border-bottom: 1px solid;
-  
+  width: 190px;
+  height: 260px;
   
 
     box-shadow: 5px 10px #161010;
@@ -77,8 +91,8 @@ body {
 } */
 
 .flip-container, .front, .back {
-  width: 350px;
-  height: 200px;
+  width: 190px;
+  height: 260px;
   background-size: '100%'
 }
 
@@ -107,7 +121,7 @@ body {
 }
 
 .front:hover {
-  width: 700px;
+  
   background-position: right;
 }
 
@@ -201,6 +215,8 @@ body {
   top: -100vw!important
 } */
 
+
+
 .star1C {
   right: -600px!important;
   top: -600px!important
@@ -220,6 +236,7 @@ body {
   right: -100vw!important;
   top: -100vw!important
 } */
+
 
 .star1N0 {
   right: -310px!important;
@@ -348,4 +365,56 @@ body {
   right: 0px!important;
   top: -260px!important;
   padding: 0!important
+}
+
+
+/* /////////MOBILE */
+
+
+.star1Cm {
+  right: -600px!important;
+  top: -600px!important
+}
+.star1Cm-enter {
+  transform: translateX('550px')!important;
+  transform: translateY('550px')!important
+}
+.star1Cm-enter-active {
+  right: 0!important;
+  top: 0!important
+}
+
+.star1N0c {
+  right: 600px!important;
+  top: -600px!important
+}
+.star1N0c-enter {
+  transform: translateX('550px')!important;
+  transform: translateY('550px')!important
+}
+.star1N0c-enter-active {
+  right: 0!important;
+  top: 0!important
+}
+
+.star1N1c {
+  right: -600px!important;
+  top: -600px!important
+}
+.star1N1c-enter {
+  transform: translateX('550px')!important;
+  transform: translateY('550px')!important
+}
+.star1N1c-enter-active {
+  right: 0!important;
+  top: 0!important
+}
+
+#root > div > div > div > div.page-content > div > div:nth-child(2) > div.col.col-md-10 > div > table > tbody > tr:nth-child(1) {
+  height: 410px!important
+}
+
+.NCUtitle  li {
+  color: whitesmoke!important;
+  font-size: '0.8em'!important
 }

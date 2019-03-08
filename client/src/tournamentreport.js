@@ -397,148 +397,7 @@ class TournamentReport extends Component {
                 entered:  { opacity: 1 },
                 };
             
-if (this.state.isMobile) {
 
-    return(
-
-        <Container >
-        <Row  style={{minHeight: '800px', maxHeight : '800px', minWidth:  '1454px', maxWidth: '1454px', padding: '0', margin: '0'}}>
-            <div style={{minheight: '350', maxHeight: '350px', paddingRight: '0', overflowY : 'scroll', WebkitOverflowScrolling : 'auto'}}>
-         {this.otherTournamentsPopulate()}
-                                      
-            <Button onClick = {this.swapLists}>ClickSwap</Button>
-     
-     
-            </div>
-            <Col style={{minHeight: '350px', maxHeight: '350px', minWidth: '300px', maxWidth: '300px', color: 'white'}}>
-            <ul className='list'>
-            
-         
-          
-            <Card.Title style={{fontSize: '1.2em'}}>{this.state.commander.name}</Card.Title>
-
-
-{this.state.commander.code === undefined || this.state.commander === undefined  ? ''
-:
-       
-
-        
-                           
-                            <Card xs={12} className={"star1m __statcard  __card" } style={{height: '260px', width: '210px', position: 'absolute', transition: `all  ${2 + 0.5}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}>
-                          <div   style = {{backgroundImage : `url(${images[(this.state.commander.code + 'b.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'}} className="front "  >
-                            </div>
-                      </Card>}
-                           
-       
-           </ul>
-           
-            </Col>
-
-
-
-
-
-
-
-
-
-            <Col style={{minHeight: '350px', minWidth: '280px', maxWidth: '280px', maxHeight: '350px', padding: '0'}}>
-            <div style={{textAlign: 'left'}} className = 'armylist'>{this.state.activeList ? this.populateList() : ''}</div>
-            </Col>
-
-
-
-
-
-
-
-
-
-
-
-            <Col style={{color: 'white', fontSize: '1em'}}  md={4}>
-                <ul className = 'list'>
-           
-            <Card.Title style={{fontSize: '1em'}}> Non-Combat Units:<ul>{ this.state.NCUs.map((element, i) =>          <li>{element.name}</li>)}</ul> </Card.Title>
-
-
-{ this.state.NCUs.map((element, i) =>       
-
-
-element.code === undefined || element === undefined  ? ''
-:
-  
-
-      <Card className={`star1m __statcard  __card`} style={element.code > 20000 ? {height: '260px', width: '190px',  transition: `all ${2*i +1.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
-         {height: '260px', width: '210px',  transition: `all  ${2*i + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
-          >
-       
-                <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
-            
-            </div>
-            
-        </Card>
-
-        )}
-
-                    
-                 
-        </ul>
-            </Col>
-
-   
-        <Col style={{color: 'white'}} >
-    <ul className='list'>
-
-   
-
-    
-
-{ this.state.combatUnits.map((element, i) =>       
-
-
-element.code === undefined || element === undefined  ? ''
-:
-
-    
-
-element.hasAttachment ?
-
-      <Card  className={`star1m __statcard  __card`} style={element.code > 20000 ? {height: '250px', width: '210px',  transition: `all ${3+ 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
-         {height: '260px', width: '210px',  transition: `all  ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
-          >
-          <div style={{width: '105px', height: '130px', zIndex: '-2', position: 'absolute', backgroundImage : `url(${images[(element.attachment.code + 'f.jpg')]})`, backgroundSize: '100% 100%'}}></div>
-<div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
-
-            </div>
-        </Card> :
-
-<Card  className= 'star1m __statcard __card' style={element.code > 20000 ? {height: '260px', width: '210px',  transition: `all ${2 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
-{height: '260px', width: '210px',  transition: `all  ${3 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
->
-<div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
-
-</div>
-</Card>
-
-
-        )}
-
-               
-                            
-
-
-
-                </ul>
-                </Col>
-    </Row>
-
-    </Container>
-
-    )
-
-
-} else {
         return(
             <div >
                 <Row  style={{minHeight: '800px', maxHeight : '800px', minWidth:  '1454px', maxWidth: '1454px', padding: '0', margin: '0'}}>
@@ -624,7 +483,7 @@ element.hasAttachment ?
   >   
 
               <Card className={`star1N${i} __statcard  __card`} style={element.code > 20000 ? {height: '260px', width: '190px',  transition: `all ${2*i +1.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`} :
-                 {height: '260px', width: '210px',  transition: `all  ${2*i + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
+                 {height: '260px', width: '190px',  transition: `all  ${2*i + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
                   >
                
                         <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '190px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
@@ -699,7 +558,7 @@ element.hasAttachment ?
     )}
 }
 
-}
+
 
 
 export default TournamentReport

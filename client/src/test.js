@@ -6,8 +6,19 @@ import { Page, Grid, StoreCard, Table, Card, Badge } from "tabler-react";
 
 import SiteWrapper from "./SiteWrapper.react";
 
-function StoreCardsPage(): React.Node {
+import testimg from './10101btest.jpg'
+
+class test extends React.Component {
+
+
+
+    
+
+
+render () {
   return (
+
+
     <SiteWrapper>
       <Page.Content title="Store Components">
         <Grid.Row>
@@ -16,13 +27,13 @@ function StoreCardsPage(): React.Node {
               title="Apple iPhone 7 Plus 256GB Red Special Edition"
               subtitle="Apple"
               price="$499"
-              imgUrl="https://tabler.github.io/tabler/demo/products/apple-iphone7-special.jpg"
+              imgUrl={testimg}
             />
             <StoreCard
               title="GoPro HERO6 Black"
               subtitle="GoPro"
               price="$599"
-              imgUrl="https://tabler.github.io/tabler/demo/products/gopro-hero.jpg"
+              imgUrl={testimg}
             />
           </Grid.Col>
           <Grid.Col lg={9}>
@@ -33,7 +44,7 @@ function StoreCardsPage(): React.Node {
                     <Table.Col>
                       <img
                         alt=""
-                        src="https://tabler.github.io/tabler/demo/products/apple-iphone7-special.jpg"
+                        src={testimg}
                         className="h-8"
                       />
                     </Table.Col>
@@ -54,7 +65,7 @@ function StoreCardsPage(): React.Node {
                     <Table.Col>
                       <img
                         alt=""
-                        src="https://tabler.github.io/tabler/demo/products/apple-macbook-pro.jpg"
+                        src={testimg}
                         className="h-8"
                       />
                     </Table.Col>
@@ -76,7 +87,7 @@ function StoreCardsPage(): React.Node {
                     <Table.Col>
                       <img
                         alt=""
-                        src="https://tabler.github.io/tabler/demo/products/apple-iphone7.jpg"
+                        src={testimg}
                         className="h-8"
                       />
                     </Table.Col>
@@ -95,7 +106,7 @@ function StoreCardsPage(): React.Node {
                     <Table.Col>
                       <img
                         alt=""
-                        src="https://tabler.github.io/tabler/demo/products/gopro-hero.jpg"
+                        src={testimg}
                         className="h-8"
                       />
                     </Table.Col>
@@ -116,7 +127,7 @@ function StoreCardsPage(): React.Node {
                     <Table.Col>
                       <img
                         alt=""
-                        src="https://tabler.github.io/tabler/demo/products/msi.jpg"
+                        src={testimg}
                         className="h-8"
                       />
                     </Table.Col>
@@ -137,7 +148,7 @@ function StoreCardsPage(): React.Node {
                     <Table.Col>
                       <img
                         alt=""
-                        src="https://tabler.github.io/tabler/demo/products/xiaomi-mi.jpg"
+                        src={testimg}
                         className="h-8"
                       />
                     </Table.Col>
@@ -161,7 +172,7 @@ function StoreCardsPage(): React.Node {
                     <Table.Col>
                       <img
                         alt=""
-                        src="https://tabler.github.io/tabler/demo/products/huawei-mate.jpg"
+                        src={testimg}
                         className="h-8"
                       />
                     </Table.Col>
@@ -180,7 +191,7 @@ function StoreCardsPage(): React.Node {
                     <Table.Col>
                       <img
                         alt=""
-                        src="https://tabler.github.io/tabler/demo/products/sony-kd.jpg"
+                        src={testimg}
                         className="h-8"
                       />
                     </Table.Col>
@@ -201,7 +212,7 @@ function StoreCardsPage(): React.Node {
                     <Table.Col>
                       <img
                         alt=""
-                        src="https://tabler.github.io/tabler/demo/products/samsung-galaxy.jpg"
+                        src={testimg}
                         className="h-8"
                       />
                     </Table.Col>
@@ -228,5 +239,7 @@ function StoreCardsPage(): React.Node {
     </SiteWrapper>
   );
 }
+}
 
-export default StoreCardsPage;
+
+export default test;

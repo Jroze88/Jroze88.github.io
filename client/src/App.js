@@ -16,7 +16,7 @@ import Intro from './Intro'
 import starfallBG from './starfallbg'
 import TournamentReport from './tournamentreport'
 import test from './test'
-import Footer from './Footer'
+import TournamentReportm from './tournamentreport-m'
 
 
 
@@ -45,12 +45,12 @@ class App extends Component {
                   {/* <Route exact path ='/cv' component = {CV} />
                   <Route exact path ='/skilltree' component = {Skilltree} /> */}
                   <Route exact path ="/" component={Intro} />
-                  <Route exact path ="/report" component={TournamentReport} />
+                  <Route exact path ="/report" component={TournamentReportm} />
                   <Route exact path="/contact" exact component={Contact} />
                   <Route exact path="/projects" component={Projects} />
                    <Route exact path="/clickygame" component={ClickyGame} /> 
                   <Route exact path = '/starfallbg' component={starfallBG} />
-                  <Route exact path = '/test' component={test} />
+                  <Route exact path = '/test' component={TournamentReportm} />
                   
         
              </div>      
