@@ -31,7 +31,7 @@ class App extends Component {
 
       <Router>
       <div className='main'>
-      <NavTabs />
+
         
 
                {/* 
