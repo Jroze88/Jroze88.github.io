@@ -6,7 +6,7 @@
 } */
 
 body {
-  background-image: url('HouseStarkBG.jpg')!important;
+  background-color:#444444!important;
   background-size: 'contain'!important
 }
 
@@ -494,4 +494,9 @@ body {
 .star15m-enter-active {
   right: 0!important;
   top: 0!important
+}
+
+
+#root > div > div > div > div.page-content > div > div.page-header > h1 {
+  color: blanchedalmond!important;
 }
