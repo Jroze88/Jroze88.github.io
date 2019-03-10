@@ -486,7 +486,10 @@ class TournamentReportm extends Component {
              
                       </Table.Col>
                       <Table.Col className="text-right text-muted d-none d-md-table-cell text-nowrap">
-                      <div style={{textAlign: 'left'}} className = 'armylist'>{this.state.activeList ? this.populateList() : ''}</div><Button onClick = {this.swapLists}>ClickSwap</Button>
+                      <div style={{textAlign: 'left'}} className = 'armylist'>{this.state.activeList ? this.populateList() : ''}</div>
+                      <Button 
+                    //   onClick = {this.swapLists}
+                      >ClickSwap</Button>
                       </Table.Col>
 
 
