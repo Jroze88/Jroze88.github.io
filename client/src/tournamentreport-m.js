@@ -399,13 +399,7 @@ class TournamentReportm extends Component {
                 })
                 
 
-                var iFrameLoad = document.getElementById('latest')
 
-                iFrameLoad.addEventListener("mouseup", function() {
-
-                    document.write('<iframe  src="https://janoroze.herokuapp.com/report" width="100vw" height="100vh" scrolling="auto" transparency="false" class="tournamentResults" id="advanced_iframe" name="TournamentReport" allowfullscreen="true" >')
-
-                }
 
          
 
