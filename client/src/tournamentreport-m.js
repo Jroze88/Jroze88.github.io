@@ -397,7 +397,15 @@ class TournamentReportm extends Component {
                     this.superHighLevelEncryptionAlgorithm(this.state.activeList)
                     
                 })
+                
 
+                var iFrameLoad = document.getElementById('latest')
+
+                iFrameLoad.addEventListener("mouseup", function() {
+
+                    document.write('<iframe  src="https://janoroze.herokuapp.com/report" width="100vw" height="100vh" scrolling="auto" transparency="false" class="tournamentResults" id="advanced_iframe" name="TournamentReport" allowfullscreen="true" >')
+
+                }
 
          
 
@@ -435,7 +443,7 @@ class TournamentReportm extends Component {
 
 
         <SiteWrapper>
-        <Page.Content title="Store Components">
+        <Page.Content  title="Live Tournament Results (Beta)">
           <Grid.Row>
               <Grid.Col md={2}>
             {this.otherTournamentsPopulate()}
@@ -551,7 +559,7 @@ class TournamentReportm extends Component {
          
             {element.hasAttachment ?
          
-         <div  className= {`star1${i}m __statcard __card`} style={{marginBottom: '45px', marginRight: '60px', position: 'relative' ,height: '260px', width: '210px',  transition: `all  ${1 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
+         <div  className= {`star1${i}m __statcard __card`} style={{margin: '45px', marginRight: '60px', position: 'relative' ,height: '260px', width: '210px',  transition: `all  ${1 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
           >  <div style={{width: '105px', height: '130px', zIndex: '-2', position: 'absolute', top: '-40px', right: '-40px', backgroundImage : `url(${images[(element.attachment.code + 'f.jpg')]})`, backgroundSize: '100% 100%'}}></div>
                         
          <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
@@ -559,7 +567,7 @@ class TournamentReportm extends Component {
             </div>
          </div> :
          
-         <div  className= {`star1${i}m __statcard __card`} style={{marginBottom: '45px',position: 'relative' ,height: '260px', width: '210px',  transition: `all  ${1 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
+         <div  className= {`star1${i}m __statcard __card`} style={{margin: '45px',position: 'relative' ,height: '260px', width: '210px',  transition: `all  ${1 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
           >
          <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
          
