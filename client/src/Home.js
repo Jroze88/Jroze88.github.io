@@ -4,6 +4,7 @@ import About from './about'
 import Contact from './contact'
 import Projects from './projects'
 import brownbg from './brownbg.jpg'
+import NavTabs from './NavTabs'
 
 
 class Home extends React.Component {
@@ -70,7 +71,8 @@ class Home extends React.Component {
       }
   
       return (
-    
+        <div>
+          <NavTabs />
 <Carousel activeIndex={index}
         direction={direction}
         onSelect={this.handleSelect} keyboard={true}
@@ -78,7 +80,7 @@ class Home extends React.Component {
   <Carousel.Item style={style.cardbg}>
   <About />
     <Carousel.Caption>
-      <h3>- _ _</h3>
+   
 
     </Carousel.Caption>
   </Carousel.Item>
@@ -86,7 +88,7 @@ class Home extends React.Component {
         <Contact />
 
     <Carousel.Caption>
-      <h3>_ - _</h3>
+     
 
     </Carousel.Caption>
   </Carousel.Item>
@@ -94,11 +96,12 @@ class Home extends React.Component {
         <Projects />
 
     <Carousel.Caption>
-      <h3></h3>
+  
 
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
+</div>
    
       );
     }
