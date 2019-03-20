@@ -89,7 +89,7 @@ componentDidMount = () => {
   document.body.style.backgroundSize = 'cover'
   document.body.style.backgroundRepeat = 'no-repeat'
   document.body.style.backgroundAttachment = 'attached'
-  navb.style.display = 'none'
+
 
   const starf = document.querySelector('#starfield')
 
