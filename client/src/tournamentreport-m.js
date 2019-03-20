@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
+
 import $ from 'jquery'
 import axios from 'axios';
 import border from './bordersmall.gif'
 import Encoder from './decoder'
 import {TransitionGroup, CSSTransition} from 'react-transition-group'
-import ReactDOM from 'react-dom';
-import Footer from './Footer'
-import { isNullOrUndefined } from 'util';
+
 
 import { Page, Grid, StoreCard, Table, Card, Badge } from "tabler-react";
 import Button from 'react-bootstrap/Button'
 import SiteWrapper from "./SiteWrapper.react";
-import testimg from './10101btest.jpg'
+import bgimg from './588c4ba75cbd6dd9fe3c5bfafaaccdea.jpg'
 import StickyFooter from 'react-sticky-footer'
 
 
@@ -54,6 +51,10 @@ class TournamentReportm extends Component {
 
             
           }
+        }
+
+        componentWillMount = () => {
+            document.body.style.backgroundImage = `url(${bgimg})`;
         }
 
         populateList = () => {
@@ -436,8 +437,8 @@ class TournamentReportm extends Component {
 
 
 
-        <SiteWrapper>
-        <Page.Content  title="Live Tournament Results (Beta)">
+        <SiteWrapper >
+        <Page.Content style={{backgroundImage : `url(${bgimg})`}}  title="Live Tournament Results (Beta)">
           <Grid.Row>
               <Grid.Col md={2}>
             {this.otherTournamentsPopulate()}

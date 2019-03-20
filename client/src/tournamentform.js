@@ -11,7 +11,7 @@ import border from './border.gif'
 import waxButton from './waxbutton.gif'
 import crow from './crowicon.gif'
 import $ from 'jquery'
-import mapbg from './map.jpg'
+import mapbg from './588c4ba75cbd6dd9fe3c5bfafaaccdea.jpg'
 import bgpaper from './whitepaper.jpg'
 import addTournament from './iconOrder.png'
 import Figure from 'react-bootstrap/Figure'
@@ -86,9 +86,8 @@ componentDidMount = () => {
   // document.body.style.backgroundColor = 'darkgray'
   document.body.style.backgroundImage = `url(${mapbg})`
   document.body.style.overflowY = 'hidden'
-  document.body.style.backgroundSize = 'cover'
-  document.body.style.backgroundRepeat = 'no-repeat'
-  document.body.style.backgroundAttachment = 'attached'
+  document.body.style.backgroundSize = 'contain'
+  document.body.style.backgroundAttachment = 'scroll;'
 
 
   const starf = document.querySelector('#starfield')
@@ -684,6 +683,7 @@ toggleVisibility = () => {
 
       const newTournamentButton = {
         curosr: 'pointer',
+        backgroundColor: 'black'
 
       }
 
@@ -735,7 +735,8 @@ toggleVisibility = () => {
         color: 'red',
         textAlign: 'center',
         display: 'block',
-        fontFamily: 'Shadows Into Light'
+        fontFamily: 'Shadows Into Light',
+       
         
       }
 
@@ -748,16 +749,7 @@ toggleVisibility = () => {
       }
 
       const crowButton = {
-        width: '100%',
-        height: '100%',
-        backgroundImage: `url(${crow})`,
-        backgroundSize: 'contain',
-        color: 'red',
-        backgroundColor: '#ffffff00',
-        border: 'none',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'top',
-        cursor: 'pointer'
+
 
       }
 
@@ -786,10 +778,10 @@ toggleVisibility = () => {
         <br />   
 
       <Col md = {1}></Col>
-          <Col  md={8} sm={12}>
-          <Table responsive style={table}  striped  hover>
-  <thead className='trtable' style = {cursor} >
-    <tr className='trtable' style={{backgroundImage:`url(${require('./BGCollection.png')})`, backgroundSize : '100% 100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: 'rgba(0, 128, 0, 0)'}}>
+          <Col style = {{visibility: this.state.toggleVis ? 'visible' : 'hidden'}}   md={8} sm={12}>
+          <Table  responsive style={table}  striped  hover>
+  <thead   className='trtable' style = {cursor} >
+    <tr className='trtable' style={{ backgroundSize : '100% 100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: 'rgba(0, 128, 0, 0)'}}>
       <th className='trtable' onClick={() => this.sortBy('placement')} > <span style={lighttext}>Click to sort &#8594;</span></th>
       <th className='trtable' style = {cursor}  onClick={() => this.sortBy('name')} >Player Name</th>
       <th className='trtable' style = {cursor}   onClick={() => this.sortBy('wins')} >Final Record</th>
@@ -802,7 +794,7 @@ toggleVisibility = () => {
     
    
    {this.state.players.length === 0 ? (
-     <span style={{color : 'whitesmoke'}}>Please Enter Tournament Date/Name <br />  then fill out the form below to add players</span>
+     <span style={{color : 'whitesmoke'}}>Fill out the form below to add players</span>
    ) :
    null}
    <tbody > 
@@ -828,7 +820,7 @@ toggleVisibility = () => {
 
 
 
-return (<tr className='trtable' style={{backgroundImage:`url(${bgpaper})`, backgroundSize : '100% 100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: 'rgba(0, 128, 0, 0)'}}> <td className='trtable' style={person.placement < 3 ? {backgroundImage : `url(${require(`./bg${person.placement}.png`)})`, backgroundSize: 'contain', backgroundRepeat : 'no-repeat', backgroundPosition : 'center'} : {backgroundColor : 'none'}}>{person.placement}</td> 
+return (<tr className='trtable' style={{ backgroundSize : '100% 100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: 'rgba(0, 128, 0, 0)'}}> <td className='trtable' style={person.placement < 3 ? {backgroundImage : `url(${require(`./bg${person.placement}.png`)})`, backgroundSize: 'contain', backgroundRepeat : 'no-repeat', backgroundPosition : 'center'} : {backgroundColor : 'none'}}>{person.placement}</td> 
 
 <td className='trtable' style={{ border: 'none'}}>{`${person.name}`}</td><td className='trtable'>{`${person.wins} - ${person.losses} - ${person.draws}`}</td><td className='trtable'>{`${person.army}`}</td><td className='trtable'>{`${person.VP} - ${person.PD}`}</td><td className='trtable'><Button id={index} onClick={e => this.handlePlayerDelete(e)} variant="danger">Delete</Button></td></tr>
 )
@@ -842,7 +834,16 @@ return (<tr className='trtable' style={{backgroundImage:`url(${bgpaper})`, backg
 </Table>;
 </Col>
 <Col md = {2}> <br />
-        <br /> <button style = {{visibility: this.state.toggleVis ? 'visible' : 'hidden'}}   onClick={this.handleDBSend} style = {crowButton } ><img style={crowButtonStyle} src={crow}  ></img></button></Col>
+        <br /> <button  onClick={this.handleDBSend} style = {{ width: '100%',
+        height: '100%',
+        backgroundImage : `url(${require(`./crowicon.gif`)})`,
+        backgroundSize: 'contain',
+        color: 'red',
+        backgroundColor: '#ffffff00',
+        border: 'none',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'top',
+        cursor: 'pointer', visibility: this.state.toggleVis ? 'visible' : 'hidden'} }><img style={crowButtonStyle} src={crow}  ></img></button></Col>
 </Row>
 <Row>
      
@@ -856,14 +857,9 @@ return (<tr className='trtable' style={{backgroundImage:`url(${bgpaper})`, backg
       aria-label="Tournament Name"
       aria-describedby="basic-addon2"
     />     
-     <Form.Control onChange={this.playerNumber}  style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
-    placeholder="Participants"
-    aria-label="Participants"
-    aria-describedby="basic-addon2"
-  />
   <br />
  
-        <Form.Control as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}}   onChange={this.tournamentMonthSet} value={this.state.tournamentMonth}  >     
+        <Form.Control as="select" style = {{ margin: '0.5em', visibility: this.state.toggleVis ? 'hidden' : 'visible'}}   onChange={this.tournamentMonthSet} value={this.state.tournamentMonth}  >     
     <option>Month</option>
     <option value='1'>1</option>
     <option value='2'>2</option>
@@ -879,7 +875,7 @@ return (<tr className='trtable' style={{backgroundImage:`url(${bgpaper})`, backg
       <option value='12'>12</option>
       
       </Form.Control>
-      <Form.Control className='datestyle' onChange={this.tournamentDaySet} as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
+      <Form.Control className='datestyle' onChange={this.tournamentDaySet} as="select" style = {{ margin: '0.5em', visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
   value={this.state.tournamentDay} 
     >
      <option>Day</option>
@@ -916,7 +912,7 @@ return (<tr className='trtable' style={{backgroundImage:`url(${bgpaper})`, backg
     <option value='31'>31</option>
  
   </Form.Control>
-    <Form.Control className='datestyle' onChange={this.tournamentYearSet} as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
+    <Form.Control className='datestyle' onChange={this.tournamentYearSet} as="select" style = {{ margin: '0.5em', visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
   value={this.state.tournamentYear} 
     >
           <option>Year</option>
@@ -925,7 +921,7 @@ return (<tr className='trtable' style={{backgroundImage:`url(${bgpaper})`, backg
       <option value='2029'>2020</option>
       </Form.Control>
 
-      <button style={newTournamentButton} onClick={this.toggleVisibility}  style = {{fontSize : '0.7em'}} style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} > <div style={{width: '110px',height: '110px', backgroundImage: `url(${addTournament})`, backgroundPosition: 'center', boxShadow: 'inset 0 0 10px #000000'}} ></div></button>
+      <button style={newTournamentButton} onClick={this.toggleVisibility}  style = {{fontSize : '0.7em'}} style = {{ backgroundColor: '#80808000', visibility: this.state.toggleVis ? 'hidden' : 'visible'}} > <div style={{width: '110px',height: '110px', backgroundImage: `url(${addTournament})`, backgroundPosition: 'center'}} ></div></button>
  
    
   </div>
