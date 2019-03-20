@@ -16,12 +16,14 @@ import Intro from './Intro'
 import starfallBG from './starfallbg'
 import TournamentReportm from './tournamentreport-m'
 import DeckBuilder from './deckBuilder'
+import { Navbar } from 'react-bootstrap';
 
 
 
 
 class App extends Component {
 
+  
 
 
 
@@ -31,7 +33,7 @@ class App extends Component {
 
       <Router>
       <div className='main'>
-
+      <Navbar />
         
 
                {/* 
@@ -52,6 +54,7 @@ class App extends Component {
                   <Route exact path = '/deckbuilder' component={DeckBuilder} />
            
            
+
         
              </div>      
      </Router>

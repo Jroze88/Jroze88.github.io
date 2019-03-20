@@ -57,21 +57,7 @@ class ClickyGame extends Component {
 
         })
 
-        $('.front').mouseover(function(e) {
 
-
-         $(e.target).addClass('zoomed')
-    
-           
-        
-            setTimeout(function() {
-
-              
-              $(e.target).removeClass('zoomed');
-    
-            }, 6090)
-
-        })
 
         // let ost = $('.__card').offsetTop
 

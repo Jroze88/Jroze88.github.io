@@ -33,7 +33,7 @@ class ReportForm extends Component {
               tournamentMonth : '',
               tournamentYear: '',
               tournamentDay : '',
-              numberOfPlayers : 0,
+              numberOfPlayers : false,
               players : [],
               currentPlayer : null,
               playerName : '',
@@ -408,6 +408,8 @@ playerNumber = (e)=> {
     NumbeOfPlayers: e.target.value
  });
 
+ this.populateOptions()
+
 }
 
 tournamentDaySet = (e)=> {
@@ -441,7 +443,7 @@ tournamentMonthSet = (e)=> {
 
 toggleVisibility = () => {
   if (this.state.tournamentName !== '' && this.state.tournamentDay !== 'Day' && this.state.tournamentMonth !== 'Month') {
-    this.populateOptions()
+
   this.setState({
     toggleVis : true
   })
@@ -590,8 +592,12 @@ toggleVisibility = () => {
       options.push(<option>{i+1}</option>)
     }
 
-    return <span>{options}</span>
+   this.setState({
+     optionsPlayers : options
+   })
   }
+
+  //   return      
 
 //   handleSubmit = e => {
 
@@ -850,11 +856,11 @@ return (<tr className='trtable' style={{backgroundImage:`url(${bgpaper})`, backg
       aria-label="Tournament Name"
       aria-describedby="basic-addon2"
     />     
-     {/* <Form.Control onChange={this.playerNumber}  style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
+     <Form.Control onChange={this.playerNumber}  style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}} 
     placeholder="Participants"
     aria-label="Participants"
     aria-describedby="basic-addon2"
-  /> */}
+  />
   <br />
  
         <Form.Control as="select" style = {{visibility: this.state.toggleVis ? 'hidden' : 'visible'}}   onChange={this.tournamentMonthSet} value={this.state.tournamentMonth}  >     
@@ -927,40 +933,10 @@ return (<tr className='trtable' style={{backgroundImage:`url(${bgpaper})`, backg
       <Form.Label style={headerS} style={{visibility: 'hidden'}}>New Player:</Form.Label>
   <Form.Row>
   <Form.Group style={formstyle} controlId="formGridState">
-      <Form.Label style={headerS}>Standing</Form.Label>
-      <Form.Control onChange = {this.handleStandingChange} value={this.state.playerStanding} as="select">
-      <option value='1'>1</option>
-    <option value='2'>2</option>
-    <option value='3'>3</option>
-    <option value='4'>4</option>
-    <option value='5'>5</option>
-    <option value='6'>6</option>
-    <option value='7'>7</option>
-    <option value='8'>8</option>
-    <option value='9'>9</option>
-    <option value='10'>10</option>
-    <option value='11'>11</option>
-      <option value='12'>12</option>
-      <option value='13'>13</option>
-    <option value='14'>14</option>
-    <option value='15'>15</option>
-    <option value='16'>16</option>
-    <option value='17'>17</option>
-    <option value='18'>18</option>
-    <option value='19'>19</option>
-    <option value='20'>20</option>
-    <option value='21'>21</option>
-    <option value='22'>22</option>
-    <option value='23'>23</option>
-      <option value='24'>24</option>
-      <option value='25'>25</option>
-    <option value='26'>26</option>
-    <option value='27'>27</option>
-    <option value='28'>28</option>
-    <option value='29'>29</option>
-    <option value='30'>30</option>
-    <option value='31'>31</option>
-      </Form.Control>
+  <Form.Label >Standing</Form.Label>
+  <Form.Control onChange = {this.handleStandingChange} value={this.state.playerStanding} as="select">{this.state.numberOfPlayers > 0 ? this.state.optionsPlayers.map((element, index) => {
+    return element}) : '' } </Form.Control>
+     
     </Form.Group>
 
     <Form.Group  style={formstyle}as={Col} controlId="formGridText">

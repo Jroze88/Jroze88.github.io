@@ -338,6 +338,8 @@ class TournamentReport extends Component {
 
     componentWillMount = () => {
 
+        $('#root > div > nav').css('display', 'none')
+
         window.addEventListener('resize', this.windowCheck);
 
         this.windowCheck()
