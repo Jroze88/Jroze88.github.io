@@ -264,12 +264,18 @@ class TournamentReportm extends Component {
                     commander : {
                         code : Encoder[encoderArg],
                         name : obj.unEncoded[i],
-                        renderCommander : true
+                        
                     }
                 })
 
             }
         }
+
+        setTimeout(() => {
+            this.setState({
+                renderCommander : true
+            })
+        }, 1000)
 
 
 
@@ -332,7 +338,7 @@ class TournamentReportm extends Component {
         let thisNCU = {
             code : Encoder[encoderArg],
             name : obj.unEncoded[i],
-            renderNCUs : true
+            
         }
 
         NCUs.push(thisNCU)
@@ -343,8 +349,14 @@ class TournamentReportm extends Component {
        NCUs : NCUs,
        renderNCUs: true,
        combatUnits : combatUnits,
-       renderCombatUnits: true
+       
    })
+
+   setTimeout(() => {
+    this.setState({
+        renderCombatUnits: true
+    })
+   }, 1000)
     
 
    console.log(this.state)
@@ -355,7 +367,7 @@ class TournamentReportm extends Component {
 
       
    
-       setTimeout(function() {
+       setTimeout(() => {
 
          
          $(e.target).removeClass('zoomed');
