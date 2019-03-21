@@ -224,7 +224,7 @@ class TournamentReportm extends Component {
 
                             let player = this.state.otherTournaments[i].players[k].name
 
-                            tableOfPlayers.push(<li style={playerstanding}>#{k + 1} {player}</li>)
+                            tableOfPlayers.push(<li style={playerstanding}>#{k + 1} {player} - {this.state.otherTournaments[i].players[k].army}</li>)
 
                         }
 
