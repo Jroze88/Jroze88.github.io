@@ -616,14 +616,6 @@ class TournamentReportm extends Component {
       
                 ) : ''}
 
-                            
-      
-
-
-
-                    
-                     
-             
                       </Table.Col>
                       <Table.Col className="text-right text-muted d-none d-md-table-cell text-nowrap">
                       <div style={{textAlign: 'left', userSelect : 'none'}} className = 'armylist'>{this.state.activeList ? this.populateList() : ''}</div>
@@ -631,11 +623,6 @@ class TournamentReportm extends Component {
                       onClick = {this.swapLists}
                       >ClickSwap</Button>
                       </Table.Col>
-
-
-
-
-
 
                       <Table.Col style={{fontSize: '0.8em', color: 'whitesmoke'}} className="text-left text-muted d-none d-md-table-cell text-wrap">
                     
@@ -647,9 +634,7 @@ class TournamentReportm extends Component {
 
 this.state.commander.code === undefined || this.state.commander === undefined  ? ''
 :
-  
 
-              
                                  
                                   <div className={" __statcard  __card"} style={{position: 'relative', height: '260px', width: '190px', transition: `all  ${2 + 0.5}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}>
                                 <div   style = {{backgroundImage : `url(${images[(this.state.commander.code + 'b.jpg')]})`, backgroundSize: '100% 100%'}} className="front "  >

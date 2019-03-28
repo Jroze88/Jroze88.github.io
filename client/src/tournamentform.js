@@ -929,10 +929,40 @@ return (<tr className='trtable' style={{ backgroundSize : '100% 100%', backgroun
       <Form.Label style={headerS} style={{visibility: 'hidden'}}>New Player:</Form.Label>
   <Form.Row>
   <Form.Group style={formstyle} controlId="formGridState">
-  <Form.Label >Standing</Form.Label>
-  <Form.Control onChange = {this.handleStandingChange} value={this.state.playerStanding} as="select">{this.state.numberOfPlayers > 0 ? this.state.optionsPlayers.map((element, index) => {
-    return element}) : '' } </Form.Control>
-     
+      <Form.Label style={headerS}>Standing</Form.Label>
+      <Form.Control onChange = {this.handleStandingChange} value={this.state.playerStanding} as="select">
+      <option>-</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+      <option>11</option>
+      <option>12</option>
+      <option>13</option>
+      <option>14</option>
+      <option>15</option>
+      <option>16</option>
+      <option>17</option>
+      <option>18</option>
+      <option>19</option>
+      <option>20</option>
+      <option>21</option>
+      <option>22</option>
+      <option>23</option>
+      <option>24</option>
+      <option>25</option>
+      <option>26</option>
+      <option>27</option>
+      <option>28</option>
+      <option>29</option>
+      <option>30</option>
+      </Form.Control>
     </Form.Group>
 
     <Form.Group  style={formstyle}as={Col} controlId="formGridText">
