@@ -132,10 +132,14 @@ componentWillUnmount = () => {
 sendResults = (tournamentResults) => {
 
   axios.post("/post/tournamentresults", tournamentResults).then(response => { 
-    console.log(response)
+    setTimeout(function() {
+      alert('Results Sent Successfully!')
+      window.location.reload()
+    }, 2000)
   })
   .catch(error => {
       console.log(error.response)
+      alert(error.response)
   });
 
   // setTimeout(function() {
