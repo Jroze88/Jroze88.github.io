@@ -433,8 +433,6 @@ class TournamentReportm extends Component {
                 };
 
 
-    if (this.state.isMobile) {
-
         return(
         <SiteWrapper >
         <Page.Content style={{backgroundImage : `url(${bgimg})`}}  title="Live Tournament Results (Beta)">
@@ -442,12 +440,48 @@ class TournamentReportm extends Component {
               <Grid.Col md={2}>
             {this.otherTournamentsPopulate()}
             </Grid.Col>
+            <Grid.Col md={10}>
+              <Card>
+                <Table className="card-table table-vcenter">
+                  <Table.Body  >
+                    <Table.Row>
+                      <Table.Col style={{height: '410px'}}>
 
-            <Grid.Col xs={12} md={10}>
-            <div style={{textAlign: 'left'}} className = 'armylist'>{this.state.activeList ? this.populateList() : ''}</div>
+
+
+                    
+                     
+             
+                      </Table.Col>
+                      <Table.Col className="text-right text-muted d-none d-md-table-cell text-nowrap">
+                      <div style={{textAlign: 'left'}} className = 'armylist'>{this.state.activeList ? this.populateList() : ''}</div>
+                      <Button 
+                    //   onClick = {this.swapLists}
+                      >ClickSwap</Button>
+                      </Table.Col>
+
+
+
+
+
+
+                      <Table.Col style={{fontSize: '0.8em', color: 'whitesmoke'}} className="text-left text-muted d-none d-md-table-cell text-wrap">
+                    
+
+                      </Table.Col>
+
+                    </Table.Row>
+                  
+                  </Table.Body>
+                </Table>
+              </Card>
             </Grid.Col>
           </Grid.Row>
-
+          <Grid.Row>
+          <Table.Col style={{overflowX : 'scroll'}}>
+    
+                               </Table.Col>
+          </Grid.Row>
         </Page.Content>
         <StickyFooter
     bottomThreshold={99999}
@@ -472,184 +506,6 @@ Copyright &copy; <a style={{color: 'lightblue'}} href="https://cmon.com/products
       </SiteWrapper>)
 
     
-            
-
-
-   
-
-    } else {
-
-    
-            
-
-
-    return(
-
-
-
-        <SiteWrapper >
-        <Page.Content style={{backgroundImage : `url(${bgimg})`}}  title="Live Tournament Results (Beta)">
-          <Grid.Row>
-              <Grid.Col md={2}>
-            {this.otherTournamentsPopulate()}
-            </Grid.Col>
-            <Grid.Col md={10}>
-              <Card>
-                <Table className="card-table table-vcenter">
-                  <Table.Body  >
-                    <Table.Row>
-                      <Table.Col style={{height: '410px'}}>
-
-
-                          
-                      <TransitionGroup className="cardsTransition">  
-                    <Card.Title className="NCUtitle" > <p style={{fontSize : '0.7em'}}>Non-Combat Units:</p ><ul>{ this.state.NCUs.map((element, i) =>          <li style={{fontSize: '0.4em', color: 'whitesmoke'}}>{element.name}</li>)}</ul> </Card.Title>
-
-
-{ this.state.NCUs.map((element, i) =>       
-
-
-    element.code === undefined || element === undefined  ? ''
-    :
-
-    <CSSTransition
-    key={i}
-   unmountOnExit
-   classNames={`star1N${i}c`}
-    in={this.state.renderCombatUnits}
- 
-  >   
-
-<div className={`star1N${i}c __statcard  __card`} style={{position: 'relative', height: '210px', width: '180px', transition: `all  ${2 + 0.5}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}>
-                                <div   style = {{backgroundImage : `url(${images[(element.code + 'b.jpg')]})`, backgroundSize: '100% 100%'}} className="front "  >
-                                  </div>
-                            </div>
-     
-                </CSSTransition>)}
-
-                            
-                </TransitionGroup> 
-
-
-
-                    
-                     
-             
-                      </Table.Col>
-                      <Table.Col className="text-right text-muted d-none d-md-table-cell text-nowrap">
-                      <div style={{textAlign: 'left'}} className = 'armylist'>{this.state.activeList ? this.populateList() : ''}</div>
-                      <Button 
-                    //   onClick = {this.swapLists}
-                      >ClickSwap</Button>
-                      </Table.Col>
-
-
-
-
-
-
-                      <Table.Col style={{fontSize: '0.8em', color: 'whitesmoke'}} className="text-left text-muted d-none d-md-table-cell text-wrap">
-                    
-                <TransitionGroup className = 'commanderCards'>
-                  
-                  <Card.Title style={{fontSize: '0.5em', color: 'whitesmoke'}}><p style={{widht: '220px', fontSize: '0.5em', color: 'whitesmoke'}}>{this.state.commander.name}</p></Card.Title>
-
-
-{this.state.commander.code === undefined || this.state.commander === undefined  ? ''
-:
-                          <CSSTransition
-                          key = {1}
-                          unmountOnExit
-                          classNames={"star1Cm"}
-                          on={this.state.renderCommander}
-                       
-                        >
-
-              
-                                 
-                                  <div className={"star1Cm __statcard  __card"} style={{position: 'relative', height: '260px', width: '190px', transition: `all  ${2 + 0.5}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}>
-                                <div   style = {{backgroundImage : `url(${images[(this.state.commander.code + 'b.jpg')]})`, backgroundSize: '100% 100%'}} className="front "  >
-                                  </div>
-                            </div>
-                  
-                                  </CSSTransition>}
-                                 
-                 </TransitionGroup>
-                      </Table.Col>
-
-                    </Table.Row>
-                  
-                  </Table.Body>
-                </Table>
-              </Card>
-            </Grid.Col>
-          </Grid.Row>
-          <Grid.Row>
-          <Table.Col style={{overflowX : 'scroll'}}>
-                     
-                     <TransitionGroup className="cardsTransition">  
-         
-                     
-         
-         { this.state.combatUnits.map((element, i) =>       
-         
-         
-            element.code === undefined || element === undefined  ? ''
-            :
-             
-             <CSSTransition
-             key={i}
-            unmountOnExit
-        
-             on={this.state.renderCombatUnits}
-             classNames={`star1${i}m`}
-           >       
-         
-            {element.hasAttachment ?
-         
-         <div  className= {`star1${i}m __statcard __card`} style={{margin: '45px', marginRight: '60px', position: 'relative' ,height: '260px', width: '210px',  transition: `all  ${1 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
-          >  <div style={{width: '105px', height: '130px', zIndex: '-2', position: 'absolute', top: '-40px', right: '-40px', backgroundImage : `url(${images[(element.attachment.code + 'f.jpg')]})`, backgroundSize: '100% 100%'}}></div>
-                        
-         <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
-         
-            </div>
-         </div> :
-         
-         <div  className= {`star1${i}m __statcard __card`} style={{margin: '45px',position: 'relative' ,height: '260px', width: '210px',  transition: `all  ${1 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
-          >
-         <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
-         
-            </div>
-         </div>}
-         
-         
-                         </CSSTransition>)}
-                                    
-                         </TransitionGroup>    
-                               </Table.Col>
-          </Grid.Row>
-        </Page.Content>
-        <StickyFooter
-    bottomThreshold={99999}
-    normalStyles={{
-    backgroundColor: "#343a40",
-    padding: "0.5em",
-    fontSize: '0.5em',
-    color: '#738597'
-    }}
-    stickyStyles={{
-    backgroundColor: "#343a40",
-    padding: "0.5em",
-    width: '100vw',
-    fontSize: '0.5em',
-    color: '#738597'
-    }}
->
-<div>
-Copyright &copy; <a style={{color: 'lightblue'}} href="https://cmon.com/products">CMON</a> A Song of Ice and Fire, <a style={{color: 'lightblue'}} href="https://asoiafcc.com">OnTheTableGaming</a>, <a style={{color: 'lightblue'}} href="/home">Jano Roze</a>. List generation by <a style={{color: 'lightblue'}} href='https://asoiafbuilder.com'>ASOIAFBuilder</a>
-</div>
-</StickyFooter>
-      </SiteWrapper>)}
 //         <Container >
 //         <Row  style={{minHeight: '800px', maxHeight : '800px', minWidth:  '1454px', maxWidth: '1454px', padding: '0', margin: '0'}}>
 //             <div style={{minheight: '350', maxHeight: '350px', paddingRight: '0', overflowY : 'scroll', WebkitOverflowScrolling : 'auto'}}>
