@@ -442,48 +442,11 @@ class TournamentReportm extends Component {
               <Grid.Col md={2}>
             {this.otherTournamentsPopulate()}
             </Grid.Col>
-            <Grid.Col md={10}>
-              <Card>
-                <Table className="card-table table-vcenter">
-                  <Table.Body  >
-                    <Table.Row>
-                      <Table.Col style={{height: '410px'}}>
-
-
-
-                    
-                     
-             
-                      </Table.Col>
-                      <Table.Col className="text-right text-muted d-none d-md-table-cell text-nowrap">
-                      <div style={{textAlign: 'left'}} className = 'armylist'>{this.state.activeList ? this.populateList() : ''}</div>
-                      <Button 
-                    //   onClick = {this.swapLists}
-                      >ClickSwap</Button>
-                      </Table.Col>
-
-
-
-
-
-
-                      <Table.Col style={{fontSize: '0.8em', color: 'whitesmoke'}} className="text-left text-muted d-none d-md-table-cell text-wrap">
-                    
-
-                      </Table.Col>
-
-                    </Table.Row>
-                  
-                  </Table.Body>
-                </Table>
-              </Card>
+            <Grid.Col xs={12} md={10}>
+            <div style={{textAlign: 'left'}} className = 'armylist'>{this.state.activeList ? this.populateList() : ''}</div>
             </Grid.Col>
           </Grid.Row>
-          <Grid.Row>
-          <Table.Col style={{overflowX : 'scroll'}}>
-    
-                               </Table.Col>
-          </Grid.Row>
+        
         </Page.Content>
         <StickyFooter
     bottomThreshold={99999}
