@@ -431,6 +431,91 @@ class TournamentReportm extends Component {
                 entering: { opacity: 0 },
                 entered:  { opacity: 1 },
                 };
+
+
+    if (this.state.isMobile) {
+
+        return(
+        <SiteWrapper >
+        <Page.Content style={{backgroundImage : `url(${bgimg})`}}  title="Live Tournament Results (Beta)">
+          <Grid.Row>
+              <Grid.Col md={2}>
+            {this.otherTournamentsPopulate()}
+            </Grid.Col>
+            <Grid.Col md={10}>
+              <Card>
+                <Table className="card-table table-vcenter">
+                  <Table.Body  >
+                    <Table.Row>
+                      <Table.Col style={{height: '410px'}}>
+
+
+
+                    
+                     
+             
+                      </Table.Col>
+                      <Table.Col className="text-right text-muted d-none d-md-table-cell text-nowrap">
+                      <div style={{textAlign: 'left'}} className = 'armylist'>{this.state.activeList ? this.populateList() : ''}</div>
+                      <Button 
+                    //   onClick = {this.swapLists}
+                      >ClickSwap</Button>
+                      </Table.Col>
+
+
+
+
+
+
+                      <Table.Col style={{fontSize: '0.8em', color: 'whitesmoke'}} className="text-left text-muted d-none d-md-table-cell text-wrap">
+                    
+
+                      </Table.Col>
+
+                    </Table.Row>
+                  
+                  </Table.Body>
+                </Table>
+              </Card>
+            </Grid.Col>
+          </Grid.Row>
+          <Grid.Row>
+          <Table.Col style={{overflowX : 'scroll'}}>
+    
+                               </Table.Col>
+          </Grid.Row>
+        </Page.Content>
+        <StickyFooter
+    bottomThreshold={99999}
+    normalStyles={{
+    backgroundColor: "#343a40",
+    padding: "0.5em",
+    fontSize: '0.5em',
+    color: '#738597'
+    }}
+    stickyStyles={{
+    backgroundColor: "#343a40",
+    padding: "0.5em",
+    width: '100vw',
+    fontSize: '0.5em',
+    color: '#738597'
+    }}
+>
+<div>
+Copyright &copy; <a style={{color: 'lightblue'}} href="https://cmon.com/products">CMON</a> A Song of Ice and Fire, <a style={{color: 'lightblue'}} href="https://asoiafcc.com">OnTheTableGaming</a>, <a style={{color: 'lightblue'}} href="/home">Jano Roze</a>. List generation by <a style={{color: 'lightblue'}} href='https://asoiafbuilder.com'>ASOIAFBuilder</a>
+</div>
+</StickyFooter>
+      </SiteWrapper>)
+
+    
+            
+
+
+   
+
+    } else {
+
+    
             
 
 
@@ -600,7 +685,7 @@ class TournamentReportm extends Component {
 Copyright &copy; <a style={{color: 'lightblue'}} href="https://cmon.com/products">CMON</a> A Song of Ice and Fire, <a style={{color: 'lightblue'}} href="https://asoiafcc.com">OnTheTableGaming</a>, <a style={{color: 'lightblue'}} href="/home">Jano Roze</a>. List generation by <a style={{color: 'lightblue'}} href='https://asoiafbuilder.com'>ASOIAFBuilder</a>
 </div>
 </StickyFooter>
-      </SiteWrapper>)
+      </SiteWrapper>)}
 //         <Container >
 //         <Row  style={{minHeight: '800px', maxHeight : '800px', minWidth:  '1454px', maxWidth: '1454px', padding: '0', margin: '0'}}>
 //             <div style={{minheight: '350', maxHeight: '350px', paddingRight: '0', overflowY : 'scroll', WebkitOverflowScrolling : 'auto'}}>
