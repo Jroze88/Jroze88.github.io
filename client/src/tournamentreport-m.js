@@ -442,11 +442,12 @@ class TournamentReportm extends Component {
               <Grid.Col md={2}>
             {this.otherTournamentsPopulate()}
             </Grid.Col>
+
             <Grid.Col xs={12} md={10}>
             <div style={{textAlign: 'left'}} className = 'armylist'>{this.state.activeList ? this.populateList() : ''}</div>
             </Grid.Col>
           </Grid.Row>
-        
+
         </Page.Content>
         <StickyFooter
     bottomThreshold={99999}
