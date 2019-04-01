@@ -17,6 +17,7 @@ import starfallBG from './starfallbg'
 import TournamentReportm from './tournamentreport-m'
 import DeckBuilder from './deckBuilder'
 import { Navbar } from 'react-bootstrap';
+import TournamentReportMobile from './tournamentreportmobile'
 
 
 
@@ -46,7 +47,8 @@ class App extends Component {
                   {/* <Route exact path ='/cv' component = {CV} />
                   <Route exact path ='/skilltree' component = {Skilltree} /> */}
                   <Route exact path ="/" component={Intro} />
-                  <Route exact path ="/report" component={TournamentReportm} />
+                  <Route exact path ="/report" component={TournamentReportMobile} />
+                  <Route exact path ="/reportmobile" component={TournamentReportm} />
                   <Route exact path="/contact" exact component={Contact} />
                   <Route exact path="/projects" component={Projects} />
                    <Route exact path="/clickygame" component={ClickyGame} /> 

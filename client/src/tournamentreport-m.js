@@ -12,6 +12,7 @@ import Button from 'react-bootstrap/Button'
 import SiteWrapper from "./SiteWrapper.react";
 import bgimg from './588c4ba75cbd6dd9fe3c5bfafaaccdea.jpg'
 import StickyFooter from 'react-sticky-footer'
+import { ResponsiveEmbed } from 'react-bootstrap';
 
 
 
@@ -59,39 +60,132 @@ class TournamentReportm extends Component {
 
         populateList = () => {
 
-            let armyList = []
 
-                let thisLine = <li data={`${0}`}  onClick = {this.swapLists} style={{fontSize: '0.8em', listStyleType: 'none', textAlign: 'center', textDecoration: 'underline'}}>`{this.state.activePlayer.name}'s {this.state.activeList.unEncoded[0]}`</li>
-            armyList.push(thisLine)
-   
-            
-
-            for (let i = 1; i < this.state.activeList.unEncoded.length - 1; i++) {
+                /// in case some lists go through unparsed
+            if (!Array.isArray(this.state.activeList.unEncoded)) {
 
 
-                if (this.state.activeList.unEncoded[i].includes('with')) {
-                    let thisLine = <li data={`${i}`} style={{fontSize: '0.8em', textAlign: 'center',  listStyleType: 'none'}}>=>{this.state.activeList.unEncoded[i]}</li>
-                    armyList.push(thisLine)
-                } else if (this.state.activeList.unEncoded[i].includes('Faction')) {
-                    let thisLine = <li data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList.unEncoded[i]}</li>
+
+              
+
+                let listToParse = this.state.activeList.unEncoded
+
+                let listtoParseArray = listToParse.split(/(\u2022)/)
+
+                let parsedList = []
+
+                for (let i = 0; i < listtoParseArray.length; i++) {
+
+                    let tempList1 = listtoParseArray[i].split(/(\n)/g)
+              
+                    for (let k = 0; k < tempList1.length; k++) {
+              
+                      if (tempList1[k].length !== 0 && tempList1[k].length !== 1) {
+                         tempList1[k] =  tempList1[k].replace(/,/g, '')
+                        parsedList.push(tempList1[k])
+                      }
+              
+                    }
+              
+              
+              
+              
+                  }
+
+                  this.setState({
+                      activeList : {
+                          unEncoded : parsedList
+                      }
+                  })
+
+
+                    let armyList = []
+
+                    let thisLine = <li data={`${0}`}  onClick = {this.swapLists} style={{fontSize: '0.8em', listStyleType: 'none', textAlign: 'center', textDecoration: 'underline'}}>`{this.state.activePlayer.name}'s {this.state.activeList.unEncoded[0]}`</li>
                 armyList.push(thisLine)
-                }  else  if (this.state.activeList.unEncoded[i].includes('Commander')) {
-                    let thisLine = <li data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList.unEncoded[i]}</li>
-                armyList.push(thisLine)
-                } else  if (this.state.activeList.unEncoded[i].includes('Points')) {
-                    let thisLine = <li  data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList.unEncoded[i]}</li>
-                armyList.push(thisLine)
-                } else {
-                    let thisLine = <li data={`${i}`} style={{fontSize: '0.8em'}}>{this.state.activeList.unEncoded[i]}</li>
-                armyList.push(thisLine)
-                }
-
-
+        
                 
+        
+                for (let i = 1; i < this.state.activeList.unEncoded.length - 1; i++) {
+        
+        
+                    if (this.state.activeList.unEncoded[i].includes('with')) {
+                        let thisLine = <li data={`${i}`} style={{fontSize: '0.8em', textAlign: 'center',  listStyleType: 'none'}}>=>{this.state.activeList.unEncoded[i]}</li>
+                        armyList.push(thisLine)
+                    } else if (this.state.activeList.unEncoded[i].includes('Faction')) {
+                        let thisLine = <li data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList.unEncoded[i]}</li>
+                    armyList.push(thisLine)
+                    }  else  if (this.state.activeList.unEncoded[i].includes('Commander')) {
+                        let thisLine = <li data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList.unEncoded[i]}</li>
+                    armyList.push(thisLine)
+                    } else  if (this.state.activeList.unEncoded[i].includes('Points')) {
+                        let thisLine = <li  data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList.unEncoded[i]}</li>
+                    armyList.push(thisLine)
+                    } else {
+                        let thisLine = <li data={`${i}`} style={{fontSize: '0.8em'}}>{this.state.activeList.unEncoded[i]}</li>
+                    armyList.push(thisLine)
+                    }
+        
+        
+                    
+                }
+        
+        
+                return armyList
+                  
+
+
+
+
+
+            }
+            else {
+ 
+                    let armyList = []
+
+            let thisLine = <li data={`${0}`}  onClick = {this.swapLists} style={{fontSize: '0.8em', listStyleType: 'none', textAlign: 'center', textDecoration: 'underline'}}>`{this.state.activePlayer.name}'s {this.state.activeList.unEncoded[0]}`</li>
+        armyList.push(thisLine)
+
+        
+
+        for (let i = 1; i < this.state.activeList.unEncoded.length - 1; i++) {
+
+
+            if (this.state.activeList.unEncoded[i].includes('with')) {
+                let thisLine = <li data={`${i}`} style={{fontSize: '0.8em', textAlign: 'center',  listStyleType: 'none'}}>=>{this.state.activeList.unEncoded[i]}</li>
+                armyList.push(thisLine)
+            } else if (this.state.activeList.unEncoded[i].includes('Faction')) {
+                let thisLine = <li data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList.unEncoded[i]}</li>
+            armyList.push(thisLine)
+            }  else  if (this.state.activeList.unEncoded[i].includes('Commander')) {
+                let thisLine = <li data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList.unEncoded[i]}</li>
+            armyList.push(thisLine)
+            } else  if (this.state.activeList.unEncoded[i].includes('Points')) {
+                let thisLine = <li  data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList.unEncoded[i]}</li>
+            armyList.push(thisLine)
+            } else {
+                let thisLine = <li data={`${i}`} style={{fontSize: '0.8em'}}>{this.state.activeList.unEncoded[i]}</li>
+            armyList.push(thisLine)
             }
 
 
-            return armyList
+            
+        }
+
+
+        return armyList
+                
+            }
+
+      
+
+                
+        
+            
+
+
+
+
         }
 
         windowCheck = () => {
@@ -125,13 +219,14 @@ class TournamentReportm extends Component {
 
 
 
-        swapLists = () => {
+        swapLists = (e) => {
 
-            let randomList = Math.floor(Math.random() * 3)
+            let tournamentNumber = e.target.getAttribute('dataactivetournament')
+            let playerNumber = e.target.getAttribute('dataactiveplayer')
+            console.log(tournamentNumber)
 
-            console.log(randomList)
 
-            console.log('check')
+            console.log(this.state.otherTournaments)
 
             this.setState({
                 renderCombatUnits : false,
@@ -140,20 +235,52 @@ class TournamentReportm extends Component {
                 commander : {},
                 activeList : false,
                 combatUnits : [],
-                NCUs : []
+                NCUs : [],
+                activeTournament : this.state.allTournaments[tournamentNumber]
             })
 
             setTimeout(() => {
+
+                
+
+                // this.setState({    
+                //     allTournaments : response.data,              
+                //     activeTournament: response.data[0],
+                //     activePlayer : response.data[0].players[0],
+                //     activeList : {
+                //         encoded : response.data[0].players[0].army1Encoded,
+                //         unEncoded : response.data[0].players[0].army1
+                //     },
+                //     otherTournaments: response.data
+                // }, function() {
+                //     this.superHighLevelEncryptionAlgorithm(this.state.activeList)
+                    
+                // })
+
+           
+
+                let targetPlayer = this.state.allTournaments[tournamentNumber].players[playerNumber]
+
+                this.setState({
+                    
+      
+                    activePlayer : targetPlayer
+                    
+                })
+              }, 600)
+
+              setTimeout(() => {
                 this.setState({
 
                     activeList : {
-                    encoded : this.state.activeTournament.players[randomList].army1Encoded,
-                    unEncoded : this.state.activeTournament.players[randomList].army1
-                }
+                        encoded : this.state.activePlayer.army1Encoded,
+                        unEncoded : this.state.activePlayer.army1
+                    }
                 }, function() {
                     this.superHighLevelEncryptionAlgorithm(this.state.activeList)
                 })
-              }, 2200)
+               
+              }, 1200)
 
 
 
@@ -175,7 +302,9 @@ class TournamentReportm extends Component {
             const playerstanding = {
                 color: 'whitesmoke',
                 fontSize: '0.8em',
-                textAlign: 'left'
+                textAlign: 'left',
+                userSelect: 'none',
+                mouseOver: 'pointer'
             }
 
             const otherevents = {
@@ -223,9 +352,12 @@ class TournamentReportm extends Component {
                         for (let k = 0; k < this.state.otherTournaments[i].players.length; k++) {
 
                             let player = this.state.otherTournaments[i].players[k].name
-                            
 
-                            tableOfPlayers.push(<li style={playerstanding}>#{k + 1} {player} - {player}</li>)
+                         
+                            
+                        
+
+                            tableOfPlayers.push(<li dataActiveTournament = {i} dataActivePlayer = {k} onClick = {(e) => this.swapLists(e)} style={playerstanding}>#{k + 1} {player} - {this.state.otherTournaments[i].players[k].army}</li>)
 
                         }
 
@@ -264,12 +396,18 @@ class TournamentReportm extends Component {
                     commander : {
                         code : Encoder[encoderArg],
                         name : obj.unEncoded[i],
-                        renderCommander : true
+                        
                     }
                 })
 
             }
         }
+
+        setTimeout(() => {
+            this.setState({
+                renderCommander : true
+            })
+        }, 1000)
 
 
 
@@ -332,7 +470,7 @@ class TournamentReportm extends Component {
         let thisNCU = {
             code : Encoder[encoderArg],
             name : obj.unEncoded[i],
-            renderNCUs : true
+            
         }
 
         NCUs.push(thisNCU)
@@ -343,8 +481,14 @@ class TournamentReportm extends Component {
        NCUs : NCUs,
        renderNCUs: true,
        combatUnits : combatUnits,
-       renderCombatUnits: true
+       
    })
+
+   setTimeout(() => {
+    this.setState({
+        renderCombatUnits: true
+    })
+   }, 1000)
     
 
    console.log(this.state)
@@ -355,7 +499,7 @@ class TournamentReportm extends Component {
 
       
    
-       setTimeout(function() {
+       setTimeout(() => {
 
          
          $(e.target).removeClass('zoomed');
@@ -383,16 +527,16 @@ class TournamentReportm extends Component {
 
                 console.log(response.data[0].players[0].army1Encoded)
 
-                let firstPlayer = response.data[0].players[0]
-            
+               
 
 
-                this.setState({                  
+                this.setState({    
+                    allTournaments : response.data,              
                     activeTournament: response.data[0],
-                    activePlayer : firstPlayer,
+                    activePlayer : response.data[0].players[0],
                     activeList : {
-                        encoded : response.data[1].players[0].army1Encoded,
-                        unEncoded : response.data[1].players[0].army1
+                        encoded : response.data[0].players[0].army1Encoded,
+                        unEncoded : response.data[0].players[0].army1
                     },
                     otherTournaments: response.data
                 }, function() {
@@ -431,9 +575,13 @@ class TournamentReportm extends Component {
                 entering: { opacity: 0 },
                 entered:  { opacity: 1 },
                 };
+            
 
 
-        return(
+    return(
+
+
+
         <SiteWrapper >
         <Page.Content style={{backgroundImage : `url(${bgimg})`}}  title="Live Tournament Results (Beta)">
           <Grid.Row>
@@ -448,26 +596,57 @@ class TournamentReportm extends Component {
                       <Table.Col style={{height: '410px'}}>
 
 
+                    <Card.Title className="NCUtitle" > <p style={{fontSize : '0.7em'}}>Non-Combat Units:</p ><ul>{ this.state.NCUs.map((element, i) =>          <li style={{fontSize: '0.4em', color: 'whitesmoke'}}>{element.name}</li>)}</ul> </Card.Title>
 
-                    
-                     
-             
+
+{   this.state.renderNCUs ? 
+     this.state.NCUs.map((element, i) =>       
+
+
+    element.code === undefined || element === undefined  ? ''
+    :
+
+ 
+
+<div className={` __statcard  __card`} style={{position: 'relative', height: '210px', width: '180px', transition: `all  ${2 + 0.5}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}>
+                                <div   style = {{backgroundImage : `url(${images[(element.code + 'b.jpg')]})`, backgroundSize: '100% 100%'}} className="front "  >
+                                  </div>
+                            </div>
+     
+      
+                ) : ''}
+
                       </Table.Col>
                       <Table.Col className="text-right text-muted d-none d-md-table-cell text-nowrap">
-                      <div style={{textAlign: 'left'}} className = 'armylist'>{this.state.activeList ? this.populateList() : ''}</div>
+                      <div style={{textAlign: 'left', userSelect : 'none'}} className = 'armylist'>{this.state.activeList ? this.populateList() : ''}</div>
                       <Button 
-                    //   onClick = {this.swapLists}
+                      onClick = {this.swapLists}
                       >ClickSwap</Button>
                       </Table.Col>
 
-
-
-
-
-
                       <Table.Col style={{fontSize: '0.8em', color: 'whitesmoke'}} className="text-left text-muted d-none d-md-table-cell text-wrap">
                     
+                <TransitionGroup className = 'commanderCards'>
+                  
+                  <Card.Title style={{fontSize: '0.5em', color: 'whitesmoke'}}><p style={{widht: '220px', fontSize: '0.5em', color: 'whitesmoke'}}>{this.state.commander.name}</p></Card.Title>
 
+{this.state.renderCommander ? 
+
+this.state.commander.code === undefined || this.state.commander === undefined  ? ''
+:
+
+                                 
+                                  <div className={" __statcard  __card"} style={{position: 'relative', height: '260px', width: '190px', transition: `all  ${2 + 0.5}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}>
+                                <div   style = {{backgroundImage : `url(${images[(this.state.commander.code + 'b.jpg')]})`, backgroundSize: '100% 100%'}} className="front "  >
+                                  </div>
+                            </div>
+                            :
+                            ''
+                  
+                             
+                                }
+                                 
+                 </TransitionGroup>
                       </Table.Col>
 
                     </Table.Row>
@@ -479,7 +658,46 @@ class TournamentReportm extends Component {
           </Grid.Row>
           <Grid.Row>
           <Table.Col style={{overflowX : 'scroll'}}>
-    
+                     
+                     
+         
+         { this.state.renderCombatUnits ?  this.state.combatUnits.map((element, i) =>       
+
+         element.code === undefined || element === '' ? '' :
+         
+         
+ 
+             
+        //      <CSSTransition
+        //      key={i}
+        //     unmountOnExit
+        
+        //      on={this.state.renderCombatUnits}
+        //      classNames={`star1${i}m`}
+        //    >       
+         
+            element.hasAttachment ?
+         
+         <div  className= {` __statcard __card`} style={{margin: '45px', marginRight: '60px', position: 'relative' ,height: '260px', width: '210px',  transition: `all  ${1 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
+          >  <div style={{width: '105px', height: '130px', zIndex: '-2', position: 'absolute', top: '-40px', right: '-40px', backgroundImage : `url(${images[(element.attachment.code + 'f.jpg')]})`, backgroundSize: '100% 100%'}}></div>
+                        
+         <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
+         
+            </div>
+         </div> :
+         
+         <div  className= {` __statcard __card`} style={{margin: '45px',position: 'relative' ,height: '260px', width: '210px',  transition: `all  ${1 + 0.5*i}s cubic-bezier(0.68, -0.55, 0.265, 1.55)`}}  
+          >
+         <div style = {element.code > 20000 ? {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '100% 100%', height: '260px', width: '210px'} : {backgroundImage : `url(${images[(element.code + 'f.jpg')]})`, backgroundSize: '200% 100%', backgroundRepeat: 'no-repeat', height: '260px', width: '210px'}} className="front "  >
+         
+            </div>
+         </div>
+         
+                         )
+                        : 
+                        ''}
+                                    
+                    
                                </Table.Col>
           </Grid.Row>
         </Page.Content>
@@ -504,8 +722,6 @@ Copyright &copy; <a style={{color: 'lightblue'}} href="https://cmon.com/products
 </div>
 </StickyFooter>
       </SiteWrapper>)
-
-    
 //         <Container >
 //         <Row  style={{minHeight: '800px', maxHeight : '800px', minWidth:  '1454px', maxWidth: '1454px', padding: '0', margin: '0'}}>
 //             <div style={{minheight: '350', maxHeight: '350px', paddingRight: '0', overflowY : 'scroll', WebkitOverflowScrolling : 'auto'}}>
