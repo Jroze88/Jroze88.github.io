@@ -63,6 +63,7 @@ class TournamentReportMobile extends Component {
         populateList = () => {
 
 
+
                 /// in case some lists go through unparsed
             if (!Array.isArray(this.state.activeList.unEncoded)) {
 
@@ -105,6 +106,12 @@ class TournamentReportMobile extends Component {
 
                     let thisLine = <li data={`${0}`}  onClick = {this.swapLists} style={{fontSize: '0.8em', listStyleType: 'none', textAlign: 'center', textDecoration: 'underline'}}>`{this.state.activePlayer.name}'s {this.state.activeList.unEncoded[0]}`</li>
                 armyList.push(thisLine)
+
+                
+            if (this.state.activeList.length < 4) {
+                armyList.push('------')
+                return armyList
+            }
         
                 
         
@@ -201,6 +208,157 @@ class TournamentReportMobile extends Component {
 
         }
 
+
+
+
+        populateList2 = () => {
+
+
+            /// in case some lists go through unparsed
+        if (!Array.isArray(this.state.activeList2.unEncoded)) {
+
+
+
+          
+
+            let listToParse = this.state.activeList2.unEncoded
+
+            let listtoParseArray = listToParse.split(/(\u2022)/)
+
+            let parsedList = []
+
+            for (let i = 0; i < listtoParseArray.length; i++) {
+
+                let tempList1 = listtoParseArray[i].split(/(\n)/g)
+          
+                for (let k = 0; k < tempList1.length; k++) {
+          
+                  if (tempList1[k].length !== 0 && tempList1[k].length !== 1) {
+                     tempList1[k] =  tempList1[k].replace(/,/g, '')
+                    parsedList.push(tempList1[k])
+                  }
+          
+                }
+          
+          
+          
+          
+              }
+
+              this.setState({
+                  activeList2 : {
+                      unEncoded : parsedList
+                  }
+              })
+
+
+                let armyList = []
+
+                let thisLine = <li data={`${0}`}  onClick = {this.swapLists} style={{fontSize: '0.8em', listStyleType: 'none', textAlign: 'center', textDecoration: 'underline'}}>`{this.state.activePlayer.name}'s {this.state.activeList2.unEncoded[0]}`</li>
+            armyList.push(thisLine)
+
+            if (this.state.activeList2.length < 4) {
+                armyList.push('------')
+                return armyList
+            }
+    
+            
+    
+            for (let i = 1; i < this.state.activeList2.unEncoded.length - 1; i++) {
+    
+    
+                if (this.state.activeList2.unEncoded[i].includes('with')) {
+                    let thisLine = <li data={`${i}`} style={{fontSize: '0.8em', textAlign: 'center',  listStyleType: 'none'}}>=>{this.state.activeList2.unEncoded[i]}</li>
+                    armyList.push(thisLine)
+                } else if (this.state.activeList2.unEncoded[i].includes('Faction')) {
+                    let thisLine = <li data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList2.unEncoded[i]}</li>
+                armyList.push(thisLine)
+                }  else  if (this.state.activeList2.unEncoded[i].includes('Commander')) {
+                    let thisLine = <li data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList2.unEncoded[i]}</li>
+                armyList.push(thisLine)
+                } else  if (this.state.activeList2.unEncoded[i].includes('Points')) {
+                    let thisLine = <li  data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList2.unEncoded[i]}</li>
+                armyList.push(thisLine)
+                } else  if (this.state.activeList2.unEncoded[i].includes(':')) {
+                    let thisLine = <li  data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList2.unEncoded[i]}</li>
+                armyList.push(thisLine)
+                } else  if (this.state.activeList2.unEncoded[i].includes(':')) {
+                    let thisLine = <li  data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList2.unEncoded[i]}</li>
+                armyList.push(thisLine)
+                }
+                else {
+                    let thisLine = <li data={`${i}`} style={{fontSize: '0.8em'}}>{this.state.activeList2.unEncoded[i]}</li>
+                armyList.push(thisLine)
+                }
+    
+    
+                
+            }
+    
+    
+            return armyList
+              
+
+
+
+
+
+        }
+        else {
+
+                let armyList = []
+
+        let thisLine = <li data={`${0}`}  onClick = {this.swapLists} style={{fontSize: '0.8em', listStyleType: 'none', textAlign: 'center', textDecoration: 'underline'}}>`{this.state.activePlayer.name}'s {this.state.activeList2.unEncoded[0]}`</li>
+    armyList.push(thisLine)
+
+    
+
+    for (let i = 1; i < this.state.activeList2.unEncoded.length - 1; i++) {
+
+
+        if (this.state.activeList2.unEncoded[i].includes('with')) {
+            let thisLine = <li data={`${i}`} style={{fontSize: '0.8em', textAlign: 'center',  listStyleType: 'none'}}>=>{this.state.activeList2.unEncoded[i]}</li>
+            armyList.push(thisLine)
+        } else if (this.state.activeList2.unEncoded[i].includes('Faction')) {
+            let thisLine = <li data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList2.unEncoded[i]}</li>
+        armyList.push(thisLine)
+        }  else  if (this.state.activeList2.unEncoded[i].includes('Commander')) {
+            let thisLine = <li data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList2.unEncoded[i]}</li>
+        armyList.push(thisLine)
+        } else  if (this.state.activeList2.unEncoded[i].includes('Points')) {
+            let thisLine = <li  data={`${i}`} style={{fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList2.unEncoded[i]}</li>
+        armyList.push(thisLine)
+        } else  if (this.state.activeList2.unEncoded[i].includes(':')) {
+            let thisLine = <span><br></br><li  data={`${i}`} style={{textDecoration: 'underline', fontSize: '0.8em' , textAlign: 'center',  listStyleType: 'none'}}>{this.state.activeList2.unEncoded[i]}</li></span>
+        armyList.push(thisLine)
+        } 
+        else {
+            let thisLine = <li data={`${i}`} style={{fontSize: '0.8em', margin: '0.8em'}}>{this.state.activeList2.unEncoded[i]}</li>
+        armyList.push(thisLine)
+        }
+
+
+        
+    }
+
+
+    return armyList
+            
+        }
+
+  
+
+            
+    
+        
+
+
+
+
+    }
+
+
+
         windowCheck = () => {
             if (window.innerWidth <= 500) {
                 this.setState({
@@ -288,9 +446,14 @@ class TournamentReportMobile extends Component {
                     activeList : {
                         encoded : this.state.activePlayer.army1Encoded,
                         unEncoded : this.state.activePlayer.army1
+                    },
+                    activeList2 : {
+                        encoded : this.state.activePlayer.army2Encoded,
+                        unEncoded : this.state.activePlayer.army2
                     }
                 }, function() {
                     this.superHighLevelEncryptionAlgorithm(this.state.activeList)
+                    this.superHighLevelEncryptionAlgorithm(this.state.activeList2)
                 })
                
               }, 1200)
@@ -417,13 +580,13 @@ class TournamentReportMobile extends Component {
                 let encoderArg = obj.encoded[i].toLowerCase()
                 encoderArg = encoderArg.replace('commander', '')
 
-                this.setState({
-                    commander : {
-                        code : Encoder[encoderArg],
-                        name : obj.unEncoded[i],
+                // this.setState({
+                //     commander : {
+                //         code : Encoder[encoderArg],
+                //         name : obj.unEncoded[i],
                         
-                    }
-                })
+                //     }
+                // })
 
             }
         }
@@ -501,13 +664,13 @@ class TournamentReportMobile extends Component {
         NCUs.push(thisNCU)
     }
 
-   this.setState({
+//    this.setState({
 
-       NCUs : NCUs,
-       renderNCUs: true,
-       combatUnits : combatUnits,
+//        NCUs : NCUs,
+//        renderNCUs: true,
+//        combatUnits : combatUnits,
        
-   })
+//    })
 
    setTimeout(() => {
     this.setState({
@@ -537,6 +700,139 @@ class TournamentReportMobile extends Component {
 }
 
 
+superHighLevelEncryptionAlgorithm2 = (obj) => {
+
+    let arr = []
+
+    const NCUdivider = obj.encoded.indexOf('NonCombatUnits')
+    const combatDivider = obj.encoded.indexOf('CombatUnits')
+
+    for (let i = 0; i <combatDivider; i++) {
+        if (obj.encoded[i].includes('Commander')) {
+
+            let encoderArg = obj.encoded[i].toLowerCase()
+            encoderArg = encoderArg.replace('commander', '')
+
+            this.setState({
+                commander : {
+                    code : Encoder[encoderArg],
+                    name : obj.unEncoded[i],
+                    
+                }
+            })
+
+        }
+    }
+
+    setTimeout(() => {
+        this.setState({
+            renderCommander : true
+        })
+    }, 1000)
+
+
+
+
+
+    let NCUs = []
+    let combatUnits = [{}]
+
+
+
+for (let i = 2; i < NCUdivider; i++) {
+
+
+    if (obj.encoded[i].includes('with')) {
+
+         
+
+            let thisAttachment = obj.encoded[i].toLowerCase()
+
+        thisAttachment = thisAttachment.replace('with', '')
+
+
+
+            combatUnits[combatUnits.length-1].attachment =  {
+                name : obj.unEncoded[i],
+                code : Encoder[thisAttachment],
+            }
+            combatUnits[combatUnits.length-1].hasAttachment = true
+
+        } else {
+
+            let encodeArg = obj.encoded[i]
+            encodeArg = encodeArg.toLowerCase()
+            console.log(encodeArg)
+
+
+   let thisUnit = {
+    name : obj.unEncoded[i],
+    code : Encoder[encodeArg],
+    attachment : null,
+    hasAttachment : false
+   } 
+
+   console.log(thisUnit)
+
+    if (thisUnit.code !== undefined) {
+        combatUnits.push(thisUnit)
+    }
+
+   
+}
+}
+
+
+
+for (let i = NCUdivider + 1; i < obj.encoded.length - 1; i++) {
+
+    let encoderArg = obj.encoded[i].toLowerCase()
+
+    let thisNCU = {
+        code : Encoder[encoderArg],
+        name : obj.unEncoded[i],
+        
+    }
+
+    NCUs.push(thisNCU)
+}
+
+this.setState({
+
+   NCUs : NCUs,
+   renderNCUs: true,
+   combatUnits : combatUnits,
+   
+})
+
+setTimeout(() => {
+this.setState({
+    renderCombatUnits: true
+})
+}, 1000)
+
+
+console.log(this.state)
+$('.front').mouseover(function(e) {
+
+
+$(e.target).addClass('zoomed')
+
+  
+
+   setTimeout(() => {
+
+     
+     $(e.target).removeClass('zoomed');
+
+   }, 6090)
+
+})
+
+
+}
+
+
 
     componentWillMount = () => {
 
@@ -563,9 +859,14 @@ class TournamentReportMobile extends Component {
                         encoded : response.data[0].players[0].army1Encoded,
                         unEncoded : response.data[0].players[0].army1
                     },
+                    activeList2 : {
+                        encoded : response.data[0].players[0].army2Encoded,
+                        unEncoded : response.data[0].players[0].army2
+                    },
                     otherTournaments: response.data
                 }, function() {
                     this.superHighLevelEncryptionAlgorithm(this.state.activeList)
+                    this.superHighLevelEncryptionAlgorithm2(this.state.activeList2)
                     
                 })
                 
@@ -613,7 +914,10 @@ class TournamentReportMobile extends Component {
               <Grid.Col className = 'listDisplay' md={4}>
               <div style={{textAlign: 'left', userSelect : 'none', padding: '3em', backgroundSize : '100% 100%', backgroundImage : `url(${listBG})`}} className = 'armylist'>{this.state.activeList ? this.populateList() : ''}</div>
             </Grid.Col>
-            <Grid.Col md={8}>
+            <Grid.Col className = 'listDisplay' md={4}>
+              <div style={{textAlign: 'left', userSelect : 'none', padding: '3em', backgroundSize : '100% 100%', backgroundImage : `url(${listBG})`}} className = 'armylist'>{this.state.activeList2 ? this.populateList2() : ''}</div>
+            </Grid.Col>
+            <Grid.Col md={4}>
             {this.otherTournamentsPopulate()}
             </Grid.Col>
           </Grid.Row>
