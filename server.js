@@ -11,6 +11,8 @@ const encoder = require('./decoder.js')
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+
 if(process.env.NODE_ENV === "development") { // Configuration for development environment
   var webpackDevMiddleware = require("webpack-dev-middleware");
   var webpackConfig = require("./webpack.config.js");
@@ -59,6 +61,19 @@ const mm = mongoose.connect(process.env.MONGODB_URI || "mongodb://testaccount:fa
 
 
 app.get("/get/tournamentresults", function(req, res) {
+
+  
+  
+  model
+      .find({ }).sort({"date" : -1})
+      .then(function(dbModel) {
+        res.json(dbModel)
+      });
+
+  console.log(res.data)
+});
+
+app.get("/get/analysis", function(req, res) {
 
   
   
