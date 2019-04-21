@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col'
 
 
 
+
 class Contact extends Component {
     constructor(props, context) {
         super(props, context);
@@ -60,59 +61,59 @@ class Contact extends Component {
 
 
 
-  handleSubmit = e => {
+      handleSubmit = e => {
 
-    e.preventDefault();
-
-    let rname = ''
-    let remail = ''
-    let rmessage = ''
+        e.preventDefault();
     
-
-    rname = this.state.name
-    remail = this.state.email
-    rmessage = this.state.message
-
-
-    console.log(rmessage)
-    
-
-
-    axios({
-      method: "POST", 
-      url:"/sendmail", 
-      data: {
-          name: rname,   
-          email: remail,  
-          messsage: rmessage
-      }
-  }).then((response)=>{
-      if (response.data.msg === 'success'){
-          alert("Message Sent."); 
-          this.resetForm()
-      }else if(response.data.msg === 'fail'){
-          alert("Message failed to send.")
-      }
-  })
-
-  this.resetForm()
-
-}
-
-
-resetForm(){
-  this.setState({
-     
-          name : '',
-          email : '',
-          message: '',
-          nmcounter : 0,
-          mlcounter : 0,
-          msgcounter : 0
+        let rname = ''
+        let remail = ''
+        let rmessage = ''
         
-      
-  })
-}
+    
+        rname = this.state.name
+        remail = this.state.email
+        rmessage = this.state.message
+    
+    
+        console.log(rmessage)
+        
+    
+    
+        axios({
+          method: "POST", 
+          url:"/sendmail", 
+          data: {
+              name: rname,   
+              email: remail,  
+              messsage: rmessage
+          }
+      }).then((response)=>{
+          if (response.data.msg === 'success'){
+              alert("Message Sent."); 
+              this.resetForm()
+          }else if(response.data.msg === 'fail'){
+              alert("Message failed to send.")
+          }
+      })
+    
+      this.resetForm()
+    
+    }
+    
+    
+    resetForm(){
+      this.setState({
+         
+              name : '',
+              email : '',
+              message: '',
+              nmcounter : 0,
+              mlcounter : 0,
+              msgcounter : 0
+            
+          
+      })
+    }
 
 
   render() {

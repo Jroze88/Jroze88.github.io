@@ -1,3 +1,17 @@
+//////// This is the Server-side code and app
+
+
+
+/////// **** All files and componenets relevant to the React app that runs in tandem with this node server are in another folder
+
+
+///// navigate '/client/src/-' for react stuff
+
+
+/// '/client/src/App.js' has all the routes and components (All components are in that root directory atm, need to be sorted to folders)
+
+
+
 require('dotenv').config()
 const express = require("express");
 const path = require("path");
